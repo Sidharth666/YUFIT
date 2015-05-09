@@ -26,6 +26,6 @@
         android:layout_centerHorizontal="true"
         android:textSize="@dimen/space_14dp"
         android:textColor="@drawable/tab_textcolor"
-        mxw:typeface="Avenir-Roman.ttf" />
+        />
 
 </LinearLayout>

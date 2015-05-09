@@ -44,16 +44,12 @@ public class ViewWorkoutProgress extends ViewBase {
             // must get attributes (attrs) in constructor,
             // it will not be valid anymore after construction finished
             TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.mxw, 0, 0);
-            Typeface typeface = ViewBase.getTypeface(context, "Chalet-ParisNineteenSeventy.ttf");
 
             mPaintText = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
             mPaintText.setStyle(Paint.Style.FILL_AND_STROKE);
             mPaintText.setColor(Color.WHITE);
             mPaintText.setTextAlign(Paint.Align.CENTER);
             mPaintText.setTextSize(mTextSize);
-            if (typeface != null) {
-                mPaintText.setTypeface(typeface);
-            }
 
             a.recycle();
         } else {

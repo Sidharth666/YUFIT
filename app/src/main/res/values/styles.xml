@@ -105,7 +105,6 @@
         <item name="android:lines">1</item>
         <item name="android:textSize">@dimen/text_19sp</item>
         <item name="android:textColor">@color/app_white</item>
-        <item name="typeface">Chalet-NewYorkNineteenSixty.ttf</item>
     </style>
     <style name="app_title_rl">
         <item name="android:layout_width">wrap_content</item>
@@ -118,7 +117,6 @@
         <item name="android:lines">1</item>
         <item name="android:textSize">@dimen/text_16sp</item>
         <item name="android:textColor">@color/app_theme_riptide</item>
-        <item name="typeface">Chalet-NewYorkNineteenSixty.ttf</item>
     </style>
     <style name="app_title_left_text" parent="@style/app_title_rl_text">
         <item name="android:layout_alignParentLeft">true</item>
@@ -149,7 +147,6 @@
         <item name="android:textSize">@dimen/text_15sp</item>
         <item name="android:textColor">@color/app_black</item>
         <item name="android:textStyle">bold</item>
-        <item name="typeface">Roboto-Medium.ttf</item>
     </style>
     <style name="app_dlg_des">
         <item name="android:layout_width">match_parent</item>
@@ -158,7 +155,6 @@
         <item name="android:layout_marginBottom">@dimen/dlg_des_margin_bottom</item>
         <item name="android:textSize">@dimen/text_15sp</item>
         <item name="android:textColor">@color/app_grey58</item>
-        <item name="typeface">Roboto-Light.ttf</item>
     </style>
     <style name="app_dlg_single_choose" parent="app_dlg_des">
         <item name="android:layout_height">@dimen/space_226dp</item>
@@ -185,7 +181,6 @@
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/text_19sp</item>
         <item name="android:textColor">@color/app_theme_color_1</item>
-        <item name="typeface">Roboto-Regular.ttf</item>
         <item name="android:background">@drawable/dialog_bottom_bg</item>
     </style>
     <style name="app_dlg_device_name_text">
@@ -194,7 +189,6 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:textSize">@dimen/text_18sp</item>
         <item name="android:textColor">@color/app_grey6d</item>
-        <item name="typeface">Roboto-Medium.ttf</item>
     </style>
 
     <!-- orange button -->
@@ -214,7 +208,6 @@
         <item name="android:textColor">@drawable/button_orange_text</item>
         <item name="android:maxLines">2</item>
         <item name="android:ellipsize">end</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="orange_button_next">
         <item name="android:layout_width">@dimen/space_9dp</item>
@@ -265,7 +258,6 @@
         <item name="android:button">@null</item>
         <item name="android:textSize">@dimen/space_14dp</item>
         <item name="android:textColor">@drawable/rb_textcolor</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
     <style name="rbLeft" parent="@style/rbCenter">
         <item name="android:background">@drawable/rb_left_selector</item>
@@ -286,7 +278,6 @@
         <item name="android:background">@drawable/rb_title_center_selector</item>
         <item name="android:button">@null</item>
         <item name="android:textColor">@drawable/rb_title_textcolor</item>
-        <item name="typeface">Chalet-NewYorkNineteenSixty.ttf</item>
     </style>
     <style name="rb_title_left" parent="@style/rb_title_center">
         <item name="android:background">@drawable/rb_title_left_selector</item>
@@ -307,7 +298,6 @@
         <item name="android:background">@drawable/button_option_bg</item>
         <item name="android:textSize">@dimen/text_20sp</item>
         <item name="android:textColor">@color/app_theme_color_1</item>
-        <item name="typeface">Roboto-Light.ttf</item>
     </style>
     <style name="option_button_top" parent="@style/option_button">
         <item name="android:background">@drawable/button_option_top_bg</item>
@@ -326,17 +316,14 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:textSize">@dimen/space_14dp</item>
         <item name="android:textColor">@color/app_grey58</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="app_home_text_value">
         <item name="android:textSize">@dimen/space_26dp</item>
         <item name="android:textColor">@color/app_home_digit</item>
-        <item name="typeface">Chalet-ParisNineteenSeventy.ttf</item>
     </style>
     <style name="app_home_text_value_hint">
         <item name="android:textSize">@dimen/space_15dp</item>
         <item name="android:textColor">@color/app_grey80</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
 
     <!-- trend -->
@@ -352,12 +339,10 @@
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/space_10dp</item>
         <item name="android:textColor">@color/app_greyba</item>
-        <item name="typeface">Avenir-Black.ttf</item>
     </style>
     <style name="app_trend_a_text_value1">
         <item name="android:layout_gravity">center</item>
         <item name="android:textColor">@color/app_theme_color_1</item>
-        <item name="typeface">Chalet-ParisNineteenSeventy.ttf</item>
     </style>
     <style name="app_trend_ad_text_value1" parent="@style/app_trend_a_text_value1">
         <item name="android:textSize">@dimen/space_36dp</item>
@@ -375,7 +360,6 @@
     <style name="app_trend_ad_text_value1_hint">
         <item name="android:textSize">@dimen/space_15dp</item>
         <item name="android:textColor">@color/app_grey80</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
 
     <style name="app_trend_a_text_value2">
@@ -385,7 +369,6 @@
         <item name="android:ellipsize">end</item>
         <item name="android:textSize">@dimen/space_30dp</item>
         <item name="android:textColor">@color/app_grey80</item>
-        <item name="typeface">Chalet-ParisNineteenSeventy.ttf</item>
     </style>
     <style name="app_trend_text_calories_value" parent="style/app_trend_a_text_value2">
         <item name="android:layout_gravity">left</item>
@@ -400,7 +383,6 @@
     <style name="app_trend_ad_text_value2_hint">
         <item name="android:textSize">@dimen/space_15dp</item>
         <item name="android:textColor">@color/app_grey80</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
 
     <style name="app_trend_s_image_chart_hint">
@@ -411,22 +393,18 @@
     <style name="app_trend_s_text_chart_hint">
         <item name="android:textSize">@dimen/space_15dp</item>
         <item name="android:textColor">@color/app_grey80</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
     <style name="app_trend_s_nond_text_value1">
         <item name="android:textSize">@dimen/space_26dp</item>
         <item name="android:textColor">@color/app_grey80</item>
-        <item name="typeface">Chalet-ParisNineteenSeventy.ttf</item>
     </style>
     <style name="app_trend_s_nond_text_value1_hm">
         <item name="android:textSize">@dimen/space_12dp</item>
         <item name="android:textColor">@color/app_grey80</item>
-        <item name="typeface">Chalet-ParisNineteenSeventy.ttf</item>
     </style>
     <style name="app_trend_s_nond_text_value1_hint">
         <item name="android:textSize">@dimen/space_15dp</item>
         <item name="android:textColor">@color/app_grey80</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
 
     <style name="app_sl_text_hint">
@@ -434,7 +412,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/space_17dp</item>
         <item name="android:textColor">@drawable/sl_hint_text_color</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
     <style name="app_sl_text_cal">
         <item name="android:layout_width">match_parent</item>
@@ -443,7 +420,6 @@
         <item name="android:background">@drawable/first_edittext_bg</item>
         <item name="android:textSize">@dimen/space_15dp</item>
         <item name="android:textColor">@color/app_grey58</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
 
     <!-- Tracker -->
@@ -472,7 +448,6 @@
         <item name="android:lines">1</item>
         <item name="android:textSize">@dimen/text_20sp</item>
         <item name="android:textColor">@color/app_white</item>
-        <item name="typeface">Chalet-NewYorkNineteenSixty.ttf</item>
     </style>
     <style name="tracker_left_image_1">
         <item name="android:layout_width">@dimen/space_40dp</item>
@@ -497,7 +472,6 @@
     <style name="tracker_workout_type_hint">
         <item name="android:textSize">@dimen/text_16sp</item>
         <item name="android:textColor">@color/app_white</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="tracker_workout_type_layout">
         <item name="android:layout_width">0dp</item>
@@ -514,7 +488,6 @@
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:textSize">@dimen/text_21sp</item>
         <item name="android:textColor">@color/app_white</item>
-        <item name="typeface">Chalet-ParisNineteenSeventy.ttf</item>
     </style>
     <style name="tracker_workout_type_image">
         <item name="android:layout_width">match_parent</item>
@@ -525,17 +498,14 @@
     <style name="tracker_workout_info_title">
         <item name="android:textSize">@dimen/text_11sp</item>
         <item name="android:textColor">@color/app_grey58</item>
-        <item name="typeface">Avenir-Medium.ttf</item>
     </style>
     <style name="tracker_workout_info_digit">
         <item name="android:textSize">@dimen/text_20sp</item>
         <item name="android:textColor">@color/app_grey58</item>
-        <item name="typeface">Chalet-ParisNineteenSeventy.ttf</item>
     </style>
     <style name="tracker_workout_info_unit">
         <item name="android:textSize">@dimen/text_10sp</item>
         <item name="android:textColor">@color/app_grey58</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="tracker_details_workout_type">
         <item name="android:layout_width">wrap_content</item>
@@ -546,7 +516,6 @@
         <item name="android:layout_alignParentLeft">true</item>
         <item name="android:textSize">@dimen/text_23sp</item>
         <item name="android:textColor">@color/app_white</item>
-        <item name="typeface">Chalet-ParisNineteenSeventy.ttf</item>
     </style>
     <style name="tracker_details_device_date">
         <item name="android:layout_width">wrap_content</item>
@@ -556,37 +525,30 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:textSize">@dimen/text_13sp</item>
         <item name="android:textColor">@color/app_white</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="tracker_details_digit_value1">
         <item name="android:textSize">@dimen/text_22sp</item>
         <item name="android:textColor">@color/app_theme_color_1</item>
-        <item name="typeface">Chalet-ParisNineteenSeventy.ttf</item>
     </style>
     <style name="tracker_details_digit_value2">
         <item name="android:textSize">@dimen/text_22sp</item>
         <item name="android:textColor">@color/app_grey58</item>
-        <item name="typeface">Chalet-ParisNineteenSeventy.ttf</item>
     </style>
     <style name="tracker_details_digit_value3">
         <item name="android:textSize">@dimen/text_23sp</item>
         <item name="android:textColor">@color/app_grey58</item>
-        <item name="typeface">Chalet-ParisNineteenSeventy.ttf</item>
     </style>
     <style name="tracker_details_title_value1">
         <item name="android:textSize">@dimen/text_14sp</item>
         <item name="android:textColor">@color/app_grey80</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="tracker_details_title_value2">
         <item name="android:textSize">@dimen/text_12sp</item>
         <item name="android:textColor">@color/app_grey80</item>
-        <item name="typeface">Avenir-Medium.ttf</item>
     </style>
     <style name="tracker_details_unit_value1">
         <item name="android:textSize">@dimen/text_12sp</item>
         <item name="android:textColor">@color/app_grey80</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
     <style name="tracker_details_icon">
         <item name="android:layout_width">0dp</item>
@@ -606,7 +568,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/text_16sp</item>
         <item name="android:textColor">@color/app_white</item>
-        <item name="typeface">Avenir-Medium.ttf</item>
     </style>
 
     <style name="app_conf_section2" parent="@style/app_list_item">
@@ -617,7 +578,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/text_13sp</item>
         <item name="android:textColor">@color/app_grey6d</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
 
     <style name="app_conf_item" parent="@style/app_list_item">
@@ -636,14 +596,12 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:textSize">@dimen/text_17sp</item>
         <item name="android:textColor">@drawable/confitem_textcolor_black</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
     <style name="app_conf_sub_item_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/text_14sp</item>
         <item name="android:textColor">@drawable/confitem_textcolor</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
     <style name="app_conf_item_text_right" parent="style/app_conf_item_text">
         <item name="android:layout_alignParentLeft">false</item>
@@ -671,14 +629,12 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/text_23sp</item>
         <item name="android:textColor">@color/app_theme_color_1</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="app_conf_device_detail_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/text_14sp</item>
         <item name="android:textColor">@color/app_greya6</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
 
     <style name="app_conf_divider">
@@ -698,7 +654,6 @@
         <item name="android:gravity">top</item>
         <item name="android:textSize">@dimen/text_15sp</item>
         <item name="android:textColor">@color/app_theme_color_1</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
     <style name="setup_profile_item_title">
         <item name="android:layout_width">0dp</item>
@@ -708,7 +663,6 @@
         <item name="android:textSize">@dimen/text_17sp</item>
         <item name="android:textColor">@color/app_grey6d</item>
         <item name="android:textStyle">bold</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
     <style name="setup_profile_item_value">
         <item name="android:layout_width">0dp</item>
@@ -721,7 +675,6 @@
         <item name="android:textSize">@dimen/text_17sp</item>
         <item name="android:textColor">@color/app_black</item>
         <item name="android:textStyle">bold</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="setup_profile_item_value_edittext" parent="@style/app_edittext">
         <item name="android:layout_width">match_parent</item>
@@ -733,7 +686,6 @@
         <item name="android:textSize">@dimen/text_17sp</item>
         <item name="android:textColor">@color/app_black</item>
         <item name="android:textStyle">bold</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="setup_profile_item_main">
         <item name="android:layout_width">match_parent</item>
@@ -742,7 +694,6 @@
         <item name="android:textSize">@dimen/text_16sp</item>
         <item name="android:textColor">@color/app_white</item>
         <item name="android:textStyle">bold</item>
-        <item name="typeface">Avenir-Medium.ttf</item>
     </style>
     <style name="setup_profile_item_hint">
         <item name="android:layout_width">match_parent</item>
@@ -751,7 +702,6 @@
         <item name="android:textSize">@dimen/text_13sp</item>
         <item name="android:textColor">@color/app_grey6d</item>
         <item name="android:textStyle">bold</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
     <style name="setup_profile_picker_des_text">
         <item name="android:layout_width">wrap_content</item>
@@ -759,13 +709,10 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:textSize">@dimen/text_16sp</item>
         <item name="android:textColor">@color/app_black</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
     <style name="rb_option_left" parent="@style/rbLeft">
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="rb_option_right" parent="@style/rbRight">
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="radio_group_two_option">
         <item name="android:layout_width">0dp</item>
@@ -792,7 +739,6 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:textSize">@dimen/text_18sp</item>
         <item name="android:textColor">@color/app_theme_color_2</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="app_goal_radio_image">
         <item name="android:layout_width">@dimen/space_24dp</item>
@@ -815,7 +761,6 @@
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/text_17sp</item>
         <item name="android:textColor">@drawable/button_orange_text</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
 
     <!-- add devices -->
@@ -824,7 +769,6 @@
         <item name="android:background">@color/app_orange_neoncarrot</item>
         <item name="android:textSize">@dimen/text_16sp</item>
         <item name="android:textColor">@color/app_white</item>
-        <item name="typeface">Avenir-Medium.ttf</item>
     </style>
     <style name="app_add_device_layout" parent="@style/app_list_item">
         <item name="android:paddingLeft">@dimen/space_24dp</item>
@@ -852,14 +796,12 @@
         <item name="android:layout_height">wrap_content</item>
        <item name="android:textSize">@dimen/text_19sp</item>
         <item name="android:textColor">@color/app_theme_color_1</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
     <style name="app_add_device_description">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
        <item name="android:textSize">@dimen/text_14sp</item>
         <item name="android:textColor">@color/app_grey80</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
 
     <style name="app_add_title_1_text">
@@ -870,7 +812,6 @@
         <item name="android:paddingBottom">@dimen/space_32dp</item>
         <item name="android:textSize">@dimen/text_22sp</item>
         <item name="android:textColor">@color/app_theme_color_1</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="app_add_des_text">
         <item name="android:layout_width">wrap_content</item>
@@ -878,7 +819,6 @@
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/text_16sp</item>
         <item name="android:textColor">@color/app_grey58</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="app_add_title_2_text">
         <item name="android:layout_width">wrap_content</item>
@@ -887,7 +827,6 @@
         <item name="android:paddingTop">@dimen/space_49dp</item>
         <item name="android:textSize">@dimen/text_20sp</item>
         <item name="android:textColor">@color/app_grey6d</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
     <style name="app_add_orange_button" parent="@style/orange_button_bg">
         <item name="android:layout_width">0dp</item>
@@ -916,7 +855,6 @@
     <style name="app_add_order_item_des_text" parent="app_add_order_item_des">
         <item name="android:textSize">@dimen/text_15sp</item>
         <item name="android:textColor">@color/app_grey80</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
 
     <!-- First login/register -->
@@ -925,7 +863,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/text_64sp</item>
         <item name="android:textColor">@color/app_white</item>
-        <item name="typeface">Chalet-ParisNineteenSeventy.ttf</item>
     </style>
     <style name="first_layout_rl">
         <item name="android:layout_width">0dp</item>
@@ -950,7 +887,6 @@
         <item name="android:inputType">textEmailAddress</item>
         <item name="android:background">@drawable/first_edittext_bg</item>
         <item name="android:textSize">@dimen/text_16sp</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="first_edittext_password" parent="@style/basic_edittext">
         <item name="android:inputType">textPassword</item>
@@ -968,7 +904,6 @@
         <item name="android:clickable">true</item>
         <item name="android:textSize">@dimen/text_12sp</item>
         <item name="android:textColor">@color/app_grey6d</item>
-        <item name="typeface">Avenir-Book.ttf</item>
     </style>
     <style name="forgot_password_description" parent="@style/first_extra_info">
         <item name="android:layout_marginTop">0dp</item>
@@ -986,7 +921,6 @@
         <item name="android:layout_marginRight">@dimen/space_20dp</item>
         <item name="android:textSize">@dimen/text_20sp</item>
         <item name="android:textColor">@color/app_white</item>
-        <item name="typeface">HzJourney-Regular.ttf</item>
     </style>
     <style name="coach_tap_text">
         <item name="android:layout_width">wrap_content</item>
@@ -996,7 +930,6 @@
         <item name="android:gravity">left|center_vertical</item>
         <item name="android:textSize">@dimen/text_20sp</item>
         <item name="android:textColor">@color/app_grey80</item>
-        <item name="typeface">HzJourney-Regular.ttf</item>
     </style>
     
     <!-- Tab Conf toggle button -->
@@ -1024,7 +957,6 @@
         <item name="android:padding">@dimen/space_8dp</item>
         <item name="android:textColor">@color/app_black</item>
         <item name="android:ems">5</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
 
     <!-- df_out_of_range_alert -->
@@ -1037,7 +969,6 @@
         <item name="android:paddingLeft">@dimen/space_10dp</item>
         <item name="android:textSize">@dimen/text_16sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="radio_button_out_of_range_sensitivity">
         <item name="android:layout_width">wrap_content</item>
@@ -1048,7 +979,6 @@
         <item name="android:paddingLeft">@dimen/space_10dp</item>
         <item name="android:layout_marginBottom">@dimen/space_10dp</item>
         <item name="android:textSize">@dimen/text_14sp</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="text_out_of_range_mode_des">
         <item name="android:layout_width">match_parent</item>
@@ -1056,7 +986,6 @@
         <item name="android:layout_marginBottom">@dimen/space_10dp</item>
         <item name="android:layout_marginLeft">@dimen/space_40dp</item>
         <item name="android:textSize">@dimen/text_14sp</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
 
     <!-- df_smart_key -->
@@ -1069,14 +998,12 @@
         <item name="android:clickable">true</item>
         <item name="android:drawablePadding">@dimen/space_15dp</item>
         <item name="android:textSize">@dimen/text_16sp</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="text_smart_key_hint">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">@dimen/space_20dp</item>
         <item name="android:textSize">@dimen/text_16sp</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
 
     <!-- df_device_alarm -->
@@ -1092,7 +1019,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerVertical">true</item>
         <item name="android:textSize">@dimen/text_17sp</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="checkbox_weekly_alarm">
         <item name="android:layout_width">wrap_content</item>
@@ -1118,7 +1044,6 @@
         <item name="android:inputType">text</item>
         <item name="android:hint">@string/df_task_title_edit_text_hint</item>
         <item name="android:background">@drawable/btn_grey_bg_selector</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="edit_task_alert_task_datetime">
         <item name="android:layout_width">0dp</item>
@@ -1126,7 +1051,6 @@
         <item name="android:layout_weight">0.7</item>
         <item name="android:textSize">@dimen/text_15sp</item>
         <item name="android:text">@string/df_task_date_time_hint</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="imgb_task_alert_delete">
         <item name="android:layout_width">0dp</item>
@@ -1144,7 +1068,6 @@
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/smartkey_button</item>
         <item name="android:text">@string/df_task_alert_set_date_and_time</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
 
 
@@ -1172,7 +1095,6 @@
         <item name="android:layout_weight">1.5</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/space_15dp</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
 
     <!-- Turorial -->
@@ -1181,7 +1103,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/text_18sp</item>
-        <item name="typeface">Chalet-NewYorkNineteenSixty.ttf</item>
     </style>
     <style name="view_tutorial_step_item">
         <item name="android:layout_width">match_parent</item>
@@ -1193,7 +1114,6 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/text_16sp</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
     <style name="view_tutorial_step_img">
         <item name="android:layout_width">@dimen/space_30dp</item>
@@ -1206,6 +1126,5 @@
         <item name="android:layout_marginTop">@dimen/space_20dp</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/text_16sp</item>
-        <item name="typeface">Avenir-Roman.ttf</item>
     </style>
 </resources>

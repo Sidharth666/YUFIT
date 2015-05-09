@@ -38,7 +38,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="@string/cgHint"
-                mxw:typeface="Avenir-Roman.ttf"/>
+                />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -74,7 +74,7 @@
                         android:inputType="number"
                         android:padding="@dimen/space_5dp"
                         android:text="@string/cgEnergyGoal"
-                        mxw:typeface="Avenir-Roman.ttf"/>
+                        />
 
                     <RadioButton
                         android:id="@+id/rb_step_goal"
@@ -98,7 +98,7 @@
                         android:inputType="number"
                         android:padding="@dimen/space_5dp"
                         android:text="@string/cgStepGoal"
-                        mxw:typeface="Avenir-Roman.ttf"/>
+                        />
 
                 </RadioGroup>
 

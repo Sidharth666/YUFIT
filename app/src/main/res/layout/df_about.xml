@@ -32,7 +32,7 @@
             android:paddingTop="@dimen/space_15dp"
             android:textSize="@dimen/text_20sp"
             tools:text="1.0.0"
-            mxw:typeface="Avenir-Book.ttf"/>
+            />
 
 
     </LinearLayout>

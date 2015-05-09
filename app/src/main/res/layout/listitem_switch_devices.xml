@@ -23,7 +23,7 @@
         android:layout_alignParentRight="true"
         android:paddingLeft="@dimen/space_8dp"
         tools:text="Device Name"
-        mxw:typeface="Avenir-Medium.ttf"/>
+        />
 
 
 </com.maxwell.bodysensor.ui.CheckedRelativeLayout>

@@ -26,5 +26,5 @@
         android:textSize="@dimen/text_18sp"
         android:textColor="@color/app_black"
         android:textStyle="bold"
-        mxw:typeface="Roboto-Medium.ttf" />
+         />
 </LinearLayout>

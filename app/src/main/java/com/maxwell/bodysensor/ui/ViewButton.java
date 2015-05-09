@@ -26,9 +26,5 @@ public class ViewButton extends Button {
         String fontName = styledAttrs.getString(R.styleable.mxw_typeface);
         styledAttrs.recycle();
 
-        Typeface tf = ViewBase.getTypeface(context, fontName);
-        if (tf!=null) {
-            setTypeface(tf);
-        }
     }
 }

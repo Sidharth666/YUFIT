@@ -135,7 +135,7 @@
                         android:inputType="number"
                         android:padding="@dimen/space_5dp"
                         android:text="@string/cgEnergyGoal"
-                        mxw:typeface="Avenir-Roman.ttf"/>
+                        />
 
                     <RadioButton
                         android:id="@+id/rb_step_goal"
@@ -159,7 +159,7 @@
                         android:inputType="number"
                         android:padding="@dimen/space_5dp"
                         android:text="@string/cgStepGoal"
-                        mxw:typeface="Avenir-Roman.ttf"/>
+                        />
 
                 </RadioGroup>
 

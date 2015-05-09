@@ -45,14 +45,14 @@
                         android:textSize="@dimen/text_16sp"
                         android:textStyle="bold"
                         android:text="@string/on_mode"
-                        mxw:typeface="Avenir-Roman.ttf" />
+                         />
                     <com.maxwell.bodysensor.ui.ViewTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingTop="@dimen/space_6dp"
                         android:textSize="@dimen/text_14sp"
                         android:text="@string/df_incoming_call_sms_notification_instruction_on"
-                        mxw:typeface="Avenir-Roman.ttf" />
+                         />
 
                 </LinearLayout>
 
@@ -69,14 +69,14 @@
                         android:textSize="@dimen/text_16sp"
                         android:textStyle="bold"
                         android:text="@string/off_mode"
-                        mxw:typeface="Avenir-Roman.ttf" />
+                         />
                     <com.maxwell.bodysensor.ui.ViewTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingTop="@dimen/space_6dp"
                         android:textSize="@dimen/text_14sp"
                         android:text="@string/df_incoming_call_sms_notification_instruction_off"
-                        mxw:typeface="Avenir-Roman.ttf" />
+                         />
                 </LinearLayout>
             </LinearLayout>
 
@@ -102,7 +102,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:text="@string/df_no_disturbing_between"
-                        mxw:typeface="Avenir-Roman.ttf" />
+                         />
 
                 </RelativeLayout>
 
@@ -145,7 +145,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/df_no_disturbing_instruction"
                     android:textSize="@dimen/text_14sp"
-                    mxw:typeface="Avenir-Roman.ttf" />
+                     />
 
             </LinearLayout>
 

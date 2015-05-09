@@ -77,7 +77,7 @@
                     android:layout_centerInParent="true"
                     android:textSize="@dimen/space_64dp"
                     android:textColor="@color/app_home_digit"
-                    mxw:typeface="Chalet-ParisNineteenSeventy.ttf"
+
                     tools:text="999"/>
 
                 <com.maxwell.bodysensor.ui.ViewButton
@@ -88,7 +88,7 @@
                     android:layout_centerHorizontal="true"
                     android:textSize="@dimen/space_20dp"
                     android:textColor="@color/app_grey80"
-                    mxw:typeface="Chalet-ParisNineteenSeventy.ttf"
+
                     tools:text="9999"/>
 
                 <com.maxwell.bodysensor.ui.ViewTextView
@@ -99,7 +99,7 @@
                     android:layout_centerHorizontal="true"
                     android:textColor="@color/app_grey80"
                     android:textSize="@dimen/space_15dp"
-                    mxw:typeface="Avenir-Book.ttf"
+
                     android:text="@string/faEnergy"/>
 
                 <ImageView

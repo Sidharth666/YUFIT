@@ -42,14 +42,14 @@
                     android:textSize="@dimen/text_16sp"
                     android:textStyle="bold"
                     android:text="@string/on_mode"
-                    mxw:typeface="Avenir-Roman.ttf" />
+                     />
                 <com.maxwell.bodysensor.ui.ViewTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/space_6dp"
                     android:textSize="@dimen/text_14sp"
                     android:text="@string/phone_connection_on_des"
-                    mxw:typeface="Avenir-Roman.ttf" />
+                     />
 
             </LinearLayout>
 
@@ -70,14 +70,14 @@
                     android:textSize="@dimen/text_16sp"
                     android:textStyle="bold"
                     android:text="@string/off_mode"
-                    mxw:typeface="Avenir-Roman.ttf" />
+                     />
                 <com.maxwell.bodysensor.ui.ViewTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/space_6dp"
                     android:textSize="@dimen/text_14sp"
                     android:text="@string/phone_connection_off_des"
-                    mxw:typeface="Avenir-Roman.ttf" />
+                     />
 
             </LinearLayout>
 

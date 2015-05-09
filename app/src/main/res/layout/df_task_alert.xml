@@ -18,7 +18,7 @@
 	        android:minLines="4"
 	        android:textSize="@dimen/text_17sp"
 	        android:gravity="center"
-            mxw:typeface="Avenir-Roman.ttf"/>
+            />
         
         <!-- Task 1 region -->
 	    <LinearLayout

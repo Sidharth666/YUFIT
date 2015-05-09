@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_16sp"
                     android:text="@string/deDeviceName"
-                    mxw:typeface="Avenir-Medium.ttf"/>
+                    />
                 <com.maxwell.bodysensor.ui.ViewEditText
                     style="@style/basic_edittext"
                     android:id="@+id/edit_device_name"
@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_16sp"
                     android:text="@string/deAddress"
-                    mxw:typeface="Avenir-Medium.ttf"/>
+                    />
                 <com.maxwell.bodysensor.ui.ViewTextView
                     android:id="@+id/text_device_mac"
                     android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
                     android:paddingLeft="@dimen/space_15dp"
                     android:textSize="@dimen/text_14sp"
                     tools:text="AA:BB:CC:DD:EE:FF"
-                    mxw:typeface="Avenir-Medium.ttf"/>
+                    />
 
             </LinearLayout>
 

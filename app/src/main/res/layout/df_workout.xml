@@ -45,7 +45,7 @@
                 android:textSize="@dimen/space_64dp"
                 android:textColor="@color/app_white"
                 android:text="0"
-                mxw:typeface="Chalet-ParisNineteenSeventy.ttf"/>
+                />
 
         </LinearLayout>
 
@@ -67,7 +67,7 @@
             android:textSize="@dimen/space_18dp"
             android:textColor="@color/app_white"
             tools:text="@string/velocity_per_min"
-            mxw:typeface="Avenir-Roman.ttf" />
+             />
 
         <com.maxwell.bodysensor.ui.ViewWorkoutProgress
             android:id="@+id/progress_workout"
@@ -83,7 +83,7 @@
             android:textSize="@dimen/text_18sp"
             android:textColor="@color/app_white"
             android:text="@string/personal_best_of"
-            mxw:typeface="Avenir-Roman.ttf"
+
             android:visibility="invisible"/>
         <com.maxwell.bodysensor.ui.ViewTextView
             android:id="@+id/text_best_record"
@@ -93,7 +93,7 @@
             android:textSize="@dimen/text_22sp"
             android:textColor="@color/app_white"
             tools:text="53"
-            mxw:typeface="Avenir-Roman.ttf"
+
             android:visibility="invisible"/>
 
     </LinearLayout>

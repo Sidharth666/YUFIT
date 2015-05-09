@@ -18,7 +18,7 @@
         android:background="@color/app_greyf1"
         android:textSize="@dimen/space_12dp"
         android:textColor="@color/app_grey58"
-        mxw:typeface="Avenir-Roman.ttf"/>
+        />
     <View
         android:layout_width="1dp"
         android:layout_height="0dp"
@@ -225,7 +225,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/space_17dp"
                     android:textColor="@color/app_grey80"
-                    mxw:typeface="Chalet-ParisNineteenSeventy.ttf" />
+                     />
             </LinearLayout>
             <com.maxwell.bodysensor.ui.ViewTextView
                 android:text="@string/space"

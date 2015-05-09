@@ -34,7 +34,7 @@
                 android:id="@+id/text_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                mxw:typeface="Avenir-Roman.ttf" />
+                 />
 
         </LinearLayout>
 

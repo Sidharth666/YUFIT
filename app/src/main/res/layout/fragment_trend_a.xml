@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/space_12dp"
             android:textColor="@color/app_grey58"
-            mxw:typeface="Avenir-Roman.ttf" />
+             />
     </LinearLayout>
     
     <LinearLayout

@@ -104,14 +104,9 @@ public class ViewChart extends ViewBase {
         mBmpBest = BitmapFactory.decodeResource(getResources(), R.drawable.activity_best);
         mBmpTimeHint = BitmapFactory.decodeResource(getResources(), R.drawable.sleep_time_hint);
 
-        Typeface typeface = ViewBase.getTypeface(context, "Avenir-Roman.ttf");
-
         mPaintText = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
         mPaintText.setTextAlign(Align.CENTER);
         mPaintText.setColor(getResources().getColor(R.color.app_white));
-        if (typeface!=null) {
-            mPaintText.setTypeface(typeface);
-        }
 
         if (isInEditMode()) {
             return;

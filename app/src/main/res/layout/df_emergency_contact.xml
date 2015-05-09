@@ -37,7 +37,7 @@
                 android:textSize="@dimen/space_24dp"
                 android:textColor="@color/app_theme"
                 android:text="@string/emergency_contact_info"
-                mxw:typeface="Avenir-Book.ttf"/>
+                />
 
             <View
                 android:layout_width="1dp"
@@ -51,7 +51,7 @@
                 android:textSize="@dimen/space_15dp"
                 android:textColor="@color/app_grey80"
                 android:text="@string/emergency_contact_des"
-                mxw:typeface="Avenir-Book.ttf"/>
+                />
 
             <com.maxwell.bodysensor.ui.ViewEditText
                 android:id="@+id/edit_contact_name"
@@ -94,7 +94,7 @@
                 android:textSize="@dimen/space_15dp"
                 android:textColor="@color/app_grey80"
                 android:text="@string/sos_description"
-                mxw:typeface="Avenir-Book.ttf"/>
+                />
 
         </LinearLayout>
 

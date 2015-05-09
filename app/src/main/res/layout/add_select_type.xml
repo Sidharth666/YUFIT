@@ -35,7 +35,7 @@
                 android:layout_weight="4"
                 android:text="@string/pair_device_instruction"
                 android:textSize="@dimen/text_18sp"
-                mxw:typeface="Avenir-Medium.ttf"/>
+                />
 
             <View
                 android:layout_width="match_parent"

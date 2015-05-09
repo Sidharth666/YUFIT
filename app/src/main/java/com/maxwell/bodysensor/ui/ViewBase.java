@@ -31,21 +31,4 @@ public abstract class ViewBase extends View {
         }
     }
 
-    public static Typeface getTypeface(Context context, String fontName) {
-        if (fontName != null) {
-            try {
-                // first, check the font file exist or not
-                AssetManager mng = context.getAssets();
-                InputStream is = mng.open("font/" + fontName);
-                is.close();
-
-                return Typeface.createFromAsset(context.getAssets(), "font/" + fontName);
-            } catch (IOException ex) {
-                UtilDBG.e("the font file not exist: " + fontName);
-                ex.printStackTrace();
-            }
-        }
-
-        return null;
-    }
 }

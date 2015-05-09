@@ -44,7 +44,7 @@
                 android:background="@drawable/box_grey_bg"
                 android:textSize="@dimen/text_18sp"
                 android:textColor="@color/app_grey6d"
-                typeface="Avenir-Book.ttf" />
+                />
 
             <View
                 android:layout_width="1dp"

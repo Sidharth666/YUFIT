@@ -32,14 +32,14 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_16sp"
             tools:text="Device Name"
-            mxw:typeface="Avenir-Medium.ttf"/>
+            />
         <com.maxwell.bodysensor.ui.ViewTextView
             android:id="@+id/text_device_mac"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_14sp"
             tools:text="AA:AA:AA:AA:AA:AA"
-            mxw:typeface="Avenir-Medium.ttf"/>
+            />
 
     </LinearLayout>
 
