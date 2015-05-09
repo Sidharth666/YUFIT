@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="12"
+    android:gravity="top"
+    android:orientation="horizontal">
+
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_1"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_2"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_3"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_4"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_5"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_6"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_7"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_8"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_9"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_10"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_11"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_12"
+        style="@style/app_trend_text_chart_hint" />
+
+</LinearLayout>

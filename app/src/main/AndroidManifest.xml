@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.maxwell.bodysensor" >
+    <!-- android:versionCode must be integer, and be greater than version code of previous version -->
+
+    <permission
+        android:name="mxx.permission.ACCESS_DB_DATA"
+        android:protectionLevel="normal" >
+    </permission>
+
+    <uses-permission android:name="hme.permission.ACCESS_MXX_DATA" />
+    <!-- BLE -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <!-- Export database : for Google Map, and debug -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <!-- phone/sms notification -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" android:required="false" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" android:required="false" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" android:required="false" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" android:required="false" />
+    <uses-permission android:name="android.permission.READ_SMS" android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+
+    <!-- phone call -->
+    <!-- uses-permission android:name="android.permission.CALL_PHONE" /-->
+
+    <!-- send SMS -->
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+
+    <!-- For usage of camera -->
+    <uses-permission android:name="android.permission.CAMERA" android:required="false" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
+    <!-- For recording video -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" android:required="false" />
+
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+
+    <application
+        android:name=".MXWApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <!--
+            The FragmentTabHost are designed to be in the bottom, check
+                http://stackoverflow.com/questions/6898186/why-keyboard-lift-tabhost-to-top
+            if not setting android:windowSoftInputMode="adjustPan|adjustResize"
+                . the tab will be lift up
+                . go to profile, tab an EditText, there will be a soft keyboard.
+                  pressing cancel directly, there will be an animation
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <!-- For HM app -->
+                <action android:name="com.mxx.bodysensor.MainActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".GroupActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/groups"
+            android:windowSoftInputMode="adjustPan|adjustResize"
+            android:launchMode="singleTop"/>
+
+        <activity
+            android:name=".CameraActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/df_camera_title">
+            <intent-filter>
+                <action android:name="com.maxwell.camera.action.TAKE_PICTURE"/>
+                <action android:name="com.maxwell.camera.action.VIDEO_RECORDER"/>
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".sim.PhNSmsReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name=".data.DBProvider"
+            android:authorities="com.mxx.bodysensor.data.DBProvider"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="mxx.permission.ACCESS_DB_DATA" >
+        </provider>
+
+        <!-- facebook app_id -->
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_facebook_id"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="d1f57425299b9ee855ff6f55a9393e6ac001e955"/>
+
+    </application>
+
+</manifest>

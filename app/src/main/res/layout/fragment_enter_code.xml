@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/app_outtab_layout_all"
+    android:layout_width="wrap_content"
+    android:baselineAligned="false">
+
+    <include layout="@layout/mxw_df_title_bar" />
+
+    <LinearLayout
+        style="@style/app_outtab_content"
+        android:orientation="horizontal"
+        android:weightSum="1080">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="90" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="900"
+            android:orientation="vertical"
+            android:weightSum="100">
+
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:gravity="center_vertical"
+                android:text="@string/enter_code_instruction"/>
+
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="6"
+                android:text="@string/enter_code"/>
+
+            <com.maxwell.bodysensor.ui.ViewEditText
+                android:id="@+id/edit_membership_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_5dp"
+                android:inputType="number"
+                android:background="@drawable/btn_grey_bg_selector"
+                android:textSize="@dimen/space_20dp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="8" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="90" />
+
+    </LinearLayout>
+
+</LinearLayout>

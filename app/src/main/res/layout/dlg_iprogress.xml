@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dlg_title_margin_top"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_bg">
+    <ImageView
+        android:id="@+id/iprgImage"
+        android:layout_width="@dimen/space_56dp"
+        android:layout_height="@dimen/space_56dp"
+        android:layout_marginLeft="@dimen/space_20dp"
+        android:layout_marginRight="@dimen/space_20dp"
+        android:layout_marginBottom="@dimen/dlg_title_margin_bottom"
+        android:layout_gravity="center"
+        android:scaleType="centerInside"
+        android:src="@drawable/i_prg_image"
+        android:contentDescription="@string/acd" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:id="@+id/iprgText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="@dimen/text_18sp"
+        android:textColor="@color/app_black"
+        android:textStyle="bold"
+        mxw:typeface="Roboto-Medium.ttf" />
+</LinearLayout>

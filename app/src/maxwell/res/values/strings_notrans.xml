@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- all the strings that do not need to be translated -->
+<resources>
+    <string name="app_name" translatable="false">Body Sensor</string>
+    
+    <!-- for drawing text, app's first page -->
+    <string name="app_name_lowercase" translatable="false">body sensor</string>
+    <!-- Facebook app id , a string in res is needed: -->
+    <!-- Ref. http://stackoverflow.com/questions/16156856/android-facebook-applicationid-cannot-be-null -->
+
+    <string name="app_facebook_id" translatable="false">632595726766601</string>
+</resources>

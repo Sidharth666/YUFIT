@@ -1,0 +1,90 @@
+<resources>
+    <dimen name="text_10sp">10sp</dimen>
+    <dimen name="text_11sp">11sp</dimen>
+    <dimen name="text_12sp">12sp</dimen>
+    <dimen name="text_13sp">13sp</dimen>
+    <dimen name="text_14sp">14sp</dimen>
+    <dimen name="text_15sp">15sp</dimen>
+    <dimen name="text_16sp">16sp</dimen>
+    <dimen name="text_17sp">17sp</dimen>
+    <dimen name="text_18sp">18sp</dimen>
+    <dimen name="text_19sp">19sp</dimen>
+    <dimen name="text_20sp">20sp</dimen>
+    <dimen name="text_21sp">21sp</dimen>
+    <dimen name="text_22sp">22sp</dimen>
+    <dimen name="text_23sp">23sp</dimen>
+    <dimen name="text_24sp">24sp</dimen>
+    <dimen name="text_26sp">26sp</dimen>
+    <dimen name="text_27sp">27sp</dimen>
+    <dimen name="text_28sp">28sp</dimen>
+    <dimen name="text_31sp">31sp</dimen>
+    <dimen name="text_35sp">35sp</dimen>
+    <dimen name="text_36sp">36sp</dimen>
+    <dimen name="text_45sp">45sp</dimen>
+    <dimen name="text_64sp">64sp</dimen>
+    <dimen name="text_67sp">67sp</dimen>
+    <dimen name="text_72sp">72sp</dimen>
+    <dimen name="text_80sp">80sp</dimen>
+
+    <dimen name="space_1dp">1dp</dimen>
+    <dimen name="space_2dp">2dp</dimen>
+    <dimen name="space_3dp">3dp</dimen>
+    <dimen name="space_4dp">4dp</dimen>
+    <dimen name="space_5dp">5dp</dimen>
+    <dimen name="space_6dp">6dp</dimen>
+    <dimen name="space_8dp">8dp</dimen>
+    <dimen name="space_9dp">9dp</dimen>
+    <dimen name="space_10dp">10dp</dimen>
+    <dimen name="space_12dp">12dp</dimen>
+    <dimen name="space_14dp">14dp</dimen>
+    <dimen name="space_15dp">15dp</dimen>
+    <dimen name="space_17dp">17dp</dimen>
+    <dimen name="space_18dp">18dp</dimen>
+    <dimen name="space_19dp">19dp</dimen>
+    <dimen name="space_20dp">20dp</dimen>
+    <dimen name="space_24dp">24dp</dimen>
+    <dimen name="space_25dp">25dp</dimen>
+    <dimen name="space_26dp">26dp</dimen>
+    <dimen name="space_28dp">28dp</dimen>
+    <dimen name="space_30dp">30dp</dimen>
+    <dimen name="space_32dp">32dp</dimen>
+    <dimen name="space_36dp">36dp</dimen>
+    <dimen name="space_39dp">39dp</dimen>
+    <dimen name="space_40dp">40dp</dimen>
+    <dimen name="space_44dp">44dp</dimen>
+    <dimen name="space_46dp">46dp</dimen>
+    <dimen name="space_48dp">48dp</dimen>
+    <dimen name="space_49dp">49dp</dimen>
+    <dimen name="space_50dp">50dp</dimen>
+    <dimen name="space_56dp">56dp</dimen>
+    <dimen name="space_60dp">60dp</dimen>
+    <dimen name="space_63dp">63dp</dimen>
+    <dimen name="space_64dp">64dp</dimen>
+    <dimen name="space_78dp">78dp</dimen>
+    <dimen name="space_86dp">86dp</dimen>
+    <dimen name="space_90dp">90dp</dimen>
+    <dimen name="space_93dp">93dp</dimen>
+    <dimen name="space_100dp">100dp</dimen>
+    <dimen name="space_110dp">110dp</dimen>
+    <dimen name="space_117dp">117dp</dimen>
+    <dimen name="space_120dp">120dp</dimen>
+    <dimen name="space_186dp">186dp</dimen>
+    <dimen name="space_226dp">226dp</dimen>
+
+    <dimen name="sleep_image_hint_w">@dimen/space_18dp</dimen>
+    <dimen name="sleep_image_hint_h">@dimen/space_12dp</dimen>
+    <dimen name="menu_item_rl">@dimen/space_15dp</dimen>
+    <dimen name="menu_item_tb">@dimen/space_8dp</dimen>
+    <dimen name="profile_picker_item_space">@dimen/space_5dp</dimen>
+
+    <!-- background, buttons (orange, green, grey) -->
+    <dimen name="box_bg_round">@dimen/space_2dp</dimen>
+    <dimen name="box_bg_stroke">@dimen/space_1dp</dimen>
+
+    <!-- dialog, padding -->
+    <dimen name="dlg_title_margin_top">@dimen/space_20dp</dimen>
+    <dimen name="dlg_title_margin_bottom">@dimen/space_12dp</dimen>
+    <dimen name="dlg_des_margin_bottom">@dimen/space_30dp</dimen>
+    <dimen name="dlg_button_padding_top">@dimen/space_6dp</dimen>
+    <dimen name="dlg_button_padding_bottom">@dimen/space_6dp</dimen>
+</resources>

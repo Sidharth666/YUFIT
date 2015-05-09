@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/apk/tools"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    style="@style/app_intab_layout_all"
+    android:baselineAligned="false" >
+
+    <RelativeLayout style="@style/app_title" >
+
+        <LinearLayout style="@style/app_title_c_layout" >
+
+            <View style="@style/app_title_c_rl" />
+
+            <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/app_title_c_center_text"
+                android:text="@string/strTabPlayground" />
+
+            <View style="@style/app_title_c_rl" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        style="@style/app_intab_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:weightSum="10">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:textSize="@dimen/space_18dp"
+                android:text="@string/hint_playground"
+                mxw:typeface="Avenir-Roman.ttf"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="6"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:id="@+id/view_jumping_rope"
+                        style="@style/view_workout_type">
+
+                        <ImageView
+                            style="@style/image_workout_type"
+                            android:src="@drawable/playground_jumprope"/>
+                        <com.maxwell.bodysensor.ui.ViewTextView
+                            style="@style/text_workout_type"
+                            android:text="@string/jumping_rope"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/view_jumping_jack"
+                        style="@style/view_workout_type">
+
+                        <ImageView
+                            style="@style/image_workout_type"
+                            android:src="@drawable/playground_jumpjack"/>
+                        <com.maxwell.bodysensor.ui.ViewTextView
+                            style="@style/text_workout_type"
+                            android:text="@string/jumping_jack"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:id="@+id/view_sit_up"
+                        style="@style/view_workout_type">
+
+                        <ImageView
+                            style="@style/image_workout_type"
+                            android:src="@drawable/playground_situp"/>
+                        <com.maxwell.bodysensor.ui.ViewTextView
+                            style="@style/text_workout_type"
+                            android:text="@string/sit_up"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/view_treadmill"
+                        style="@style/view_workout_type">
+
+                        <ImageView
+                            style="@style/image_workout_type"
+                            android:src="@drawable/playground_treadmill"/>
+                        <com.maxwell.bodysensor.ui.ViewTextView
+                            style="@style/text_workout_type"
+                            android:text="@string/treadmill"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</LinearLayout>

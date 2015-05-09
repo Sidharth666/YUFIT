@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+    http://developer.android.com/guide/topics/resources/string-resource.html#FormattingAndStyling 
+    [Escaping apostrophes and quotes]
+        If you have an apostrophe or a quote in your string, 
+        you must either escape it or enclose the whole string in the other type of enclosing quotes.
+    [Formatting]    
+        Ex. Hello, %1$s! You have %2$d new messages.
+    -->
+    
+    <string name="strNo">否</string>
+    <string name="strYes">是</string>
+    <string name="strCancel">取消</string>
+    <string name="strDelete">删除</string>
+    <string name="strOK">确认</string>
+    <string name="strDone">完成</string>
+    <string name="strSave">储存</string>
+    <string name="strOff">关</string>
+    <string name="strOn">开</string>
+    <string name="strBack">返回</string>
+    <string name="str_link">連結</string>
+    <string name="str_unlink">取消連結</string>
+    <string name="str_next">下一步</string>
+    <string name="str_try_again">重試一次</string>
+    <string name="str_switch_on">開</string>
+    <string name="str_switch_off">關</string>
+    <string name="str_exit_app_sure">退出程式？</string>
+ 
+    <string name="strShortMonday">星期一</string>
+    <string name="strShortTuesday">星期二</string>
+    <string name="strShortWednesday">星期三</string>
+    <string name="strShortThursday">星期四</string>
+    <string name="strShortFriday">星期五</string>
+    <string name="strShortSaturday">星期六</string>
+    <string name="strShortSunday">星期日</string>
+    <string name="strShortJanuary">1</string>
+    <string name="strShortFebruary">2</string>
+    <string name="strShortMarch">3</string>
+    <string name="strShortApril">4</string>
+    <string name="strShortMay">5</string>
+    <string name="strShortJune">6</string>
+    <string name="strShortJuly">7</string>
+    <string name="strShortAugust">8</string>
+    <string name="strShortSeptember">9</string>
+    <string name="strShortOctober">10</string>
+    <string name="strShortNovember">11</string>
+    <string name="strShortDecember">12</string>
+    <string name="strAM">早上</string>
+    <string name="strPM">下午</string>
+    <string name="strTabHome">首页</string>
+    <string name="strTabTrend">趋势</string>
+    <string name="strTabActivity">活动</string>
+    <string name="strTabSleep">睡眠</string>
+    <string name="strTabPlayground">运动</string>
+    <string name="strTabSetting">设定</string>
+    <string name="strCalories">卡路里</string>
+    <string name="calories_k">千卡路里</string>
+    <string name="strSteps">步</string>
+    <string name="steps_k">千步</string>
+    <string name="strKilometers">公里</string>
+    <string name="strMiles">哩</string>
+    <string name="kilometers_short">公里</string>
+    <string name="kilometers_k">千公里</string>
+    <string name="miles_k">千哩</string>
+    <string name="strDayCapital">日</string>
+    <string name="strWeekCapital">周</string>
+    <string name="strMonthCapital">月</string>
+    <string name="strYearCapital">年</string>
+    <string name="strMetric">公制</string>
+    <string name="strImperial">英制</string>
+    <string name="fhEnergy">动能</string>
+    <string name="fhThisDay">今日</string>
+    <string name="fhOutOf">目标</string>
+    <string name="fhNoSyncRecord">没有同步资料</string>
+    <string name="fhPairFirst">请先连接手环</string>
+    <string name="fhUpdated">更新时间: </string>
+    <string name="fhSwipeAgain">请再刷新一次</string>
+    
+    <string name="trend_day">日</string>
+    <string name="trend_week">周</string>
+    <string name="trend_month">月</string>
+    <string name="trend_year">年</string>
+    <string name="trend_12am">12am</string>
+    <string name="trend_6am">6am</string>
+    <string name="trend_12pm">12pm</string>
+    <string name="trend_6pm">6pm</string>
+    <string name="trend_best_hour">最佳小时：</string>
+    <string name="trend_best_day">最佳日：</string>
+    <string name="trend_best_month">最佳月份：</string>
+    <string name="trend_se_very_good">熟睡</string>
+    <string name="trend_se_good">浅眠</string>
+    <string name="trend_se_poor">不佳</string>
+    <string name="trend_sleep_h">时</string>
+    <string name="trend_sleep_m">分</string>
+    <string name="trend_sleep_now">开始睡眠</string>
+    <string name="trend_add_sleep_entry">登记睡眠区间</string>
+    
+    <string name="sl_sleep_entry">登记睡眠</string>
+    <string name="sl_sleep_at">开始入睡</string>
+    <string name="sl_wake_at">起床时间</string>
+    <string name="sl_error_begin_end">入睡时间须早于起床时间</string>
+    <string name="sl_error_end_now">起床时间须早于现在时间</string>
+    <string name="sl_error_sixty_minutes">为了确保睡眠记录品质，少于一个小时的睡眠将无法被记录</string>
+    
+    <string name="faGoal">目标</string>
+    <string name="faGoalsHit">达成目标</string>
+    <string name="faEnergy">动能</string>
+    <string name="faStep">步數</string>
+    <string name="fa_energy_k">能量（千）</string>
+    <string name="faShareDay">"今日我产生了 %1$d 动能, 走了 %2$d 步也就是约莫 %3$s, 然后烧了 %4$d 卡路里~"</string>
+    <string name="faShareWeek">"这星期我产生了 %1$d 动能, 走了 %2$d 步也就是约莫 %3$s, 然后烧了 %4$d 卡路里~"</string>
+    <string name="faShareMonth">"这个月我产生了 %1$d 动能, 走了 %2$d 步也就是约莫 %3$s, 然后烧了 %4$d 卡路里~"</string>
+    <string name="faShareYear">"今年我产生了 %1$d 动能, 走了 %2$d 步也就是约莫 %3$s, 然后烧了 %4$d 卡路里~"</string>
+    
+    <string name="fsDeepSleep">深眠</string>
+    <string name="fsLightSleep">浅眠</string>
+    <string name="fsAwake">醒着</string>
+    <string name="fsSleepEfficiency">睡眠质量</string>
+    <string name="fsAvgBad">差劲</string>
+    <string name="fsAvgAverage">普通</string>
+    <string name="fsAvgGood">挺好</string>
+    <string name="fsAvg">平均</string>
+    <string name="fsDuration">睡眠时间</string>
+    <string name="fsEfficiency">睡眠效率</string>
+    <string name="fsTimesWoke">醒来次数</string>
+    <string name="fsSettingSleep">设定睡眠</string>
+    <string name="fsToggleStop">停止记录</string>
+    <string name="fsToggleOK">记得要同步资料才能看到睡眠质量哦~</string>
+    <string name="fsAlarm">闹钟</string>
+    <string name="fsShareDay">"今日我睡了 %1$d 小时 %2$d 分钟, 睡眠质量约 %3$"</string>
+    <string name="fsShareWeek">"这星期我平均睡了 %1$d 小时 %2$d 分钟, 睡眠质量约 %3$."</string>
+    <string name="fsShareMonth">"这个月我平均睡了 %1$d 小时 %2$d 分钟, 睡眠质量约 %3$"</string>
+    <string name="fsShareYear">"今年我平均睡了 %1$d 小时 %2$d 分钟, 睡眠质量约 %3$"</string>
+
+    <string name="settings">设定</string>
+    <string name="profile_me">我</string>
+    <string name="profile_you">你</string>
+    <string name="profile_profile_settings">个人资料设定</string>
+    <string name="profile_daily_goal">本日目标</string>
+    <string name="profile_social_accounts">社群帐号</string>
+    <string name="profile_manage_device">管理手环</string>
+    <string name="profile_device_no_conn">尚未与任何手环连接</string>
+    <string name="profile_add_a_device">加入手环</string>
+    <string name="profile_my_device">我的手环</string>
+    <string name="profile_battery_capacity">电池电力： </string>
+    <string name="profile_synced_time">已连接： </string>
+    <string name="profile_unlink_device">取消连接手环</string>
+    <string name="profile_unlink_device_q">确定要取消连接手环？ </string>
+    <string name="profile_how_to_sync">如何从手环传送资料</string>
+    <string name="profile_sos">紧急求救</string>
+    <string name="profile_sos_history">求救记录</string>
+    <string name="profile_sos_contact">编辑紧急联络人</string>
+    <string name="profile_support">支援</string>
+    <string name="profile_user_manual">使用说明</string>
+    <string name="profile_terms_of_service">使用条款</string>
+    <string name="profile_privacy_policy">隐私政策</string>
+    <string name="profile_version">版本</string>
+    
+    <string name="fcSectionCustomize">客制化</string>
+    <string name="fcProfile">个人资料</string>
+    <string name="fcUnit">单位</string>
+    <string name="fcGoalSetting">设定目标</string>
+    <string name="fcShareToFacebook">与facebook连接</string>
+    <string name="fcUserCalendar">我的日历</string> <!-- demo -->
+
+    <string name="fcSectionPhoneNotifications">电话通知</string>
+    <string name="fcOutOfRangeAlert">超出范围警告</string>
+    <string name="fcIncomingCallSmsNoti">来电/短信</string>
+    <string name="fcConnectionMode">连线模式</string>
+    <string name="fcSectionSmartKeys">智能按钮</string>
+    <string name="fcSmartKeys">智能按钮</string>
+    <string name="fcSmartKeysCurrentSetting">现在:\u0020</string>
+    <string name="fcSmartKeysLaunch">推出</string>
+    <string name="fcSmartKeysFind">寻找</string>
+    <string name="fcSectionDeviceAlert">手环警报</string>
+    <string name="fcAlarm">闹钟</string>
+    <string name="fcTaskAlert">任务提醒</string>
+    <string name="fcMoveAlert">活动提醒</string>
+    <string name="fcSectionDevice">配件</string>
+    <string name="fcPairADevice">新增手环</string>
+    <string name="fcDeviceList">手环清单</string>
+    <string name="fcLanguage">语言</string>
+    <string name="fcBuzzVibrater">振动提醒</string>
+    <string name="fcAutoSync">自动同步资料</string>
+    <string name="fcBatteryCapacity">手环电池容量</string>
+    <string name="fcResetDevice">清除手环资料</string>
+    <string name="fcSectionAbout">关于</string>
+    <string name="fcTutorial">使用教学</string>
+    <string name="fcTroubleshooting">难以排解</string>
+    <string name="fcAbout">关于</string>
+    <string name="share_hint">在想些什么？</string>
+    
+    <string name="cpUsername">用户名称*</string>
+    <string name="cpName">名字</string>
+    <string name="cpInputName">请输入您的名字</string>
+    <string name="cpGender">性别</string>
+    <string name="cpAge">年龄</string>
+    <string name="cpHeight">身高</string>
+    <string name="cpWeight">体重</string>
+    <string name="cpStride">步幅</string>
+    <string name="cpMale">男性</string>
+    <string name="cpFemale">女性</string>
+    <string name="cpCm">厘米</string>
+    <string name="cpKg">千克</string>
+    <string name="cpFt">呎</string>
+    <string name="cpIn">寸</string>
+    <string name="cpLbs">磅</string>
+    <string name="cgGoal">目标</string>
+    <string name="cgHint">请输入您动能目标吧~</string>
+    <string name="goal_title">日常动能目标</string>
+    <string name="goal_key_in">输入动能目标:</string>
+    <string name="goal_hint">当日动能</string>
+    <string name="goal_choose">或者选择活动量等级：</string>
+    <string name="goal_level_1">日常生活</string>
+    <string name="goal_level_2">充满活力</string>
+    <string name="goal_level_3">斗志高昂</string>
+    <string name="goal_level_4">我爱运动</string>
+    <string name="goal_level_5">今天没有极限</string>
+    <string name="goal_error_no_value">请输入动能目标</string>
+
+    <string name="addnew_device_not_find">无法找寻到您的手环</string>
+    <string name="addnew_device_trouble1">当APP在搜寻您的手环时, 请启动手环的配对模式.</string>
+    <string name="addnew_device_trouble2">请确认手环放置在手机周围.</string>
+    <string name="addnew_device_trouble3">请确认手环还有充足的电量.</string>
+    <string name="addnew_device_trouble4">请确认您配对的是您的手环.</string>
+    <string name="device_info_name_edit_hint">在此输入手环名称...</string>
+    <string name="device_delete_title">删除手环</string>
+    <string name="device_delete_description">请问你确定要删除此手环?</string>
+    <string name="switch_devices_title">切换手环</string>
+
+    <!-- David Sun. -->
+    <string name="cgEnergyGoal">每日能量目标</string>
+    <string name="cgStepGoal">每日步数目标</string>
+    <string name="cfTitle">Facebook</string>
+    <string name="cfHint">和朋友分享</string>
+    <string name="cdMakeSure">请确定您和您的手环配对过</string>
+    <string name="cdNote">*您只有在新增手环才需要经过这些步骤</string>
+    <string name="cdPairAgain">刷新</string>
+    <string name="caBy">设计与开发团队：</string>
+    <string name="caMXW">麦斯威科技股份有限公司</string>
+    <string name="caSupport">支援:</string>
+    <string name="caSupportURL">http://www.maxwell-guider.com.tw</string>
+    <string name="caEMail">电子邮箱:</string>
+    <string name="caEMailURL">contacts@maxwell-guider.com.tw</string>
+    <string name="caSound">Sound Effects:</string>
+    <string name="caSoundURL">http://www.freefx.co.uk</string>
+    <string name="ipPairing">配对中</string>
+    <string name="ipConnecting">连线中...</string>
+    <string name="ipSyncing">同步中</string>
+    <string name="ipReseting">重新设置中</string>
+    <string name="ynResetDeviceDes">确定要清除手环资料?</string>
+    <string name="ynDeleteAlarmTitle">删除?</string>
+    <string name="ynDeleteAlarmDes">确定删除此睡眠资料?</string>
+    <string name="ynAlarmTitle">醒来囉!</string>
+    <string name="ynAlarmDes">关掉闹钟并且停止睡眠侦测</string>
+    <string name="ynAlarmSnooze">小睡</string>
+    <string name="ynAlarmStop">停止</string>
+    <string name="deTitle">手环</string>
+    <string name="deDeviceName">手环名称</string>
+    <string name="deInputDeviceName">请命名手环</string>
+    <string name="deAddress">地址</string>
+    <string name="deFeaturesFIXME">功能</string>
+    <string name="dePhNFIXME">手机通知</string>
+    <string name="deGestureFIXME">手势检测</string>
+    <string name="deSOSFIXME">紧急求救</string>
+    <string name="srTitle">分享</string>
+    <string name="srPost">發送</string>
+    <string name="srHint">"分享新鲜事"</string>
+    <string name="srMakeSure">请确认您已链接facebook账号</string>
+    <string name="srSuccess">发表成功</string>
+    <string name="ssSleepSetting">设定睡眠追踪</string>
+    <string name="ssSectionAlarm">闹钟</string>
+    <string name="ssAlarm">闹钟</string>
+    <string name="ssAlarmTime">闹钟时间</string>
+    <string name="ssSnooze">稍后提醒</string>
+    <string name="ssSound">铃声</string>
+    <string name="ssSectionMonitor">睡眠质量侦测</string>
+    <string name="ssLogSleepEntry">新增睡眠记录</string>
+    <string name="ssScheduleAutoMonitor">安排自动追踪睡眠</string>
+    <string name="ssAutoMonitor">自动追踪睡眠</string>
+    <string name="ssSensitivity">侦测敏感度</string>
+    <string name="ssSensitivityNormal">正常</string>
+    <string name="ssSensitivityHigh">敏感</string>
+
+    <!-- sa, alarm time -->
+    <!-- sn, snooze -->
+    <string name="snSetting">稍后提醒</string>
+    <string name="snSnooze">小睡</string>
+    <string name="snInterval">小睡时间</string>
+    <string name="snMinute">分钟</string>
+    <string name="snMinutes">分钟</string>
+    <!-- sd, sound -->
+    <string name="sdTitle">铃声</string>
+    <string name="sdBeep">Beep</string>
+    <string name="sdBellRing">Bell Ring</string>
+    <string name="sdCarSpeed">Car Speed</string>
+    <string name="sdCat">Cat</string>
+    <string name="sdDuck">Duck</string>
+    <string name="sdLion">Lion</string>
+    <string name="sdLukeGreetings">Luke Greetings</string>
+    <string name="sdPhone">Phone</string>
+    <string name="sdPig">Pig</string>
+    <!-- sl, log sleep entry -->
+    <string name="slSleepAt">今晚我睡下的时间为</string>
+    <string name="slWakeAt">起来的时间为</string>
+    <!-- sm, auto-monitor -->
+    <string name="smSleepAt">睡下时间</string>
+    <string name="smWakeAt">起床时间</string>
+    <string name="smLastNight">昨晚</string>
+    <string name="smToday">今天</string>
+ 
+    <!-- User login/register -->
+    <string name="welcome_to">欢迎使用</string>
+    <string name="login">登入</string>
+    <string name="register">注册</string>
+ 
+    <!-- Setup Profile -->
+    <string name="setup_profile">设置个人资料</string>
+    <string name="edit">编辑</string>
+    <string name="birthday">生日</string>
+    <string name="username_discription">*使用名称将显示于公开贴文与应用</string>
+    <string name="title_personal_info">个人资料*</string>
+    <string name="personal_info_discription">*您的个人资料将只会被用来计算运动表现</string>
+    <string name="title_sleep_preference">睡眠偏好*</string>
+    <string name="title_sleep_preference_discription">*睡眠偏好将被用来自动追踪睡眠</string>
+    <string name="sleep_start_time">睡眠开始时间</string>
+    <string name="sleep_wake_time">睡眠结束时间</string>
+    <string name="take_photo">拍照</string>
+    <string name="choose_from_gallery">从相簿</string>
+    <string name="import_from_facebook">从Facebook选择</string>
+    <string name="import_from_wechat">从微信选择</string>
+    <string name="remove_current_photo">移除照片</string>
+    <string name="warning_username_empty">请输入使用名称</string>
+    <string name="warning_fullname_empty">请输入名称</string>
+    <string name="warning_username_exists">使用名称已经存在</string>
+    <string name="warning_height_empty">请输入身高</string>
+    <string name="warning_weight_empty">请输入体重</string>
+    <string name="warning_stride_empty">请输入步伐</string>
+    <string name="warning_no_facebook_photo">没有facebook照片</string>
+    
+    <!-- Tutorial -->
+    <string name="title_pairing_new_device">配对新的手环</string>
+    <string name="title_syncing">同步</string>
+    <string name="title_setting_your_goal">设定目标</string>
+    <string name="title_switching_device">更换手环</string>
+    <string name="title_sharing_to_social_account">分享至社群网站</string>
+    <string name="title_monitoring_sleep">追踪睡眠</string>
+    <string name="title_setting_up_the_alarm">设定闹钟</string>
+    <string name="title_deleting_sleep_entries">删除睡眠记录</string>
+    <string name="tutorial1_step_1">启用手机蓝牙功能</string>
+    <string name="tutorial1_step_2">启动手环\的配对模式\n配对细节请查看您的使用手册</string>
+    <string name="tutorial1_step_3">请至设定点选配对手环</string>
+    <string name="tutorial1_step_4">选择手环进行配对</string>
+    <string name="tutorial2_step_1">同步时请将您的手环靠近您的手机</string>
+    <string name="tutorial2_step_2">启动手环\的同步模式\n同步细节请查看您的使用手册</string>
+    <string name="tutorial2_step_3">回到首页。点击右上角同步按钮，或下拉中环，来同步您的手环数据</string>
+    <string name="tutorial3_instruction_1">当您接近您的日常动能目标，环会慢慢完毕</string>
+    <string name="tutorial3_instruction_2">请至设定里的本日目标更改您的日常动能目标</string>
+    <string name="tutorial4_instruction">要查看存储在另一个手环的数据，请在设置手环列表中选择手环</string>
+    <string name="tutorial5_step_1">请确定在设定里，您已连线至您的社群网站</string>
+    <string name="tutorial5_step_2">在活动页面，往上滑分享您的数据</string>
+    <string name="tutorial6_instruction_1">点选以增加一笔睡眠纪录</string>
+    <string name="tutorial6_instruction_2">设定你的睡眠起始与结束时间</string>
+    <string name="tutorial7_instruction">想要删除睡眠资料，请按住您要删除的条目的图表</string>
+
+    <!-- Getting Start -->
+    <string name="pair_my_cpasule">配对新的手环</string>
+    <string name="skip_and_pair_later">跳过并且稍后配对</string>
+    <string name="pair_my_capsule">配对手环</string>
+    <string name="unit_setting">单位设定</string>
+    <string name="bluetooth">蓝牙</string>
+    <string name="check_bluetooth_content_1">请确保您手机的蓝牙手环已开启</string>
+    <string name="check_bluetooth_content_2">每次配对新的手环请按下手环硬体的按钮开启配对模式</string>
+    <string name="unit_setting_content_1">选择您所习惯的单位系统</string>
+    <string name="device_connection_failed">手环无法连线</string>
+
+    <!-- Weibo sharing -->
+    <string name="fcWeibo">微博</string>
+    <string name="fcShareToWeibo">分享至微博</string>
+
+    <!-- WeChat sharing -->
+    <string name="fcWeChat">微信</string>
+    <string name="fcShareToWeChat">分享至微信</string>
+
+    <!-- Social Account -->
+    <string name="weibo_account_unlinked_title">你的微博帐号尚未连结</string>
+    <string name="facebook_account_unlinked_title">你的Facebook帐号尚未连结</string>
+    <string name="account_unlinked_content">前往社群帐号页面设定你的连结帐号</string>
+
+    <!-- New feature on Tab Conf -->
+    <string name="dlg_device_disconnectd_content">你的手环未连线</string>
+    <string name="phone_notify">电话通知</string>
+ 
+    <!-- Strings for BodySensor2 -->
+    <string name="body_sensor_two_lines">BODY\nSENSOR</string>
+    <string name="edt_email_hint">电子信箱</string>
+    <string name="edt_password_hint">密码</string>
+    <string name="edt_retype_password_hint">重新输入密码</string>
+    <string name="btn_log_in">登入</string>
+    <string name="log_in_with_social_account">从社群账帐号登入</string>
+    <string name="facebook">Facebook</string>
+    <string name="we_chat">微信</string>
+    <string name="wei_bo">微博</string>
+    <string name="forget_password"><u>忘记密码?</u></string>
+    <string name="sign_up"><u>注册</u></string>
+    <string name="sign_up_title">注册</string>
+    <string name="chk_box_subscribe">订阅我的专属优惠活动.</string>
+    <string name="btn_create_account">设立帐号</string>
+    <string name="agreement">当设立帐号时，您也同意<u>服务条款</u> 和<u>隐私权政策</u>.</string>
+    <string name="searching_for_devices">寻找您的手环....</string>
+    <string name="pair_device_instruction">启用手机中的蓝牙功能. \n\n启用配对模式. \n更多配对模式，请参见使用手册</string>
+    <string name="confirm_device_connection">连线成功</string>
+    <string name="btn_next">下一步</string>
+    <string name="btn_stop_alert">停止铃响</string>
+    <string name="dlg_ringtone_picker_title">选择铃声</string>
+    <string name="dlg_bt_device_out_of_range_alert_title">超出范围警告</string>
+    <string name="dlg_bt_device_out_of_range_alert_description_far">您的手机/平板电脑遗落下了！</string>
+    <string name="dlg_bt_device_out_of_range_alert_description_near">您的手环几乎要超出与手机/平板电脑的连线范围.</string>
+    <string name="dlg_turn_off_auto_connection_with_bt_device_description">您现在是自动模式.\n\n请进入设置页面更改为手动模式，这样就可以手动断线或停止搜索.</string>
+    <string name="dlg_bt_device_btn_pressed_find_phone_title">寻找手机</string>
+    <string name="dlg_bt_device_btn_pressed_find_phone_description">太棒了！您找到了！</string>
+    <string name="str_morning">早晨</string>
+    <string name="str_night">夜晚</string>
+    <string name="confirmation">认证</string>
+    <string name="dlg_confirm_bluetooth_device_pair_code">请问在您的手环有看到以下代码吗:\n</string>
+    <string name="information">通知</string>
+    <string name="dlg_waiting_for_setting_device_function">正在设定你手环功能...</string>
+    <string name="confirm_exit_app">确定要退出程式？</string>
+    <string name="dlg_bt_device_low_battery_title">手环电量不足</string>
+    <string name="dlg_bt_device_low_battery_description">您的手环快没电了</string>
+    <string name="dlg_bt_device_run_out_of_battery_title">手环断线</string>
+    <string name="dlg_bt_device_run_out_of_battery_description">您的手环因为没电已经断线</string>
+    <string name="btn_dismiss">好</string>
+    <string name="dlg_bt_device_battery_charge_full_title">电池满格</string>
+    <string name="dlg_bt_device_battery_charge_full_description">您的手环已充电完全，请停止充电。</string>
+    <string name="bt_device_battery_charging">充电中</string>
+    <string name="bt_device_battery_fully_charged">充电完成</string>
+    <string name="bt_device_enable_function_failed">无法设定手环的功能</string>
+    <string name="dlg_phone_bt_disabled_title">蓝牙已经关闭</string>
+    <string name="dlg_phone_bt_disabled_description">App需要使用蓝牙功能。</string>
+    <string name="sync_data_fail">同步资料错误</string>
+
+    <!-- Strings for df_out_of_range -->
+    <string name="df_out_of_range_title">超出范围</string>
+    <string name="df_out_of_range_off_mode_instruction">不管是不是在连线模式，当您把您的手机/平板电脑遗落下，您的手机/平板电脑不会转发通知到您的手环</string>
+    <string name="select_ringtone">选择铃声</string>
+    <string name="df_out_of_range_alarm_mode_far">远警铃模式</string>
+    <string name="df_out_of_range_alarm_mode_far_instruction">Y当您的手环快超出连线范围，您的手环会开始震动或嗡嗡叫</string>
+    <string name="df_out_of_range_alarm_mode_near">近警铃模式</string>
+    <string name="df_out_of_range_alarm_mode_near_instruction">当您把您的手机/平板电脑遗落下，你的手环会开始震动或嗡嗡叫</string>
+    <string name="df_out_of_range_alarm_mode_near_high_sensitivity">高</string>
+    <string name="df_out_of_range_alarm_mode_near_midium_sensitivity">中</string>
+    <string name="df_out_of_range_alarm_mode_near_low_sensitivity">低</string>
+    <string name="df_out_of_range_alarm_mode_near_sensitivity">敏感度:</string>
+
+    <!-- Strings for df_incoming_call_sms_notification -->
+    <string name="df_incoming_call_sms_notification_title">来电/短信</string>
+    <string name="df_incoming_call_sms_notification_instruction_off">当有来电/短信时，不会转发通知到您的手环</string>
+    <string name="df_incoming_call_sms_notification_instruction_on">当有来电/短信时，您的手环会马上通知您</string>
+    <string name="df_no_disturbing_time">勿擾模式:\u0020</string>
+
+    <!-- Strings for df_connection_mode -->
+    <string name="df_connection_mode_title">连线模式</string>
+    <string name="df_connection_mode_auto">自动模式</string>
+    <string name="df_connection_mode_manual">手动模式</string>
+    <string name="df_note">Note:</string>
+    <string name="df_connection_mode_auto_instruction">当您回到连线范围时，它会自动与您的手机/平板电脑连线</string>
+    <string name="df_connection_mode_manual_instruction">在手动模式下，您需要到主屏幕，点击右上角的\“连线\”或\“断线\”按钮，来开启或关闭连线</string>
+    <string name="df_no_disturbing_between">在此之间请勿干扰:</string>
+    <string name="df_no_disturbing_instruction">勿扰模式期间，您的手机或平板不会转发通知到您的手环</string>
+
+    <!-- Strings for power saving time -->
+    <string name="df_power_saving_time">省电时间:\u0020</string>
+    <string name="df_power_saving_time_instruction">在省电状态下，无论是在自动和手动连线模式，您的手机/平板电脑和您的手环会是在<b>断线状态</b>，所以您的手机/平板电脑不会转发通知到您的手环</string>
+    <string name="df_dlg_power_saving_time_title">设定时间</string>
+
+    <!-- Strings for df_smart_keys -->
+    <string name="df_smart_keys_title">智能按钮</string>
+    <string name="df_smart_keys_camera_remote">遥控照相</string>
+    <string name="df_smart_keys_video_remote">遥控摄像</string>
+    <string name="df_smart_keys_find_phone">寻找手机</string>
+    <string name="df_smart_keys_find_device">寻找手环</string>
+    <string name="df_smart_keys_none">无</string>
+    <string name="df_smart_keys_instruction_none">关掉智能按钮功能</string>
+    <string name="df_smart_keys_instruction_remote_camera">如要使用您​​的手环来操控相机应用程式，请参见使用手册</string>
+    <string name="df_smart_keys_instruction_remote_video">如要使用您​​的手环来操控视频应用程式，请参见使用手册</string>
+    <string name="df_smart_keys_instruction_find_phone">寻找手机功能可以帮助您通过铃声找到您的手机/平板电脑ㄡ. \n\n如要使用您​​的手环来操控寻找手机功能，请参见使用手册</string>
+
+    <!-- Strings for df_task_alert -->
+    <string name="df_task_alert_title">任务提醒</string>
+    <string name="df_task_alert_instruction">您可以有3个任务提醒</string>
+    <string name="df_task_title_edit_text_hint">任务名称</string>
+    <string name="df_task_date_time_hint">任务时间</string>
+    <string name="df_task_alert_set_date_and_time">设定</string>
+    <string name="df_dlg_date_and_time_title">设定时间</string>
+    <string name="df_task_today">今天</string>
+
+    <!-- Strings for df_alarm -->
+    <string name="df_alarm_title">闹钟</string>
+    <string name="df_set_alarm_time">--:-- AM</string>
+    <string name="every_sunday">每周日</string>
+    <string name="every_monday">每周一</string>
+    <string name="every_tuesday">每周二</string>
+    <string name="every_wednesday">每周三</string>
+    <string name="every_thursday">每周四</string>
+    <string name="every_friday">每周五</string>
+    <string name="every_saturday">每周六</string>
+
+    <!-- Strings for df_move_alert -->
+    <string name="df_move_alert_title">活动提醒</string>
+    <string name="df_move_alert_start_time_to_end_time">开始时间到结束时间:</string>
+    <string name="df_move_alert_instruction">当处于非活动状态30分钟后，您会有一个活动提醒</string>
+    <string name="df_move_alert_time_setting">活动提醒时间设定</string>
+
+    <!-- Strings for df_language -->
+    <string name="df_language_local">中文</string>
+    <string name="df_language_english">英文</string>
+
+    <!-- Strings for df_camera -->
+    <string name="df_camera_title">相机</string>
+    <string name="dlg_error_title">错误</string>
+    <string name="dlg_error_save_picture_file_description">无法储存照片．请检查手机的可用空间</string>
+    <string name="dlg_error_create_bitmap_description">无法拍照．请重试！</string>
+    <string name="dlg_error_camera_description">相机错误</string>
+    <string name="hide">Hide</string>
+    <string name="clear_log">Clear Log</string>
+
+    <!-- Strings for low battery -->
+    <string name="dlg_low_battery_des">你的手环电量过低, 请为手环充电或更换电池.</string>
+
+    <!-- Strings for Playground(Fitness) -->
+    <string name="hint_playground">选择你的运动类型并开始训练!</string>
+    <string name="jumping_rope">跳绳</string>
+    <string name="jumping_jack">开合跳</string>
+    <string name="sit_up">仰卧起坐</string>
+    <string name="treadmill">跑步机</string>
+    <string name="velocity_per_min">速度: %d 次/分钟</string>
+    <string name="personal_best_of">个人最佳成绩 </string>
+
+    <!-- Database upgrade -->
+    <string name="progress_upgrade">APP软体升级中...</string>
+    <string name="dlg_upgrade_title">升级完成</string>
+    <string name="dlg_upgrade_des">您需要编辑您的个人资料，并重新配对您的手环</string>
+
+    <!-- Phone Connection mode -->
+    <string name="phone_connection">手环连线</string>
+    <string name="phone_connection_on_des">你可以选择是否要让你的手环收到未接来电/未读简讯通知, 以及超出范围警告, 同时也可启动智慧按钮功能</string>
+    <string name="phone_connection_off_des">你的手环将无法收到未接来电/未读简讯通知, 以及超出范围警告, 同时也将关闭智慧按钮功能</string>
+
+    <!-- Find Device -->
+    <string name="find_device_des">你的手环必须与你的手机/平板电脑连线, 并且要在连线范围之内, 才可启动寻找手环功能</string>
+
+    <string name="on_mode">开启模式:</string>
+    <string name="off_mode">关闭模式:</string>
+
+<!-- need trans -->
+    <string name="current_device">我的手环</string>
+
+    <string name="emergency_contact_info">紧急联络人资料</string>
+    <string name="emergency_contact_des">当手环紧急按钮被启动时, 指定的紧急联络人将会收到有您手机发出的GPS定位短讯.</string>
+    <string name="edt_phone_number_hint">电话号码</string>
+    <string name="sos_description">
+        <![CDATA[
+            你的手机必须与手环处于<font color=\"#be1e2d\">连线状态</font>才能够发送短讯.
+        ]]>
+    </string>
+    <!--<string name="sos_history_sent_des">SOS SMS sent to %1$s. I was at</string>-->
+    <string name="sos_history_sent_des">
+        <![CDATA[
+            紧急短讯传送给<b>%1$s</b>, 我的位置在
+        ]]>
+    </string>
+    <string name="sos_history_sent_to_contact_notify">紧急短讯传送到紧急联络人 %1$s.</string>
+    <string name="sos_history_sent_i_am_at">我现在位于</string>
+    <string name="sos_location">座标位置: %1$s, %2$s</string>
+    <string name="sos_sms_detail">
+        %1$s 正处于紧急状态. %2$s 位於\n
+        %3$s\n\n
+        由 %4$s app 发送.
+    </string>
+
+    <string name="photo_share">Photo Share</string>
+    <string name="share_trend_by">Share your Trend by</string>
+
+    <!-- Group Mode -->
+    <string name="pair_code">配对码</string>
+    <string name="stats">Stats</string>
+    <string name="groups">Groups</string>
+    <string name="strSchool">School</string>
+    <string name="strClass">Class</string>
+    <string name="strDistance">Distance</string>
+    <string name="school_id_no">School ID Number</string>
+    <string name="seat_number">Seat Number (optional)</string>
+    <string name="switch_user_mode">Switch to User Mode</string>
+    <string name="switch_group_mode">Switch to Group Mode</string>
+    <string name="setup_groups">Setup groups</string>
+    <string name="enter_code">Enter Code</string>
+    <string name="group_daily_goal">Group Daily Goal</string>
+    <string name="enter_code_instruction">Please enter your membership code to see if you are eligible to use group mode.</string>
+    <string name="setup_groups_instruction">Your membership allows you to use this exclusive group mode. Welcome!</string>
+    <string name="enter_your_group_name">Enter your group name</string>
+    <string name="group_name_ex">Ex. Class A</string>
+    <string name="sync">Sync</string>
+    <string name="id_and_name">ID#/Name</string>
+    <string name="none">N/A</string>
+    <string name="add_group">Add Group</string>
+    <string name="add_member">Add Member</string>
+    <string name="member_profile">Member Profile</string>
+    <string name="group_info">Group Information</string>
+    <string name="show_no_stats_page">Show on Stats page</string>
+    <string name="edit_group_name">Edit Group Name</string>
+    <string name="warning_school_id_empty">School ID can not be empty</string>
+    <string name="choose_your_goal">Choose your goal:</string>
+    <string name="dlg_delete_group_title">Delete group</string>
+    <string name="dlg_delete_group_des">Do you want to delete this group?</string>
+    <string name="dlg_delete_member_title">Delete member</string>
+    <string name="dlg_delete_member_des">Do you want to delete this member?</string>
+<!-- need trans -->
+
+</resources>

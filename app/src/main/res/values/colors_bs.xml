@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+    Color Name and Hue
+    http://www.color-blindness.com/color-name-hue/
+     -->
+
+    <!-- customized values -->
+    <color name="bodysensor_theme">                #03bcdb</color>
+    <color name="bodysensor_theme_observatory">    #03876e</color>
+    <color name="bodysensor_theme_riptide">        #9ae1d4</color>
+    <color name="bodysensor_theme_jaggedice">      #d0e9e3</color>
+    <color name="bodysensor_theme_downy">          #72d3cd</color>
+    <color name="bodysensor_theme_pinegreen">      #04826a</color>
+
+    <!-- activity chart -->
+    <color name="bodysensor_activity_day">         @color/app_orange</color>
+    <color name="bodysensor_activity_week">        @color/app_greyd0</color>
+
+    <!-- sleep chart -->
+    <color name="bodysensor_deep_sleep">           @color/app_theme_observatory</color>
+    <color name="bodysensor_light_sleep">          @color/app_blue_turquoise</color>
+    <color name="bodysensor_awake">                @color/app_orange</color>
+    <color name="bodysensor_sleep_very_good">      #01ba9c</color>
+    <color name="bodysensor_sleep_good">           @color/app_blue_anakiwa</color>
+    <color name="bodysensor_sleep_poor">           @color/app_red_careyspink</color>
+</resources>

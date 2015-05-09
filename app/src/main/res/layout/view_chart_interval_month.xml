@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="31"
+    android:gravity="top"
+    android:orientation="horizontal">
+
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:layout_weight="3"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_5"
+        android:layout_weight="3"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:layout_weight="2"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_10"
+        android:layout_weight="3"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:layout_weight="2"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_15"
+        android:layout_weight="3"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:layout_weight="2"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_20"
+        android:layout_weight="3"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:layout_weight="2"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_25"
+        android:layout_weight="3"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:layout_weight="2"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/number_30"
+        android:layout_weight="3"
+        style="@style/app_trend_text_chart_hint" />
+
+</LinearLayout>

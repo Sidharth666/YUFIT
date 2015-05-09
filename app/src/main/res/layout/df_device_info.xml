@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    style="@style/app_outtab_layout_all">
+
+    <include layout="@layout/mxw_df_title_bar" />
+
+    <LinearLayout
+        style="@style/app_outtab_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_16sp"
+                    android:text="@string/deDeviceName"
+                    mxw:typeface="Avenir-Medium.ttf"/>
+                <com.maxwell.bodysensor.ui.ViewEditText
+                    style="@style/basic_edittext"
+                    android:id="@+id/edit_device_name"
+                    android:hint="@string/device_info_name_edit_hint"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_16sp"
+                    android:text="@string/deAddress"
+                    mxw:typeface="Avenir-Medium.ttf"/>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_device_mac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/space_15dp"
+                    android:textSize="@dimen/text_14sp"
+                    tools:text="AA:BB:CC:DD:EE:FF"
+                    mxw:typeface="Avenir-Medium.ttf"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="7"
+    android:gravity="top"
+    android:orientation="horizontal" >
+
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/strShortMonday"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/strShortTuesday"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/strShortWednesday"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/strShortThursday"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/strShortFriday"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/strShortSaturday"
+        style="@style/app_trend_text_chart_hint" />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:text="@string/strShortSunday"
+        style="@style/app_trend_text_chart_hint" />
+
+</LinearLayout>

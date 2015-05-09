@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/app_outtab_layout_all"
+    android:baselineAligned="false">
+
+    <include layout="@layout/mxw_df_title_bar" />
+
+    <RelativeLayout
+        style="@style/app_outtab_content">
+
+        <LinearLayout
+            android:id="@+id/picker_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center">
+            <com.maxwell.bodysensor.ui.ViewNumberPicker
+                android:id="@+id/slNumPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+            <com.maxwell.bodysensor.ui.ViewTimePicker
+                android:id="@+id/slTimePicker" 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/picker_area"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center" >
+
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:id="@+id/sl_hint_begin"
+                style="@style/app_sl_text_hint"
+                android:text="@string/sl_sleep_at" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="320">
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="60" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/slBegin"
+                    android:layout_width="0dp"
+                    android:layout_weight="200"
+                    style="@style/app_sl_text_cal" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="60" />
+            </LinearLayout>
+
+            <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/app_sl_text_hint"
+                android:text="@string/space" />
+
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:id="@+id/sl_hint_end"
+                style="@style/app_sl_text_hint"
+                android:text="@string/sl_wake_at" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="320">
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="60" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/slEnd"
+                    android:layout_width="0dp"
+                    android:layout_weight="200"
+                    style="@style/app_sl_text_cal" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="60" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

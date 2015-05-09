@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/app_outtab_layout_all"
+    android:baselineAligned="false">
+
+    <RelativeLayout
+        style="@style/app_title" >
+    </RelativeLayout>
+    
+    <LinearLayout
+        style="@style/app_outtab_content"
+        android:weightSum="1080"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="70" />
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="940"
+            android:gravity="center">
+            <LinearLayout
+                android:id="@+id/add_top_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/app_add_title_2_text"
+                    android:text="@string/confirm_device_connection"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/add_bottom_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:weightSum="100"
+                android:orientation="horizontal">
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="25" />
+                <LinearLayout
+                    android:id="@+id/next"
+                    style="@style/app_add_orange_button" >
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        style="@style/orange_button_text"
+                        android:text="@string/str_next"/>
+                    <ImageView
+                        style="@style/orange_button_next"
+                        android:contentDescription="@string/acd" />
+                </LinearLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="25" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/space_60dp"
+                android:layout_height="@dimen/space_40dp"
+                android:layout_below="@id/add_top_area"
+                android:layout_above="@id/add_bottom_area"
+                android:paddingTop="@dimen/space_20dp"
+                android:paddingBottom="@dimen/space_40dp"
+                android:scaleType="centerInside"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/checked"
+                android:contentDescription="@string/acd" />
+        </RelativeLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="70" />
+    </LinearLayout>
+</LinearLayout>

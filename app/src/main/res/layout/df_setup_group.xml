@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.maxwell.bodysensor.ui.ViewLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_root"
+    style="@style/app_outtab_layout_all"
+    android:layout_width="wrap_content"
+    android:baselineAligned="false">
+
+    <include layout="@layout/mxw_df_title_bar" />
+
+    <ScrollView
+        style="@style/app_outtab_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/space_40dp">
+
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:id="@+id/text_group_welcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/space_20dp"
+                android:gravity="center_vertical"
+                android:text="@string/setup_groups_instruction"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/space_20dp">
+
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_8dp"
+                    android:text="@string/enter_your_group_name"/>
+
+                <com.maxwell.bodysensor.ui.ViewEditText
+                    android:id="@+id/edit_group_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_5dp"
+                    android:background="@drawable/btn_grey_bg_selector"
+                    android:textSize="@dimen/space_20dp"
+                    android:hint="@string/group_name_ex"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/space_20dp" >
+
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_8dp"
+                    android:text="@string/strSchool"/>
+
+                <com.maxwell.bodysensor.ui.ViewEditText
+                    android:id="@+id/edit_group_school"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_5dp"
+                    android:background="@drawable/btn_grey_bg_selector"
+                    android:textSize="@dimen/space_20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/space_40dp" >
+
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_8dp"
+                    android:text="@string/strClass"/>
+
+                <com.maxwell.bodysensor.ui.ViewEditText
+                    android:id="@+id/edit_group_class"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_5dp"
+                    android:background="@drawable/btn_grey_bg_selector"
+                    android:textSize="@dimen/space_20dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/app_conf_divider"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/space_40dp">
+
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/space_20dp"
+                    android:text="@string/choose_your_goal"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_goal_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <RadioButton
+                        android:id="@+id/rb_energy_goal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:button="@drawable/checkbox_selector"
+                        android:paddingLeft="@dimen/space_10dp"
+                        android:text="@string/cgEnergyGoal"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_20sp"/>
+
+                    <com.maxwell.bodysensor.ui.ViewEditText
+                        android:id="@+id/edit_energy_goal"
+                        android:layout_width="@dimen/space_186dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginBottom="@dimen/space_10dp"
+                        android:background="@drawable/btn_grey_bg_selector"
+                        android:textSize="@dimen/text_20sp"
+                        android:inputType="number"
+                        android:padding="@dimen/space_5dp"
+                        android:text="@string/cgEnergyGoal"
+                        mxw:typeface="Avenir-Roman.ttf"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_step_goal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:button="@drawable/checkbox_selector"
+                        android:paddingLeft="@dimen/space_10dp"
+                        android:text="@string/cgStepGoal"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_20sp"/>
+
+                    <com.maxwell.bodysensor.ui.ViewEditText
+                        android:id="@+id/edit_step_goal"
+                        android:layout_width="@dimen/space_186dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginBottom="@dimen/space_10dp"
+                        android:background="@drawable/btn_grey_bg_selector"
+                        android:textSize="@dimen/text_20sp"
+                        android:inputType="number"
+                        android:padding="@dimen/space_5dp"
+                        android:text="@string/cgStepGoal"
+                        mxw:typeface="Avenir-Roman.ttf"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</com.maxwell.bodysensor.ui.ViewLinearLayout>

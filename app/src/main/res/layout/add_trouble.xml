@@ -1,0 +1,116 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/app_outtab_layout_all"
+    android:baselineAligned="false">
+
+    <RelativeLayout
+        style="@style/app_title" >
+    </RelativeLayout>
+    
+    <LinearLayout
+        style="@style/app_outtab_content"
+        android:weightSum="320"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="30" />
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="260"
+            android:gravity="center">
+            <LinearLayout
+                android:id="@+id/add_top_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:orientation="vertical">
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/app_add_title_2_text"
+                    android:text="@string/addnew_device_not_find"/>
+            </LinearLayout>
+
+            <LinearLayout 
+                android:id="@+id/add_bottom_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:weightSum="100"
+                android:orientation="horizontal">
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="25" />
+                <LinearLayout
+                    android:id="@+id/next"
+                    style="@style/app_add_orange_button" >
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        style="@style/orange_button_text"
+                        android:text="@string/str_try_again"/>
+                    <ImageView
+                        style="@style/orange_button_next"
+                        android:contentDescription="@string/acd" />
+                </LinearLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="25" />
+            </LinearLayout>
+
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/add_top_area"
+                android:layout_above="@id/add_bottom_area"
+                android:gravity="center"
+                android:orientation="vertical" >
+                <LinearLayout
+                    style="@style/app_add_order_item">
+                    <ImageView
+                        style="@style/app_add_order_item_index"
+                        android:src="@drawable/launch_orange_1"
+                        android:contentDescription="@string/acd" />
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        style="@style/app_add_order_item_des_text"
+                        android:text="@string/addnew_device_trouble1"/>
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/app_add_order_item">
+                    <ImageView
+                        style="@style/app_add_order_item_index"
+                        android:src="@drawable/launch_orange_2"
+                        android:contentDescription="@string/acd" />
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        style="@style/app_add_order_item_des_text"
+                        android:text="@string/addnew_device_trouble2"/>
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/app_add_order_item">
+                    <ImageView
+                        style="@style/app_add_order_item_index"
+                        android:src="@drawable/launch_orange_3"
+                        android:contentDescription="@string/acd" />
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        style="@style/app_add_order_item_des_text"
+                        android:text="@string/addnew_device_trouble3"/>
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/app_add_order_item">
+                    <ImageView
+                        style="@style/app_add_order_item_index"
+                        android:src="@drawable/launch_orange_4"
+                        android:contentDescription="@string/acd" />
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        style="@style/app_add_order_item_des_text"
+                        android:text="@string/addnew_device_trouble4"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="30" />
+    </LinearLayout>
+</LinearLayout>

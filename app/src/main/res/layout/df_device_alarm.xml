@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.maxwell.bodysensor.ui.ViewLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/app_outtab_layout_all"
+    android:baselineAligned="false">
+
+    <include layout="@layout/mxw_df_title_bar" />
+    
+    <LinearLayout
+        style="@style/app_outtab_content"
+        android:orientation="vertical"
+        android:weightSum="10">
+        
+        <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+            android:layout_weight="3"
+	        android:background="@color/app_blue_setting_bg" >
+
+			<com.maxwell.bodysensor.ui.ViewButton
+                style="@style/btn_time_bg_color"
+			    android:id="@+id/btnAlarmTime"
+	            android:layout_centerInParent="true"
+	            android:layout_margin="50dp"
+			    tools:text="@string/df_set_alarm_time" />
+			
+	
+	    </RelativeLayout>
+	    
+        <LinearLayout style="@style/app_conf_divider"/>
+        
+        <RelativeLayout
+            style="@style/layout_weekly_alarm_item" >
+	
+	        <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/text_weekly_alarm"
+	            android:text="@string/every_sunday" />
+	
+	        <CheckBox
+                style="@style/checkbox_weekly_alarm"
+	            android:id="@+id/chkBoxEverySunday" />
+	
+	    </RelativeLayout>
+	
+	    <LinearLayout style="@style/app_conf_divider"/>
+	
+	    <RelativeLayout
+            style="@style/layout_weekly_alarm_item" >
+	
+	        <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/text_weekly_alarm"
+	            android:text="@string/every_monday" />
+	
+	        <CheckBox
+                style="@style/checkbox_weekly_alarm"
+	            android:id="@+id/chkBoxEveryMonday" />
+	
+	    </RelativeLayout>
+	
+	    <LinearLayout style="@style/app_conf_divider"/>
+	
+	    <RelativeLayout
+            style="@style/layout_weekly_alarm_item" >
+	
+	        <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/text_weekly_alarm"
+	            android:text="@string/every_tuesday" />
+	
+	        <CheckBox
+                style="@style/checkbox_weekly_alarm"
+	            android:id="@+id/chkBoxEveryTuesday" />
+	
+	    </RelativeLayout>
+	
+	    <LinearLayout style="@style/app_conf_divider"/>
+	
+	    <RelativeLayout
+            style="@style/layout_weekly_alarm_item" >
+	
+	        <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/text_weekly_alarm"
+	            android:text="@string/every_wednesday" />
+	
+	        <CheckBox
+                style="@style/checkbox_weekly_alarm"
+	            android:id="@+id/chkBoxEveryWednesday" />
+	
+	    </RelativeLayout>
+	
+	    <LinearLayout style="@style/app_conf_divider"/>
+	
+	    <RelativeLayout
+            style="@style/layout_weekly_alarm_item" >
+	
+	        <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/text_weekly_alarm"
+	            android:text="@string/every_thursday" />
+	
+	        <CheckBox
+                style="@style/checkbox_weekly_alarm"
+	            android:id="@+id/chkBoxEveryThursday" />
+	
+	    </RelativeLayout>
+	
+	    <LinearLayout style="@style/app_conf_divider"/>
+	
+	    <RelativeLayout
+            style="@style/layout_weekly_alarm_item" >
+	
+	        <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/text_weekly_alarm"
+	            android:text="@string/every_friday" />
+	
+	        <CheckBox
+                style="@style/checkbox_weekly_alarm"
+	            android:id="@+id/chkBoxEveryFriday" />
+	
+	    </RelativeLayout>
+	
+	    <LinearLayout style="@style/app_conf_divider"/>
+	
+	    <RelativeLayout
+            style="@style/layout_weekly_alarm_item" >
+	        
+	        <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/text_weekly_alarm"
+	            android:text="@string/every_saturday" />
+	
+	        <CheckBox
+                style="@style/checkbox_weekly_alarm"
+	            android:id="@+id/chkBoxEverySaturday" />
+	
+	    </RelativeLayout>
+	
+	    <LinearLayout style="@style/app_conf_divider"/>
+        
+    </LinearLayout>
+
+</com.maxwell.bodysensor.ui.ViewLinearLayout>

@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    style="@style/app_intab_layout_all"
+    android:baselineAligned="false" >
+
+    <RelativeLayout style="@style/app_title" >
+
+        <LinearLayout style="@style/app_title_c_layout" >
+
+            <View style="@style/app_title_c_rl" />
+
+            <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/app_title_c_center_text"
+                android:text="@string/strTabSetting" />
+
+            <View style="@style/app_title_c_rl" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/fragment_conf"
+        style="@style/app_intab_content"
+        android:background="@color/app_white" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/device_none_1"
+                style="@style/app_conf_item" >
+
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/app_conf_item_text"
+                    android:text="@string/profile_device_no_conn"
+                    android:textColor="@color/app_theme_color_2" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/device_none_2"
+                style="@style/app_conf_divider"
+                android:orientation="horizontal" />
+
+            <!-- All device functions -->
+            <LinearLayout
+                android:id="@+id/view_device_advanced_functions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <!-- For phone notify -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <!-- missed call/sms -->
+                    <RelativeLayout
+                        android:id="@+id/view_phone_notify"
+                        style="@style/app_conf_item"
+                        android:clickable="true" >
+
+                        <RelativeLayout
+                            android:id="@+id/view_phone_notify_setting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:duplicateParentState="true">
+
+                            <com.maxwell.bodysensor.ui.ViewTextView
+                                style="@style/app_conf_item_text"
+                                android:duplicateParentState="true"
+                                android:text="@string/df_incoming_call_sms_notification_title" />
+
+                            <ToggleButton
+                                android:id="@+id/toggle_phone_notify"
+                                style="@style/toggle_button_right" />
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/view_phone_notify_detail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/view_phone_notify_setting"
+                            android:layout_marginTop="@dimen/menu_item_tb"
+                            android:orientation="horizontal">
+
+                            <com.maxwell.bodysensor.ui.ViewTextView
+                                style="@style/app_conf_sub_item_text"
+                                android:text="@string/df_no_disturbing_time" />
+                            <com.maxwell.bodysensor.ui.ViewTextView
+                                style="@style/app_conf_sub_item_text"
+                                android:id="@+id/text_no_disturbing_time"
+                                tools:text="11:00PM - 7:00AM" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+                    <LinearLayout style="@style/app_conf_divider" />
+
+                    <!-- out of range -->
+                    <RelativeLayout
+                        android:id="@+id/view_out_of_range"
+                        style="@style/app_conf_item"
+                        android:clickable="true" >
+
+                        <RelativeLayout
+                            android:id="@+id/view_out_of_range_setting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:duplicateParentState="true">
+
+                            <com.maxwell.bodysensor.ui.ViewTextView
+                                style="@style/app_conf_item_text"
+                                android:duplicateParentState="true"
+                                android:text="@string/df_out_of_range_title" />
+
+                            <ToggleButton
+                                android:id="@+id/toggle_out_of_range"
+                                style="@style/toggle_button_right" />
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/view_out_of_range_detail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/view_out_of_range_setting"
+                            android:layout_marginTop="@dimen/menu_item_tb"
+                            android:orientation="horizontal">
+
+                            <com.maxwell.bodysensor.ui.ViewTextView
+                                style="@style/app_conf_sub_item_text"
+                                android:text="@string/df_no_disturbing_time" />
+                            <com.maxwell.bodysensor.ui.ViewTextView
+                                style="@style/app_conf_sub_item_text"
+                                android:id="@+id/text_out_of_range_no_disturbing_time"
+                                tools:text="11:00PM - 7:00AM" />
+
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <LinearLayout style="@style/app_conf_divider" />
+
+                    <!-- Find device -->
+                    <RelativeLayout
+                        android:id="@+id/view_find_device"
+                        style="@style/app_conf_item"
+                        android:clickable="true" >
+
+                        <com.maxwell.bodysensor.ui.ViewTextView
+                            style="@style/app_conf_item_text"
+                            android:duplicateParentState="true"
+                            android:text="@string/df_smart_keys_find_device" />
+
+                        <com.maxwell.bodysensor.ui.ViewButton
+                            android:id="@+id/btn_find_device"
+                            android:layout_width="@dimen/space_60dp"
+                            android:layout_height="@dimen/space_36dp"
+                            android:layout_alignParentRight="true"
+                            android:gravity="center"
+                            android:text="@string/fcSmartKeysFind"
+                            android:background="@drawable/smartkey_button"
+                            android:duplicateParentState="true"
+                            mxw:typeface="Roboto-Regular.ttf"/>
+                    </RelativeLayout>
+                    <LinearLayout style="@style/app_conf_divider" />
+
+                    <!-- smart key -->
+                    <RelativeLayout
+                        android:id="@+id/view_smart_key"
+                        style="@style/app_conf_item" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:duplicateParentState="true">
+
+                            <com.maxwell.bodysensor.ui.ViewTextView
+                                style="@style/app_conf_item_text"
+                                android:id="@+id/text_smart_key"
+                                android:text="@string/df_smart_keys_title"
+                                android:textColor="@drawable/confitem_textcolor_black"
+                                android:duplicateParentState="true"/>
+
+                            <RelativeLayout
+                                android:id="@+id/view_camera_remote"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_8dp"
+                                android:paddingLeft="@dimen/space_20dp"
+                                android:background="@drawable/confitem_bg"
+                                android:duplicateParentState="true" >
+
+                                <com.maxwell.bodysensor.ui.ViewTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:textColor="@drawable/confitem_textcolor_black"
+                                    android:text="@string/df_smart_keys_camera_remote"
+                                    android:duplicateParentState="true"
+                                    mxw:typeface="Avenir-Book.ttf"/>
+                                <com.maxwell.bodysensor.ui.ViewButton
+                                    android:id="@+id/btn_launch_camera"
+                                    android:layout_width="@dimen/space_78dp"
+                                    android:layout_height="@dimen/space_36dp"
+                                    android:layout_alignParentRight="true"
+                                    android:gravity="center"
+                                    android:background="@drawable/smartkey_button"
+                                    android:text="@string/fcSmartKeysLaunch"
+                                    android:duplicateParentState="true"
+                                    mxw:typeface="Roboto-Regular.ttf"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/view_video_remote"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_8dp"
+                                android:paddingLeft="@dimen/space_20dp"
+                                android:background="@drawable/confitem_bg"
+                                android:duplicateParentState="true">
+
+                                <com.maxwell.bodysensor.ui.ViewTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:textColor="@drawable/confitem_textcolor_black"
+                                    android:text="@string/df_smart_keys_video_remote"
+                                    android:duplicateParentState="true"
+                                    mxw:typeface="Avenir-Book.ttf"/>
+                                <com.maxwell.bodysensor.ui.ViewButton
+                                    android:id="@+id/btn_launch_video"
+                                    android:layout_width="@dimen/space_78dp"
+                                    android:layout_height="@dimen/space_36dp"
+                                    android:layout_alignParentRight="true"
+                                    android:gravity="center"
+                                    android:background="@drawable/smartkey_button"
+                                    android:text="@string/fcSmartKeysLaunch"
+                                    android:duplicateParentState="true"
+                                    mxw:typeface="Roboto-Regular.ttf"/>
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/view_find_phone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_8dp"
+                                android:paddingLeft="@dimen/space_20dp"
+                                android:background="@drawable/confitem_bg"
+                                android:duplicateParentState="true">
+
+                                <com.maxwell.bodysensor.ui.ViewTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:textColor="@drawable/confitem_textcolor_black"
+                                    android:text="@string/df_smart_keys_find_phone"
+                                    android:duplicateParentState="true"
+                                    mxw:typeface="Avenir-Book.ttf"/>
+                                <ToggleButton
+                                    android:id="@+id/toggle_find_phone"
+                                    style="@style/toggle_button_right"/>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <!-- For device alerm notify -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <LinearLayout style="@style/app_conf_section2" >
+
+                        <com.maxwell.bodysensor.ui.ViewTextView
+                            style="@style/app_conf_section2_text"
+                            android:text="@string/fcSectionDeviceAlert" />
+                    </LinearLayout>
+
+                    <!-- weekly alarm -->
+                    <RelativeLayout
+                        android:id="@+id/view_device_alarm"
+                        style="@style/app_conf_item"
+                        android:clickable="true" >
+
+                        <RelativeLayout
+                            android:id="@+id/view_alarm_setting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <com.maxwell.bodysensor.ui.ViewTextView
+                                style="@style/app_conf_item_text"
+                                android:id="@+id/text_device_alarm"
+                                android:text="@string/df_alarm_title" />
+
+                            <ImageView
+                                style="@style/app_conf_item_next_image"
+                                android:contentDescription="@string/acd" />
+
+                        </RelativeLayout>
+
+                        <com.maxwell.bodysensor.ui.ViewTextView
+                            style="@style/app_conf_sub_item_text"
+                            android:id="@+id/text_device_alarm_detail"
+                            android:layout_below="@id/view_alarm_setting"
+                            android:layout_marginTop="@dimen/menu_item_tb"
+                            tools:text="10:00 AM - 9:00 PM" />
+                    </RelativeLayout>
+
+                    <LinearLayout style="@style/app_conf_divider" />
+
+                    <!-- task alert -->
+                    <RelativeLayout
+                        android:id="@+id/view_task_alert"
+                        style="@style/app_conf_item"
+                        android:clickable="true" >
+
+                        <com.maxwell.bodysensor.ui.ViewTextView
+                            style="@style/app_conf_item_text"
+                            android:text="@string/df_task_alert_title" />
+
+                        <ImageView
+                            style="@style/app_conf_item_next_image"
+                            android:contentDescription="@string/acd" />
+                    </RelativeLayout>
+
+                    <LinearLayout style="@style/app_conf_divider" />
+
+                    <!-- move alert -->
+                    <RelativeLayout
+                        android:id="@+id/view_move_alert"
+                        style="@style/app_conf_item"
+                        android:clickable="true" >
+
+                        <RelativeLayout
+                            android:id="@+id/view_move_setting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" >
+
+                            <com.maxwell.bodysensor.ui.ViewTextView
+                                style="@style/app_conf_item_text"
+                                android:text="@string/df_move_alert_title" />
+
+                            <ToggleButton
+                                android:id="@+id/toggle_move_alert"
+                                style="@style/toggle_button_right" />
+
+                        </RelativeLayout>
+
+                        <com.maxwell.bodysensor.ui.ViewTextView
+                            style="@style/app_conf_sub_item_text"
+                            android:id="@+id/text_move_alert_duration"
+                            android:layout_below="@id/view_move_setting"
+                            android:layout_marginTop="@dimen/menu_item_tb"
+                            tools:text="10:00 AM - 9:00 PM" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <!-- For device SOS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout style="@style/app_conf_section2" >
+
+                        <com.maxwell.bodysensor.ui.ViewTextView
+                            style="@style/app_conf_section2_text"
+                            android:text="@string/profile_sos" />
+                        <ToggleButton
+                            android:id="@+id/toggle_sos"
+                            style="@style/toggle_button_right"
+                            android:layout_centerVertical="true"/>
+                    </RelativeLayout>
+
+                    <!-- Emergency Contact -->
+                    <RelativeLayout
+                        android:id="@+id/view_emergency_contact"
+                        style="@style/app_conf_item"
+                        android:clickable="true" >
+
+                        <com.maxwell.bodysensor.ui.ViewTextView
+                            style="@style/app_conf_item_text"
+                            android:text="@string/profile_sos_contact" />
+
+                        <ImageView
+                            style="@style/app_conf_item_next_image"
+                            android:contentDescription="@string/acd" />
+                    </RelativeLayout>
+
+                    <LinearLayout style="@style/app_conf_divider" />
+
+                    <!-- SOS History -->
+                    <RelativeLayout
+                        android:id="@+id/view_sos_history"
+                        style="@style/app_conf_item"
+                        android:clickable="true" >
+
+                        <com.maxwell.bodysensor.ui.ViewTextView
+                            style="@style/app_conf_item_text"
+                            android:text="@string/profile_sos_history" />
+
+                        <ImageView
+                            style="@style/app_conf_item_next_image"
+                            android:contentDescription="@string/acd" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <!-- For device settings -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <LinearLayout style="@style/app_conf_section2" >
+
+                        <com.maxwell.bodysensor.ui.ViewTextView
+                            style="@style/app_conf_section2_text"
+                            android:text="@string/current_device" />
+                    </LinearLayout>
+
+                    <!-- setting vibration -->
+                    <RelativeLayout
+                        android:id="@+id/enable_vibration"
+                        style="@style/app_conf_item" >
+
+                        <com.maxwell.bodysensor.ui.ViewTextView
+                            style="@style/app_conf_item_text"
+                            android:text="@string/fcBuzzVibrater" />
+
+                        <ToggleButton
+                            android:id="@+id/toggle_vibration"
+                            style="@style/toggle_button_right" />
+                    </RelativeLayout>
+
+                    <LinearLayout style="@style/app_conf_divider" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- add a device -->
+            <RelativeLayout
+                android:id="@+id/add_a_device"
+                style="@style/app_conf_item"
+                android:clickable="true" >
+
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/app_conf_item_text"
+                    android:text="@string/profile_add_a_device" />
+
+                <ImageView
+                    style="@style/app_conf_item_next_image"
+                    android:layout_width="@dimen/space_19dp"
+                    android:layout_height="@dimen/space_18dp"
+                    android:contentDescription="@string/acd"
+                    android:src="@drawable/device_add" />
+            </RelativeLayout>
+
+            <LinearLayout style="@style/app_conf_divider" />
+
+            <!-- device general functions -->
+            <LinearLayout
+                android:id="@+id/view_device_general_functions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <!-- device list -->
+                <RelativeLayout
+                    android:id="@+id/view_device_list"
+                    style="@style/app_conf_item"
+                    android:clickable="true" >
+
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        style="@style/app_conf_item_text"
+                        android:text="@string/fcDeviceList" />
+
+                    <ImageView
+                        style="@style/app_conf_item_next_image"
+                        android:contentDescription="@string/acd" />
+                </RelativeLayout>
+
+                <LinearLayout style="@style/app_conf_divider" />
+
+                <!-- device battery -->
+                <RelativeLayout
+                    style="@style/app_conf_item" >
+
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        style="@style/app_conf_item_text"
+                        android:text="@string/fcBatteryCapacity" />
+
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        android:id="@+id/text_battery_level"
+                        style="@style/app_conf_item_text_right"
+                        android:text="100%" />
+                </RelativeLayout>
+
+                <LinearLayout style="@style/app_conf_divider" />
+
+                <!-- device reset -->
+                <RelativeLayout
+                    android:id="@+id/view_reset_device"
+                    style="@style/app_conf_item"
+                    android:clickable="true" >
+
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        style="@style/app_conf_item_text"
+                        android:text="@string/fcResetDevice" />
+
+                    <ImageView
+                        style="@style/app_conf_item_next_image"
+                        android:contentDescription="@string/acd" />
+                </RelativeLayout>
+
+                <LinearLayout style="@style/app_conf_divider" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/app_conf_section" >
+
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/app_conf_section_text"
+                    android:text="@string/app_name" />
+            </LinearLayout>
+
+            <!-- tutorial -->
+            <RelativeLayout
+                android:id="@+id/view_tutirial"
+                style="@style/app_conf_item"
+                android:clickable="true" >
+
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/app_conf_item_text"
+                    android:text="@string/fcTutorial" />
+
+                <ImageView
+                    style="@style/app_conf_item_next_image"
+                    android:contentDescription="@string/acd" />
+            </RelativeLayout>
+
+            <LinearLayout style="@style/app_conf_divider" />
+
+            <!-- about -->
+            <RelativeLayout
+                android:id="@+id/view_about"
+                style="@style/app_conf_item"
+                android:clickable="true" >
+
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/app_conf_item_text"
+                    android:text="@string/fcAbout" />
+
+                <ImageView
+                    style="@style/app_conf_item_next_image"
+                    android:contentDescription="@string/acd" />
+            </RelativeLayout>
+
+            <LinearLayout style="@style/app_conf_divider" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

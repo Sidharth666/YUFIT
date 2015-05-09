@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:paddingTop="@dimen/space_12dp"
+    android:paddingBottom="@dimen/space_12dp"
+    android:weightSum="10">
+
+    <ImageView
+        android:id="@+id/img_sync_state"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/space_20dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:src="@drawable/status_na"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/space_1dp"
+        android:layout_weight="0.5" />
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="@dimen/space_46dp"
+        android:layout_weight="1.5">
+
+        <com.maxwell.bodysensor.ui.CircleImageView
+            android:id="@+id/img_member_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/profile_photo_small"/>
+        <ImageView
+            android:id="@+id/img_member_goal"
+            android:layout_width="@dimen/space_20dp"
+            android:layout_height="@dimen/space_20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/goal_not_achieve"/>
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/space_1dp"
+        android:layout_weight="0.5" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <com.maxwell.bodysensor.ui.ViewTextView
+            android:id="@+id/text_member_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/space_12dp"
+            tools:text="55667788"/>
+        <com.maxwell.bodysensor.ui.ViewTextView
+            android:id="@+id/text_member_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/space_12dp"
+            tools:text="Super Man"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2.5"
+        android:orientation="vertical"
+        android:gravity="center_vertical|end">
+
+        <com.maxwell.bodysensor.ui.ViewTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/space_12dp"
+            android:text=" "/>
+        <com.maxwell.bodysensor.ui.ViewTextView
+            android:id="@+id/text_member_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/space_12dp"
+            tools:text="@string/str_empty"/>
+
+    </LinearLayout>
+
+</LinearLayout>

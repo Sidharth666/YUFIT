@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1195"
+    android:orientation="vertical" >
+
+    <com.maxwell.bodysensor.ui.ViewChart
+        android:id="@+id/chart_trend_a"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="418"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="82">
+        <LinearLayout
+            android:id="@+id/view_trend_ad_chart_hint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="24"
+            android:gravity="top"
+            android:orientation="horizontal" >
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:text="@string/trend_12am" 
+                android:layout_weight="3"
+                android:gravity="left"
+                style="@style/app_trend_text_chart_hint" />
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:text="@string/trend_6am"
+                android:layout_weight="6"
+                style="@style/app_trend_text_chart_hint" />
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:text="@string/trend_12pm"
+                android:layout_weight="6"
+                style="@style/app_trend_text_chart_hint" />
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:text="@string/trend_6pm"
+                android:layout_weight="6"
+                style="@style/app_trend_text_chart_hint" />
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:text="@string/trend_12am" 
+                android:layout_weight="3"
+                android:gravity="right"
+                style="@style/app_trend_text_chart_hint" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/view_trend_aw_chart_hint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible" >
+
+            <include layout="@layout/view_chart_interval_week" />
+
+        </LinearLayout>
+        <FrameLayout
+            android:id="@+id/view_trend_am_chart_hint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible" >
+
+            <include layout="@layout/view_chart_interval_month" />
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/view_trend_ay_chart_hint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible" >
+
+            <include layout="@layout/view_chart_interval_year" />
+
+        </FrameLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="57"
+        android:gravity="center"
+        android:background="@color/app_orange_a33">
+        <ImageView
+            android:layout_width="@dimen/space_8dp"
+            android:layout_height="@dimen/space_6dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/activity_best"
+            android:contentDescription="@string/acd" />
+        <com.maxwell.bodysensor.ui.ViewTextView
+            android:id="@+id/text_trend_best"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/space_12dp"
+            android:textColor="@color/app_grey58"
+            mxw:typeface="Avenir-Roman.ttf" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="48" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="315"
+        android:orientation="horizontal" >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="444"
+            android:background="@drawable/box_orange_bg"
+            android:gravity="center"
+            android:orientation="vertical" >
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+                <RelativeLayout
+                    android:id="@+id/view_trend_ad_goal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        android:id="@+id/text_trend_ad_goal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/app_trend_ad_text_value1" />
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        android:text="@string/percentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/text_trend_ad_goal"
+                        android:layout_alignBaseline="@id/text_trend_ad_goal"
+                        android:textSize="@dimen/space_20dp"
+                        style="@style/app_trend_ad_text_value1" />    
+                </RelativeLayout>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_aw_goal" 
+                    android:visibility="invisible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    style="@style/app_trend_aw_text_value1" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_am_goal" 
+                    android:visibility="invisible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    style="@style/app_trend_am_text_value1" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_ay_goal" 
+                    android:visibility="invisible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    style="@style/app_trend_ay_text_value1" />
+            </FrameLayout>
+            
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:id="@+id/text_trend_a_goal"
+                android:text="@string/faGoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/app_trend_ad_text_value1_hint" />
+        </LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="31" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="444"
+            android:background="@drawable/box_orange_bg"
+            android:gravity="center"
+            android:orientation="vertical" >
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_ad_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/app_trend_ad_text_value1" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_aw_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/app_trend_aw_text_value1" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_am_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/app_trend_am_text_value1" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_ay_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/app_trend_ay_text_value1" />
+            </FrameLayout>
+            
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:id="@+id/text_trend_main_hint"
+                style="@style/app_trend_ad_text_value1_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/faEnergy" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="275"
+        android:gravity="center"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_ad_calories"
+                    style="@style/app_trend_text_calories_value" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_aw_calories"
+                    style="@style/app_trend_text_calories_value" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_am_calories"
+                    style="@style/app_trend_text_calories_value" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_ay_calories"
+                    style="@style/app_trend_text_calories_value" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_ad_minor"
+                    style="@style/app_trend_text_minor_value" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_aw_minor"
+                    style="@style/app_trend_text_minor_value" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_am_minor"
+                    style="@style/app_trend_text_minor_value" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_ay_minor"
+                    style="@style/app_trend_text_minor_value" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_ad_distance"
+                    style="@style/app_trend_text_distance_value" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_aw_distance"
+                    style="@style/app_trend_text_distance_value" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_am_distance"
+                    style="@style/app_trend_text_distance_value" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_ay_distance"
+                    style="@style/app_trend_text_distance_value" />
+            </FrameLayout>
+        </LinearLayout>
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:id="@+id/text_trend_calories_hint"
+                style="@style/app_trend_ad_text_value2_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/strCalories" />
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:id="@+id/text_trend_minor_hint"
+                style="@style/app_trend_ad_text_value2_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/strSteps" />
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:id="@+id/text_trend_distance_hint"
+                style="@style/app_trend_ad_text_value2_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/strKilometers" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

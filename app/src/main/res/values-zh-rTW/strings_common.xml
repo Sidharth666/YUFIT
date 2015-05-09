@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- http://developer.android.com/reference/java/util/Locale.html -->
+    <string name="locale_language">zh</string>
+    <string name="locale_country">TW</string>
+
+    <string name="string_time_am">上午</string>
+    <string name="string_time_pm">下午</string>
+
+    <!-- calendar/date, define output format, 
+        http://developer.android.com/reference/java/text/SimpleDateFormat.html 
+        http://www.localeplanet.com/java/en/
+        http://www.localeplanet.com/java/zh-TW/
+        http://www.localeplanet.com/java/zh-CN/
+        Need to verify on the real phone, to check the date/time looks good for each launage
+    -->
+    <string name="string_datefmt_ymd_week">yyyy年M月dE</string>
+    <string name="string_datefmt_ymd">yyyy年M月d</string>
+    <string name="string_datefmt_md">M月d</string>
+    <string name="string_datefmt_ym">yyyy年M月</string>
+    <string name="string_datefmt_hma">hh:mm a</string>
+    <string name="string_datefmt_ymd_hma">yyyy年M月d hh:mm a</string>
+    <string name="string_datefmt_week_hma">hh:mm a E</string>
+    <string name="string_datefmt_hmsa">hh:mm:ss a</string>
+    <string name="string_datefmt_hms_24">HH:mm:ss</string>
+</resources>

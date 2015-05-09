@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+	<com.maxwell.bodysensor.ui.ViewLinearLayout
+	    android:id="@+id/profile_layout"
+	    style="@style/app_outtab_layout_all"
+	    android:baselineAligned="false" >
+
+        <include layout="@layout/mxw_df_title_bar" />
+
+	    <ScrollView
+		    style="@style/app_outtab_content" >
+
+		    <LinearLayout 
+	    		android:layout_width="match_parent"
+	    		android:layout_height="wrap_content"
+	    		android:orientation="vertical" >
+
+		        <RelativeLayout 
+			        android:layout_width="match_parent"
+			    	android:layout_height="wrap_content"
+			    	android:paddingTop="@dimen/menu_item_tb"
+			    	android:paddingBottom="@dimen/menu_item_tb"
+			        android:background="@color/app_greye6" >
+
+			        <com.maxwell.bodysensor.ui.CircleImageView
+			            android:id="@+id/image_profile_photo"
+			            android:layout_width="@dimen/space_100dp"
+			    		android:layout_height="@dimen/space_100dp"
+			    		android:layout_centerHorizontal="true"
+			    		android:layout_marginTop="@dimen/space_10dp"
+			    		android:layout_marginBottom="@dimen/space_10dp"
+			    		android:src="@drawable/profile_photo"
+			    		border_width="1dp"
+			    		border_color="@color/app_greyba"/>
+
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_edit_photo"
+			            android:id="@+id/text_edit_photo"
+			    		android:layout_below="@id/image_profile_photo"
+			    		android:text="@string/edit"/>
+
+			    </RelativeLayout>
+
+		        <!-- Username -->
+			    <RelativeLayout
+			        style="@style/setup_profile_item"
+			        android:id="@+id/view_username"
+			        android:paddingRight="0dp"
+			        android:clickable="true" >
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            android:id="@+id/text_username"
+			            style="@style/setup_profile_item_title"
+			            android:layout_width="wrap_content"
+			            android:layout_alignParentLeft="true"
+			            android:layout_centerVertical="true"
+			            android:text="@string/cpUsername"/>
+			        <com.maxwell.bodysensor.ui.ViewEditText
+			            android:id="@+id/edit_username"
+			            style="@style/setup_profile_item_value_edittext"
+			            android:layout_toRightOf="@id/text_username"
+			            android:hint="@string/str_empty"
+			            android:background="@null"/>
+			    </RelativeLayout>
+			    <LinearLayout
+			            style="@style/app_conf_divider"/>
+
+			    <LinearLayout
+			        style="@style/app_list_item"
+			        android:background="@color/app_greye6">
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_hint"
+			            android:text="@string/username_discription"/>
+			    </LinearLayout>
+			    <LinearLayout
+			            style="@style/app_conf_divider"/>
+			    <LinearLayout
+			        style="@style/app_list_item"
+			        android:background="@color/app_greya6">
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_main"
+			            android:text="@string/title_personal_info"/>
+			    </LinearLayout>
+			    <LinearLayout
+			            style="@style/app_conf_divider"/>
+
+			    <!-- Birthday -->
+			    <LinearLayout
+			        style="@style/setup_profile_item"
+			        android:id="@+id/view_birthday" >
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_title"
+			            android:text="@string/birthday"/>
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_value"
+			            android:id="@+id/text_birthday"
+			            android:text="@string/str_empty" />
+			    </LinearLayout>
+			    <LinearLayout
+			            style="@style/app_conf_divider"/>
+
+			    <!-- Sex/Gender -->
+			    <LinearLayout
+			        style="@style/setup_profile_item"
+			        android:id="@+id/view_sex" >
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_title"
+			            android:layout_weight="4"
+			            android:text="@string/cpGender"/>
+			        <RadioGroup
+			            android:id="@+id/radio_sex"
+			            android:layout_width="0dp"
+			            android:layout_height="wrap_content"
+			            android:layout_weight="6"
+			            android:weightSum="200"
+			            android:orientation="horizontal">
+			            <com.maxwell.bodysensor.ui.ViewRadioButton
+                    		style="@style/rb_option_left"
+			                android:id="@+id/rbtn_male"
+			                android:text="@string/cpMale"
+			            />
+			            <com.maxwell.bodysensor.ui.ViewRadioButton
+                    		style="@style/rb_option_right"
+			                android:id="@+id/rbtn_female"
+			                android:text="@string/cpFemale"
+			            />
+			        </RadioGroup>
+			    </LinearLayout>
+			    <LinearLayout
+			            style="@style/app_conf_divider"/>
+
+			    <!-- Height -->
+			    <LinearLayout
+			        style="@style/setup_profile_item"
+			        android:id="@+id/view_height" >
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_title"
+			            android:text="@string/cpHeight"/>
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_value"
+			            android:id="@+id/text_height"
+			            android:text="@string/str_empty" />
+			    </LinearLayout>
+			    <LinearLayout
+			            style="@style/app_conf_divider"/>
+
+			    <!-- Weight -->
+			    <LinearLayout
+			        style="@style/setup_profile_item"
+			        android:id="@+id/view_weight" >
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_title"
+			            android:text="@string/cpWeight"/>
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_value"
+			            android:id="@+id/text_weight"
+			            android:text="@string/str_empty" />
+			    </LinearLayout>
+			    <LinearLayout
+			            style="@style/app_conf_divider"/>
+
+			    <!-- Stride -->
+			    <LinearLayout
+			        style="@style/setup_profile_item"
+			        android:id="@+id/view_stride" >
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_title"
+			            android:text="@string/cpStride"/>
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_value"
+			            android:id="@+id/text_stride"
+			            android:text="@string/str_empty" />
+			    </LinearLayout>
+			    <LinearLayout
+			            style="@style/app_conf_divider"/>
+
+			    <LinearLayout
+			        style="@style/app_list_item"
+			        android:paddingTop="@dimen/space_24dp"
+			        android:paddingBottom="@dimen/space_24dp"
+			        android:background="@color/app_greye6">
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_hint"
+			            android:text="@string/personal_info_discription"/>
+			    </LinearLayout>
+			    <LinearLayout
+			            style="@style/app_conf_divider"/>
+			    <LinearLayout
+			        style="@style/app_list_item"
+			        android:background="@color/app_greya6">
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_main"
+			            android:text="@string/title_sleep_preference"/>
+			    </LinearLayout>
+			    <LinearLayout
+			            style="@style/app_conf_divider"/>
+
+			    <!-- Sleep start time -->
+			    <LinearLayout
+			        style="@style/setup_profile_item"
+			        android:id="@+id/view_sleep_start_time" >
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_title"
+			            android:text="@string/sleep_start_time"/>
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_value"
+			            android:id="@+id/text_sleep_start_time"
+			            android:text="@string/str_empty" />
+			    </LinearLayout>
+			    <LinearLayout
+			            style="@style/app_conf_divider"/>
+
+			    <!-- Sleep wake time -->
+			    <LinearLayout
+			        style="@style/setup_profile_item"
+			        android:id="@+id/view_sleep_wake_time" >
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_title"
+			            android:text="@string/sleep_wake_time"/>
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_value"
+			            android:id="@+id/text_sleep_wake_time"
+			            android:text="@string/str_empty" />
+			    </LinearLayout>
+			    <LinearLayout
+			            style="@style/app_conf_divider"/>
+
+			    <LinearLayout
+			        style="@style/app_list_item"
+                    android:paddingTop="@dimen/space_24dp"
+                    android:paddingBottom="@dimen/space_24dp"
+                    android:background="@color/app_greye6">
+			        <com.maxwell.bodysensor.ui.ViewTextView
+			            style="@style/setup_profile_item_hint"
+			            android:text="@string/title_sleep_preference_discription"/>
+			    </LinearLayout>
+
+                <!-- Group Info -->
+                <include layout="@layout/layout_profile_group_member" />
+
+		   	</LinearLayout>
+	   	</ScrollView>       
+	</com.maxwell.bodysensor.ui.ViewLinearLayout>
+
+	<include layout="@layout/picker_profile"/>
+
+</RelativeLayout>

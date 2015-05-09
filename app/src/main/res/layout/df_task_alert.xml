@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.maxwell.bodysensor.ui.ViewLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    style="@style/app_outtab_layout_all"
+    android:baselineAligned="false">
+
+    <include layout="@layout/mxw_df_title_bar" />
+    
+    <LinearLayout
+        style="@style/app_outtab_content"
+        android:orientation="vertical" >
+        
+        <com.maxwell.bodysensor.ui.ViewTextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/df_task_alert_instruction"
+	        android:minLines="4"
+	        android:textSize="@dimen/text_17sp"
+	        android:gravity="center"
+            mxw:typeface="Avenir-Roman.ttf"/>
+        
+        <!-- Task 1 region -->
+	    <LinearLayout
+            style="@style/layout_task_alert_item" >
+	        
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:weightSum="1"
+	            android:gravity="center_vertical" >
+	
+	            <View
+	                android:layout_width="0dp"
+	                android:layout_height="1dp"
+	                android:layout_weight="0.05" />
+	
+			    <com.maxwell.bodysensor.ui.ViewEditText
+                    style="@style/edit_task_alert_task_title"
+					android:id="@+id/edtTask1Title" />
+	            
+	            <ImageButton
+                    style="@style/imgb_task_alert_delete"
+	                android:id="@+id/imgBtnDeleteTask1" />
+	
+			</LinearLayout>
+			
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:weightSum="1"
+	            android:gravity="center_vertical"
+	            android:layout_marginTop="@dimen/space_5dp"
+	            android:layout_marginBottom="@dimen/space_5dp" >
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="0.05" />
+	
+	            <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/edit_task_alert_task_datetime"
+	                android:id="@+id/txtTask1DateAndTime" />
+	
+				<com.maxwell.bodysensor.ui.ViewButton
+                    style="@style/btn_task_alert_set"
+		            android:id="@+id/btnSetTask1DateAndTime" />
+	
+	        </LinearLayout>
+	        
+	    </LinearLayout>
+	    <LinearLayout style="@style/app_conf_divider"/>
+	    
+	    <!-- Task 2 region -->
+	    <LinearLayout
+            style="@style/layout_task_alert_item" >
+	
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:weightSum="1"
+	            android:gravity="center_vertical" >
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="0.05" />
+	
+			    <com.maxwell.bodysensor.ui.ViewEditText
+                    style="@style/edit_task_alert_task_title"
+					android:id="@+id/edtTask2Title" />
+	
+	            <ImageButton
+                    style="@style/imgb_task_alert_delete"
+	                android:id="@+id/imgBtnDeleteTask2" />
+	
+			</LinearLayout>
+	
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:weightSum="1"
+	            android:gravity="center_vertical"
+	            android:layout_marginTop="@dimen/space_5dp"
+	            android:layout_marginBottom="@dimen/space_5dp" >
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="0.05" />
+	
+	            <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/edit_task_alert_task_datetime"
+	                android:id="@+id/txtTask2DateAndTime" />
+	
+				<com.maxwell.bodysensor.ui.ViewButton
+                    style="@style/btn_task_alert_set"
+		            android:id="@+id/btnSetTask2DateAndTime" />
+	
+	        </LinearLayout>
+	
+	    </LinearLayout>
+	    <LinearLayout style="@style/app_conf_divider"/>
+	    
+	    <!-- Task 3 region -->
+	    <LinearLayout
+            style="@style/layout_task_alert_item" >
+	
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:weightSum="1"
+	            android:gravity="center_vertical" >
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="0.05" />
+	
+			    <com.maxwell.bodysensor.ui.ViewEditText
+                    style="@style/edit_task_alert_task_title"
+					android:id="@+id/edtTask3Title" />
+	
+	            <ImageButton
+                    style="@style/imgb_task_alert_delete"
+	                android:id="@+id/imgBtnDeleteTask3" />
+	
+			</LinearLayout>
+	
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:weightSum="1"
+	            android:gravity="center_vertical"
+	            android:layout_marginTop="@dimen/space_5dp"
+	            android:layout_marginBottom="@dimen/space_5dp" >
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="0.05" />
+	
+	            <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/edit_task_alert_task_datetime"
+	                android:id="@+id/txtTask3DateAndTime" />
+	
+				<com.maxwell.bodysensor.ui.ViewButton
+                    style="@style/btn_task_alert_set"
+		            android:id="@+id/btnSetTask3DateAndTime" />
+	
+	        </LinearLayout>
+	
+	    </LinearLayout>
+	    
+	</LinearLayout>
+
+</com.maxwell.bodysensor.ui.ViewLinearLayout>

@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+    http://developer.android.com/guide/topics/resources/string-resource.html#FormattingAndStyling 
+    [Escaping apostrophes and quotes]
+        If you have an apostrophe or a quote in your string, 
+        you must either escape it or enclose the whole string in the other type of enclosing quotes.
+    [Formatting]    
+        Ex. Hello, %1$s! You have %2$d new messages.
+    -->
+
+    <string name="strNo">No</string>
+    <string name="strYes">Sì</string>
+    <string name="strCancel">Annulla</string>
+    <string name="strDelete">Delete</string> <!-- need trans -->
+    <string name="strOK">OK</string>
+    <string name="strDone">Fatto</string>
+    <string name="strSave">Salva</string>
+    <string name="strOff">OFF</string>
+    <string name="strOn">ON</string>
+    <string name="strBack">Indietro</string>
+    <!-- need trans -->
+    <string name="str_link">Link</string>
+    <string name="str_unlink">Unlink</string>
+    <string name="str_next">Next</string>
+    <string name="str_try_again">Try Again</string>
+    <string name="str_switch_on">ON</string>
+    <string name="str_switch_off">OFF</string>
+    <string name="str_exit_app_sure">Are you sure to exit?</string>
+    <!-- need trans -->
+ 
+    <string name="strShortMonday">LUN</string>
+    <string name="strShortTuesday">MAR</string>
+    <string name="strShortWednesday">MER</string>
+    <string name="strShortThursday">GIO</string>
+    <string name="strShortFriday">VEN</string>
+    <string name="strShortSaturday">SAB</string>
+    <string name="strShortSunday">DOM</string>
+    <string name="strShortJanuary">Gen</string>
+    <string name="strShortFebruary">Feb</string>
+    <string name="strShortMarch">Mar</string>
+    <string name="strShortApril">Apr</string>
+    <string name="strShortMay">Mag</string>
+    <string name="strShortJune">Giu</string>
+    <string name="strShortJuly">Lug</string>
+    <string name="strShortAugust">Ago</string>
+    <string name="strShortSeptember">Set</string>
+    <string name="strShortOctober">Ott</string>
+    <string name="strShortNovember">Nov</string>
+    <string name="strShortDecember">Dic</string>
+    <string name="strAM">AM</string>
+    <string name="strPM">PM</string>
+    <string name="strTabHome">Home</string>
+    <string name="strTabTrend">Trends</string> <!-- need trans -->
+    <string name="strTabActivity">Attività</string>
+    <string name="strTabSleep">Sonno</string>
+    <string name="strTabPlayground">Playground</string> <!-- need trans -->
+    <string name="strTabSetting">Impostazioni</string>
+    <string name="strCalories">calorie</string>
+    <string name="calories_k">1000 calories</string> <!-- need trans -->
+    <string name="strSteps">passi</string>
+    <string name="steps_k">steps (k)</string> <!-- need trans -->
+    <string name="strKilometers">km</string>
+    <string name="strMiles">miglia</string>
+    <!-- need trans -->
+    <string name="kilometers_short">km</string>
+    <string name="kilometers_k">1000 km</string>
+    <string name="miles_k">1000 miles</string>
+    <!-- need trans -->
+    <string name="strDayCapital">GIORNO</string>
+    <string name="strWeekCapital">SETTIMANA</string>
+    <string name="strMonthCapital">MESE</string>
+    <string name="strYearCapital">ANNO</string>
+    <string name="strMetric">Parametro</string>
+    <string name="strImperial">Imperiale</string>
+    <string name="fhEnergy">energia</string>
+    <string name="fhThisDay">Oggi</string>
+    <string name="fhOutOf">di</string>
+    <string name="fhNoSyncRecord">nessun dato sincronizzato</string>
+    <string name="fhPairFirst">Abbina un dispositivo</string>
+    <string name="fhUpdated">aggiornato: </string>
+    <string name="fhSwipeAgain">scorri di nuovo</string>
+
+<!-- need trans -->
+    <string name="trend_day">Day</string>
+    <string name="trend_week">Week</string>
+    <string name="trend_month">Month</string>
+    <string name="trend_year">Year</string>
+    <string name="trend_12am">12am</string>
+    <string name="trend_6am">6am</string>
+    <string name="trend_12pm">12pm</string>
+    <string name="trend_6pm">6pm</string>
+    <string name="trend_best_hour">best hour:</string>
+    <string name="trend_best_day">best day:</string>
+    <string name="trend_best_month">best month:</string>
+    <string name="trend_se_very_good">very good</string>
+    <string name="trend_se_good">good</string>
+    <string name="trend_se_poor">poor</string>
+    <string name="trend_sleep_h">h</string>
+    <string name="trend_sleep_m">m</string>
+    <string name="trend_sleep_now">Sleep now</string>
+    <string name="trend_add_sleep_entry">Add sleep entry</string>
+
+    <string name="sl_sleep_entry">Sleep entry</string>
+    <string name="sl_sleep_at">I slept at</string>
+    <string name="sl_wake_at">and wake at</string>
+    <string name="sl_error_begin_end">The sleep time must be earlier than the wake up time</string>
+    <string name="sl_error_end_now">The wake up time must be earlier than the current time</string>
+    <string name="sl_error_sixty_minutes">In order to calculate sleep quality accurately, can not log the sleep entry less than 1 hour</string>
+<!-- need trans -->
+
+    <string name="faGoal">obiettivo</string>
+    <string name="faGoalsHit">obiettivi raggiunti</string>
+    <string name="faEnergy">energia</string>
+    <!-- need trans -->
+    <string name="faStep">step</string>
+    <string name="fa_energy_k">energy (k)</string>
+    <!-- need trans -->
+    <string name="faShareDay">"Oggi ho generato %1$d di energia, fatto %2$d passi ossia circa %3$s, e bruciato %4$d calorie."</string>
+    <string name="faShareWeek">"Questa settimana ho generato %1$d di energia, fatto %2$d passi ossia circa %3$s, e bruciato %4$d calorie."</string>
+    <string name="faShareMonth">"Questo mese ho generato %1$d di energia, fatto %2$d passi ossia circa %3$s, e bruciato %4$d calorie."</string>
+    <string name="faShareYear">"Quest’anno ho generato %1$d di energia, fatto %2$d passi ossia circa %3$s, e bruciato %4$d calorie."</string>
+    <string name="fsDeepSleep">sonno profondo</string>
+    <string name="fsLightSleep">sonno leggero</string>
+    <string name="fsAwake">sveglio</string>
+    <string name="fsSleepEfficiency">efficienza del sonno</string>
+    <string name="fsAvgBad">pessima</string>
+    <string name="fsAvgAverage">media</string>
+    <string name="fsAvgGood">buona</string>
+    <string name="fsAvg">media</string>
+    <string name="fsDuration">durata</string>
+    <string name="fsEfficiency">efficienza</string>
+    <string name="fsTimesWoke">N. volte svegliato</string>
+    <string name="fsSettingSleep">Impostazione</string>
+    <string name="fsToggleStop">stop</string>
+    <string name="fsToggleOK">ricorda di sincronizzare ai dati del sonno</string>
+    <string name="fsAlarm">sveglia</string>
+    <string name="fsShareDay">"Oggi ho dormito %1$d ore e %2$d minuti, con un’efficienza del sonno di %3$s."</string>
+    <string name="fsShareWeek">"Questa settimana ho dormito una media di %1$d ore e %2$d minuti, con un’efficienza del sonno di %3$s."</string>
+    <string name="fsShareMonth">"Questo mese ho dormito una media di %1$d ore e %2$d minuti, con un’efficienza del sonno di %3$s."</string>
+    <string name="fsShareYear">"Quest’anno ho dormito una media di %1$d ore e %2$d minuti, con un’efficienza del sonno di %3$s."</string>
+
+<!-- need trans -->
+    <string name="settings">Settings</string>
+    <string name="profile_me">Me</string>
+    <string name="profile_you">You</string>
+    <string name="profile_profile_settings">Profile Settings</string>
+    <string name="profile_daily_goal">Daily Goal</string>
+    <string name="profile_social_accounts">Social Accounts</string>
+    <string name="profile_manage_device">Manage Device</string>
+    <string name="profile_device_no_conn">Not connected to any device</string>
+    <string name="profile_add_a_device">Add a Device</string>
+    <string name="profile_my_device">My Device</string>
+    <string name="profile_battery_capacity">Battery Capacity: </string>
+    <string name="profile_synced_time">Synced: </string>
+    <string name="profile_unlink_device">Unlink Device</string>
+    <string name="profile_unlink_device_q">Are you sure you want to unlink this device?</string>
+    <string name="profile_how_to_sync">How to sync data</string>
+    <string name="profile_sos">SOS</string>
+    <string name="profile_sos_history">SOS History</string>
+    <string name="profile_sos_contact">Edit Emergency Contact</string>
+    <string name="profile_support">Support</string>
+    <string name="profile_user_manual">User Manual</string>
+    <string name="profile_terms_of_service">Terms of Service</string>
+    <string name="profile_privacy_policy">Privacy Policy</string>
+    <string name="profile_version">Version</string>
+<!-- need trans -->
+
+    <string name="fcSectionCustomize">Personalizza</string>
+    <string name="fcProfile">Profilo</string>
+    <string name="fcUnit">Unità</string>
+    <string name="fcGoalSetting">Impostazione obiettivo</string>
+    <string name="fcShareToFacebook">Condividi su Facebook</string>
+    <string name="fcUserCalendar">Calendario utente</string> <!-- demo -->
+
+    <string name="fcSectionPhoneNotifications">Notifiche telefono</string>
+    <string name="fcOutOfRangeAlert">Allerta fuori intervallo</string>
+    <string name="fcIncomingCallSmsNoti">Chiamate/SMS in entrata</string>
+    <string name="fcConnectionMode">Collegamento in corso</string>
+    <string name="fcSectionSmartKeys">Chiavi smart</string>
+    <string name="fcSmartKeys">Chiavi smart</string>
+    <string name="fcSmartKeysCurrentSetting">Ora:\u0020</string>
+    <string name="fcSmartKeysLaunch">Lancia</string>
+    <string name="fcSmartKeysFind">Trova</string>
+    <string name="fcSectionDeviceAlert">Allerta dispositivo</string>
+    <string name="fcAlarm">Allarme</string>
+    <string name="fcTaskAlert">Allerta attività</string>
+    <string name="fcMoveAlert">Allerta movimento</string>
+    <string name="fcSectionDevice">Dispositivo</string>
+    <string name="fcPairADevice">Abbina un dispositivo</string>
+    <string name="fcDeviceList">Elenco dispositivi</string>
+    <string name="fcLanguage">Lingua</string>
+    <string name="fcBuzzVibrater">Cicalino/Vibrazione</string>
+    <string name="fcAutoSync">Sincronizzazione automatica</string>
+    <string name="fcBatteryCapacity">Capacità batteria</string>
+    <string name="fcResetDevice">Ripristina dispositivo</string>
+    <string name="fcSectionAbout">Informazioni</string>
+    <string name="fcTutorial">Tutorial</string>
+    <string name="fcTroubleshooting">Risoluzione problemi</string>
+    <string name="fcAbout">Informazioni</string>
+    <!-- need trans -->
+    <string name="share_hint">What\'s on your mind?</string>
+    
+    <string name="cpUsername">Username*</string>
+    <!-- need trans -->
+    <string name="cpName">Nome</string>
+    <string name="cpInputName">Inserisci il tuo nome</string>
+    <string name="cpGender">Sesso</string>
+    <string name="cpAge">Età</string>
+    <string name="cpHeight">Altezza</string>
+    <string name="cpWeight">Peso</string>
+    <string name="cpStride">Andatura</string>
+    <string name="cpMale">Maschio</string>
+    <string name="cpFemale">Femmina</string>
+    <string name="cpCm">cm</string>
+    <string name="cpKg">kg</string>
+    <string name="cpFt">ft</string>
+    <string name="cpIn">in</string>
+    <string name="cpLbs">lbs</string>
+    <string name="cgGoal">OBIETTIVO</string>
+    <string name="cgHint">Inserisci il tuo obiettivo energetico per oggi!\nScegli Obiettivo energia o passi.</string>
+<!-- need trans -->
+    <string name="goal_title">My Daily Goal</string>
+    <string name="goal_key_in">key in your goal:</string>
+    <string name="goal_hint">Energy Points per day</string>
+    <string name="goal_choose">Or choose your active level:</string>
+    <string name="goal_level_1">Kinda Active</string>
+    <string name="goal_level_2">Moderately Active</string>
+    <string name="goal_level_3">Move-a-lot</string>
+    <string name="goal_level_4">Workoutholic</string>
+    <string name="goal_level_5">Workout-til-I-drop</string>
+    <string name="goal_error_no_value">Please input your goal</string>
+
+    <string name="addnew_device_not_find">We can not find your Device</string>
+    <string name="addnew_device_trouble1">Activate device\'s pairing mode while the App is searching for it.</string>
+    <string name="addnew_device_trouble2">Make sure Device is placed on the top side to the phone, and button side facing up.</string>
+    <string name="addnew_device_trouble3">Make sure Device still has power.</string>
+    <string name="addnew_device_trouble4">Make sure the device you are pairing is Device.</string>
+    <string name="device_info_name_edit_hint">Type the device name here...</string>
+    <string name="device_delete_title">Delete device</string>
+    <string name="device_delete_description">Do you really want to delete this deivce?</string>
+    <string name="switch_devices_title">Switch Devices</string>
+<!-- need trans -->
+
+    <!-- David Sun. -->
+    <string name="cgEnergyGoal">Obiettivo energia</string>
+    <string name="cgStepGoal">Obiettivo passi</string>
+    <string name="cfTitle">Facebook</string>
+    <string name="cfHint">Condividi la tua energia con gli amici</string>
+    <string name="cdMakeSure">Assicurati di avere attivato la modalità di abbinamento del tuo dispositivo.</string>
+    <string name="cdNote">* dovrai farlo solo per i dispositivi nuovi</string>
+    <string name="cdPairAgain">Abbina di nuovo</string>
+    <string name="caBy">Progettata e sviluppata da</string>
+    <string name="caMXW">Maxwell Guider Technology</string>
+    <string name="caSupport">Assistenza:</string>
+    <string name="caSupportURL">http://www.maxwell-guider.com.tw</string>
+    <string name="caEMail">E-mail:</string>
+    <string name="caEMailURL">contacts@maxwell-guider.com.tw</string>
+    <string name="caSound">Effetti sonori:</string>
+    <string name="caSoundURL">http://www.freefx.co.uk</string>
+    <string name="ipPairing">abbinamento dispositivo...</string>
+    <string name="ipConnecting">connecting device...</string>
+    <string name="ipSyncing">sincronizzazione dati...</string>
+    <string name="ipReseting">ripristino...</string>
+    <string name="ynResetDeviceDes">Vuoi eliminare il resoconto del dispositivo?</string>
+    <string name="ynDeleteAlarmTitle">Elimina?</string>
+    <string name="ynDeleteAlarmDes">Vuoi davvero eliminare questo segmento di sonno giornaliero?</string>
+    <string name="ynAlarmTitle">Sveglia!</string>
+    <string name="ynAlarmDes">Interrompi la sveglia per fermare il monitoraggio del sonno</string>
+    <string name="ynAlarmSnooze">Snooze</string>
+    <string name="ynAlarmStop">Stop</string>
+    <string name="deTitle">Dispositivo</string>
+    <string name="deDeviceName">Nome dispositivo</string>
+    <string name="deInputDeviceName">Inserisci il nome del dispositivo</string>
+    <string name="deAddress">Indirizzo</string>
+    <string name="deFeaturesFIXME">Funzioni</string>
+    <string name="dePhNFIXME">Notifica telefono</string>
+    <string name="deGestureFIXME">Rilevazione dei gesti</string>
+    <string name="deSOSFIXME">Allarme SOS</string>
+    <string name="srTitle">Condividi</string>
+    <string name="srPost">Pubblica</string>
+    <string name="srHint">"Cosa stai pensando?"</string>
+    <string name="srMakeSure">Assicurati di accedere al tuo account Facebook.</string>
+    <string name="srSuccess">Foto pubblicata correttamente.</string>
+    <string name="ssSleepSetting">Impostazione sonno</string>
+    <string name="ssSectionAlarm">Sveglia</string>
+    <string name="ssAlarm">Sveglia</string>
+    <string name="ssAlarmTime">Ora sveglia</string>
+    <string name="ssSnooze">Snooze</string>
+    <string name="ssSound">Audio</string>
+    <string name="ssSectionMonitor">Monitor sonno</string>
+    <string name="ssLogSleepEntry">Accedi voce sonno</string>
+    <string name="ssScheduleAutoMonitor">Programma auto-monitoraggio</string>
+    <string name="ssAutoMonitor">Auto-Monitoraggio</string>
+    <string name="ssSensitivity">Sensibilità sonno</string>
+    <string name="ssSensitivityNormal">Normale</string>
+    <string name="ssSensitivityHigh">Alta</string>
+
+    <!-- sa, alarm time -->
+    <!-- sn, snooze -->
+    <string name="snSetting">Impostazione snooze</string>
+    <string name="snSnooze">Snooze</string>
+    <string name="snInterval">Intervallo</string>
+    <string name="snMinute">minuto</string>
+    <string name="snMinutes">minuti</string>
+    <!-- sd, sound -->
+    <string name="sdTitle">Audio sveglia</string>
+    <string name="sdBeep">Bip</string>
+    <string name="sdBellRing">Campana</string>
+    <string name="sdCarSpeed">Auto</string>
+    <string name="sdCat">Gatto</string>
+    <string name="sdDuck">Anatra</string>
+    <string name="sdLion">Leone</string>
+    <string name="sdLukeGreetings">Luke Greetings</string>
+    <string name="sdPhone">Telefono</string>
+    <string name="sdPig">Maiale</string>
+    <!-- sl, log sleep entry -->
+    <string name="slSleepAt">Stanotte mi sono addormentato alle</string>
+    <string name="slWakeAt">e mi sono svegliato alle</string>
+    <!-- sm, auto-monitor -->
+    <string name="smSleepAt">Dormire alle</string>
+    <string name="smWakeAt">Svegliarsi alle</string>
+    <string name="smLastNight">scorsa notte</string>
+    <string name="smToday">oggi</string>
+
+<!-- need trans -->    
+    <!-- User login/register -->
+    <string name="welcome_to">Welcome to</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    
+    <!-- Setup Profile -->
+    <string name="setup_profile">Setup Profile</string>
+    <string name="edit">Edit</string>
+    <string name="birthday">Birthday</string>
+    <string name="username_discription">*Username is a public display name.</string>
+    <string name="title_personal_info">Personal Information*</string>
+    <string name="personal_info_discription">*We will only use personal information to better calculate fitness data.</string>
+    <string name="title_sleep_preference">Sleep Preference*</string>
+    <string name="title_sleep_preference_discription">*Sleep Preference will be used for automatic sleep tracking.</string>
+    <string name="sleep_start_time">Sleep start time</string>
+    <string name="sleep_wake_time">Sleep wake time</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="choose_from_gallery">Choose from camera roll</string>
+    <string name="import_from_facebook">Import from Facebook</string>
+    <string name="import_from_wechat">Import from WeChat</string>
+    <string name="remove_current_photo">Remove Current Photo</string>
+    <string name="warning_username_empty">Username can not be empty</string>
+    <string name="warning_fullname_empty">Name can not be empty</string>
+    <string name="warning_username_exists">Username already exists</string>
+    <string name="warning_height_empty">Height can not be empty</string>
+    <string name="warning_weight_empty">Weight can not be empty</string>
+    <string name="warning_stride_empty">Stride can not be empty</string>
+    <string name="warning_no_facebook_photo">No facebook profile photo</string>
+<!-- need trans -->
+
+    <!-- Tutorial -->
+    <string name="title_pairing_new_device">Abbinamento nuovo dispositivo in corso</string>
+    <string name="title_syncing">Sincronizzazione in corso</string>
+    <string name="title_setting_your_goal">Impostazione obiettivo in corso</string>
+    <string name="title_switching_device">Passaggio dispositivo in corso</string>
+    <string name="title_sharing_to_social_account">Condivisione su social account in corso</string>
+    <string name="title_monitoring_sleep">Monitoraggio sonno in corso</string>
+    <string name="title_setting_up_the_alarm">Impostazione sveglia in corso</string>
+    <string name="title_deleting_sleep_entries">Eliminazione voci sonno in corso</string>
+    <string name="tutorial1_step_1">Abilita Bluetooth nelle impostazioni del telefono.</string>
+    <string name="tutorial1_step_2">Attiva la modalità di abbinamento del telefono. \nConsulta il manuale utente cartaceo per i dettagli sull’abbinamento.</string>
+    <string name="tutorial1_step_3">Tocca Abbina un dispositivo nelle impostazioni.</string>
+    <string name="tutorial1_step_4">Seleziona il dispositivo da abbinare.</string>
+    <string name="tutorial2_step_1">Tieni il tuo dispositivo vicino al telefono durante la sincronizzazione.</string>
+    <string name="tutorial2_step_2">Attiva la modalità di sincronizzazione del dispositivo.\nConsulta il manuale utente cartaceo per i dettagli sulla sincronizzazione.</string>
+    <string name="tutorial2_step_3">Vai alla home. Tocca il pulsante di sincronizzazione nell’angolo in alto a destra, o tira verso il basso l’anello, per sincronizzare i dati del dispositivo.</string>
+    <string name="tutorial3_instruction_1">Mentre ti avvicini al completamento del tuo obiettivo quotidiano, l’anello si completa lentamente.</string>
+    <string name="tutorial3_instruction_2">Modifica il tuo obiettivo quotidiano nelle impostazioni tramite Impostazioni obiettivo.</string>
+    <string name="tutorial4_instruction">Per visualizzare i dati di allenamento archiviati in un altro dispositivo, vai all’elenco dei dispositivi nelle impostazioni e scegli il dispositivo.</string>
+    <string name="tutorial5_step_1">Assicurati di essere collegato ai social account nelle impostazioni.</string>
+    <string name="tutorial5_step_2">Nella pagina delle attività, scorri per condividere il tuo allenamento.</string>
+    <string name="tutorial6_instruction_1">Log your sleep session here.</string>
+    <string name="tutorial6_instruction_2">Set the sleep start time and sleep end time.</string>
+    <string name="tutorial7_instruction">To delete a sleep entry, please press and hold the graph of the entry you wish to delete.</string>
+
+    <!-- Getting Start -->
+    <string name="pair_my_cpasule">Abbina</string>
+    <string name="skip_and_pair_later">Salta</string>
+    <string name="pair_my_capsule">Abbina il tuo dispositivo</string>
+    <string name="unit_setting">Impostazione unità</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="check_bluetooth_content_1">assicurati che la funzione bluetooth del tuo telefono sia attiva</string>
+    <string name="check_bluetooth_content_2">premi il pulsante della tua capsula ogni volta prima di abbinare un nuovo dispositivo</string>
+    <string name="unit_setting_content_1">Seleziona l’unità per il tuo sensore del corpo</string>
+    <string name="device_connection_failed">Collegamento al dispositivo non riuscito</string>
+
+    <!-- Weibo sharing -->
+    <string name="fcWeibo">Weibo</string>
+    <string name="fcShareToWeibo">Condividi su Weibo</string>
+
+    <!-- WeChat sharing -->
+    <string name="fcWeChat">WeChat</string>
+    <string name="fcShareToWeChat">Condividi su WeChat</string>
+
+<!-- need trans -->
+    <!-- Social Account -->
+    <string name="weibo_account_unlinked_title">Your Weibo Account is unlinked</string>
+    <string name="facebook_account_unlinked_title">Your Facebook Account is unlinked</string>
+    <string name="account_unlinked_content">Go to your social account settings to link it again.</string>
+
+    <!-- New feature on Tab Conf -->
+    <string name="dlg_device_disconnectd_content">Your device is disconnected</string>
+    <string name="phone_notify">Phone notify</string>
+<!-- need trans -->
+ 
+    <!-- Strings for BodySensor2 -->
+    <string name="body_sensor_two_lines">SENSORE\nCORPO</string>
+    <string name="edt_email_hint">e-mail</string>
+    <string name="edt_password_hint">password</string>
+    <string name="edt_retype_password_hint">ridigita password</string>
+    <string name="btn_log_in">Accedi</string>
+    <string name="log_in_with_social_account">Accedi con il social account</string>
+    <string name="facebook">Facebook</string>
+    <string name="we_chat">WeChat</string>
+    <string name="wei_bo">WeiBo</string>
+    <string name="forget_password"><u>Hai dimenticato la password?</u></string>
+    <string name="sign_up"><u>Registrati</u></string>
+    <string name="sign_up_title">Registrati</string>
+    <string name="chk_box_subscribe">Iscrivimi alle promozioni esclusive.</string>
+    <string name="btn_create_account">Crea account</string>
+    <string name="agreement">Creando un account, accetti i <u>Termini di servizio</u> e la <u>Politica sulla privacy</u>.</string>
+    <string name="searching_for_devices">Ricerca dei dispositivi in corso...</string>
+    <string name="pair_device_instruction">Abilita Bluetooth nelle impostazioni del telefono.\n\nAttiva la modalità di abbinamento del dispositivo.\nConsulta il manuale utente cartaceo per le istruzioni sull’abbinamento.</string>
+    <string name="confirm_device_connection">Il tuo dispositivo è stato collegato correttamente.</string>
+    <string name="btn_next">Avanti</string>
+    <string name="btn_stop_alert">Blocca allarme</string>
+    <string name="dlg_ringtone_picker_title">Seleziona una suoneria</string>
+    <string name="dlg_bt_device_out_of_range_alert_title">Allarme fuori intervallo</string>
+    <string name="dlg_bt_device_out_of_range_alert_description_far">Il tuo telefono/tablet è rimasto indietro.</string>
+    <string name="dlg_bt_device_out_of_range_alert_description_near">Il tuo bracciale è quasi al di fuori dell’intervallo di connessione con il telefono/tablet.</string>
+    <string name="dlg_turn_off_auto_connection_with_bt_device_description">Stai usando la modalità di auto-collegamento.\n\nVai alla pagina delle Impostazioni per modificare il Collegamento manuale, affinché tu possa scollegare il dispositivo o interrompere la ricerca manuale.</string>
+    <string name="dlg_bt_device_btn_pressed_find_phone_title">Ricerca del telefono in corso</string>
+    <string name="dlg_bt_device_btn_pressed_find_phone_description">Ottimo! Ci sei riuscito.</string>
+    <string name="str_morning">mattina</string>
+    <string name="str_night">notte</string>
+    <string name="confirmation">Conferma</string>
+    <string name="dlg_confirm_bluetooth_device_pair_code">Vedi il codice seguente sul tuo dispositivo:\n</string>
+    <string name="information">Information</string>
+    <string name="dlg_waiting_for_setting_device_function">Impostazione della funzione del dispositivo in corso...\nAttendi un momento.</string>
+    <string name="confirm_exit_app">Sei sicuro di voler uscire dall’applicazione?</string>
+    <string name="dlg_bt_device_low_battery_title">Batteria in esaurimento sul dispositivo</string>
+    <string name="dlg_bt_device_low_battery_description">La batteria del tuo dispositivo sarà presto scarica.</string>
+    <string name="dlg_bt_device_run_out_of_battery_title">Dispositivo scollegato</string>
+    <string name="dlg_bt_device_run_out_of_battery_description">Il tuo dispositivo è scollegato perché la batteria è esaurita.</string>
+    <string name="btn_dismiss">Escludi</string>
+    <string name="dlg_bt_device_battery_charge_full_title">Batteria dispositivo carica</string>
+    <string name="dlg_bt_device_battery_charge_full_description">Il tuo dispositivo è completamente carico. Interrompere il caricamento.</string>
+    <string name="bt_device_battery_charging">Caricamento in corso</string>
+    <string name="bt_device_battery_fully_charged">Carico</string>
+    <string name="bt_device_enable_function_failed">Impossibile abilitare le funzioni del dispositivo.</string>
+    <string name="dlg_phone_bt_disabled_title">Bluetooth disattivato</string>
+    <string name="dlg_phone_bt_disabled_description">L’applicazione non funziona senza Bluetooth.</string>
+    <string name="sync_data_fail">Impossibile sincronizzare i dati.</string>
+
+    <!-- Strings for df_out_of_range -->
+    <string name="df_out_of_range_title">Fuori intervallo</string>
+    <string name="df_out_of_range_off_mode_instruction">Il tuo bracciale non fornirà alcun avviso quando lasci il tuo telefono/tablet indietro, che il bracciale sia collegato al tuo telefono/tablet o meno.</string>
+    <string name="select_ringtone">Seleziona suoneria</string>
+    <string name="df_out_of_range_alarm_mode_far">Modalità allarme distante</string>
+    <string name="df_out_of_range_alarm_mode_far_instruction">Il tuo bracciale vibrerà o emetterà un suono quando è scollegato dal telefono/tablet.</string>
+    <string name="df_out_of_range_alarm_mode_near">Modalità allarme vicino</string>
+    <string name="df_out_of_range_alarm_mode_near_instruction">Il tuo bracciale vibrerà o emetterà un suono quando lasci indietro il tuo telefono/tablet.</string>
+    <string name="df_out_of_range_alarm_mode_near_high_sensitivity">alta</string>
+    <string name="df_out_of_range_alarm_mode_near_midium_sensitivity">media</string>
+    <string name="df_out_of_range_alarm_mode_near_low_sensitivity">bassa</string>
+    <string name="df_out_of_range_alarm_mode_near_sensitivity">Sensibilità:</string>
+
+    <!-- Strings for df_incoming_call_sms_notification -->
+    <string name="df_incoming_call_sms_notification_title">Chiamate/SMS in entrata</string>
+    <string name="df_incoming_call_sms_notification_instruction_off">Il tuo bracciale NON segnalerà chiamate/SMS in entrata.</string>
+    <string name="df_incoming_call_sms_notification_instruction_on">Il tuo bracciale segnalerà chiamate/SMS in entrata.</string>
+    <string name="df_no_disturbing_time">Non disturbare:\u0020</string>
+
+    <!-- Strings for df_connection_mode -->
+    <string name="df_connection_mode_title">Collegamento in corso</string>
+    <string name="df_connection_mode_auto">Auto</string>
+    <string name="df_connection_mode_manual">Manuale</string>
+    <string name="df_note">Nota:</string>
+    <string name="df_connection_mode_auto_instruction">Quando il tuo bracciale torna nell’intervallo di connessione, si connetterà automaticamente al tuo telefono/tablet dopo la disconnessione.</string>
+    <string name="df_connection_mode_manual_instruction">In modalità manuale, vai alla schermata principale per cliccare sul pulsante \"Connetti\" o \"Disconnetti\" nell’angolo in alto a destra, per attivare o disattivare la connessione.</string>
+    <string name="df_no_disturbing_between">Non disturbare tra:</string>
+    <string name="df_no_disturbing_instruction">Durante gli orari di non disturbo, il telefono/tablet non inoltrerà chiamate/SMS al tuo bracciale.</string>
+
+    <!-- Strings for power saving time -->
+    <string name="df_power_saving_time">Orario di risparmio energetico:\u0020</string>
+    <string name="df_power_saving_time_instruction">Durante l’orario di risparmio energetico, il telefono/tablet e il tuo bracciale sono <b>scollegati</b> nelle modalità Auto e Manuale, quindi il telefono/tablet non inoltra notifiche al bracciale.</string>
+    <string name="df_dlg_power_saving_time_title">Imposta un orario</string>
+
+    <!-- Strings for df_smart_keys -->
+    <string name="df_smart_keys_title">Chiavi smart</string>
+    <string name="df_smart_keys_camera_remote">Fotocamera remota</string>
+    <string name="df_smart_keys_video_remote">Videocamera remota</string>
+    <string name="df_smart_keys_find_phone">Trova telefono</string>
+    <string name="df_smart_keys_find_device">Trova dispositivo</string>
+    <string name="df_smart_keys_none">Nessuno</string>
+    <string name="df_smart_keys_instruction_none">Disattiva la funzione delle chiavi smart.</string>
+    <string name="df_smart_keys_instruction_remote_camera">Per usare il bracciale per controllare l’applicazione Fotocamera, consulta il manuale utente cartaceo.</string>
+    <string name="df_smart_keys_instruction_remote_video">Per usare il bracciale per controllare l’applicazione Videocamera, consulta il manuale utente cartaceo.</string>
+    <string name="df_smart_keys_instruction_find_phone">Trova telefono ti aiuta a trovare il tuo telefono/tablet attivando la suoneria.\n\nPer usare il tuo bracciale per controllare l’applicazione Trova telefono, consulta il manuale utente cartaceo.</string>
+
+    <!-- Strings for df_task_alert -->
+    <string name="df_task_alert_title">Allarme attività</string>
+    <string name="df_task_alert_instruction">Puoi impostare 3 allarmi attività.</string>
+    <string name="df_task_title_edit_text_hint">Titolo attività</string>
+    <string name="df_task_date_time_hint">Data e ora dell’attività</string>
+    <string name="df_task_alert_set_date_and_time">Imposta</string>
+    <string name="df_dlg_date_and_time_title">Imposta data e ora</string>
+    <string name="df_task_today">Oggi</string>
+
+    <!-- Strings for df_alarm -->
+    <string name="df_alarm_title">Allarme</string>
+    <string name="df_set_alarm_time">--:-- AM</string>
+    <string name="every_sunday">Ogni domenica</string>
+    <string name="every_monday">Ogni lunedì</string>
+    <string name="every_tuesday">Ogni martedì</string>
+    <string name="every_wednesday">Ogni mercoledì</string>
+    <string name="every_thursday">Ogni giovedì</string>
+    <string name="every_friday">Ogni venerdì</string>
+    <string name="every_saturday">Ogni sabato</string>
+
+    <!-- Strings for df_move_alert -->
+    <string name="df_move_alert_title">Allarme movimento</string>
+    <string name="df_move_alert_start_time_to_end_time">Orario di inizio e orario di fine:</string>
+    <string name="df_move_alert_instruction">Quando resti inattivo per 30 minuti, ricevi un allarme movimento.</string>
+    <string name="df_move_alert_time_setting">Impostazione orario Allarme movimento.</string>
+
+    <!-- Strings for df_language -->
+    <string name="df_language_local">Locale</string>
+    <string name="df_language_english">Inglese</string>
+
+    <!-- Strings for df_camera -->
+    <string name="df_camera_title">Fotocamera</string>
+    <string name="dlg_error_title">Errore</string>
+    <string name="dlg_error_save_picture_file_description">Impossibile salvare l’immagine. Verifica che sia presente spazio libero nel dispositivo.</string>
+    <string name="dlg_error_create_bitmap_description">Impossibile scattare la foto. Prova di nuovo.</string>
+    <string name="dlg_error_camera_description">Errore fotocamera.</string>
+    <string name="hide">Nascondi</string>
+    <string name="clear_log">Elimina registro</string>
+
+<!-- need trans -->
+    <!-- Strings for low battery -->
+    <string name="dlg_low_battery_des">Your device battery level is running low, please charge your device or replace battery.</string>
+
+    <!-- Strings for Playground(Fitness) -->
+    <string name="hint_playground">Body Sensor has presented a new way to record your workout. Choose one to start your section!</string>
+    <string name="jumping_rope">Jumping Rope</string>
+    <string name="jumping_jack">Jumping Jack</string>
+    <string name="sit_up">Sit-Up</string>
+    <string name="treadmill">Treadmill</string>
+    <string name="velocity_per_min">Velocity %d time(s)/min</string>
+    <string name="personal_best_of">Personal Best of </string>
+
+    <!-- Database upgrade -->
+    <string name="progress_upgrade">Upgrade Body Sensor...</string>
+    <string name="dlg_upgrade_title">Finish Upgrade</string>
+    <string name="dlg_upgrade_des">you need to edit your profile and pair your device again.</string>
+
+    <!-- Phone Connection mode -->
+    <string name="phone_connection">Phone Connection</string>
+    <string name="phone_connection_on_des">You can choose whether or not to have your band get Incoming call/SMS notification, and Out od Range alert.
+        Also, Smart Keys function is enabled.</string>
+    <string name="phone_connection_off_des">Your band doesn\'t get Incoming call/SMS notification, Out of Range alert, and Smart Keys function is disabled.</string>
+
+    <!-- Find Device -->
+    <string name="find_device_des">Find Device only works when your band is connected to your phone/tablet, and withing the connecting range.</string>
+<!-- need trans -->
+    <string name="on_mode">Modalità on:</string>
+    <string name="off_mode">Modalità off:</string>
+
+<!-- need trans -->
+    <string name="current_device">Current Device</string>
+
+    <string name="emergency_contact_info">Emergency Contact info</string>
+    <string name="emergency_contact_des">By filling out this emergency contact, when you activate SOS on your device,
+        he or she will receive a SMS with you GPS location.</string>
+    <string name="edt_phone_number_hint">Phone Number</string>
+    <string name="sos_description">
+        <![CDATA[
+            Your device must be <font color=\"#be1e2d\">CONNECTED</font> to this app in order to send out SOS SMS.
+        ]]>
+    </string>
+    <!--<string name="sos_history_sent_des">SOS SMS sent to %1$s. I was at</string>-->
+    <string name="sos_history_sent_des">
+        <![CDATA[
+            SOS SMS sent to <b>%1$s</b> I was at
+        ]]>
+    </string>
+    <string name="sos_history_sent_to_contact_notify">SOS SMS sent to the emergency contact %1$s.</string>
+    <string name="sos_history_sent_i_am_at">I am at</string>
+    <string name="sos_location">Location: %1$s, %2$s</string>
+    <string name="sos_sms_detail">
+        %1$s is in a distress situation. %2$s was at\n
+        %3$s\n\n
+        Sent by %4$s app.
+    </string>
+
+    <string name="photo_share">Photo Share</string>
+    <string name="share_trend_by">Share your Trend by</string>
+
+    <!-- Group Mode -->
+    <string name="pair_code">Pair Code</string>
+    <string name="stats">Stats</string>
+    <string name="groups">Groups</string>
+    <string name="strSchool">School</string>
+    <string name="strClass">Class</string>
+    <string name="strDistance">Distance</string>
+    <string name="school_id_no">School ID Number</string>
+    <string name="seat_number">Seat Number (optional)</string>
+    <string name="switch_user_mode">Switch to User Mode</string>
+    <string name="switch_group_mode">Switch to Group Mode</string>
+    <string name="setup_groups">Setup groups</string>
+    <string name="enter_code">Enter Code</string>
+    <string name="group_daily_goal">Group Daily Goal</string>
+    <string name="enter_code_instruction">Please enter your membership code to see if you are eligible to use group mode.</string>
+    <string name="setup_groups_instruction">Your membership allows you to use this exclusive group mode. Welcome!</string>
+    <string name="enter_your_group_name">Enter your group name</string>
+    <string name="group_name_ex">Ex. Class A</string>
+    <string name="sync">Sync</string>
+    <string name="id_and_name">ID#/Name</string>
+    <string name="none">N/A</string>
+    <string name="add_group">Add Group</string>
+    <string name="add_member">Add Member</string>
+    <string name="member_profile">Member Profile</string>
+    <string name="group_info">Group Information</string>
+    <string name="show_no_stats_page">Show on Stats page</string>
+    <string name="edit_group_name">Edit Group Name</string>
+    <string name="warning_school_id_empty">School ID can not be empty</string>
+    <string name="choose_your_goal">Choose your goal:</string>
+    <string name="dlg_delete_group_title">Delete group</string>
+    <string name="dlg_delete_group_des">Do you want to delete this group?</string>
+    <string name="dlg_delete_member_title">Delete member</string>
+    <string name="dlg_delete_member_des">Do you want to delete this member?</string>
+<!-- need trans -->
+
+</resources>

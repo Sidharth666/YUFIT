@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/app_outtab_layout_all" >
+
+    <include layout="@layout/mxw_df_title_bar"/>
+
+    <LinearLayout
+        style="@style/app_outtab_content"
+        android:orientation="vertical"
+        android:weightSum="21" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager_tutorial"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20" />
+
+        <com.maxwell.bodysensor.ui.ViewDotProgress
+            android:id="@+id/progress_tutorial"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,13 @@
+<resources>
+    <declare-styleable name="mxw">
+        <!-- ViewCircleProgress -->
+        <attr name="fill_color" format="color" />
+
+        <!-- ViewTextView, ViewTextView, ViewButton, ViewRadioButton  -->
+        <attr name="typeface" format="string" />
+
+        <!-- CircleImageView -->
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+    </declare-styleable>
+</resources>

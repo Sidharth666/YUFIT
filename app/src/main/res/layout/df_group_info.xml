@@ -1,0 +1,106 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/app_outtab_layout_all"
+    android:layout_width="wrap_content"
+    android:baselineAligned="false">
+
+    <include layout="@layout/mxw_df_title_bar" />
+
+    <LinearLayout
+        style="@style/app_outtab_content"
+        android:orientation="horizontal"
+        android:weightSum="1080">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="70" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="940"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/view_edit_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                android:paddingTop="@dimen/space_20dp"
+                android:paddingBottom="@dimen/space_25dp">
+                <ImageView
+                    android:layout_width="@dimen/space_25dp"
+                    android:layout_height="@dimen/space_25dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/edit_group_icon"/>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/space_10dp"
+                    android:textColor="@color/app_orange"
+                    android:text="@string/edit"/>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/space_8dp"
+                android:paddingBottom="@dimen/space_8dp"
+                android:weightSum="10">
+
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/space_12dp"
+                    android:text="@string/id_and_name"/>
+
+                <LinearLayout
+                    android:id="@+id/view_add_member"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/space_30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/space_15dp"
+                        android:layout_height="@dimen/space_15dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/add_group_icon"/>
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/space_12dp"
+                        android:text="@string/add_member"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <LinearLayout style="@style/app_conf_divider" />
+
+            <ListView
+                android:id="@+id/list_group_member"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:smoothScrollbar="true"
+                android:scrollingCache="false"
+                android:animationCache="false"
+                tools:listitem="@layout/listitem_group_member_info"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="70" />
+
+    </LinearLayout>
+
+</LinearLayout>

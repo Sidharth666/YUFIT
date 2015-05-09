@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 
+    Color Name and Hue
+    http://www.color-blindness.com/color-name-hue/
+     -->
+
+    <!-- confirmed values -->
+    <color name="app_theme">                @color/mxx_theme</color> <!-- caribbean green -->
+    <color name="app_theme_color_1">        @color/mxx_theme</color>>
+    <color name="app_theme_jaggedice">      @color/mxx_theme_jaggedice</color>
+    <color name="app_theme_riptide">      @color/app_black</color>
+
+
+    <color name="app_tab_text">             @color/mxx_theme</color>
+    <color name="app_home_digit">           @color/app_black</color>
+    <color name="app_rb_title_text">        @color/mxx_theme</color>
+
+    <!-- activity chart -->
+    <color name="app_activity_day">         @color/mxx_activity_day</color>
+    <color name="app_activity_week">        @color/mxx_activity_week</color>
+
+    <!-- sleep chart -->
+    <color name="app_deep_sleep">           @color/mxx_deep_sleep</color>
+    <color name="app_light_sleep">          @color/mxx_light_sleep</color>
+    <color name="app_awake">                @color/mxx_awake</color>
+    <color name="app_sleep_very_good">      @color/mxx_sleep_very_good</color>
+    <color name="app_sleep_good">           @color/mxx_sleep_good</color>
+    <color name="app_sleep_poor">           @color/mxx_sleep_poor</color>
+
+</resources>

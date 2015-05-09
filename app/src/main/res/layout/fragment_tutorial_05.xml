@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            style="@style/view_tutorial_step_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/space_20dp">
+
+            <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/view_tutorial_title_text"
+                android:text="@string/title_sharing_to_social_account"/>
+
+            <LinearLayout
+                style="@style/view_tutorial_step_item">
+
+                <ImageView
+                    style="@style/view_tutorial_step_img"
+                    android:src="@drawable/launch_orange_1"/>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/view_tutorial_step_text"
+                    android:text="@string/tutorial5_step_1"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/view_tutorial_step_item">
+
+                <ImageView
+                    style="@style/view_tutorial_step_img"
+                    android:src="@drawable/launch_orange_2"/>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/view_tutorial_step_text"
+                    android:text="@string/tutorial5_step_2"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:src="@drawable/tutorial_05"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

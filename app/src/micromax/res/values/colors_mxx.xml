@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 
+    Color Name and Hue
+    http://www.color-blindness.com/color-name-hue/
+     -->
+
+    <!-- customized values -->
+    <color name="mxx_theme">                #f06d27</color>
+    <color name="mxx_theme_jaggedice">      #f9c7b4</color>
+
+    <!-- activity chart -->
+    <color name="mxx_activity_day">         @color/mxx_theme</color>
+    <color name="mxx_activity_week">        @color/app_greyd0</color>
+
+    <!-- sleep chart -->
+    <color name="mxx_deep_sleep">           @color/mxx_theme</color>
+    <color name="mxx_light_sleep">          @color/mxx_theme_jaggedice</color>
+    <color name="mxx_awake">                #89d0c7</color>
+    <color name="mxx_sleep_very_good">      @color/mxx_theme</color>
+    <color name="mxx_sleep_good">           @color/mxx_theme_jaggedice</color>
+    <color name="mxx_sleep_poor">           @color/app_greyd0</color>
+</resources>

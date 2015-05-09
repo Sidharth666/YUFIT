@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_top_bg"
+        android:orientation="vertical">
+
+        <com.maxwell.bodysensor.ui.ViewTextView
+            android:id="@+id/ynTitle"
+            style="@style/app_dlg_title"
+            android:text="@string/app_name" />
+
+        <com.maxwell.bodysensor.ui.ViewTextView
+            android:id="@+id/ynDescription"
+            style="@style/app_dlg_des"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.maxwell.bodysensor.ui.ViewButton
+            android:id="@+id/btnCancel"
+            android:text="@string/strNo"
+            style="@style/app_dlg_button_text"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_bottom_left_bg" />
+        <com.maxwell.bodysensor.ui.ViewButton
+            android:id="@+id/btnOK"
+            android:text="@string/strYes"
+            style="@style/app_dlg_button_text"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_bottom_right_bg" />
+    </LinearLayout>
+</LinearLayout>

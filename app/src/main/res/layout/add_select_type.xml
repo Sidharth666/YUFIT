@@ -1,0 +1,86 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    style="@style/app_outtab_layout_all"
+    android:baselineAligned="false">
+
+    <include layout="@layout/mxw_df_title_bar" />
+
+    <LinearLayout
+        style="@style/app_outtab_content"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:weightSum="10">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:text="@string/pair_device_instruction"
+                android:textSize="@dimen/text_18sp"
+                mxw:typeface="Avenir-Medium.ttf"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:id="@+id/view_pair_device"
+                style="@style/orange_button_bg"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center">
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/orange_button_text"
+                    android:text="@string/pair_my_cpasule"/>
+                <ImageView
+                    style="@style/orange_button_next"
+                    android:contentDescription="@string/acd" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5" />
+
+            <LinearLayout
+                android:id="@+id/view_skip_pair"
+                style="@style/orange_button_bg"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center">
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/orange_button_text"
+                    android:text="@string/skip_and_pair_later"/>
+                <ImageView
+                    style="@style/orange_button_next"
+                    tools:contentDescription="@string/acd" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</LinearLayout>

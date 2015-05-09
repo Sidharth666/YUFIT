@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape
+            android:shape="rectangle">
+            <corners android:radius="@dimen/box_bg_round" />
+            <stroke android:width="@dimen/box_bg_stroke"
+                android:color="@color/app_greyba" />
+        </shape>
+    </item>
+</selector>

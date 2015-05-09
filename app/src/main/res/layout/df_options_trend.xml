@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/translucent_grey" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="vertical"
+    	android:gravity="center_horizontal"
+    	android:layout_alignParentBottom="true">
+
+        <com.maxwell.bodysensor.ui.ViewButton
+            style="@style/option_button_top"
+            android:id="@+id/btn_share_facebook"
+            android:text="@string/fcShareToFacebook" />
+        <com.maxwell.bodysensor.ui.ViewButton
+            style="@style/option_button_bottom"
+            android:id="@+id/btn_share_weibo"
+            android:text="@string/fcShareToWeibo" />
+
+        <com.maxwell.bodysensor.ui.ViewButton
+            style="@style/option_button"
+            android:id="@+id/btn_cancel"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/strCancel" />
+
+    </LinearLayout>
+
+</RelativeLayout>

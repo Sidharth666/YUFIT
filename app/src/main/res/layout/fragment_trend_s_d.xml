@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="16"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="70"
+        android:background="@color/app_greyf1" >
+        <com.maxwell.bodysensor.ui.ViewTextView
+            android:id="@+id/text_trend_sd_range"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/space_12dp"
+            android:textColor="@color/app_grey58"
+            mxw:typeface="Avenir-Roman.ttf" />
+        <ImageButton
+            android:id="@+id/imgbtn_trend_sd_delete"
+            android:layout_width="@dimen/space_30dp"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/space_6dp"
+            android:paddingBottom="@dimen/space_6dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:scaleType="centerInside"
+            android:src="@drawable/sleep_day_delete"
+            android:background="@null"
+            android:contentDescription="@string/acd" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="23"/>
+    <com.maxwell.bodysensor.ui.ViewChart
+        android:id="@+id/chart_trend_sd"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="358"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="40" >
+        <com.maxwell.bodysensor.ui.ViewTextView
+            android:id="@+id/text_trend_sd_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            style="@style/app_trend_text_chart_hint" />
+        <com.maxwell.bodysensor.ui.ViewTextView
+            android:id="@+id/text_trend_sd_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            style="@style/app_trend_text_chart_hint" />
+    </RelativeLayout>
+        
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="117" >
+        <LinearLayout
+            android:id="@+id/sleep_d_hint_deepsleep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center" >
+            <ImageView
+                style="@style/app_trend_s_image_chart_hint"
+                android:src="@drawable/sleep_color_deepsleep"
+                android:contentDescription="@string/acd" />
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:text="@string/space"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/app_trend_s_text_chart_hint" />
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:text="@string/fsDeepSleep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/app_trend_s_text_chart_hint" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/sleep_d_hint_awake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center" >
+            <ImageView
+                style="@style/app_trend_s_image_chart_hint"
+                android:src="@drawable/sleep_color_awake"
+                android:contentDescription="@string/acd" />
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:text="@string/space"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/app_trend_s_text_chart_hint" />
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:text="@string/fsAwake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/app_trend_s_text_chart_hint" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/sleep_d_hint_deepsleep"
+            android:layout_toLeftOf="@id/sleep_d_hint_awake"
+            android:layout_centerInParent="true" 
+            android:gravity="center">
+            <ImageView
+                style="@style/app_trend_s_image_chart_hint"
+                android:src="@drawable/sleep_color_lightsleep"
+                android:contentDescription="@string/acd" />
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:text="@string/space"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/app_trend_s_text_chart_hint" />
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:text="@string/fsLightSleep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/app_trend_s_text_chart_hint" />
+        </LinearLayout>
+    </RelativeLayout>
+    
+    <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_weight="10" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="270"
+        android:orientation="horizontal"
+        android:baselineAligned="false" >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="291"
+            android:background="@drawable/box_grey_bg"
+            android:gravity="center"
+            android:orientation="vertical">
+            
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_sd_duration_h"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/app_trend_s_nond_text_value1"/>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:text="@string/trend_sleep_h"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/app_trend_s_nond_text_value1_hm"/>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:text="@string/space"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/app_trend_s_nond_text_value1_hm"/>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_sd_duration_m"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/app_trend_s_nond_text_value1"/>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:text="@string/trend_sleep_m"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/app_trend_s_nond_text_value1_hm"/>
+            </LinearLayout>
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:text="@string/fsDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/app_trend_s_nond_text_value1_hint"/>
+        </LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="19" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="291"
+            android:background="@drawable/box_grey_bg"
+            android:gravity="center"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_sd_efficiency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/app_trend_s_nond_text_value1" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:text="@string/percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/space_17dp"
+                    android:textColor="@color/app_grey80"
+                    mxw:typeface="Chalet-ParisNineteenSeventy.ttf" />
+            </LinearLayout>
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:text="@string/fsEfficiency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/app_trend_s_nond_text_value1_hint"/>
+        </LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="19" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="291"
+            android:background="@drawable/box_grey_bg"
+            android:gravity="center"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_sd_awake"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/app_trend_s_nond_text_value1" />
+            </LinearLayout>
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:text="@string/fsTimesWoke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/app_trend_s_nond_text_value1_hint"/>
+        </LinearLayout>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="278"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:id="@+id/view_sleep_now"
+            style="@style/orange_button_bg"
+            android:layout_width="0dp"
+            android:layout_weight="449"
+            android:visibility="gone" >
+            <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/orange_button_text"
+                android:text="@string/trend_sleep_now"/>
+            <ImageView
+                style="@style/orange_button_next"
+                android:contentDescription="@string/acd" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="18"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/view_add_sleep_entry"
+            style="@style/orange_button_bg"
+            android:layout_width="0dp"
+            android:layout_weight="449">
+            <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/orange_button_text"
+                android:text="@string/trend_add_sleep_entry"/>
+            <ImageView
+                style="@style/orange_button_next"
+                android:contentDescription="@string/acd" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

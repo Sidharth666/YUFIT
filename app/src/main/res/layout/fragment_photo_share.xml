@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_theme"
+    android:weightSum="10">
+
+    <RelativeLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_60dp"
+        android:padding="@dimen/space_12dp">
+
+        <ImageView
+            android:id="@+id/view_cancel"
+            android:layout_width="@dimen/space_30dp"
+            android:layout_height="@dimen/space_30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/photo_sharing_cancel"/>
+        <ImageView
+            android:id="@+id/view_switch_camera"
+            android:layout_width="@dimen/space_30dp"
+            android:layout_height="@dimen/space_30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/photo_sharing_front_camera"/>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/layout_container"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/top_bar">
+
+        <!--<com.maxwell.bodysensor.ui.SurfaceViewCamera-->
+            <!--android:id="@+id/preview_camera"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
+        <ImageView
+            android:id="@+id/image_photo_share"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_black"/>
+
+        <!--<include layout="@layout/template_photo_step" />-->
+        <!--<include layout="@layout/template_photo_calories" />-->
+        <include layout="@layout/template_photo_distance" />
+
+    </FrameLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_container"
+        android:padding="@dimen/space_20dp">
+
+        <ImageView
+            android:id="@+id/view_shutter"
+            android:layout_width="@dimen/space_100dp"
+            android:layout_height="@dimen/space_100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/photo_sharing_shutter"/>
+        <ImageView
+            android:id="@+id/view_gallery"
+            android:layout_width="@dimen/space_30dp"
+            android:layout_height="@dimen/space_30dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/photo_sharing_gallery"/>
+        <ImageView
+            android:id="@+id/view_flash"
+            android:layout_width="@dimen/space_30dp"
+            android:layout_height="@dimen/space_30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/photo_sharing_non_flash"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

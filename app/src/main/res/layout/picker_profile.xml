@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_profile_picker"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="@color/translucent_grey"
+	android:visibility="gone" >
+
+    <RelativeLayout
+        android:id="@+id/animation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <RelativeLayout
+            android:id="@+id/picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/app_white" >
+
+            <com.maxwell.bodysensor.ui.ViewDatePicker
+                android:id="@+id/picker_birthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false"
+                android:visibility="gone"/>
+
+            <RelativeLayout
+                android:id="@+id/picker_panel_cm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+                <com.maxwell.bodysensor.ui.ViewNumberPicker
+                    android:id="@+id/picker_cm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"/>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/setup_profile_picker_des_text"
+                    android:layout_toRightOf="@id/picker_cm"
+                    android:layout_marginLeft="@dimen/profile_picker_item_space"
+                    android:text="@string/cpCm" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/picker_panel_in"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <com.maxwell.bodysensor.ui.ViewNumberPicker
+                    android:id="@+id/picker_ft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/setup_profile_picker_des_text"
+                    android:layout_marginRight="@dimen/profile_picker_item_space"
+                    android:text="@string/cpFt" />
+                <com.maxwell.bodysensor.ui.ViewNumberPicker
+                    android:id="@+id/picker_inch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/setup_profile_picker_des_text"
+                    android:text="@string/cpIn" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/picker_panel_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+                <com.maxwell.bodysensor.ui.ViewNumberPicker
+                    android:id="@+id/picker_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"/>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/picker_weight_des"
+                    style="@style/setup_profile_picker_des_text"
+                    android:layout_toRightOf="@id/picker_weight"
+                    android:layout_marginLeft="@dimen/profile_picker_item_space"
+                    android:text="@string/cpKg" />
+            </RelativeLayout>
+
+            <com.maxwell.bodysensor.ui.ViewTimePicker
+                android:id="@+id/picker_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/space_10dp"
+            android:paddingBottom="@dimen/space_10dp"
+            android:background="@color/app_theme_color_1"
+            android:layout_above="@id/picker" >
+            <com.maxwell.bodysensor.ui.ViewButton
+                android:id="@+id/btn_cancel"
+                style="@style/app_title_left_text"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/strCancel"
+                android:background="@null" />
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:id="@+id/text_picker_title"
+                style="@style/action_bar_title_text"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+            <com.maxwell.bodysensor.ui.ViewButton
+                android:id="@+id/btn_done"
+                style="@style/app_title_right_text"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/strDone"
+                android:background="@null" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

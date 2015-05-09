@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.maxwell.bodysensor.ui.ViewLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/share_layout"
+    style="@style/app_outtab_layout_all"
+    android:baselineAligned="false">
+
+    <include layout="@layout/mxw_df_title_bar" />
+
+    <LinearLayout
+        style="@style/app_outtab_content"
+        android:orientation="horizontal"
+        android:clickable="true" >
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="80" />
+    
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="380"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="60" />
+
+	        <com.maxwell.bodysensor.ui.ViewEditText
+                android:id="@+id/shareText"
+                android:labelFor="@id/shareText"
+                style="@style/app_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="200"
+                android:gravity="left"
+                android:hint="@string/share_hint"
+                android:inputType="textMultiLine"
+                android:lines="5"
+                android:maxLines="5"
+                android:singleLine="false"
+                android:background="@drawable/box_grey_bg"
+                android:textSize="@dimen/text_18sp"
+                android:textColor="@color/app_grey6d"
+                typeface="Avenir-Book.ttf" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="30" />
+
+            <ImageView
+                android:id="@+id/shareImage"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="280"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:background="@drawable/box_grey_bg"
+                android:contentDescription="@string/acd"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="150" >
+                <LinearLayout
+                    android:id="@+id/btn_share"
+                    style="@style/orange_button_bg"
+                    android:layout_width="match_parent"
+                    android:layout_centerInParent="true">
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        android:id="@+id/text_share"
+                        style="@style/orange_button_text"/>
+                    <ImageView
+                        style="@style/orange_button_next"
+                        android:contentDescription="@string/acd" />
+                </LinearLayout>
+            </RelativeLayout>
+
+	    </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="80" />
+    </LinearLayout>
+</com.maxwell.bodysensor.ui.ViewLinearLayout>

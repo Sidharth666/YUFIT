@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+   
+    <LinearLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="vertical"
+    	android:gravity="center_horizontal"
+    	android:layout_alignParentBottom="true">
+        
+        <com.maxwell.bodysensor.ui.ViewButton
+            style="@style/option_button_top"
+	        android:id="@+id/btn_take_photo"
+	        android:text="@string/take_photo" />
+        <com.maxwell.bodysensor.ui.ViewButton
+            style="@style/option_button_center"
+	        android:id="@+id/btn_open_gallery"
+	        android:text="@string/choose_from_gallery" />
+        <com.maxwell.bodysensor.ui.ViewButton
+            style="@style/option_button_center"
+	        android:id="@+id/btn_get_facebook"
+	        android:text="@string/import_from_facebook"
+            android:visibility="gone"/>
+        <com.maxwell.bodysensor.ui.ViewButton
+            style="@style/option_button_bottom"
+	        android:id="@+id/btn_remove_photo"
+	        android:text="@string/remove_current_photo" />
+        
+        <com.maxwell.bodysensor.ui.ViewButton
+            style="@style/option_button"
+	        android:id="@+id/btn_cancel"
+            android:layout_marginTop="8dp"
+	        android:layout_marginBottom="8dp"
+	        android:text="@string/strCancel" />
+        
+    </LinearLayout>
+    
+    
+    
+</RelativeLayout>

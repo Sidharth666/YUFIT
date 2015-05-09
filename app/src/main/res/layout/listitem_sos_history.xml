@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:padding="@dimen/space_24dp">
+
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:id="@+id/text_sos_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/space_20dp"
+        android:textSize="@dimen/space_12dp"
+        android:textColor="@color/app_greyba"
+        tools:text="4:15 PM. May 22, 2015"
+        mxw:typeface="Avenir-Black.ttf"/>
+
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:id="@+id/text_sos_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/space_10dp"
+        android:textSize="@dimen/space_15dp"
+        android:textColor="@color/app_grey80"
+        tools:text="@string/sos_history_sent_des"
+        mxw:typeface="Avenir-Book.ttf"/>
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:id="@+id/text_sos_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/space_14dp"
+        android:paddingBottom="@dimen/space_20dp"
+        mxw:typeface="Avenir-Book.ttf"/>
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:id="@+id/text_sos_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/space_14dp"
+        android:textColor="@color/app_orange"
+        tools:text="@string/sos_location"
+        mxw:typeface="Avenir-Roman.ttf"/>
+
+</LinearLayout>

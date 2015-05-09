@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingTop="@dimen/space_6dp"
+    android:paddingBottom="@dimen/space_6dp"
+    android:weightSum="10">
+
+    <ImageView
+        android:id="@+id/tabIcon"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:scaleType="centerInside" />
+
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:id="@+id/tabText"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/space_14dp"
+        android:textColor="@drawable/tab_textcolor"
+        mxw:typeface="Avenir-Roman.ttf" />
+
+</LinearLayout>

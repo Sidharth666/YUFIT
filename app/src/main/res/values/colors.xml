@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 
+    Color Name and Hue
+    http://www.color-blindness.com/color-name-hue/
+     -->
+
+    <!-- confirmed values -->
+    <color name="app_theme">                @color/bodysensor_theme</color> <!-- caribbean green -->
+    <color name="app_theme_color_1">        @color/bodysensor_theme</color>
+    <color name="app_theme_observatory">    @color/bodysensor_theme_observatory</color>
+    <color name="app_theme_riptide">        @color/bodysensor_theme_riptide</color>
+    <color name="app_theme_jaggedice">      @color/bodysensor_theme_jaggedice</color>
+    <color name="app_theme_downy">          @color/bodysensor_theme_downy</color>
+    <color name="app_theme_pinegreen">      @color/bodysensor_theme_pinegreen</color>
+
+    <color name="app_tab_text">             #01ba9c</color>
+    <color name="app_home_digit">           @color/app_theme</color>
+    <color name="app_rb_title_text">  @color/app_blue_brightturquoise</color>
+
+    <color name="app_red_dark">             #c83c23</color>
+    <color name="app_red_careyspink">       #c99797</color>
+
+    <color name="app_orange">               #fe9a00</color> <!-- orange peel -->
+    <color name="app_theme_color_2">        @color/app_orange</color>
+    <color name="app_orange_a33">           #33fe9a00</color>
+    <color name="app_orange_neoncarrot">    #fb9827</color>
+
+    <color name="app_brown_ochre">          #d0791e</color>
+
+    <color name="app_blue_dark">            #03426d</color>
+    <color name="app_blue_turquoise">       #83edd9</color>
+    <color name="app_blue_anakiwa">         #7fc6e5</color>
+    <color name="app_blue_brightturquoise"> #0ae1d4</color>
+    <color name="app_blue_mediumaquamarine">#51c4ae</color>
+    <color name="app_blue_dodger">          #317ef4</color>
+    <color name="app_blue_setting_bg">      #fff3f8fc</color>
+
+    <color name="app_grey58">               #585858</color>
+    <color name="app_grey6d">               #6d6d6d</color>
+    <color name="app_grey80">               #808080</color>
+    <color name="app_greya6">               #a6a6a6</color>
+    <color name="app_greyba">               #bababa</color>
+    <color name="app_greyd0">               #d0d0d0</color>
+    <color name="app_greye6">               #e6e6e6</color>
+    <color name="app_greyf1">               #f1f1f1</color>
+    <color name="app_grey_disable">         #d1d3d4</color>
+
+    <color name="app_white">                #ffffff</color>
+    <color name="app_black">                #000000</color>
+
+    <!-- activity chart -->
+    <color name="app_activity_day">         @color/app_orange</color>
+    <color name="app_activity_week">        @color/app_greyd0</color>
+
+    <!-- sleep chart -->
+    <color name="app_deep_sleep">           @color/bodysensor_deep_sleep</color>
+    <color name="app_light_sleep">          @color/bodysensor_light_sleep</color>
+    <color name="app_awake">                @color/bodysensor_awake</color>
+    <color name="app_sleep_very_good">      @color/bodysensor_sleep_very_good</color>
+    <color name="app_sleep_good">           @color/bodysensor_sleep_good</color>
+    <color name="app_sleep_poor">           @color/bodysensor_sleep_poor</color>
+
+    <!-- the background color of new popup layer -->
+    <color name="translucent_grey">       #dd333333</color>
+
+    <color name="tracker_top_info_bg">    #ddffffff</color>
+</resources>

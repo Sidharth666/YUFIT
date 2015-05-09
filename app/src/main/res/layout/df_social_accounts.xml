@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/app_outtab_layout_all"
+    android:baselineAligned="false" >
+
+    <include layout="@layout/mxw_df_title_bar" />
+
+    <LinearLayout 
+        style="@style/app_outtab_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            style="@style/app_conf_section">
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/app_conf_section_text"
+                    android:text=""/>
+        </LinearLayout>
+
+        <RelativeLayout
+           style="@style/app_conf_item">
+           <ImageView
+               style="@style/app_conf_item_title_image"
+               android:id="@+id/facebook"
+               android:src="@drawable/profile_social_facebook"
+               android:contentDescription="@string/acd"/>
+           <com.maxwell.bodysensor.ui.ViewTextView
+               style="@style/app_conf_item_text"
+               android:layout_alignParentLeft="false"
+               android:layout_toRightOf="@id/facebook"
+               android:layout_marginLeft="10dp"
+               android:text="@string/cfTitle"/>
+           <com.maxwell.bodysensor.ui.ViewButton
+               style="@style/app_social_item_button"
+               android:id="@+id/btn_link_fb"
+               android:text="@string/str_unlink"/>
+        </RelativeLayout>
+        <LinearLayout style="@style/app_conf_divider"/>
+
+        <RelativeLayout
+            style="@style/app_conf_item">
+            <ImageView
+               style="@style/app_conf_item_title_image"
+               android:id="@+id/weibo"
+               android:src="@drawable/profile_social_weibo"
+               android:contentDescription="@string/acd"/>
+            <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/app_conf_item_text"
+                android:layout_alignParentLeft="false"
+                android:layout_toRightOf="@id/weibo"
+                android:layout_marginLeft="10dp"
+                android:text="@string/fcWeibo"/>
+            <com.maxwell.bodysensor.ui.ViewButton
+                style="@style/app_social_item_button"
+                android:id="@+id/btn_link_weibo"
+                android:text="@string/str_unlink"/>
+        </RelativeLayout>
+        <LinearLayout style="@style/app_conf_divider"/>
+
+    </LinearLayout>
+
+</LinearLayout>

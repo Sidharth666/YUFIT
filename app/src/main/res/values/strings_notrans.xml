@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- all the strings that do not need to be translated -->
+<resources>
+    <string name="app_name" translatable="false">Body Sensor</string>
+    
+    <!-- for drawing text, app's first page -->
+    <string name="app_name_lowercase" translatable="false">body sensor</string>
+    
+    <!-- Facebook app id , a string in res is needed: -->
+    <!-- Ref. http://stackoverflow.com/questions/16156856/android-facebook-applicationid-cannot-be-null -->
+
+    <string name="app_facebook_id" translatable="false">632595726766601</string>
+
+    <string name="acd" translatable="false"></string> <!-- android contentDescription -->
+
+    <string name="space" translatable="false">" "</string>
+    <string name="percentage" translatable="false">%</string>
+    <string name="str_ft_simple" translatable="false">"'"</string>
+    <string name="str_in_simple" translatable="false">"\""</string>
+    <string name="str_empty" translatable="false">--</string>
+
+    <string name="number_1" translatable="false">1</string>
+    <string name="number_2" translatable="false">2</string>
+    <string name="number_3" translatable="false">3</string>
+    <string name="number_4" translatable="false">4</string>
+    <string name="number_5" translatable="false">5</string>
+    <string name="number_6" translatable="false">6</string>
+    <string name="number_7" translatable="false">7</string>
+    <string name="number_8" translatable="false">8</string>
+    <string name="number_9" translatable="false">9</string>
+    <string name="number_10" translatable="false">10</string>
+    <string name="number_11" translatable="false">11</string>
+    <string name="number_12" translatable="false">12</string>
+    <string name="number_15" translatable="false">15</string>
+    <string name="number_20" translatable="false">20</string>
+    <string name="number_25" translatable="false" >25</string>
+    <string name="number_30" translatable="false">30</string>
+
+    <string name="sos_sms_link" translatable="false">
+        <![CDATA[
+            https://www.google.com/maps/place/%1$s+%2$s/@%3$s,%4$s,16z
+        ]]>
+    </string>
+</resources>

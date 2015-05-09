@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    style="@style/app_intab_layout_all"
+    android:baselineAligned="false">
+
+    <RelativeLayout
+        style="@style/app_title" >
+        <LinearLayout
+            style="@style/app_title_c_layout" >
+            <View
+                style="@style/app_title_c_rl" />
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:id="@+id/home_profile_name"
+                style="@style/app_title_c_center_text" />
+            <View
+                style="@style/app_title_c_rl" />
+        </LinearLayout>
+        <ImageButton
+            android:id="@+id/button_home_logo"
+            style="@style/app_title_left_image"
+            android:src="@drawable/device_disconnected"
+            android:background="@null"
+            android:contentDescription="@string/acd"/>
+        <ImageButton
+            android:id="@+id/button_home_sync"
+            style="@style/app_title_right_image"
+            android:src="@drawable/device_sync"
+            android:background="@null"
+            android:contentDescription="@string/acd"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        style="@style/app_intab_content"
+        android:weightSum="1080"
+        android:orientation="horizontal" >
+ 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="70" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent" 
+            android:layout_weight="940"
+            android:weightSum="1481"
+            android:orientation="vertical" >
+        
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp" 
+                android:layout_weight="90" />
+
+            <RelativeLayout
+                android:id="@+id/home_sync_area"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="750" >
+
+                <com.maxwell.bodysensor.ui.ViewCircleProgress
+                    android:id="@+id/home_energy_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    mxw:fill_color="@color/app_theme_color_1" />
+
+                <com.maxwell.bodysensor.ui.ViewCircleProgress
+                    android:id="@+id/home_sync_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    mxw:fill_color="@color/app_theme_color_2" />
+
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/fhTextUserEnergy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textSize="@dimen/space_64dp"
+                    android:textColor="@color/app_home_digit"
+                    mxw:typeface="Chalet-ParisNineteenSeventy.ttf"
+                    tools:text="999"/>
+
+                <com.maxwell.bodysensor.ui.ViewButton
+                    android:id="@+id/btn_home_use_goal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/fhTextUserEnergy"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="@dimen/space_20dp"
+                    android:textColor="@color/app_grey80"
+                    mxw:typeface="Chalet-ParisNineteenSeventy.ttf"
+                    tools:text="9999"/>
+
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_goal_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_home_use_goal"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/app_grey80"
+                    android:textSize="@dimen/space_15dp"
+                    mxw:typeface="Avenir-Book.ttf"
+                    android:text="@string/faEnergy"/>
+
+                <ImageView
+                    android:id="@+id/fhCapsule"
+                    android:layout_width="@dimen/space_30dp"
+                    android:layout_height="@dimen/space_40dp"
+                    android:layout_above="@id/fhTextUserEnergy"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/home_energy"
+                    android:contentDescription="@string/acd" />
+
+            </RelativeLayout>
+
+            <View 
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="70" />
+
+            <com.maxwell.bodysensor.ui.ViewHomeChart
+                android:id="@+id/home_chart"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" 
+                android:layout_weight="92" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="124"
+                android:gravity="center" >
+                
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/space_8dp"
+                    android:paddingRight="@dimen/space_8dp"
+                    android:background="@color/app_greye6" >
+
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        android:text="@string/str_morning"
+                        android:layout_alignParentLeft="true"
+                        style="@style/app_home_text_morning_night" />
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        android:text="@string/str_night"
+                        android:layout_alignParentRight="true"
+                        style="@style/app_home_text_morning_night" />
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        android:id="@+id/home_text_today"
+                        android:layout_centerHorizontal="true"
+                        style="@style/app_home_text_morning_night" />
+                </RelativeLayout>
+            </LinearLayout>
+            
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="43" />
+        
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp" 
+                android:layout_weight="234" 
+                android:orientation="horizontal"
+                android:baselineAligned="false" >
+        
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" 
+                    android:layout_weight="292" 
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/box_orange_bg" >
+
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        android:id="@+id/fhTextCalories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/app_home_text_value" />
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        android:text="@string/strCalories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/app_home_text_value_hint" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="26" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" 
+                    android:layout_weight="292" 
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/box_orange_bg" >
+
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        android:id="@+id/fhTextSteps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/app_home_text_value" />
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        android:text="@string/strSteps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/app_home_text_value_hint"
+                        android:id="@+id/text_step_unit" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="26" />
+                
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" 
+                    android:layout_weight="292"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/box_orange_bg" >
+
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        android:id="@+id/fhTextDistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/app_home_text_value" />
+                    <com.maxwell.bodysensor.ui.ViewTextView
+                        android:id="@+id/fhTextDistanceHint"
+                        android:text="@string/strKilometers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/app_home_text_value_hint" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="78" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="70" />
+    </LinearLayout>
+</LinearLayout>

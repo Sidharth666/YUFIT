@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/app_outtab_layout_all">
+
+    <RelativeLayout
+        style="@style/app_title" >
+        <LinearLayout
+            style="@style/app_title_c_layout" >
+            <View
+                style="@style/app_title_c_rl" />
+            <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/app_title_c_center_text"
+                android:id="@+id/text_title_bar"
+                android:text="@string/df_smart_keys_find_phone"/>
+            <View
+                style="@style/app_title_c_rl" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        style="@style/app_outtab_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:weightSum="10">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_weight="2" />
+
+        <ImageView
+            android:layout_width="@dimen/space_120dp"
+            android:layout_height="@dimen/space_120dp"
+            android:src="@drawable/find_phone"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.maxwell.bodysensor.ui.ViewButton
+            android:id="@+id/btnOK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/smartkey_button"
+            android:text="@string/btn_stop_alert"/>
+
+    </LinearLayout>
+
+</LinearLayout>

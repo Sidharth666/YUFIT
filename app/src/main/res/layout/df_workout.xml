@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/app_theme"
+    android:weightSum="1" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="15dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/circle" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1" >
+
+            <ImageView
+                android:id="@+id/img_fitness_type"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:gravity="center_horizontal"
+                android:scaleType="centerInside"
+                android:src="@drawable/jumprope"/>
+
+            <com.maxwell.bodysensor.ui.ViewTextView
+                android:id="@+id/text_move_count"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/space_64dp"
+                android:textColor="@color/app_white"
+                android:text="0"
+                mxw:typeface="Chalet-ParisNineteenSeventy.ttf"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.35"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:weightSum="10">
+
+        <com.maxwell.bodysensor.ui.ViewTextView
+            android:id="@+id/text_velocity"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:textSize="@dimen/space_18dp"
+            android:textColor="@color/app_white"
+            tools:text="@string/velocity_per_min"
+            mxw:typeface="Avenir-Roman.ttf" />
+
+        <com.maxwell.bodysensor.ui.ViewWorkoutProgress
+            android:id="@+id/progress_workout"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="5"/>
+
+
+        <com.maxwell.bodysensor.ui.ViewTextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:textSize="@dimen/text_18sp"
+            android:textColor="@color/app_white"
+            android:text="@string/personal_best_of"
+            mxw:typeface="Avenir-Roman.ttf"
+            android:visibility="invisible"/>
+        <com.maxwell.bodysensor.ui.ViewTextView
+            android:id="@+id/text_best_record"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:textSize="@dimen/text_22sp"
+            android:textColor="@color/app_white"
+            tools:text="53"
+            mxw:typeface="Avenir-Roman.ttf"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imgBtnStartStop"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/fp_img_btn_start_selector"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp" />
+
+</LinearLayout>

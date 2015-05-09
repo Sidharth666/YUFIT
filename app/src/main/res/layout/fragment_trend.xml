@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    style="@style/app_intab_layout_all"
+    android:baselineAligned="false" >
+
+    <RelativeLayout
+        style="@style/app_title" >
+        <LinearLayout
+            style="@style/app_title_c_layout" >
+            <View
+                style="@style/app_title_c_rl"
+                android:layout_weight="25"/>
+            <RadioGroup
+                android:id="@+id/rg_trend_as"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal" >
+                <com.maxwell.bodysensor.ui.ViewRadioButton
+                    android:id="@+id/rgb_trend_activity"
+                    style="@style/rb_title_left"
+                    android:text="@string/strTabActivity"
+                />
+                <com.maxwell.bodysensor.ui.ViewRadioButton
+                    android:id="@+id/rgb_trend_sleep"
+                    style="@style/rb_title_right"
+                    android:text="@string/strTabSleep"
+                />
+            </RadioGroup>
+            <View
+                style="@style/app_title_c_rl"
+                android:layout_weight="25"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/button_share"
+            style="@style/app_title_right_image"
+            android:src="@drawable/app_share"
+            android:background="@null"
+            android:contentDescription="@string/acd"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        style="@style/app_intab_content"
+        android:id="@+id/view_share_area"
+        android:weightSum="1080"
+        android:orientation="horizontal"
+        android:background="@color/app_white">
+ 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="70" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="940"
+            android:orientation="vertical" >
+            
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="60" />
+            
+            <RadioGroup
+                android:id="@+id/rg_trend_dwmy"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="78"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:weightSum="400"
+                android:orientation="horizontal">
+            
+                <com.maxwell.bodysensor.ui.ViewRadioButton
+                    android:id="@+id/rgb_trend_day"
+                    style="@style/rbLeft"
+                    android:text="@string/trend_day" />
+                <com.maxwell.bodysensor.ui.ViewRadioButton
+                    android:id="@+id/rgb_trend_week"
+                    style="@style/rbCenter"
+                    android:text="@string/trend_week" />
+                <com.maxwell.bodysensor.ui.ViewRadioButton
+                    android:id="@+id/rgb_trend_month"
+                    style="@style/rbCenter"
+                    android:text="@string/trend_month" />
+                <com.maxwell.bodysensor.ui.ViewRadioButton
+                    android:id="@+id/rgb_trend_year"
+                    style="@style/rbRight"
+                    android:text="@string/trend_year" />
+            </RadioGroup>
+            
+            <View
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_weight="12" />
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="164"
+                android:weightSum="100"
+                android:gravity="center" >
+                <LinearLayout
+                    android:id="@+id/btn_trend_previous"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="10"
+                    android:gravity="left|center_vertical" >
+                    <ImageView
+                        style="@style/app_trend_arrow_image"
+                        android:src="@drawable/trend_previous"
+                        android:contentDescription="@string/acd" />
+                </LinearLayout>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    android:id="@+id/text_trend_range"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="80"
+                    android:gravity="center"
+                    android:textSize="@dimen/space_15dp"
+                    android:textColor="@color/app_grey58"
+                    mxw:typeface="Avenir-Roman.ttf" />
+                <LinearLayout
+                    android:id="@+id/btn_trend_next"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="10"
+                    android:gravity="right|center_vertical" >
+                    <ImageView
+                        style="@style/app_trend_arrow_image"
+                        android:src="@drawable/trend_next"
+                        android:contentDescription="@string/acd" />
+                </LinearLayout>
+           </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_trend_detail"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1180" />
+        </LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="70" />
+    </LinearLayout>
+</LinearLayout>

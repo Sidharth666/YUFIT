@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/app_title" >
+    <LinearLayout
+        style="@style/app_title_c_layout" >
+        <View
+            style="@style/app_title_c_rl" />
+        <com.maxwell.bodysensor.ui.ViewTextView
+            style="@style/app_title_c_center_text"
+            android:id="@+id/text_title_bar"
+            tools:text="This is Title"/>
+        <View
+            style="@style/app_title_c_rl" />
+    </LinearLayout>
+    <com.maxwell.bodysensor.ui.ViewButton
+        android:id="@+id/btnCancel"
+        style="@style/app_title_left_text"
+        android:text="@string/strCancel"
+        android:background="@null"/>
+    <com.maxwell.bodysensor.ui.ViewButton
+        android:id="@+id/btnOK"
+        style="@style/app_title_right_text"
+        android:text="@string/strDone"
+        android:background="@null" />
+</RelativeLayout>
