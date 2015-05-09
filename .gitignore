@@ -10,6 +10,7 @@
 /subprojects/*/build
 /subprojects/docs/src/samples/*/*/build
 /*.iml
+*.iml
 /*.ipr
 /*.iws
 /buildSrc/*.ipr

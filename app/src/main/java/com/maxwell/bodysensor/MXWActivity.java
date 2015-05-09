@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 
 import com.maxwell.bodysensor.data.DBProgramData;
 import com.maxwell.bodysensor.dialogfragment.dialog.DlgMessageYN;
@@ -25,7 +25,7 @@ import com.maxwellguider.bluetooth.activitytracker.MGActivityTrackerListener;
 /**
  * Created by ryanhsueh on 15/4/29.
  */
-public abstract class MXWActivity extends FragmentActivity implements
+public abstract class MXWActivity extends ActionBarActivity implements
         MGActivityTrackerDBDelegate,
         BTEventListener,
         MGActivityTrackerListener,

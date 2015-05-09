@@ -47,7 +47,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/MMX.AppTheme">
 
         <!--
             The FragmentTabHost are designed to be in the bottom, check
@@ -61,6 +61,7 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:label="@string/app_name"
+            android:theme="@style/MMX.AppTheme"
             android:windowSoftInputMode="adjustPan|adjustResize"
             android:launchMode="singleTop">
             <intent-filter>

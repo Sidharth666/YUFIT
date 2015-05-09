@@ -1,15 +1,5 @@
 package com.maxwell.bodysensor;
 
-import com.crashlytics.android.Crashlytics;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
-
 import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -40,13 +30,14 @@ import android.telephony.SmsManager;
 import android.text.Html;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 
-import com.maxwell.bodysensor.data.DB15MinutesRecord;
+import com.crashlytics.android.Crashlytics;
 import com.maxwell.bodysensor.data.DBDevice;
+import com.maxwell.bodysensor.data.DBProgramData;
 import com.maxwell.bodysensor.data.DBProvider;
 import com.maxwell.bodysensor.data.DBUpgradeWrapper;
+import com.maxwell.bodysensor.data.DeviceData;
 import com.maxwell.bodysensor.data.PrimaryProfileData;
 import com.maxwell.bodysensor.data.ProfileData;
 import com.maxwell.bodysensor.data.UserModeType;
@@ -60,25 +51,31 @@ import com.maxwell.bodysensor.data.user.DBUserSleepScore;
 import com.maxwell.bodysensor.fragment.FTabConf;
 import com.maxwell.bodysensor.listener.OnActivityResultCallback;
 import com.maxwell.bodysensor.listener.OnFitnessUpdateListener;
+import com.maxwell.bodysensor.ui.WarningUtil;
+import com.maxwell.bodysensor.util.UtilCalendar;
 import com.maxwell.bodysensor.util.UtilConst;
+import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.util.UtilDate;
+import com.maxwell.bodysensor.util.UtilExceptionHandler;
+import com.maxwell.bodysensor.util.UtilLocale;
+import com.maxwell.bodysensor.util.UtilLocale.DateFmt;
+import com.maxwell.bodysensor.util.UtilTZ;
+import com.maxwell.bodysensor.util.UtilTime;
 import com.maxwellguider.bluetooth.AdvertisingData;
 import com.maxwellguider.bluetooth.MGPeripheral;
 import com.maxwellguider.bluetooth.activitytracker.FitnessType;
 import com.maxwellguider.bluetooth.activitytracker.LanguageType;
 import com.maxwellguider.bluetooth.activitytracker.UnitType;
-import com.maxwellguider.bluetooth.command.feature.AttributeType;
 import com.maxwellguider.bluetooth.command.AttributeValue;
-import com.maxwell.bodysensor.data.DeviceData;
-import com.maxwell.bodysensor.util.UtilCalendar;
-import com.maxwell.bodysensor.util.UtilDBG;
-import com.maxwell.bodysensor.util.UtilExceptionHandler;
-import com.maxwell.bodysensor.util.UtilLocale;
-import com.maxwell.bodysensor.util.UtilLocale.DateFmt;
-import com.maxwell.bodysensor.util.UtilTZ;
-import com.maxwell.bodysensor.data.DBProgramData;
-import com.maxwell.bodysensor.ui.WarningUtil;
-import com.maxwell.bodysensor.util.UtilTime;
+import com.maxwellguider.bluetooth.command.feature.AttributeType;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 
 /*
@@ -338,9 +335,6 @@ public class MainActivity extends MXWActivity implements
                 break;
         }
         UtilDBG.i("===============================================");
-
-        getWindow().setSoftInputMode(
-				WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         setContentView(R.layout.activity_main);
 
