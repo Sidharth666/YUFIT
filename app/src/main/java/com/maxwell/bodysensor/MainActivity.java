@@ -236,9 +236,9 @@ public class MainActivity extends MXWActivity implements
         mPD = DBProgramData.getInstance();
 
         //check for HM package
-        if(UtilConst.isHMPackageInstalled(this) && false){
+        if(UtilConst.isHMPackageInstalled(this) && false && mIsFirstStart){
             //DB code here
-
+            mIsFirstStart = mSharedPref.isAppFirstStart();
             String macId = updateUserProfileHM();
 
             Uri[] tables = {CONTENT_URI_DB_15MINREC,CONTENT_URI_DB_DAILYREC,CONTENT_URI_DB_DEVICE,CONTENT_URI_DB_HOURLYREC,CONTENT_URI_DBPROFILE,CONTENT_URI_DB_SLEEPLOG,CONTENT_URI_DB_SLEEPSCORE};
@@ -288,7 +288,13 @@ public class MainActivity extends MXWActivity implements
             profile.sleepLogBegin = 0;
             profile.sleepLogEnd = 0;
             mPD.saveUserProfile(profile);
+
+
         }
+
+        mSharedPref.setAppFirstStart(false);
+
+        mIsFirstStart = false;
 
         // BLE api
         initMaxwellBleApi();

@@ -70,7 +70,30 @@ public class DBProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
-//        mDB.insert(DBUtils.DBT_TABLE_DEVICE,null, values);
+
+        switch (uriMatcher.match(uri)){
+            case 1:
+                mDB.insert(DBUSER15MINTABLE, null, values);
+                break;
+            case 2:
+                mDB.insert(DBUSERDAILYTABLE, null, values);
+                break;
+            case 3:
+                mDB.insert(DBUSERDEVICETABLE, null, values);
+                break;
+            case 4:
+                mDB.insert(DBUSERHOURLYTABLE, null, values);
+                break;
+            case 5:
+                mDB.insert(DBUSERPROFILETABLE, null, values);
+                break;
+            case 6:
+                mDB.insert(DBUSERSLEEPLOGTABLE, null, values);
+                break;
+            case 7:
+                mDB.insert(DBUSER1SLEEPSCORETABLE, null, values);
+                break;
+        }
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
