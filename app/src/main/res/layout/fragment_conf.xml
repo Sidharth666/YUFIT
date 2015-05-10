@@ -12,16 +12,6 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/device_none_1"
-            style="@style/app_conf_item">
-
-            <TextView
-                style="@style/app_conf_item_text"
-                android:text="@string/profile_device_no_conn"
-                android:textColor="@color/app_theme_color_2" />
-        </RelativeLayout>
-
-        <RelativeLayout
             android:id="@+id/rl_my_action_bar"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize">
@@ -37,17 +27,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:gravity="center"
-                android:layout_toLeftOf="@+id/ll_status_container">
+                android:layout_toLeftOf="@+id/ll_status_container"
+                android:gravity="center">
 
                 <TextView
+                    android:id="@+id/text_battery_level"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="60%" />
+                    android:text="60%"
+                    android:textColor="@color/text_color_primary" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/card_padding"
                     android:src="@drawable/ic_devicename" />
 
             </LinearLayout>
@@ -66,7 +59,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:text="Connection failed!\n Try Again!" />
+                    android:text="Connection failed!\n Try Again!"
+                    android:textColor="@color/text_color_primary" />
 
             </LinearLayout>
 
@@ -140,7 +134,7 @@
                         android:layout_below="@id/view_phone_notify_setting"
                         android:layout_marginTop="@dimen/menu_item_tb"
                         android:orientation="horizontal"
-                        android:visibility="visible">
+                        android:visibility="gone">
 
                         <TextView
                             style="@style/app_conf_sub_item_text"
@@ -187,7 +181,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/view_out_of_range_setting"
                         android:layout_marginTop="@dimen/menu_item_tb"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <TextView
                             style="@style/app_conf_sub_item_text"
@@ -359,38 +354,39 @@
                 </LinearLayout>
 
                 <!-- move alert -->
-                <RelativeLayout
+                <LinearLayout
                     android:id="@+id/view_move_alert"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true">
+                    style="@style/wrapper_settings">
+
+                    <ImageView
+                        style="@style/settings_icon"
+                        android:src="@drawable/ic_movealert" />
 
                     <LinearLayout
-                        android:id="@+id/view_move_setting"
-                        style="@style/wrapper_settings">
-
-                        <ImageView
-                            style="@style/settings_icon"
-                            android:src="@drawable/ic_movealert" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                         <TextView
                             style="@style/settings_main_text"
                             android:text="@string/df_move_alert_title" />
 
-                        <ToggleButton
-                            android:id="@+id/toggle_move_alert"
-                            style="@style/toggle_button_right"
-                            android:layout_marginRight="@dimen/content_gutter" />
+                        <TextView
+                            android:id="@+id/text_move_alert_duration"
+                            style="@style/app_conf_sub_item_text"
+                            android:layout_marginTop="@dimen/small_padding"
+                            tools:text="10:00 AM - 9:00 PM" />
 
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/text_move_alert_duration"
-                        style="@style/app_conf_sub_item_text"
-                        android:layout_below="@id/view_move_setting"
-                        android:layout_marginTop="@dimen/menu_item_tb"
-                        tools:text="10:00 AM - 9:00 PM" />
-                </RelativeLayout>
+                    <ToggleButton
+                        android:id="@+id/toggle_move_alert"
+                        style="@style/toggle_button_right"
+                        android:layout_marginRight="@dimen/content_gutter" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
             <!-- For device SOS -->
@@ -523,18 +519,6 @@
 
             <LinearLayout style="@style/app_conf_divider" />
 
-            <!-- device battery -->
-            <RelativeLayout style="@style/app_conf_item">
-
-                <TextView
-                    style="@style/app_conf_item_text"
-                    android:text="@string/fcBatteryCapacity" />
-
-                <TextView
-                    android:id="@+id/text_battery_level"
-                    style="@style/app_conf_item_text_right"
-                    android:text="100%" />
-            </RelativeLayout>
 
         </LinearLayout>
 

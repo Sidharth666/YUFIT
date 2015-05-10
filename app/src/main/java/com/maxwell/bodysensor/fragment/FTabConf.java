@@ -74,8 +74,6 @@ public class FTabConf extends Fragment implements
     private MGActivityTrackerApi mMaxwellBLE;
     private DBDevice mDevManager;
 
-    private View mViewDeviceNone1;
-
     private View mViewFocusE2MAX;
     private View mViewGeneal;
 
@@ -99,8 +97,6 @@ public class FTabConf extends Fragment implements
 	private View mViewTaskAlert;
 	private View mViewMoveAlert;
 	private View mViewResetDevice;
-    private View mViewPhoneNotifyDetail;
-    private View mViewOutOfRangeDetail;
     private View mViewEmergencyContact;
     private View mViewSOSHistory;
 
@@ -140,7 +136,6 @@ public class FTabConf extends Fragment implements
 
         mActivity.setOnSyncDeviceListener(this);
 
-        mViewDeviceNone1 = rootView.findViewById(R.id.device_none_1);
         mViewFocusE2MAX = rootView.findViewById(R.id.view_device_advanced_functions);
         mViewGeneal = rootView.findViewById(R.id.view_device_general_functions);
         mTextBatteryLevel = (TextView) rootView.findViewById(R.id.text_battery_level);
@@ -161,8 +156,6 @@ public class FTabConf extends Fragment implements
         mViewTaskAlert = rootView.findViewById(R.id.view_task_alert);
         mViewMoveAlert = rootView.findViewById(R.id.view_move_alert);
         mViewResetDevice = rootView.findViewById(R.id.view_reset_device);
-        mViewPhoneNotifyDetail = rootView.findViewById(R.id.view_phone_notify_detail);
-        mViewOutOfRangeDetail = rootView.findViewById(R.id.view_out_of_range_detail);
         mViewEmergencyContact = rootView.findViewById(R.id.view_emergency_contact);
         mViewSOSHistory = rootView.findViewById(R.id.view_sos_history);
 
@@ -308,7 +301,6 @@ public class FTabConf extends Fragment implements
         String TargetMac = mPD.getTargetDeviceMac();
         boolean hasTargetDevice = (UtilCVT.getMacAddressType(TargetMac) == 2) && (mPD.getUserDeviceByAddress(TargetMac)!=null);
 
-        mViewDeviceNone1.setVisibility(hasTargetDevice ? View.GONE : View.VISIBLE);
 
         // TODO : check with PM
         mViewGeneal.setVisibility(hasTargetDevice ? View.VISIBLE : View.GONE);
@@ -596,13 +588,11 @@ public class FTabConf extends Fragment implements
     public void onIncomingCallSave() {
         boolean enable = mSharedPref.isInComingCallNoDisturbingEnable();
         if (!enable) {
-            mViewPhoneNotifyDetail.setVisibility(View.GONE);
         } else {
             int start = mSharedPref.getInComingCallNoDisturbingStart();
             int end = mSharedPref.getInComingCallNoDisturbingEnd();
 
             updateTextTimeDuration(mTextNoDisturbingTime, start, end);
-            mViewPhoneNotifyDetail.setVisibility(View.VISIBLE);
         }
     }
 
@@ -610,13 +600,11 @@ public class FTabConf extends Fragment implements
     public void onOutOfRangeEnableChanged() {
         boolean enable = mSharedPref.isOutOfRangeNoDisturbingEnable();
         if (!enable) {
-            mViewOutOfRangeDetail.setVisibility(View.GONE);
         } else {
             int start = mSharedPref.getOutOfRangeNoDisturbingStart();
             int end = mSharedPref.getOutOfRangeNoDisturbingEnd();
 
             updateTextTimeDuration(mTextOutOfRnageNoDisturbingTime, start, end);
-            mViewOutOfRangeDetail.setVisibility(View.VISIBLE);
         }
     }
 
