@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="wrapper_settings">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/confitem_bg</item>
+    </style>
+
+    <style name="wrapper_settings_no_click" parent="wrapper_settings">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="settings_main_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+
+    <style name="settings_sub_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/content_gutter</item>
+    </style>
+
+    <style name="settings_icon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/content_gutter</item>
+    </style>
+
+    <style name="indented_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/content_gutter</item>
+        <item name="android:paddingLeft">24dp</item>
+    </style>
 
 </resources>
