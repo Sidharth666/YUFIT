@@ -46,4 +46,9 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="material_trans_btn">
+        <item name="colorButtonNormal">@android:color/white</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+    </style>
+
 </resources>

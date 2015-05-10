@@ -212,6 +212,7 @@
 
                     <Button
                         android:id="@+id/btn_find_device"
+                        style="@style/material_trans_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="@dimen/content_gutter"
@@ -248,6 +249,7 @@
 
                         <Button
                             android:id="@+id/btn_launch_camera"
+                            style="@style/material_trans_btn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="@dimen/content_gutter"
@@ -271,6 +273,7 @@
                         <Button
                             android:id="@+id/btn_launch_video"
                             android:layout_width="wrap_content"
+                            style="@style/material_trans_btn"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/content_gutter"
