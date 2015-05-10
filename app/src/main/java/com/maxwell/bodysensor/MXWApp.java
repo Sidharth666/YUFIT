@@ -214,20 +214,11 @@ public class MXWApp extends Application implements
         if (address.equals("")) {
             return false;
         }
+        Log.e("MXWApp", address + " :: address");
+        boolean enable = sSharedPref.isPhoneConnectionEnable();
+        sMaxwellBLE.setAutoConnect(enable);
+        return enable;
 
-        MGPeripheral.DeviceType deviceType = sMaxwellBLE.getDeviceType(address);
-        UtilDBG.e("[RYAN] initBleAutoConnection > " + deviceType + " | " + address + " | " + sSharedPref.isPhoneConnectionEnable());
-
-        // initial current target device type
-        if (deviceType == MGPeripheral.DeviceType.ENERGY_CAPSULE) {
-            // Energy Capsule is always disconnected
-            sMaxwellBLE.setAutoConnect(false);
-            return false;
-        } else {
-            boolean enable = sSharedPref.isPhoneConnectionEnable();
-            sMaxwellBLE.setAutoConnect(enable);
-            return enable;
-        }
     }
 
     public static void connectDevice(final String address) {
@@ -249,6 +240,9 @@ public class MXWApp extends Application implements
     }
 
     public static boolean isPowerWatch(String address) {
+        if (true) {
+            return true;
+        }
         MGPeripheral.DeviceType type = sMaxwellBLE.getDeviceType(address);
         return (type == MGPeripheral.DeviceType.POWER_WATCH);
     }

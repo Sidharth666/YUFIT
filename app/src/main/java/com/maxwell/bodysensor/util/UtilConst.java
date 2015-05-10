@@ -3,6 +3,7 @@ package com.maxwell.bodysensor.util;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.util.Log;
 
 import java.util.List;
 
@@ -24,9 +25,10 @@ public class UtilConst {
         //check for HM package
         String name =UtilConst.HME_PACKAGE_NAME;
         if(isPackageInstalled(name, context)){
+            Log.e("HM", "true");
             return true;
-
         }else {
+            Log.e("HM", "false");
             return false;
         }
     }
