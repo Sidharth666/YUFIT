@@ -77,7 +77,7 @@ public class FTabConf extends Fragment implements
     private View mViewFocusE2MAX;
     private View mViewGeneal;
 
-    private TextView mTextBatteryLevel;
+    private TextView mTextBatteryLevel, tvConnStatus;
 
     private View mViewPairADevice;
     private View mViewDeviceList;
