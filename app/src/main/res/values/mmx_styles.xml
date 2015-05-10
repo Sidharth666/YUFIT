@@ -38,4 +38,12 @@
         <item name="android:paddingLeft">24dp</item>
     </style>
 
+    <style name="tg_btn" parent="@android:style/Widget.Holo.Light.Button.Borderless.Small">
+        <item name="android:textColor">@color/day_toggle_color</item>
+        <item name="android:background">@drawable/sel_day_toggle_btn</item>
+        <item name="android:layout_width">@dimen/choose_day_dimen</item>
+        <item name="android:layout_height">@dimen/choose_day_dimen</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

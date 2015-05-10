@@ -2,4 +2,6 @@
 <resources>
     <string name="device_settings">Device Settings</string>
     <string name="yufit">YUFIT</string>
+    <string name="string_datefmt_a">a</string>
+    <string name="string_datefmt_hm">hh:mm</string>
 </resources>

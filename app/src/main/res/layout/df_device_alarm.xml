@@ -10,130 +10,184 @@
         style="@style/app_outtab_content"
         android:orientation="vertical"
         android:weightSum="10">
-        
-        <RelativeLayout
-	        android:layout_width="match_parent"
-	        android:layout_height="0dp"
-            android:layout_weight="3"
-	        android:background="@color/app_blue_setting_bg" >
 
-			<com.maxwell.bodysensor.ui.ViewButton
-                style="@style/btn_time_bg_color"
-			    android:id="@+id/btnAlarmTime"
-	            android:layout_centerInParent="true"
-	            android:layout_margin="50dp"
-			    tools:text="@string/df_set_alarm_time" />
-			
-	
-	    </RelativeLayout>
-	    
-        <LinearLayout style="@style/app_conf_divider"/>
-        
-        <RelativeLayout
-            style="@style/layout_weekly_alarm_item" >
-	
-	        <com.maxwell.bodysensor.ui.ViewTextView
-                style="@style/text_weekly_alarm"
-	            android:text="@string/every_sunday" />
-	
-	        <CheckBox
-                style="@style/checkbox_weekly_alarm"
-	            android:id="@+id/chkBoxEverySunday" />
-	
-	    </RelativeLayout>
-	
-	    <LinearLayout style="@style/app_conf_divider"/>
-	
-	    <RelativeLayout
-            style="@style/layout_weekly_alarm_item" >
-	
-	        <com.maxwell.bodysensor.ui.ViewTextView
-                style="@style/text_weekly_alarm"
-	            android:text="@string/every_monday" />
-	
-	        <CheckBox
-                style="@style/checkbox_weekly_alarm"
-	            android:id="@+id/chkBoxEveryMonday" />
-	
-	    </RelativeLayout>
-	
-	    <LinearLayout style="@style/app_conf_divider"/>
-	
-	    <RelativeLayout
-            style="@style/layout_weekly_alarm_item" >
-	
-	        <com.maxwell.bodysensor.ui.ViewTextView
-                style="@style/text_weekly_alarm"
-	            android:text="@string/every_tuesday" />
-	
-	        <CheckBox
-                style="@style/checkbox_weekly_alarm"
-	            android:id="@+id/chkBoxEveryTuesday" />
-	
-	    </RelativeLayout>
-	
-	    <LinearLayout style="@style/app_conf_divider"/>
-	
-	    <RelativeLayout
-            style="@style/layout_weekly_alarm_item" >
-	
-	        <com.maxwell.bodysensor.ui.ViewTextView
-                style="@style/text_weekly_alarm"
-	            android:text="@string/every_wednesday" />
-	
-	        <CheckBox
-                style="@style/checkbox_weekly_alarm"
-	            android:id="@+id/chkBoxEveryWednesday" />
-	
-	    </RelativeLayout>
-	
-	    <LinearLayout style="@style/app_conf_divider"/>
-	
-	    <RelativeLayout
-            style="@style/layout_weekly_alarm_item" >
-	
-	        <com.maxwell.bodysensor.ui.ViewTextView
-                style="@style/text_weekly_alarm"
-	            android:text="@string/every_thursday" />
-	
-	        <CheckBox
-                style="@style/checkbox_weekly_alarm"
-	            android:id="@+id/chkBoxEveryThursday" />
-	
-	    </RelativeLayout>
-	
-	    <LinearLayout style="@style/app_conf_divider"/>
-	
-	    <RelativeLayout
-            style="@style/layout_weekly_alarm_item" >
-	
-	        <com.maxwell.bodysensor.ui.ViewTextView
-                style="@style/text_weekly_alarm"
-	            android:text="@string/every_friday" />
-	
-	        <CheckBox
-                style="@style/checkbox_weekly_alarm"
-	            android:id="@+id/chkBoxEveryFriday" />
-	
-	    </RelativeLayout>
-	
-	    <LinearLayout style="@style/app_conf_divider"/>
-	
-	    <RelativeLayout
-            style="@style/layout_weekly_alarm_item" >
-	        
-	        <com.maxwell.bodysensor.ui.ViewTextView
-                style="@style/text_weekly_alarm"
-	            android:text="@string/every_saturday" />
-	
-	        <CheckBox
-                style="@style/checkbox_weekly_alarm"
-	            android:id="@+id/chkBoxEverySaturday" />
-	
-	    </RelativeLayout>
-	
-	    <LinearLayout style="@style/app_conf_divider"/>
-        
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="@dimen/content_gutter">
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<TextView
+					android:id="@+id/tv_time"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="6:40"
+					android:fontFamily="sans-serif-light"
+					android:layout_centerVertical="true"
+					android:textSize="@dimen/text_head_large" />
+
+				<TextView
+					android:id="@+id/tv_time_type"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="am"
+					android:layout_alignBaseline="@+id/tv_time"
+					android:layout_toRightOf="@+id/tv_time"
+					android:layout_marginLeft="@dimen/card_padding"
+					android:textSize="@dimen/text_sub_head" />
+
+				<ImageButton
+					android:id="@+id/ib_edit_alarm"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:layout_centerVertical="true"
+					android:padding="@dimen/card_padding"
+					android:src="@drawable/ic_devicename" />
+			</RelativeLayout>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/card_padding"
+				android:text="Repeat:" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/card_padding">
+
+				<View
+					android:layout_width="0dp"
+					android:layout_height="1dp"
+					android:layout_weight="1"></View>
+
+				<ToggleButton
+					android:id="@+id/tb_sun"
+					style="@style/tg_btn"
+					android:textOff="S"
+					android:textOn="S" />
+
+				<View
+					android:layout_width="0dp"
+					android:layout_height="0dp"
+					android:layout_weight="1"></View>
+
+				<ToggleButton
+					android:id="@+id/tb_mon"
+					style="@style/tg_btn"
+					android:textOff="M"
+					android:textOn="M" />
+
+				<View
+					android:layout_width="0dp"
+					android:layout_height="0dp"
+					android:layout_weight="1"></View>
+
+				<ToggleButton
+					android:id="@+id/tb_tue"
+					style="@style/tg_btn"
+					android:textOff="T"
+					android:textOn="T" />
+
+				<View
+					android:layout_width="0dp"
+					android:layout_height="0dp"
+					android:layout_weight="1"></View>
+
+				<ToggleButton
+					android:id="@+id/tb_wed"
+					style="@style/tg_btn"
+					android:textOff="W"
+					android:textOn="W" />
+
+				<View
+					android:layout_width="0dp"
+					android:layout_height="0dp"
+					android:layout_weight="1"></View>
+
+				<ToggleButton
+					android:id="@+id/tb_thu"
+					style="@style/tg_btn"
+					android:textOff="T"
+					android:textOn="T" />
+
+				<View
+					android:layout_width="0dp"
+					android:layout_height="0dp"
+					android:layout_weight="1"></View>
+
+				<ToggleButton
+					android:id="@+id/tb_fri"
+					style="@style/tg_btn"
+					android:textOff="F"
+					android:textOn="F" />
+
+				<View
+					android:layout_width="0dp"
+					android:layout_height="0dp"
+					android:layout_weight="1"></View>
+
+				<ToggleButton
+					android:id="@+id/tb_sat"
+					style="@style/tg_btn"
+					android:textOff="S"
+					android:textOn="S" />
+
+				<View
+					android:layout_width="0dp"
+					android:layout_height="0dp"
+					android:layout_weight="1"></View>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:orientation="horizontal"
+				android:padding="@dimen/content_gutter">
+
+				<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:orientation="vertical">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:singleLine="true"
+						android:text="Task 1" />
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/very_small_padding"
+						android:text="8th May, 2015" />
+
+				</LinearLayout>
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="@dimen/content_gutter"
+					android:layout_marginRight="@dimen/content_gutter"
+					android:text="06:00 PM" />
+
+				<ImageView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/ic_smartkey" />
+
+			</LinearLayout>
+
+		</LinearLayout>
+
     </LinearLayout>
 
 </com.maxwell.bodysensor.ui.ViewLinearLayout>

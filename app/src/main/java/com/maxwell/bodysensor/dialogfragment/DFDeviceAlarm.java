@@ -1,42 +1,45 @@
 package com.maxwell.bodysensor.dialogfragment;
 
-import java.util.Date;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.ToggleButton;
 
+import com.maxwell.bodysensor.MainActivity;
+import com.maxwell.bodysensor.R;
+import com.maxwell.bodysensor.SharedPrefWrapper;
 import com.maxwell.bodysensor.dialogfragment.dialog.DlgTimePicker;
+import com.maxwell.bodysensor.dialogfragment.dialog.DlgTimePicker.btnHandler;
 import com.maxwell.bodysensor.listener.OnSetupDeviceAlertListener;
 import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.util.UtilLocale;
 import com.maxwell.bodysensor.util.UtilLocale.DateFmt;
-import com.maxwell.bodysensor.MainActivity;
-import com.maxwell.bodysensor.R;
-import com.maxwell.bodysensor.SharedPrefWrapper;
-import com.maxwell.bodysensor.dialogfragment.dialog.DlgTimePicker.btnHandler;
 import com.maxwell.bodysensor.util.UtilTime;
+
+import java.util.Date;
 
 public class DFDeviceAlarm extends DFBase implements View.OnClickListener {
 
-	private MainActivity mActivity;
-	private SharedPrefWrapper mSharedPref;
+    private MainActivity mActivity;
+    private SharedPrefWrapper mSharedPref;
 
-	private Button mBtnAlarmTime;
-    private CheckBox mChkBoxEverySunday,
-    				 mChkBoxEveryMonday,
-    				 mChkBoxEveryTuesday,
-    				 mChkBoxEveryWednesday,
-    				 mChkBoxEveryThursday,
-    				 mChkBoxEveryFriday,
-    				 mChkBoxEverySaturday;
+    private TextView tvTime, tvTimeType;
+    private ImageButton ibEditAlarm;
+    private ToggleButton mChkBoxEverySunday,
+            mChkBoxEveryMonday,
+            mChkBoxEveryTuesday,
+            mChkBoxEveryWednesday,
+            mChkBoxEveryThursday,
+            mChkBoxEveryFriday,
+            mChkBoxEverySaturday;
 
     private int mAlarmTime;
 
     private OnSetupDeviceAlertListener mListener;
+
     public void setDeviceAlertListener(OnSetupDeviceAlertListener listener) {
         mListener = listener;
     }
@@ -47,36 +50,36 @@ public class DFDeviceAlarm extends DFBase implements View.OnClickListener {
 
         private int value;
 
-        private WEEKLY_ALARM(int value){
+        private WEEKLY_ALARM(int value) {
             this.value = value;
         }
 
-        public int getValue(){
+        public int getValue() {
             return this.value;
         }
     }
 
-	@Override
+    @Override
     public String getDialogTag() {
-		return MainActivity.DF_DEVICE_ALARM;
-	}
+        return MainActivity.DF_DEVICE_ALARM;
+    }
 
-	@Override
+    @Override
     public int getDialogTheme() {
-		return R.style.app_df_trans_rr;
-	}
+        return R.style.app_df_trans_rr;
+    }
 
-	@Override
+    @Override
     public void saveData() {
-		mSharedPref.setDeviceWeeklyAlarmTime(mAlarmTime);
-		mSharedPref.setDeviceWeeklyAlarmMask(getWeeklyAlermMask());
+        mSharedPref.setDeviceWeeklyAlarmTime(mAlarmTime);
+        mSharedPref.setDeviceWeeklyAlarmMask(getWeeklyAlermMask());
 
         if (mListener != null) {
             mListener.onDeviceAlertUpdated();
         }
-	}
+    }
 
-	@Override
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         UtilDBG.logMethod();
 
@@ -85,19 +88,22 @@ public class DFDeviceAlarm extends DFBase implements View.OnClickListener {
 
         View view = inflater.inflate(R.layout.df_device_alarm, container);
 
-        mBtnAlarmTime = (Button) view.findViewById(R.id.btnAlarmTime);
+        ibEditAlarm = (ImageButton) view.findViewById(R.id.ib_edit_alarm);
+        ibEditAlarm.setOnClickListener(this);
+        tvTime = (TextView) view.findViewById(R.id.tv_time);
+        tvTimeType = (TextView) view.findViewById(R.id.tv_time_type);
 
-		// Get the alarm time.
+        // Get the alarm time.
         mAlarmTime = mSharedPref.getDeviceWeeklyAlarmTime();
-        updateTime(mBtnAlarmTime, mAlarmTime);
+        updateTime(tvTime, tvTimeType, mAlarmTime);
 
-        mChkBoxEverySunday = (CheckBox) view.findViewById(R.id.chkBoxEverySunday);
-        mChkBoxEveryMonday = (CheckBox) view.findViewById(R.id.chkBoxEveryMonday);
-        mChkBoxEveryTuesday = (CheckBox) view.findViewById(R.id.chkBoxEveryTuesday);
-        mChkBoxEveryWednesday = (CheckBox) view.findViewById(R.id.chkBoxEveryWednesday);
-        mChkBoxEveryThursday = (CheckBox) view.findViewById(R.id.chkBoxEveryThursday);
-        mChkBoxEveryFriday = (CheckBox) view.findViewById(R.id.chkBoxEveryFriday);
-        mChkBoxEverySaturday = (CheckBox) view.findViewById(R.id.chkBoxEverySaturday);
+        mChkBoxEverySunday = (ToggleButton) view.findViewById(R.id.tb_sun);
+        mChkBoxEveryMonday = (ToggleButton) view.findViewById(R.id.tb_mon);
+        mChkBoxEveryTuesday = (ToggleButton) view.findViewById(R.id.tb_tue);
+        mChkBoxEveryWednesday = (ToggleButton) view.findViewById(R.id.tb_wed);
+        mChkBoxEveryThursday = (ToggleButton) view.findViewById(R.id.tb_thu);
+        mChkBoxEveryFriday = (ToggleButton) view.findViewById(R.id.tb_fri);
+        mChkBoxEverySaturday = (ToggleButton) view.findViewById(R.id.tb_sat);
 
         // Show the current setting.
         initWeeklyAlemMask();
@@ -106,91 +112,91 @@ public class DFDeviceAlarm extends DFBase implements View.OnClickListener {
         setupButtons(view);
 
         return view;
-	}
+    }
 
-	private void updateTime(Button btn, int time) {
+    private void updateTime(TextView tvTime, TextView tvTimeType, int time) {
         long ms = UtilTime.getMillisForIntTime(time);
         Date date = new Date(ms);
 
-        btn.setText(UtilLocale.dateToString(date, DateFmt.HMa));
-        btn.setOnClickListener(this);
-	}
+        tvTime.setText(UtilLocale.dateToString(date, DateFmt.HM));
+        tvTimeType.setText(UtilLocale.dateToString(date, DateFmt.a));
+    }
 
-	private void initWeeklyAlemMask() {
-		int weeklyAlarmMask = mSharedPref.getDeviceWeeklyAlarmMask();
+    private void initWeeklyAlemMask() {
+        int weeklyAlarmMask = mSharedPref.getDeviceWeeklyAlarmMask();
 
-		// Check for Sunday.
-		if ((weeklyAlarmMask & WEEKLY_ALARM.SUNDAY.getValue()) == WEEKLY_ALARM.SUNDAY.getValue())
-			mChkBoxEverySunday.setChecked(true);
-		else
-			mChkBoxEverySunday.setChecked(false);
+        // Check for Sunday.
+        if ((weeklyAlarmMask & WEEKLY_ALARM.SUNDAY.getValue()) == WEEKLY_ALARM.SUNDAY.getValue())
+            mChkBoxEverySunday.setChecked(true);
+        else
+            mChkBoxEverySunday.setChecked(false);
 
-		// Check for Monday.
-		if ((weeklyAlarmMask & WEEKLY_ALARM.MONDAY.getValue()) == WEEKLY_ALARM.MONDAY.getValue())
-			mChkBoxEveryMonday.setChecked(true);
-		else
-			mChkBoxEveryMonday.setChecked(false);
+        // Check for Monday.
+        if ((weeklyAlarmMask & WEEKLY_ALARM.MONDAY.getValue()) == WEEKLY_ALARM.MONDAY.getValue())
+            mChkBoxEveryMonday.setChecked(true);
+        else
+            mChkBoxEveryMonday.setChecked(false);
 
-		// Check for Tuesday.
-		if ((weeklyAlarmMask & WEEKLY_ALARM.TUESDAY.getValue()) == WEEKLY_ALARM.TUESDAY.getValue())
-			mChkBoxEveryTuesday.setChecked(true);
-		else
-			mChkBoxEveryTuesday.setChecked(false);
+        // Check for Tuesday.
+        if ((weeklyAlarmMask & WEEKLY_ALARM.TUESDAY.getValue()) == WEEKLY_ALARM.TUESDAY.getValue())
+            mChkBoxEveryTuesday.setChecked(true);
+        else
+            mChkBoxEveryTuesday.setChecked(false);
 
-		// Check for Wednesday.
-		if ((weeklyAlarmMask & WEEKLY_ALARM.WEDNESDAY.getValue()) == WEEKLY_ALARM.WEDNESDAY.getValue())
-			mChkBoxEveryWednesday.setChecked(true);
-		else
-			mChkBoxEveryWednesday.setChecked(false);
+        // Check for Wednesday.
+        if ((weeklyAlarmMask & WEEKLY_ALARM.WEDNESDAY.getValue()) == WEEKLY_ALARM.WEDNESDAY.getValue())
+            mChkBoxEveryWednesday.setChecked(true);
+        else
+            mChkBoxEveryWednesday.setChecked(false);
 
-		// Check for Thursday.
-		if ((weeklyAlarmMask & WEEKLY_ALARM.THURSDAY.getValue()) == WEEKLY_ALARM.THURSDAY.getValue())
-			mChkBoxEveryThursday.setChecked(true);
-		else
-			mChkBoxEveryThursday.setChecked(false);
+        // Check for Thursday.
+        if ((weeklyAlarmMask & WEEKLY_ALARM.THURSDAY.getValue()) == WEEKLY_ALARM.THURSDAY.getValue())
+            mChkBoxEveryThursday.setChecked(true);
+        else
+            mChkBoxEveryThursday.setChecked(false);
 
-		// Check for Friday.
-		if ((weeklyAlarmMask & WEEKLY_ALARM.FRIDAY.getValue()) == WEEKLY_ALARM.FRIDAY.getValue())
-			mChkBoxEveryFriday.setChecked(true);
-		else
-			mChkBoxEveryFriday.setChecked(false);
+        // Check for Friday.
+        if ((weeklyAlarmMask & WEEKLY_ALARM.FRIDAY.getValue()) == WEEKLY_ALARM.FRIDAY.getValue())
+            mChkBoxEveryFriday.setChecked(true);
+        else
+            mChkBoxEveryFriday.setChecked(false);
 
-		// Check for Saturday.
-		if ((weeklyAlarmMask & WEEKLY_ALARM.SATURDAY.getValue()) == WEEKLY_ALARM.SATURDAY.getValue())
-			mChkBoxEverySaturday.setChecked(true);
-		else
-			mChkBoxEverySaturday.setChecked(false);
-	}
+        // Check for Saturday.
+        if ((weeklyAlarmMask & WEEKLY_ALARM.SATURDAY.getValue()) == WEEKLY_ALARM.SATURDAY.getValue())
+            mChkBoxEverySaturday.setChecked(true);
+        else
+            mChkBoxEverySaturday.setChecked(false);
+    }
 
-	private int getWeeklyAlermMask() {
-		int iDayCombination = 0;
+    private int getWeeklyAlermMask() {
+        int iDayCombination = 0;
 
         boolean isWeeklyChecked = false;
-		if (mChkBoxEverySunday.isChecked()) {
+        if (mChkBoxEverySunday.isChecked()) {
             iDayCombination += WEEKLY_ALARM.SUNDAY.getValue();
             isWeeklyChecked = true;
         }
-		if (mChkBoxEveryMonday.isChecked()) {
+        if (mChkBoxEveryMonday.isChecked()) {
             iDayCombination += WEEKLY_ALARM.MONDAY.getValue();
             isWeeklyChecked = true;
         }
-		if (mChkBoxEveryTuesday.isChecked()) {
+        if (mChkBoxEveryTuesday.isChecked()) {
             iDayCombination += WEEKLY_ALARM.TUESDAY.getValue();
             isWeeklyChecked = true;
         }
-		if (mChkBoxEveryWednesday.isChecked()) {
+        if (mChkBoxEveryWednesday.isChecked()) {
             iDayCombination += WEEKLY_ALARM.WEDNESDAY.getValue();
             isWeeklyChecked = true;
         }
-		if (mChkBoxEveryThursday.isChecked()) {
+        if (mChkBoxEveryThursday.isChecked()) {
             iDayCombination += WEEKLY_ALARM.THURSDAY.getValue();
             isWeeklyChecked = true;
         }
-		if (mChkBoxEveryFriday.isChecked()) {
+        if (mChkBoxEveryFriday.isChecked()) {
             iDayCombination += WEEKLY_ALARM.FRIDAY.getValue();
             isWeeklyChecked = true;
         }
-		if (mChkBoxEverySaturday.isChecked()) {
+        if (mChkBoxEverySaturday.isChecked()) {
             iDayCombination += WEEKLY_ALARM.SATURDAY.getValue();
             isWeeklyChecked = true;
         }
@@ -200,42 +206,42 @@ public class DFDeviceAlarm extends DFBase implements View.OnClickListener {
             iDayCombination = WEEKLY_ALARM.EVERYDAY.getValue();
         }
 
-		return iDayCombination;
-	}
+        return iDayCombination;
+    }
 
-	private void showDlgTimePicker() {
-		final DlgTimePicker dlg = new DlgTimePicker();
+    private void showDlgTimePicker() {
+        final DlgTimePicker dlg = new DlgTimePicker();
         dlg.showDatePicker(false);
 
-		int time = mAlarmTime;
+        int time = mAlarmTime;
 
-		int hour = time / 60;
+        int hour = time / 60;
         int minute = time % 60;
 
         dlg.setTime(hour, minute)
-        	.setPositiveButton(null, new btnHandler() {
+                .setPositiveButton(null, new btnHandler() {
 
-				@Override
-				public boolean onBtnHandler() {
-					int hour = dlg.getCurrentHour();
-					int minute = dlg.getCurrentMinute();
+                    @Override
+                    public boolean onBtnHandler() {
+                        int hour = dlg.getCurrentHour();
+                        int minute = dlg.getCurrentMinute();
 
-					mAlarmTime = hour * 60 + minute;
-					updateTime(mBtnAlarmTime, mAlarmTime);
+                        mAlarmTime = hour * 60 + minute;
+                        updateTime(tvTime, tvTimeType, mAlarmTime);
 
-					return true;
-				}
+                        return true;
+                    }
 
-        	});
+                });
 
         dlg.showHelper(mActivity);
-	}
+    }
 
-	@Override
-	public void onClick(View v) {
-		if (v==mBtnAlarmTime) {
-			showDlgTimePicker();
-		}
-	}
+    @Override
+    public void onClick(View v) {
+        if (v == ibEditAlarm) {
+            showDlgTimePicker();
+        }
+    }
 
 }

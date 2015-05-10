@@ -1,14 +1,14 @@
 package com.maxwell.bodysensor.util;
 
+import android.content.res.Resources;
+
+import com.maxwell.bodysensor.R;
+
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-
-import com.maxwell.bodysensor.R;
-
-import android.content.res.Resources;
 
 public class UtilLocale {
     private static Resources mRes = null;
@@ -20,9 +20,9 @@ public class UtilLocale {
         if (mRes != null) {
             String strLanguage = mRes.getString(R.string.locale_language);
             String strCountry = mRes.getString(R.string.locale_country);
-            if (strLanguage.length()>0 && strCountry.length()>0) {
+            if (strLanguage.length() > 0 && strCountry.length() > 0) {
                 mApp = new Locale(strLanguage, strCountry);
-            } else if (strLanguage.length()>0 && strCountry.length() == 0) {
+            } else if (strLanguage.length() > 0 && strCountry.length() == 0) {
                 mApp = new Locale(strLanguage);
             } else {
                 // unexpected, check strings.xml, and find out locale_language and locale_country
@@ -43,13 +43,13 @@ public class UtilLocale {
     }
 
     public static Locale getEnglishLocale() {
-        if (mEnglish==null) {
+        if (mEnglish == null) {
             mEnglish = new Locale("en", "us");
-            if (mEnglish==null || mEnglish.getLanguage().compareToIgnoreCase("en")!=0) {
+            if (mEnglish == null || mEnglish.getLanguage().compareToIgnoreCase("en") != 0) {
                 mEnglish = new Locale("en");
             }
 
-            if (mEnglish==null) {
+            if (mEnglish == null) {
                 UtilDBG.e("not expected, can not get the English locale");
             }
         }
@@ -68,6 +68,8 @@ public class UtilLocale {
         WeekHMa,
         HMSa,
         HMS_24,
+        a,
+        HM
     }
 
     public static String dateToString(Date date, DateFmt fmt) {
@@ -78,16 +80,42 @@ public class UtilLocale {
         int id;
 
         switch (fmt) {
-        case YMDWeek:       id = R.string.string_datefmt_ymd_week; break;
-        case YMD:           id = R.string.string_datefmt_ymd;   break;
-        case MD:            id = R.string.string_datefmt_md;    break;
-        case YM:            id = R.string.string_datefmt_ym;    break;
-        case HMa:           id = R.string.string_datefmt_hma;       break;
-        case YMDHMa:        id = R.string.string_datefmt_ymd_hma;   break;
-        case WeekHMa:       id = R.string.string_datefmt_week_hma;  break;
-        case HMSa:          id = R.string.string_datefmt_hmsa;  break;
-        case HMS_24:        id = R.string.string_datefmt_hms_24;    break;
-        default:            id = 0;                                 break;
+            case YMDWeek:
+                id = R.string.string_datefmt_ymd_week;
+                break;
+            case YMD:
+                id = R.string.string_datefmt_ymd;
+                break;
+            case MD:
+                id = R.string.string_datefmt_md;
+                break;
+            case YM:
+                id = R.string.string_datefmt_ym;
+                break;
+            case HMa:
+                id = R.string.string_datefmt_hma;
+                break;
+            case YMDHMa:
+                id = R.string.string_datefmt_ymd_hma;
+                break;
+            case WeekHMa:
+                id = R.string.string_datefmt_week_hma;
+                break;
+            case HMSa:
+                id = R.string.string_datefmt_hmsa;
+                break;
+            case HMS_24:
+                id = R.string.string_datefmt_hms_24;
+                break;
+            case a:
+                id = R.string.string_datefmt_a;
+                break;
+            case HM:
+                id = R.string.string_datefmt_hm;
+                break;
+            default:
+                id = 0;
+                break;
         }
         if (id == 0) {
             return "";
@@ -96,9 +124,9 @@ public class UtilLocale {
         SimpleDateFormat df = new SimpleDateFormat(mRes.getString(id), UtilLocale.getAppLocale());
 
         DateFormatSymbols symbols = new DateFormatSymbols(UtilLocale.getAppLocale());
-        symbols.setAmPmStrings(new String[] {
-            mRes.getString(R.string.string_time_am),
-            mRes.getString(R.string.string_time_pm) });
+        symbols.setAmPmStrings(new String[]{
+                mRes.getString(R.string.string_time_am),
+                mRes.getString(R.string.string_time_pm)});
         df.setDateFormatSymbols(symbols);
 
         return df.format(date);
