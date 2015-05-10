@@ -193,7 +193,8 @@ public abstract class MXWActivity extends ActionBarActivity implements
 
         // if no one handle this, ask user if sure to exit
         if (bNoHandle) {
-            DlgMessageYN dlg = new DlgMessageYN();
+            finish();
+            /*DlgMessageYN dlg = new DlgMessageYN();
 
             dlg.setDes(getString(R.string.str_exit_app_sure))
                     .setPositiveButton(null, new DlgMessageYN.btnHandler() {
@@ -202,7 +203,7 @@ public abstract class MXWActivity extends ActionBarActivity implements
                             finish();
                             return true;
                         } })
-                    .showHelper(this);
+                    .showHelper(this);*/
         }
 
         // do not call super.onBackPressed(); , it will cause the activity finish()

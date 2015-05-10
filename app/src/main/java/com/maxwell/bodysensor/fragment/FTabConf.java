@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.maxwell.bodysensor.CameraActivity;
@@ -25,6 +27,8 @@ import com.maxwell.bodysensor.dialogfragment.DFSOSHistory;
 import com.maxwell.bodysensor.dialogfragment.DFTutorial;
 import com.maxwell.bodysensor.listener.OnSetupDeviceAlertListener;
 import com.maxwell.bodysensor.listener.OnSetupOutOfRangeListener;
+import com.maxwell.bodysensor.listener.OnSyncDeviceListener;
+import com.maxwellguider.bluetooth.MGPeripheral;
 import com.maxwellguider.bluetooth.MGPeripheral.DeviceType;
 import com.maxwellguider.bluetooth.activitytracker.AlertTime;
 import com.maxwellguider.bluetooth.activitytracker.GoalType;
@@ -62,7 +66,7 @@ public class FTabConf extends Fragment implements
         View.OnClickListener, DBDevice.OnDBDeviceUpdateListener,
         DFPhoneNotify.OnPhoneNotifyChangedLitener,
         OnSetupOutOfRangeListener,
-        OnSetupDeviceAlertListener{
+        OnSetupDeviceAlertListener,OnSyncDeviceListener {
 
     public static final int BATTERY_CHARGING = 101;
     public static final int BATTERY_FULL = 102;
@@ -120,6 +124,9 @@ public class FTabConf extends Fragment implements
     private TextView mTextDeviceAlarmDetail;
     private TextView mTextMoveAlertDuration;
 
+    private ProgressBar mSyncProgress;
+    private TextView mTextConnectionStat;
+
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -134,6 +141,8 @@ public class FTabConf extends Fragment implements
 
         mDevManager = DBUserDevice.getInstance();
         mDevManager.addListener(this);
+
+        mActivity.setOnSyncDeviceListener(this);
 
         mViewDeviceNone1 = rootView.findViewById(R.id.device_none_1);
         mViewDeviceNone2 = rootView.findViewById(R.id.device_none_2);
@@ -716,4 +725,39 @@ public class FTabConf extends Fragment implements
                     }
                 };
 
+    @Override
+    public void onDeviceConnect(MGPeripheral sender) {
+//        mMaxwellBLE.sync();
+//        mTextConnectionStat.setText("Connected");
+
+    }
+
+    @Override
+    public void onDeviceDisconnect(MGPeripheral sender) {
+    }
+
+    @Override
+    public void onConnectTimeOut(MGPeripheral sender) {
+
+    }
+
+    @Override
+    public void onDeviceReady(MGPeripheral sender) {
+
+    }
+
+    @Override
+    public void onSyncProgressUpdate(int progress) {
+//        mSyncProgress.setProgress(progress);
+    }
+
+    @Override
+    public void onSyncFinish() {
+//        mSyncProgress.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onSyncFail() {
+
+    }
 }
