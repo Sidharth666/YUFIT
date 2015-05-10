@@ -8,7 +8,7 @@
     <LinearLayout
         android:id="@+id/ll_header"
         android:layout_height="?android:attr/actionBarSize"
-        style="@style/app_title">
+        android:layout_width="match_parent">
 
         <Button
             android:id="@+id/btnCancel"

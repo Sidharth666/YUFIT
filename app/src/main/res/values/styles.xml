@@ -1,6 +1,4 @@
-<resources
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:mxw="http://schemas.android.com/apk/res/com.maxwell.bodysensor" >
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light">
@@ -13,16 +11,20 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">false</item>
     </style>
+
     <style name="app_df_trans_rr" parent="@style/app_df">
         <item name="android:windowAnimationStyle">@style/anim_trans_rr</item>
     </style>
+
     <style name="app_df_trans_bb" parent="@style/app_df">
         <item name="android:windowAnimationStyle">@style/anim_trans_bb</item>
     </style>
+
     <style name="app_dlg" parent="android:Theme.Holo.Light.Dialog">
         <item name="android:windowBackground">@drawable/dlg_bg_inset</item>
         <item name="android:windowNoTitle">true</item>
     </style>
+
     <style name="app_dlg_scale_tt" parent="@style/app_dlg">
         <item name="android:windowAnimationStyle">@style/anim_scale_tt</item>
     </style>
@@ -59,6 +61,7 @@
         <item name="android:orientation">vertical</item>
         <item name="android:background">@color/app_white</item>
     </style>
+
     <style name="app_outtab_layout_all">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -66,21 +69,26 @@
         <item name="android:orientation">vertical</item>
         <item name="android:background">@color/app_white</item>
     </style>
+
     <style name="app_intab_content">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:layout_weight">1510</item>
     </style>
+
     <style name="app_outtab_content">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:layout_weight">1705</item>
     </style>
+
     <style name="app_title">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@android:color/white</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">140</item>
+        <item name="android:background">@color/app_theme_color_1</item>
     </style>
+
     <style name="app_title_c_layout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -88,23 +96,27 @@
         <item name="android:gravity">center</item>
         <item name="android:orientation">horizontal</item>
     </style>
+
     <style name="app_title_c_rl">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">18</item>
     </style>
+
     <style name="app_title_c_center">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">64</item>
         <item name="android:gravity">center</item>
     </style>
+
     <style name="app_title_c_center_text" parent="@style/app_title_c_center">
         <item name="android:ellipsize">end</item>
         <item name="android:lines">1</item>
         <item name="android:textSize">@dimen/text_19sp</item>
         <item name="android:textColor">@color/text_color_primary</item>
     </style>
+
     <style name="app_title_rl">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
@@ -112,26 +124,32 @@
         <item name="android:paddingRight">@dimen/space_15dp</item>
         <item name="android:gravity">center</item>
     </style>
+
     <style name="app_title_rl_text" parent="@style/app_title_rl">
         <item name="android:lines">1</item>
         <item name="android:textSize">@dimen/text_16sp</item>
         <item name="android:textColor">@color/app_theme_riptide</item>
     </style>
+
     <style name="app_title_left_text" parent="@style/app_title_rl_text">
         <item name="android:layout_alignParentLeft">true</item>
     </style>
+
     <style name="app_title_right_text" parent="@style/app_title_rl_text">
         <item name="android:layout_alignParentRight">true</item>
     </style>
+
     <style name="app_title_rl_image" parent="@style/app_title_rl">
         <item name="android:scaleType">centerInside</item>
         <item name="android:adjustViewBounds">true</item>
         <item name="android:paddingTop">@dimen/space_10dp</item>
         <item name="android:paddingBottom">@dimen/space_10dp</item>
     </style>
+
     <style name="app_title_left_image" parent="@style/app_title_rl_image">
         <item name="android:layout_alignParentLeft">true</item>
     </style>
+
     <style name="app_title_right_image" parent="@style/app_title_rl_image">
         <item name="android:layout_alignParentRight">true</item>
     </style>
@@ -147,6 +165,7 @@
         <item name="android:textColor">@color/app_black</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="app_dlg_des">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -155,6 +174,7 @@
         <item name="android:textSize">@dimen/text_15sp</item>
         <item name="android:textColor">@color/app_grey58</item>
     </style>
+
     <style name="app_dlg_single_choose" parent="app_dlg_des">
         <item name="android:layout_height">@dimen/space_226dp</item>
         <item name="android:paddingTop">@dimen/space_10dp</item>
@@ -163,6 +183,7 @@
         <item name="android:choiceMode">singleChoice</item>
         <item name="android:listSelector">#00000000</item>
     </style>
+
     <style name="app_dlg_device_list" parent="app_dlg_des">
         <item name="android:layout_height">@dimen/space_120dp</item>
         <item name="android:paddingTop">@dimen/space_10dp</item>
@@ -172,6 +193,7 @@
         <item name="android:choiceMode">singleChoice</item>
         <item name="android:listSelector">#00000000</item>
     </style>
+
     <style name="app_dlg_button_text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -182,6 +204,7 @@
         <item name="android:textColor">@color/app_theme_color_1</item>
         <item name="android:background">@drawable/dialog_bottom_bg</item>
     </style>
+
     <style name="app_dlg_device_name_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -199,6 +222,7 @@
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/button_orange_bg</item>
     </style>
+
     <style name="orange_button_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -208,6 +232,7 @@
         <item name="android:maxLines">2</item>
         <item name="android:ellipsize">end</item>
     </style>
+
     <style name="orange_button_next">
         <item name="android:layout_width">@dimen/space_9dp</item>
         <item name="android:layout_height">@dimen/space_10dp</item>
@@ -258,9 +283,11 @@
         <item name="android:textSize">@dimen/space_14dp</item>
         <item name="android:textColor">@drawable/rb_textcolor</item>
     </style>
+
     <style name="rbLeft" parent="@style/rbCenter">
         <item name="android:background">@drawable/rb_left_selector</item>
     </style>
+
     <style name="rbRight" parent="@style/rbCenter">
         <item name="android:background">@drawable/rb_right_selector</item>
     </style>
@@ -278,9 +305,11 @@
         <item name="android:button">@null</item>
         <item name="android:textColor">@drawable/rb_title_textcolor</item>
     </style>
+
     <style name="rb_title_left" parent="@style/rb_title_center">
         <item name="android:background">@drawable/rb_title_left_selector</item>
     </style>
+
     <style name="rb_title_right" parent="@style/rb_title_center">
         <item name="android:background">@drawable/rb_title_right_selector</item>
     </style>
@@ -298,12 +327,15 @@
         <item name="android:textSize">@dimen/text_20sp</item>
         <item name="android:textColor">@color/app_theme_color_1</item>
     </style>
+
     <style name="option_button_top" parent="@style/option_button">
         <item name="android:background">@drawable/button_option_top_bg</item>
     </style>
+
     <style name="option_button_center" parent="@style/option_button">
         <item name="android:background">@drawable/button_option_center_bg</item>
     </style>
+
     <style name="option_button_bottom" parent="@style/option_button">
         <item name="android:background">@drawable/button_option_bottom_bg</item>
     </style>
@@ -316,10 +348,12 @@
         <item name="android:textSize">@dimen/space_14dp</item>
         <item name="android:textColor">@color/app_grey58</item>
     </style>
+
     <style name="app_home_text_value">
         <item name="android:textSize">@dimen/space_26dp</item>
         <item name="android:textColor">@color/app_home_digit</item>
     </style>
+
     <style name="app_home_text_value_hint">
         <item name="android:textSize">@dimen/space_15dp</item>
         <item name="android:textColor">@color/app_grey80</item>
@@ -331,6 +365,7 @@
         <item name="android:layout_height">@dimen/space_17dp</item>
         <item name="android:scaleType">centerInside</item>
     </style>
+
     <style name="app_trend_text_chart_hint">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -339,19 +374,24 @@
         <item name="android:textSize">@dimen/space_10dp</item>
         <item name="android:textColor">@color/app_greyba</item>
     </style>
+
     <style name="app_trend_a_text_value1">
         <item name="android:layout_gravity">center</item>
         <item name="android:textColor">@color/app_theme_color_1</item>
     </style>
+
     <style name="app_trend_ad_text_value1" parent="@style/app_trend_a_text_value1">
         <item name="android:textSize">@dimen/space_36dp</item>
     </style>
+
     <style name="app_trend_aw_text_value1" parent="@style/app_trend_a_text_value1">
         <item name="android:textSize">@dimen/space_36dp</item>
     </style>
+
     <style name="app_trend_am_text_value1" parent="@style/app_trend_a_text_value1">
         <item name="android:textSize">@dimen/space_36dp</item>
     </style>
+
     <style name="app_trend_ay_text_value1" parent="@style/app_trend_a_text_value1">
         <item name="android:textSize">@dimen/space_28dp</item>
     </style>
@@ -369,12 +409,15 @@
         <item name="android:textSize">@dimen/space_30dp</item>
         <item name="android:textColor">@color/app_grey80</item>
     </style>
+
     <style name="app_trend_text_calories_value" parent="style/app_trend_a_text_value2">
         <item name="android:layout_gravity">left</item>
     </style>
+
     <style name="app_trend_text_minor_value" parent="style/app_trend_a_text_value2">
         <item name="android:layout_gravity">center</item>
     </style>
+
     <style name="app_trend_text_distance_value" parent="style/app_trend_a_text_value2">
         <item name="android:layout_gravity">right</item>
     </style>
@@ -389,18 +432,22 @@
         <item name="android:layout_height">@dimen/sleep_image_hint_h</item>
         <item name="android:scaleType">fitXY</item>
     </style>
+
     <style name="app_trend_s_text_chart_hint">
         <item name="android:textSize">@dimen/space_15dp</item>
         <item name="android:textColor">@color/app_grey80</item>
     </style>
+
     <style name="app_trend_s_nond_text_value1">
         <item name="android:textSize">@dimen/space_26dp</item>
         <item name="android:textColor">@color/app_grey80</item>
     </style>
+
     <style name="app_trend_s_nond_text_value1_hm">
         <item name="android:textSize">@dimen/space_12dp</item>
         <item name="android:textColor">@color/app_grey80</item>
     </style>
+
     <style name="app_trend_s_nond_text_value1_hint">
         <item name="android:textSize">@dimen/space_15dp</item>
         <item name="android:textColor">@color/app_grey80</item>
@@ -412,6 +459,7 @@
         <item name="android:textSize">@dimen/space_17dp</item>
         <item name="android:textColor">@drawable/sl_hint_text_color</item>
     </style>
+
     <style name="app_sl_text_cal">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -431,15 +479,19 @@
         <item name="android:textSize">@dimen/text_12sp</item>
         <item name="android:textColor">@color/app_white</item>
     </style>
+
     <style name="tracke_detail_title_text_right" parent="@style/tracke_detail_title_text">
         <item name="android:layout_alignParentRight">true</item>
     </style>
+
     <style name="tracke_detail_title_text_center" parent="@style/tracke_detail_title_text">
         <item name="android:layout_centerInParent">true</item>
     </style>
+
     <style name="tracke_detail_title_text_left" parent="@style/tracke_detail_title_text">
         <item name="android:layout_alignParentLeft">true</item>
     </style>
+
     <style name="action_bar_title_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -448,30 +500,36 @@
         <item name="android:textSize">@dimen/text_20sp</item>
         <item name="android:textColor">@color/app_white</item>
     </style>
+
     <style name="tracker_left_image_1">
         <item name="android:layout_width">@dimen/space_40dp</item>
         <item name="android:layout_height">@dimen/space_40dp</item>
         <item name="android:scaleType">centerInside</item>
     </style>
+
     <style name="tracker_left_image_2">
         <item name="android:layout_width">@dimen/space_40dp</item>
         <item name="android:layout_height">@dimen/space_50dp</item>
         <item name="android:scaleType">centerInside</item>
     </style>
+
     <style name="tracker_orange_rl_layout">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">1dp</item>
         <item name="android:layout_weight">25</item>
     </style>
+
     <style name="tracker_orange_button_layout" parent="@style/orange_button_bg">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">50</item>
     </style>
+
     <style name="tracker_workout_type_hint">
         <item name="android:textSize">@dimen/text_16sp</item>
         <item name="android:textColor">@color/app_white</item>
     </style>
+
     <style name="tracker_workout_type_layout">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
@@ -480,6 +538,7 @@
         <item name="android:paddingBottom">@dimen/space_24dp</item>
         <item name="android:background">@drawable/tracker_running_bg</item>
     </style>
+
     <style name="tracker_workout_type_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -488,24 +547,29 @@
         <item name="android:textSize">@dimen/text_21sp</item>
         <item name="android:textColor">@color/app_white</item>
     </style>
+
     <style name="tracker_workout_type_image">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_alignParentTop">true</item>
         <item name="android:scaleType">centerInside</item>
     </style>
+
     <style name="tracker_workout_info_title">
         <item name="android:textSize">@dimen/text_11sp</item>
         <item name="android:textColor">@color/app_grey58</item>
     </style>
+
     <style name="tracker_workout_info_digit">
         <item name="android:textSize">@dimen/text_20sp</item>
         <item name="android:textColor">@color/app_grey58</item>
     </style>
+
     <style name="tracker_workout_info_unit">
         <item name="android:textSize">@dimen/text_10sp</item>
         <item name="android:textColor">@color/app_grey58</item>
     </style>
+
     <style name="tracker_details_workout_type">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -516,6 +580,7 @@
         <item name="android:textSize">@dimen/text_23sp</item>
         <item name="android:textColor">@color/app_white</item>
     </style>
+
     <style name="tracker_details_device_date">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -525,30 +590,37 @@
         <item name="android:textSize">@dimen/text_13sp</item>
         <item name="android:textColor">@color/app_white</item>
     </style>
+
     <style name="tracker_details_digit_value1">
         <item name="android:textSize">@dimen/text_22sp</item>
         <item name="android:textColor">@color/app_theme_color_1</item>
     </style>
+
     <style name="tracker_details_digit_value2">
         <item name="android:textSize">@dimen/text_22sp</item>
         <item name="android:textColor">@color/app_grey58</item>
     </style>
+
     <style name="tracker_details_digit_value3">
         <item name="android:textSize">@dimen/text_23sp</item>
         <item name="android:textColor">@color/app_grey58</item>
     </style>
+
     <style name="tracker_details_title_value1">
         <item name="android:textSize">@dimen/text_14sp</item>
         <item name="android:textColor">@color/app_grey80</item>
     </style>
+
     <style name="tracker_details_title_value2">
         <item name="android:textSize">@dimen/text_12sp</item>
         <item name="android:textColor">@color/app_grey80</item>
     </style>
+
     <style name="tracker_details_unit_value1">
         <item name="android:textSize">@dimen/text_12sp</item>
         <item name="android:textColor">@color/app_grey80</item>
     </style>
+
     <style name="tracker_details_icon">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
@@ -557,11 +629,12 @@
         <item name="android:layout_marginLeft">@dimen/space_10dp</item>
         <item name="android:layout_marginRight">@dimen/space_10dp</item>
     </style>
-    
+
     <!-- profile tab -->
     <style name="app_conf_section" parent="@style/app_list_item">
         <item name="android:background">@color/app_greya6</item>
     </style>
+
     <style name="app_conf_section_text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -572,6 +645,7 @@
     <style name="app_conf_section2" parent="@style/app_list_item">
         <item name="android:background">@color/app_theme_jaggedice</item>
     </style>
+
     <style name="app_conf_section2_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -582,6 +656,7 @@
     <style name="app_conf_item" parent="@style/app_list_item">
         <item name="android:background">@drawable/confitem_bg</item>
     </style>
+
     <style name="app_conf_item_img">
         <item name="android:layout_width">@dimen/space_30dp</item>
         <item name="android:layout_height">@dimen/space_30dp</item>
@@ -589,6 +664,7 @@
         <item name="android:paddingRight">@dimen/space_10dp</item>
         <item name="android:scaleType">centerInside</item>
     </style>
+
     <style name="app_conf_item_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -596,17 +672,20 @@
         <item name="android:textSize">@dimen/text_17sp</item>
         <item name="android:textColor">@drawable/confitem_textcolor_black</item>
     </style>
+
     <style name="app_conf_sub_item_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/text_14sp</item>
         <item name="android:textColor">@drawable/confitem_textcolor</item>
     </style>
+
     <style name="app_conf_item_text_right" parent="style/app_conf_item_text">
         <item name="android:layout_alignParentLeft">false</item>
         <item name="android:layout_alignParentRight">true</item>
         <item name="android:textColor">@drawable/confitem_textcolor_right</item>
     </style>
+
     <style name="app_conf_item_title_image">
         <item name="android:layout_width">@dimen/space_25dp</item>
         <item name="android:layout_height">@dimen/space_25dp</item>
@@ -614,6 +693,7 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:scaleType">centerInside</item>
     </style>
+
     <style name="app_conf_item_next_image">
         <item name="android:layout_width">@dimen/space_9dp</item>
         <item name="android:layout_height">@dimen/space_10dp</item>
@@ -629,6 +709,7 @@
         <item name="android:textSize">@dimen/text_23sp</item>
         <item name="android:textColor">@color/app_theme_color_1</item>
     </style>
+
     <style name="app_conf_device_detail_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -646,6 +727,7 @@
     <style name="setup_profile_item" parent="@style/app_list_item">
         <item name="android:weightSum">10</item>
     </style>
+
     <style name="setup_profile_edit_photo">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -654,6 +736,7 @@
         <item name="android:textSize">@dimen/text_15sp</item>
         <item name="android:textColor">@color/app_theme_color_1</item>
     </style>
+
     <style name="setup_profile_item_title">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -663,6 +746,7 @@
         <item name="android:textColor">@color/app_grey6d</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="setup_profile_item_value">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -675,6 +759,7 @@
         <item name="android:textColor">@color/app_black</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="setup_profile_item_value_edittext" parent="@style/app_edittext">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -686,6 +771,7 @@
         <item name="android:textColor">@color/app_black</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="setup_profile_item_main">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -694,6 +780,7 @@
         <item name="android:textColor">@color/app_white</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="setup_profile_item_hint">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -702,6 +789,7 @@
         <item name="android:textColor">@color/app_grey6d</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="setup_profile_picker_des_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -709,10 +797,11 @@
         <item name="android:textSize">@dimen/text_16sp</item>
         <item name="android:textColor">@color/app_black</item>
     </style>
-    <style name="rb_option_left" parent="@style/rbLeft">
-    </style>
-    <style name="rb_option_right" parent="@style/rbRight">
-    </style>
+
+    <style name="rb_option_left" parent="@style/rbLeft"></style>
+
+    <style name="rb_option_right" parent="@style/rbRight"></style>
+
     <style name="radio_group_two_option">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -731,6 +820,7 @@
         <item name="android:paddingLeft">@dimen/space_15dp</item>
         <item name="android:paddingRight">@dimen/space_15dp</item>
     </style>
+
     <style name="app_goal_radio_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -739,6 +829,7 @@
         <item name="android:textSize">@dimen/text_18sp</item>
         <item name="android:textColor">@color/app_theme_color_2</item>
     </style>
+
     <style name="app_goal_radio_image">
         <item name="android:layout_width">@dimen/space_24dp</item>
         <item name="android:layout_height">@dimen/space_24dp</item>
@@ -769,11 +860,13 @@
         <item name="android:textSize">@dimen/text_16sp</item>
         <item name="android:textColor">@color/app_white</item>
     </style>
+
     <style name="app_add_device_layout" parent="@style/app_list_item">
         <item name="android:paddingLeft">@dimen/space_24dp</item>
         <item name="android:paddingRight">@dimen/space_24dp</item>
         <item name="android:background">@color/app_white</item>
     </style>
+
     <style name="app_add_device_image">
         <item name="android:layout_width">@dimen/space_78dp</item>
         <item name="android:layout_height">@dimen/space_78dp</item>
@@ -781,6 +874,7 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:scaleType">centerInside</item>
     </style>
+
     <style name="app_add_device_layout_inner">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -790,16 +884,18 @@
         <item name="android:gravity">left</item>
         <item name="android:orientation">vertical</item>
     </style>
+
     <style name="app_add_device_type">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-       <item name="android:textSize">@dimen/text_19sp</item>
+        <item name="android:textSize">@dimen/text_19sp</item>
         <item name="android:textColor">@color/app_theme_color_1</item>
     </style>
+
     <style name="app_add_device_description">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-       <item name="android:textSize">@dimen/text_14sp</item>
+        <item name="android:textSize">@dimen/text_14sp</item>
         <item name="android:textColor">@color/app_grey80</item>
     </style>
 
@@ -812,6 +908,7 @@
         <item name="android:textSize">@dimen/text_22sp</item>
         <item name="android:textColor">@color/app_theme_color_1</item>
     </style>
+
     <style name="app_add_des_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -819,6 +916,7 @@
         <item name="android:textSize">@dimen/text_16sp</item>
         <item name="android:textColor">@color/app_grey58</item>
     </style>
+
     <style name="app_add_title_2_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -827,12 +925,14 @@
         <item name="android:textSize">@dimen/text_20sp</item>
         <item name="android:textColor">@color/app_grey6d</item>
     </style>
+
     <style name="app_add_orange_button" parent="@style/orange_button_bg">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">50</item>
         <item name="android:layout_marginBottom">@dimen/space_40dp</item>
     </style>
+
     <style name="app_add_order_item">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -840,17 +940,20 @@
         <item name="android:gravity">top</item>
         <item name="android:paddingBottom">@dimen/space_20dp</item>
     </style>
+
     <style name="app_add_order_item_index">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">@dimen/space_30dp</item>
         <item name="android:layout_weight">15</item>
         <item name="android:scaleType">centerInside</item>
     </style>
+
     <style name="app_add_order_item_des">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">75</item>
     </style>
+
     <style name="app_add_order_item_des_text" parent="app_add_order_item_des">
         <item name="android:textSize">@dimen/text_15sp</item>
         <item name="android:textColor">@color/app_grey80</item>
@@ -863,11 +966,13 @@
         <item name="android:textSize">@dimen/text_64sp</item>
         <item name="android:textColor">@color/app_white</item>
     </style>
+
     <style name="first_layout_rl">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">1dp</item>
         <item name="android:layout_weight">55</item>
     </style>
+
     <style name="first_layout_center">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -875,6 +980,7 @@
         <item name="android:paddingTop">@dimen/space_30dp</item>
         <item name="android:orientation">vertical</item>
     </style>
+
     <style name="basic_edittext" parent="@style/app_edittext">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -887,14 +993,17 @@
         <item name="android:background">@drawable/first_edittext_bg</item>
         <item name="android:textSize">@dimen/text_16sp</item>
     </style>
+
     <style name="first_edittext_password" parent="@style/basic_edittext">
         <item name="android:inputType">textPassword</item>
     </style>
+
     <style name="first_orange_button" parent="@style/orange_button_bg">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/space_20dp</item>
     </style>
+
     <style name="first_extra_info">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -904,6 +1013,7 @@
         <item name="android:textSize">@dimen/text_12sp</item>
         <item name="android:textColor">@color/app_grey6d</item>
     </style>
+
     <style name="forgot_password_description" parent="@style/first_extra_info">
         <item name="android:layout_marginTop">0dp</item>
         <item name="android:layout_marginBottom">@dimen/space_10dp</item>
@@ -921,6 +1031,7 @@
         <item name="android:textSize">@dimen/text_20sp</item>
         <item name="android:textColor">@color/app_white</item>
     </style>
+
     <style name="coach_tap_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">0dp</item>
@@ -930,7 +1041,7 @@
         <item name="android:textSize">@dimen/text_20sp</item>
         <item name="android:textColor">@color/app_grey80</item>
     </style>
-    
+
     <!-- Tab Conf toggle button -->
     <style name="toggle_button">
         <item name="android:layout_width">@dimen/space_40dp</item>
@@ -939,14 +1050,16 @@
         <item name="android:textOn"></item>
         <item name="android:textOff"></item>
     </style>
+
     <style name="toggle_button_right" parent="@style/toggle_button">
         <item name="android:layout_alignParentRight">true</item>
         <item name="android:layout_centerVertical">true</item>
     </style>
+
     <style name="toggle_button_center" parent="@style/toggle_button">
         <item name="android:layout_centerInParent">true</item>
     </style>
-    
+
     <style name="btn_time_bg_color">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -969,6 +1082,7 @@
         <item name="android:textSize">@dimen/text_16sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="radio_button_out_of_range_sensitivity">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -979,6 +1093,7 @@
         <item name="android:layout_marginBottom">@dimen/space_10dp</item>
         <item name="android:textSize">@dimen/text_14sp</item>
     </style>
+
     <style name="text_out_of_range_mode_des">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -998,6 +1113,7 @@
         <item name="android:drawablePadding">@dimen/space_15dp</item>
         <item name="android:textSize">@dimen/text_16sp</item>
     </style>
+
     <style name="text_smart_key_hint">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -1013,12 +1129,14 @@
         <item name="android:paddingLeft">@dimen/space_10dp</item>
         <item name="android:paddingRight">@dimen/space_10dp</item>
     </style>
+
     <style name="text_weekly_alarm">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerVertical">true</item>
         <item name="android:textSize">@dimen/text_17sp</item>
     </style>
+
     <style name="checkbox_weekly_alarm">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -1034,6 +1152,7 @@
         <item name="android:padding">@dimen/space_10dp</item>
         <item name="android:background">@color/app_blue_setting_bg</item>
     </style>
+
     <style name="edit_task_alert_task_title">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -1044,6 +1163,7 @@
         <item name="android:hint">@string/df_task_title_edit_text_hint</item>
         <item name="android:background">@drawable/btn_grey_bg_selector</item>
     </style>
+
     <style name="edit_task_alert_task_datetime">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -1051,6 +1171,7 @@
         <item name="android:textSize">@dimen/text_15sp</item>
         <item name="android:text">@string/df_task_date_time_hint</item>
     </style>
+
     <style name="imgb_task_alert_delete">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -1059,6 +1180,7 @@
         <item name="android:src">@drawable/ic_delete</item>
         <item name="android:padding">@dimen/space_10dp</item>
     </style>
+
     <style name="btn_task_alert_set">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -1082,12 +1204,14 @@
         <item name="android:background">@drawable/box_orange_bg</item>
         <item name="android:weightSum">4</item>
     </style>
+
     <style name="image_workout_type">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:layout_weight">2.5</item>
         <item name="android:scaleType">centerInside</item>
     </style>
+
     <style name="text_workout_type">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
@@ -1103,22 +1227,26 @@
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/text_18sp</item>
     </style>
+
     <style name="view_tutorial_step_item">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:paddingTop">@dimen/space_20dp</item>
     </style>
+
     <style name="view_tutorial_step_text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/text_16sp</item>
     </style>
+
     <style name="view_tutorial_step_img">
         <item name="android:layout_width">@dimen/space_30dp</item>
         <item name="android:layout_height">@dimen/space_30dp</item>
         <item name="android:layout_marginRight">@dimen/space_10dp</item>
     </style>
+
     <style name="view_tutorial_instruction_text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
