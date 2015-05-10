@@ -775,7 +775,7 @@ public class FTabConf extends Fragment implements
     public void onDeviceDisconnect(MGPeripheral sender) {
         mLlBattery.setVisibility(View.GONE);
         mBtnSync.setVisibility(View.GONE);
-        mTextConnStatus.setText("Disconnected");
+        mTextConnStatus.setText("                   Disconnected");
     }
 
     @Override

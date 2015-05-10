@@ -106,7 +106,7 @@
 
         <receiver android:name=".SyncStartReceiver">
             <intent-filter>
-                <action android:name="com.maxwell.bodysensor.SyncStartReceiver"/>
+                <action android:name="com.mmx.yufit.action_start_sync"/>
             </intent-filter>
         </receiver>
 
