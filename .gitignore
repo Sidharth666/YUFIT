@@ -27,3 +27,4 @@
 *.sublime-*
 .nb-gradle
 .java-version
+local.properties

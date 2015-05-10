@@ -1,7 +1,5 @@
 package com.maxwell.bodysensor.fragment;
 
-import java.util.Date;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,51 +10,50 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.maxwell.bodysensor.CameraActivity;
+import com.maxwell.bodysensor.MXWApp;
+import com.maxwell.bodysensor.MainActivity;
+import com.maxwell.bodysensor.R;
+import com.maxwell.bodysensor.SharedPrefWrapper;
 import com.maxwell.bodysensor.data.DBDevice;
+import com.maxwell.bodysensor.data.DBProgramData;
 import com.maxwell.bodysensor.data.user.DBUserDevice;
 import com.maxwell.bodysensor.dialogfragment.DFAbout;
+import com.maxwell.bodysensor.dialogfragment.DFAddNewDevice;
+import com.maxwell.bodysensor.dialogfragment.DFBase;
+import com.maxwell.bodysensor.dialogfragment.DFDeviceAlarm;
 import com.maxwell.bodysensor.dialogfragment.DFDeviceList;
 import com.maxwell.bodysensor.dialogfragment.DFEmergencyContact;
 import com.maxwell.bodysensor.dialogfragment.DFInfo;
-import com.maxwell.bodysensor.dialogfragment.DFPhoneConnection;
+import com.maxwell.bodysensor.dialogfragment.DFMoveAlert;
+import com.maxwell.bodysensor.dialogfragment.DFOutOfRangeAlert;
+import com.maxwell.bodysensor.dialogfragment.DFPhoneNotify;
 import com.maxwell.bodysensor.dialogfragment.DFSOSHistory;
+import com.maxwell.bodysensor.dialogfragment.DFTaskAlert;
 import com.maxwell.bodysensor.dialogfragment.DFTutorial;
+import com.maxwell.bodysensor.dialogfragment.dialog.DlgMessageYN;
+import com.maxwell.bodysensor.dialogfragment.dialog.DlgMessageYN.btnHandler;
 import com.maxwell.bodysensor.listener.OnSetupDeviceAlertListener;
 import com.maxwell.bodysensor.listener.OnSetupOutOfRangeListener;
 import com.maxwell.bodysensor.listener.OnSyncDeviceListener;
-import com.maxwellguider.bluetooth.MGPeripheral;
-import com.maxwellguider.bluetooth.MGPeripheral.DeviceType;
-import com.maxwellguider.bluetooth.activitytracker.AlertTime;
-import com.maxwellguider.bluetooth.activitytracker.GoalType;
-import com.maxwellguider.bluetooth.activitytracker.LanguageType;
-import com.maxwellguider.bluetooth.activitytracker.MGActivityTracker;
-import com.maxwellguider.bluetooth.activitytracker.MGActivityTrackerApi;
-import com.maxwellguider.bluetooth.activitytracker.UnitType;
+import com.maxwell.bodysensor.ui.WarningUtil;
 import com.maxwell.bodysensor.util.UtilCVT;
 import com.maxwell.bodysensor.util.UtilCalendar;
 import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.util.UtilLocale;
 import com.maxwell.bodysensor.util.UtilLocale.DateFmt;
-import com.maxwell.bodysensor.MXWApp;
-import com.maxwell.bodysensor.MainActivity;
-import com.maxwell.bodysensor.R;
-import com.maxwell.bodysensor.SharedPrefWrapper;
-import com.maxwell.bodysensor.data.DBProgramData;
-import com.maxwell.bodysensor.dialogfragment.DFAddNewDevice;
-import com.maxwell.bodysensor.dialogfragment.DFBase;
-import com.maxwell.bodysensor.dialogfragment.DFDeviceAlarm;
-import com.maxwell.bodysensor.dialogfragment.DFMoveAlert;
-import com.maxwell.bodysensor.dialogfragment.DFOutOfRangeAlert;
-import com.maxwell.bodysensor.dialogfragment.DFPhoneNotify;
-import com.maxwell.bodysensor.dialogfragment.DFTaskAlert;
-import com.maxwell.bodysensor.dialogfragment.dialog.DlgMessageYN;
-import com.maxwell.bodysensor.dialogfragment.dialog.DlgMessageYN.btnHandler;
-import com.maxwell.bodysensor.ui.WarningUtil;
 import com.maxwell.bodysensor.util.UtilTime;
+import com.maxwellguider.bluetooth.MGPeripheral;
+import com.maxwellguider.bluetooth.MGPeripheral.DeviceType;
+import com.maxwellguider.bluetooth.activitytracker.AlertTime;
+import com.maxwellguider.bluetooth.activitytracker.LanguageType;
+import com.maxwellguider.bluetooth.activitytracker.MGActivityTracker;
+import com.maxwellguider.bluetooth.activitytracker.MGActivityTrackerApi;
+import com.maxwellguider.bluetooth.activitytracker.UnitType;
+
+import java.util.Date;
 
 /**
  * The fragment, Conf. (Setting)
@@ -78,7 +75,6 @@ public class FTabConf extends Fragment implements
     private DBDevice mDevManager;
 
     private View mViewDeviceNone1;
-    private View mViewDeviceNone2;
 
     private View mViewFocusE2MAX;
     private View mViewGeneal;
@@ -145,7 +141,6 @@ public class FTabConf extends Fragment implements
         mActivity.setOnSyncDeviceListener(this);
 
         mViewDeviceNone1 = rootView.findViewById(R.id.device_none_1);
-        mViewDeviceNone2 = rootView.findViewById(R.id.device_none_2);
         mViewFocusE2MAX = rootView.findViewById(R.id.view_device_advanced_functions);
         mViewGeneal = rootView.findViewById(R.id.view_device_general_functions);
         mTextBatteryLevel = (TextView) rootView.findViewById(R.id.text_battery_level);
@@ -314,7 +309,6 @@ public class FTabConf extends Fragment implements
         boolean hasTargetDevice = (UtilCVT.getMacAddressType(TargetMac) == 2) && (mPD.getUserDeviceByAddress(TargetMac)!=null);
 
         mViewDeviceNone1.setVisibility(hasTargetDevice ? View.GONE : View.VISIBLE);
-        mViewDeviceNone2.setVisibility(hasTargetDevice ? View.GONE : View.VISIBLE);
 
         // TODO : check with PM
         mViewGeneal.setVisibility(hasTargetDevice ? View.VISIBLE : View.GONE);
