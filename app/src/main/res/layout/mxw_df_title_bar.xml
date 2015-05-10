@@ -1,29 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/app_title">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <LinearLayout style="@style/app_title_c_layout">
+    <LinearLayout
+        android:id="@+id/ll_header"
+        style="@style/app_title">
 
-        <View style="@style/app_title_c_rl" />
+        <Button
+            android:id="@+id/btnCancel"
+            style="@style/app_title_left_text"
+            android:background="@null"
+            android:text="@string/strCancel" />
 
-        <com.maxwell.bodysensor.ui.ViewTextView
+        <TextView
             android:id="@+id/text_title_bar"
             style="@style/app_title_c_center_text"
             tools:text="This is Title" />
 
-        <View style="@style/app_title_c_rl" />
+        <Button
+            android:id="@+id/btnOK"
+            style="@style/app_title_right_text"
+            android:background="@null"
+            android:text="@string/strDone" />
     </LinearLayout>
 
-    <com.maxwell.bodysensor.ui.ViewButton
-        android:id="@+id/btnCancel"
-        style="@style/app_title_left_text"
-        android:background="@null"
-        android:text="@string/strCancel" />
+    <View
+        android:layout_below="@+id/ll_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/small_padding"
+        android:background="@drawable/shadow_down" />
 
-    <com.maxwell.bodysensor.ui.ViewButton
-        android:id="@+id/btnOK"
-        style="@style/app_title_right_text"
-        android:background="@null"
-        android:text="@string/strDone" />
 </RelativeLayout>

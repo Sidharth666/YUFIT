@@ -78,9 +78,8 @@
     </style>
     <style name="app_title">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">0dp</item>
-        <item name="android:layout_weight">140</item>
-        <item name="android:background">@color/app_theme_color_1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/white</item>
     </style>
     <style name="app_title_c_layout">
         <item name="android:layout_width">match_parent</item>
@@ -104,7 +103,7 @@
         <item name="android:ellipsize">end</item>
         <item name="android:lines">1</item>
         <item name="android:textSize">@dimen/text_19sp</item>
-        <item name="android:textColor">@color/app_white</item>
+        <item name="android:textColor">@color/text_color_primary</item>
     </style>
     <style name="app_title_rl">
         <item name="android:layout_width">wrap_content</item>
