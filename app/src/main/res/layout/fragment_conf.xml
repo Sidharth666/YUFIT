@@ -21,11 +21,70 @@
                 android:textColor="@color/app_theme_color_2" />
         </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/device_none_2"
-            style="@style/app_conf_divider"
-            android:orientation="horizontal" />
+        <RelativeLayout
+            android:id="@+id/rl_my_action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/content_gutter"
+                android:src="@drawable/yufit_logo_titlebar" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:layout_toLeftOf="@+id/ll_status_container">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="60%" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_devicename" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_status_container"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/ib_sync"
+                android:gravity="right|center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_conn_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="Connection failed!\n Try Again!" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/ib_sync"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/card_padding"
+                android:src="@drawable/ic_resetdevice" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/small_padding"
+            android:background="@drawable/shadow_down" />
         <!-- All device functions -->
         <LinearLayout
             android:id="@+id/view_device_advanced_functions"
