@@ -68,6 +68,7 @@ import com.maxwellguider.bluetooth.activitytracker.LanguageType;
 import com.maxwellguider.bluetooth.activitytracker.UnitType;
 import com.maxwellguider.bluetooth.command.AttributeValue;
 import com.maxwellguider.bluetooth.command.feature.AttributeType;
+import com.mmx.YuFit.SalesTrackService;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -921,6 +922,11 @@ public class MainActivity extends MXWActivity implements
 
         String address = sender.getTargetAddress();
         MXWApp.initBleAutoConnection(address);
+
+        //send salestrack
+        Intent msgIntent = new Intent(MainActivity.this,SalesTrackService.class);
+        msgIntent.putExtra("MacId", address);
+        startService(msgIntent);
     }
 
     @Override
