@@ -54,11 +54,11 @@ public class DBUserSleepLog extends DBSleepLog {
     public void updateSleepLogRecord(Cursor cursor){
         while (cursor.moveToNext()){
             ContentValues cv = new ContentValues();
-            cv.put(COLUMN._ID, cursor.getString(cursor.getColumnIndex(DBDailyRecord.COLUMN._ID)));
-            cv.put(COLUMN.DEVICE_MAC, cursor.getString(cursor.getColumnIndex(DBDailyRecord.COLUMN.DEVICE_MAC)));
-            cv.put(COLUMN.DATE, cursor.getString(cursor.getColumnIndex(DBDailyRecord.COLUMN.DATE)));
-            cv.put(COLUMN.START_TIME, cursor.getString(cursor.getColumnIndex(DBDailyRecord.COLUMN.STEP)));
-            cv.put(COLUMN.STOP_TIME, cursor.getString(cursor.getColumnIndex(DBDailyRecord.COLUMN.APP_ENERGY)));
+            cv.put(COLUMN._ID, cursor.getString(cursor.getColumnIndex(COLUMN._ID)));
+            cv.put(COLUMN.DEVICE_MAC, cursor.getString(cursor.getColumnIndex(COLUMN.DEVICE_MAC)));
+            cv.put(COLUMN.DATE, cursor.getString(cursor.getColumnIndex(COLUMN.DATE)));
+            cv.put(COLUMN.START_TIME, cursor.getString(cursor.getColumnIndex(COLUMN.START_TIME)));
+            cv.put(COLUMN.STOP_TIME, cursor.getString(cursor.getColumnIndex(COLUMN.STOP_TIME)));
             mDB.insert(TABLE, null,cv);
         }
 

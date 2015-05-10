@@ -56,6 +56,7 @@
                 android:layout_toLeftOf="@+id/ib_sync"
                 android:gravity="right|center_vertical"
                 android:orientation="vertical"
+                android:layout_alignParentRight="true"
                 >
 
                 <TextView
