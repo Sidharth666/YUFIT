@@ -40,33 +40,52 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <TextView
+                    android:padding="@dimen/content_gutter"
+                    style="@style/app_conf_item_text"
+                    android:duplicateParentState="true"
+                    android:text="@string/device_settings"
+                    android:textColor="@color/text_color_primary" />
+
+
                 <!-- missed call/sms -->
                 <RelativeLayout
                     android:id="@+id/view_phone_notify"
-                    style="@style/app_conf_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:clickable="true">
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:id="@+id/view_phone_notify_setting"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
                         android:duplicateParentState="true">
+
+                        <ImageView
+                            android:layout_margin="@dimen/content_gutter"
+                            android:src="@drawable/ic_camera"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
 
                         <TextView
                             style="@style/app_conf_item_text"
+                            android:layout_weight="1"
                             android:duplicateParentState="true"
                             android:text="@string/df_incoming_call_sms_notification_title" />
 
                         <ToggleButton
+                            android:layout_marginRight="@dimen/content_gutter"
                             android:id="@+id/toggle_phone_notify"
                             style="@style/toggle_button_right" />
 
-                    </RelativeLayout>
+                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/view_phone_notify_detail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:visibility="visible"
                         android:layout_below="@id/view_phone_notify_setting"
                         android:layout_marginTop="@dimen/menu_item_tb"
                         android:orientation="horizontal">

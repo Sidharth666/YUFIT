@@ -360,8 +360,6 @@ public class MainActivity extends MXWActivity implements
 
         // check intent action to do something
         checkIntentAction();
-
-
     }
 
 
