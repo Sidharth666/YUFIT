@@ -530,7 +530,7 @@
     <string name="dlg_low_battery_des">Your device battery level is running low, please charge your device or replace battery.</string>
 
     <!-- Strings for Playground(Fitness) -->
-    <string name="hint_playground">Body Sensor has presented a new way to record your workout. Choose one to start your section!</string>
+    <string name="hint_playground">YUFIT has presented a new way to record your workout. Choose one to start your section!</string>
     <string name="jumping_rope">Jumping Rope</string>
     <string name="jumping_jack">Jumping Jack</string>
     <string name="sit_up">Sit-Up</string>
@@ -539,7 +539,7 @@
     <string name="personal_best_of">Personal Best of </string>
 
     <!-- Database upgrade -->
-    <string name="progress_upgrade">Upgrade Body Sensor...</string>
+    <string name="progress_upgrade">Upgrade YUFIT...</string>
     <string name="dlg_upgrade_title">Finish Upgrade</string>
     <string name="dlg_upgrade_des">you need to edit your profile and pair your device again.</string>
 

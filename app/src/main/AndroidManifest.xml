@@ -104,6 +104,12 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".SyncStartReceiver">
+            <intent-filter>
+                <action android:name="com.maxwell.bodysensor.SyncStartReceiver"/>
+            </intent-filter>
+        </receiver>
+
         <receiver android:name=".BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>

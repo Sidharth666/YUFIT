@@ -58,14 +58,17 @@ public class DBUserSleepScore extends DBSleepScore {
     }
 
     public void updateSleepScoreRecord(Cursor cursor){
-        ContentValues cv = new ContentValues();
-        cv.put(COLUMN._ID, cursor.getString(cursor.getColumnIndex(COLUMN._ID)));
-        cv.put(COLUMN.DEVICE_MAC, cursor.getString(cursor.getColumnIndex(COLUMN.DEVICE_MAC)));
-        cv.put(COLUMN.DATE, cursor.getString(cursor.getColumnIndex(COLUMN.DATE)));
-        cv.put(COLUMN.DURATION, cursor.getString(cursor.getColumnIndex(COLUMN.DURATION)));
-        cv.put(COLUMN.SCORE, cursor.getString(cursor.getColumnIndex(COLUMN.SCORE)));
-        cv.put(COLUMN.TIMESWOKE, cursor.getString(cursor.getColumnIndex(COLUMN.TIMESWOKE)));
-        mDB.update(TABLE, cv, null, null);
+        while (cursor.moveToNext()){
+            ContentValues cv = new ContentValues();
+            cv.put(COLUMN._ID, cursor.getString(cursor.getColumnIndex(COLUMN._ID)));
+            cv.put(COLUMN.DEVICE_MAC, cursor.getString(cursor.getColumnIndex(COLUMN.DEVICE_MAC)));
+            cv.put(COLUMN.DATE, cursor.getString(cursor.getColumnIndex(COLUMN.DATE)));
+            cv.put(COLUMN.DURATION, cursor.getString(cursor.getColumnIndex(COLUMN.DURATION)));
+            cv.put(COLUMN.SCORE, cursor.getString(cursor.getColumnIndex(COLUMN.SCORE)));
+            cv.put(COLUMN.TIMESWOKE, cursor.getString(cursor.getColumnIndex(COLUMN.TIMESWOKE)));
+            mDB.insert(TABLE, null, cv);
+        }
+
     }
 
     public void updateDSleepData(UtilCalendar date, String deviceMac) {

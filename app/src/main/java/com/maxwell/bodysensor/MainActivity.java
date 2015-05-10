@@ -232,17 +232,38 @@ public class MainActivity extends MXWActivity implements
 
         // program data, database
         mPD = DBProgramData.getInstance();
+        mIsFirstStart = mSharedPref.isAppFirstStart();
+        //create dummy profile
+        if(mIsFirstStart){
+            byte[] value = new byte[1];
+            value[0] = (byte) 1;
+            ProfileData profile = new ProfileData();
+            profile.name = "";
+            profile.gender = 0;
+            profile.birthday = 0;
+            profile.height = 0;
+            profile.weight = 0;
+            profile.stride = 0;
+            profile.photo = value;
+            profile.sleepLogBegin = 0;
+            profile.sleepLogEnd = 0;
+            mPD.saveUserProfile(profile);
+            mSharedPref.setAppFirstStart(false);
+            mIsFirstStart = false;
+
+        }
+
 
         //check for HM package
-        if(UtilConst.isHMPackageInstalled(this) && false && mIsFirstStart){
+        if(UtilConst.isHMPackageInstalled(this) && false && mPD.getTargetDeviceMac().equals("")){
             //DB code here
-            mIsFirstStart = mSharedPref.isAppFirstStart();
             String macId = updateUserProfileHM();
-
+            UtilDBG.i("MainActivity, Fetch data from HM ");
             Uri[] tables = {CONTENT_URI_DB_15MINREC,CONTENT_URI_DB_DAILYREC,CONTENT_URI_DB_DEVICE,CONTENT_URI_DB_HOURLYREC,CONTENT_URI_DBPROFILE,CONTENT_URI_DB_SLEEPLOG,CONTENT_URI_DB_SLEEPSCORE};
             for(Uri item:tables){
                 Cursor cursor = updateDBDataHM(item);
                 if(cursor!=null){
+                    UtilDBG.i("MainActivity, Fetch data from HM ,Cursor: " +cursor);
                     switch (uriMatcher.match(item)){
                         case 1:
                             DBUser15MinutesRecord.getInstance().update15MinRecord(cursor);
@@ -269,30 +290,7 @@ public class MainActivity extends MXWActivity implements
                     }
                 }
             }
-
-
-        }else{
-            //create dummy profile
-            byte[] value = new byte[1];
-            value[0] = (byte) 1;
-            ProfileData profile = new ProfileData();
-            profile.name = "";
-            profile.gender = 0;
-            profile.birthday = 0;
-            profile.height = 0;
-            profile.weight = 0;
-            profile.stride = 0;
-            profile.photo = value;
-            profile.sleepLogBegin = 0;
-            profile.sleepLogEnd = 0;
-            mPD.saveUserProfile(profile);
-
-
         }
-
-        mSharedPref.setAppFirstStart(false);
-
-        mIsFirstStart = false;
 
         // BLE api
         initMaxwellBleApi();

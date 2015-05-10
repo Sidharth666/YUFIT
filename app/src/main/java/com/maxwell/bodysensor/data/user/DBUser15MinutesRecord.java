@@ -54,11 +54,16 @@ public class DBUser15MinutesRecord extends DB15MinutesRecord {
     }
 
     public void update15MinRecord(Cursor cursor){
-        ContentValues cv = new ContentValues();
-        cv.put(COLUMN.DEVICE_MAC, cursor.getString(cursor.getColumnIndex(COLUMN.DEVICE_MAC)));
-        cv.put(COLUMN.DATE, cursor.getString(cursor.getColumnIndex(COLUMN.DATE)));
-        cv.put(COLUMN.MOVE, cursor.getString(cursor.getColumnIndex(COLUMN.MOVE)));
-        mDB.update(TABLE, cv, null, null);
+
+        while (cursor.moveToNext()){
+            ContentValues cv = new ContentValues();
+            cv.put(COLUMN.DEVICE_MAC, cursor.getString(cursor.getColumnIndex(COLUMN.DEVICE_MAC)));
+            cv.put(COLUMN.DATE, cursor.getString(cursor.getColumnIndex(COLUMN.DATE)));
+            cv.put(COLUMN.MOVE, cursor.getString(cursor.getColumnIndex(COLUMN.MOVE)));
+            mDB.insert(TABLE, null, cv);
+        }
+
+
     }
 
 

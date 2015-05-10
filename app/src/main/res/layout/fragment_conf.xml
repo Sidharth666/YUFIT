@@ -24,11 +24,14 @@
                 android:src="@drawable/yufit_logo_titlebar" />
 
             <LinearLayout
+                android:id="@+id/ll_battery"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/ll_status_container"
-                android:gravity="center">
+                android:gravity="center"
+                android:visibility="gone"
+                >
 
                 <TextView
                     android:id="@+id/text_battery_level"
@@ -52,14 +55,16 @@
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/ib_sync"
                 android:gravity="right|center_vertical"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <TextView
                     android:id="@+id/tv_conn_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:text="Connection failed!\n Try Again!"
+                    android:text="Connecting.."
+                    android:visibility="gone"
                     android:textColor="@color/text_color_primary" />
 
             </LinearLayout>
@@ -71,9 +76,17 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/card_padding"
-                android:src="@drawable/ic_resetdevice" />
+                android:src="@drawable/ic_resetdevice"
+                android:visibility="gone"/>
 
         </RelativeLayout>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:id="@+id/progress_Sync"
+            android:indeterminate="false" />
 
         <View
             android:layout_width="match_parent"
@@ -481,11 +494,11 @@
         <!-- add a device -->
         <RelativeLayout
             android:id="@+id/add_a_device"
-            style="@style/app_conf_item"
+            style="@style/wrapper_settings"
             android:clickable="true">
 
             <TextView
-                style="@style/app_conf_item_text"
+                style="@style/settings_main_text"
                 android:text="@string/profile_add_a_device" />
 
             <ImageView
@@ -512,7 +525,7 @@
                 android:clickable="true">
 
                 <TextView
-                    style="@style/app_conf_item_text"
+                    style="@style/settings_main_text"
                     android:text="@string/fcDeviceList" />
 
                 <ImageView
@@ -543,7 +556,7 @@
                 android:src="@drawable/ic_tutorial" />
 
             <TextView
-                style="@style/app_conf_item_text"
+                style="@style/settings_main_text"
                 android:text="@string/fcTutorial" />
 
         </LinearLayout>
@@ -559,7 +572,7 @@
                 android:src="@drawable/ic_about" />
 
             <TextView
-                style="@style/app_conf_item_text"
+                style="@style/settings_main_text"
                 android:text="@string/fcAbout" />
 
         </LinearLayout>

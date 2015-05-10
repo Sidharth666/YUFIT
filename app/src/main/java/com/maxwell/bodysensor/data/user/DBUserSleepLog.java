@@ -52,13 +52,16 @@ public class DBUserSleepLog extends DBSleepLog {
     }
 
     public void updateSleepLogRecord(Cursor cursor){
-        ContentValues cv = new ContentValues();
-        cv.put(COLUMN._ID, cursor.getString(cursor.getColumnIndex(DBDailyRecord.COLUMN._ID)));
-        cv.put(COLUMN.DEVICE_MAC, cursor.getString(cursor.getColumnIndex(DBDailyRecord.COLUMN.DEVICE_MAC)));
-        cv.put(COLUMN.DATE, cursor.getString(cursor.getColumnIndex(DBDailyRecord.COLUMN.DATE)));
-        cv.put(COLUMN.START_TIME, cursor.getString(cursor.getColumnIndex(DBDailyRecord.COLUMN.STEP)));
-        cv.put(COLUMN.STOP_TIME, cursor.getString(cursor.getColumnIndex(DBDailyRecord.COLUMN.APP_ENERGY)));
-        mDB.update(TABLE, cv, null, null);
+        while (cursor.moveToNext()){
+            ContentValues cv = new ContentValues();
+            cv.put(COLUMN._ID, cursor.getString(cursor.getColumnIndex(DBDailyRecord.COLUMN._ID)));
+            cv.put(COLUMN.DEVICE_MAC, cursor.getString(cursor.getColumnIndex(DBDailyRecord.COLUMN.DEVICE_MAC)));
+            cv.put(COLUMN.DATE, cursor.getString(cursor.getColumnIndex(DBDailyRecord.COLUMN.DATE)));
+            cv.put(COLUMN.START_TIME, cursor.getString(cursor.getColumnIndex(DBDailyRecord.COLUMN.STEP)));
+            cv.put(COLUMN.STOP_TIME, cursor.getString(cursor.getColumnIndex(DBDailyRecord.COLUMN.APP_ENERGY)));
+            mDB.insert(TABLE, null,cv);
+        }
+
     }
 
     public int addSleepLog(UtilCalendar date, UtilCalendar start, UtilCalendar stop, String deviceMac) {

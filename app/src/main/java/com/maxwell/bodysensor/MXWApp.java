@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class MXWApp extends Application implements
     public static final String ACTION_SMART_KEY_CAMERA = "com.maxwell.action.SMART_KEY_CAMER";
     public static final String ACTION_SMART_KEY_FIND_PHONE = "com.maxwell.action.SMART_KEY_FIND_PHONE";
     public static final String ACTION_SOS = "com.maxwell.action.SOS";
+    public static final String ACTION_HME_SYNCPROGRESS= "";
 
     public static final int CAMERA_CAPTURE = 10000;
     public static final int GALLERY_PICK = 10001;
@@ -359,13 +361,26 @@ public class MXWApp extends Application implements
 
     @Override
     public void onSyncFinish() {
+        Log.e("MXWAPP", "onSyncFinish");
+        Intent intent = new Intent(ACTION_HME_SYNCPROGRESS);
+        intent.putExtra("onSyncFinish", "onSyncFinish");
+        sendBroadcast(intent);
     }
 
     @Override
     public void onSyncFail() {
+        Log.e("MXWAPP", "onSyncFail");
+        Intent intent = new Intent(ACTION_HME_SYNCPROGRESS);
+        intent.putExtra("onSyncFail", "onSyncFail");
+        sendBroadcast(intent);
     }
 
     @Override
     public void onSyncProgressUpdate(int progress, int total) {
+        Log.e("MXWAPP", "onSyncProgressUpdate");
+        Intent intent = new Intent(ACTION_HME_SYNCPROGRESS);
+        intent.putExtra("progress", progress);
+        sendBroadcast(intent);
+
     }
 }

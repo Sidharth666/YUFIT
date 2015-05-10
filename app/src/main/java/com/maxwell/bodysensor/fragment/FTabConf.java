@@ -8,13 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.maxwell.bodysensor.CameraActivity;
+import com.maxwell.bodysensor.DeviceSync;
+import com.maxwell.bodysensor.EnergyCapsuleSync;
 import com.maxwell.bodysensor.MXWApp;
 import com.maxwell.bodysensor.MainActivity;
+import com.maxwell.bodysensor.PowerWatchSync;
 import com.maxwell.bodysensor.R;
 import com.maxwell.bodysensor.SharedPrefWrapper;
 import com.maxwell.bodysensor.data.DBDevice;
@@ -38,6 +43,7 @@ import com.maxwell.bodysensor.dialogfragment.dialog.DlgMessageYN.btnHandler;
 import com.maxwell.bodysensor.listener.OnSetupDeviceAlertListener;
 import com.maxwell.bodysensor.listener.OnSetupOutOfRangeListener;
 import com.maxwell.bodysensor.listener.OnSyncDeviceListener;
+import com.maxwell.bodysensor.ui.ViewCircleProgress;
 import com.maxwell.bodysensor.ui.WarningUtil;
 import com.maxwell.bodysensor.util.UtilCVT;
 import com.maxwell.bodysensor.util.UtilCalendar;
@@ -115,9 +121,12 @@ public class FTabConf extends Fragment implements
     private TextView mTextOutOfRnageNoDisturbingTime;
     private TextView mTextDeviceAlarmDetail;
     private TextView mTextMoveAlertDuration;
+    private TextView mTextConnStatus;
 
+    private ImageButton mBtnSync;
+    private DeviceSync mDeviceSync;
     private ProgressBar mSyncProgress;
-    private TextView mTextConnectionStat;
+    private LinearLayout mLlBattery;
 
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -138,7 +147,7 @@ public class FTabConf extends Fragment implements
 
         mViewFocusE2MAX = rootView.findViewById(R.id.view_device_advanced_functions);
         mViewGeneal = rootView.findViewById(R.id.view_device_general_functions);
-        mTextBatteryLevel = (TextView) rootView.findViewById(R.id.text_battery_level);
+//        mTextBatteryLevel = (TextView) rootView.findViewById(R.id.text_battery_level);
         mViewPairADevice = rootView.findViewById(R.id.add_a_device);
         mViewDeviceList = rootView.findViewById(R.id.view_device_list);
         mViewTutorial = rootView.findViewById(R.id.view_tutirial);
@@ -177,6 +186,13 @@ public class FTabConf extends Fragment implements
         mTextOutOfRnageNoDisturbingTime = (TextView) rootView.findViewById(R.id.text_out_of_range_no_disturbing_time);
         mTextDeviceAlarmDetail = (TextView) rootView.findViewById(R.id.text_device_alarm_detail);
         mTextMoveAlertDuration = (TextView) rootView.findViewById(R.id.text_move_alert_duration);
+        mTextConnStatus = (TextView)rootView.findViewById(R.id.tv_conn_status);
+        mTextBatteryLevel = (TextView)rootView.findViewById(R.id.text_battery_level);
+
+        mBtnSync = (ImageButton)rootView.findViewById(R.id.ib_sync);
+        mSyncProgress = (ProgressBar)rootView.findViewById(R.id.progress_Sync);
+
+        mLlBattery = (LinearLayout)rootView.findViewById(R.id.ll_battery);
 
         mViewPairADevice.setOnClickListener(this);
         mViewDeviceList.setOnClickListener(this);
@@ -199,6 +215,7 @@ public class FTabConf extends Fragment implements
         mBtnFindDevice.setOnClickListener(this);
         mBtnLaunchCamera.setOnClickListener(this);
         mBtnLaunchVideo.setOnClickListener(this);
+        mBtnSync.setOnClickListener(this);
 
         updateView();
 
@@ -314,6 +331,12 @@ public class FTabConf extends Fragment implements
             }
         } else {
             mViewFocusE2MAX.setVisibility(View.GONE);
+        }
+
+        if (mActivity.getSyncProgress()>=100 && mSyncProgress!=null) {
+            mSyncProgress.setVisibility(View.INVISIBLE);
+        } else {
+            mSyncProgress.setProgress(mActivity.getSyncProgress());
         }
 
         if (hasTargetDevice) {
@@ -481,7 +504,17 @@ public class FTabConf extends Fragment implements
         String strURL = "";
 
         if (v==null) {
-        }  else if (v==mViewPairADevice) {
+        }else if(v==mBtnSync){
+            initDeviceSync();
+            if (!mActivity.isSyncing()) {
+                if (mDeviceSync != null) {
+                    mDeviceSync.triggerSync();
+                } else {
+                    WarningUtil.showToastLong(mActivity, R.string.profile_device_no_conn);
+                }
+            }
+        }
+        else if (v==mViewPairADevice) {
             dlg = new DFAddNewDevice();
         } else if (v==mViewDeviceList) {
             dlg = new DFDeviceList();
@@ -571,6 +604,25 @@ public class FTabConf extends Fragment implements
         }
 
         UtilDBG.e("FConf, onclick, unexpected, no action");
+    }
+
+    private void initDeviceSync() {
+        String address = mPD.getTargetDeviceMac();
+        if (address.equals("")) {
+            return;
+        }
+
+        if (mDeviceSync != null) {
+            mDeviceSync.release();
+            mDeviceSync = null;
+        }
+
+        if (mMaxwellBLE.getDeviceType(address) == DeviceType.ENERGY_CAPSULE) {
+            mDeviceSync = new EnergyCapsuleSync(mActivity);
+        } else {
+            mDeviceSync = new PowerWatchSync(mActivity);
+        }
+//        mDeviceSync.setOnDeviceSyncListener(this);
     }
 
     @Override
@@ -709,18 +761,26 @@ public class FTabConf extends Fragment implements
 
     @Override
     public void onDeviceConnect(MGPeripheral sender) {
-//        mMaxwellBLE.sync();
-//        mTextConnectionStat.setText("Connected");
+        showStatusParams();
+        mTextConnStatus.setText("Connected");
+    }
 
+    private void showStatusParams() {
+        mLlBattery.setVisibility(View.VISIBLE);
+        mTextConnStatus.setVisibility(View.VISIBLE);
+        mBtnSync.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void onDeviceDisconnect(MGPeripheral sender) {
+        mLlBattery.setVisibility(View.GONE);
+        mBtnSync.setVisibility(View.GONE);
+        mTextConnStatus.setText("Disconnected");
     }
 
     @Override
     public void onConnectTimeOut(MGPeripheral sender) {
-
+        mTextConnStatus.setText("Connection failed!");
     }
 
     @Override
@@ -730,16 +790,23 @@ public class FTabConf extends Fragment implements
 
     @Override
     public void onSyncProgressUpdate(int progress) {
-//        mSyncProgress.setProgress(progress);
+        if (mSyncProgress != null) {
+            mSyncProgress.setVisibility(View.VISIBLE);
+            mSyncProgress.setProgress(progress);
+        }
     }
 
     @Override
     public void onSyncFinish() {
-//        mSyncProgress.setVisibility(View.GONE);
+        mSyncProgress.setVisibility(View.INVISIBLE);
+
+        updateView();
     }
 
     @Override
     public void onSyncFail() {
+        mSyncProgress.setVisibility(View.INVISIBLE);
 
+        WarningUtil.showToastLong(getActivity(), R.string.device_connection_failed);
     }
 }

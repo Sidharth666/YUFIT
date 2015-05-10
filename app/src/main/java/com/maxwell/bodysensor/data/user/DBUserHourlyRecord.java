@@ -55,15 +55,17 @@ public class DBUserHourlyRecord extends DBHourlyRecord {
     }
 
     public void updateHourlyRecord(Cursor cursor){
-        ContentValues cv = new ContentValues();
-        cv.put(COLUMN._ID, cursor.getString(cursor.getColumnIndex(COLUMN._ID)));
-        cv.put(COLUMN.DEVICE_MAC, cursor.getString(cursor.getColumnIndex(COLUMN.DEVICE_MAC)));
-        cv.put(COLUMN.DATE, cursor.getString(cursor.getColumnIndex(COLUMN.DATE)));
-        cv.put(COLUMN.STEP, cursor.getString(cursor.getColumnIndex(COLUMN.STEP)));
-        cv.put(COLUMN.APP_ENERGY, cursor.getString(cursor.getColumnIndex(COLUMN.APP_ENERGY)));
-        cv.put(COLUMN.CALORIES, cursor.getString(cursor.getColumnIndex(COLUMN.CALORIES)));
-        cv.put(COLUMN.DISTANCE, cursor.getString(cursor.getColumnIndex(COLUMN.DISTANCE)));
-        mDB.update(TABLE, cv, null, null);
+        while (cursor.moveToNext()){
+            ContentValues cv = new ContentValues();
+            cv.put(COLUMN._ID, cursor.getString(cursor.getColumnIndex(COLUMN._ID)));
+            cv.put(COLUMN.DEVICE_MAC, cursor.getString(cursor.getColumnIndex(COLUMN.DEVICE_MAC)));
+            cv.put(COLUMN.DATE, cursor.getString(cursor.getColumnIndex(COLUMN.DATE)));
+            cv.put(COLUMN.STEP, cursor.getString(cursor.getColumnIndex(COLUMN.STEP)));
+            cv.put(COLUMN.APP_ENERGY, cursor.getString(cursor.getColumnIndex(COLUMN.APP_ENERGY)));
+            cv.put(COLUMN.CALORIES, cursor.getString(cursor.getColumnIndex(COLUMN.CALORIES)));
+            cv.put(COLUMN.DISTANCE, cursor.getString(cursor.getColumnIndex(COLUMN.DISTANCE)));
+            mDB.insert(TABLE, null, cv);
+        }
     }
 
     public void saveHourlyRecord(Date date, int energy, int step, String deviceMac, int iMinuteOffset) {
