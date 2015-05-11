@@ -956,7 +956,7 @@ public class MainActivity extends MXWActivity implements
         // TODO : initial device settings
         if (MXWApp.isPowerWatch(sender.getTargetAddress())) {
             // Power Watch (E2Max)
-//            initDevicePowerWatch();
+            initDevicePowerWatch();
         } else {
             // TODO : Energy Capsule (P07a)
         }

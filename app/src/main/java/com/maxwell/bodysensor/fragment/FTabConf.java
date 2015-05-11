@@ -517,8 +517,9 @@ public class FTabConf extends Fragment implements
                     // BLE api
                     mMaxwellBLE.setAutoConnect(true);
                     // connect
-                    mMaxwellBLE.connect(mPD.getTargetDeviceMac(), 0);
-
+                    if(!mPD.getTargetDeviceMac().equals("")){
+                        mMaxwellBLE.connect(mPD.getTargetDeviceMac(), 0);
+                    }else
                     WarningUtil.showToastLong(mActivity, R.string.profile_device_no_conn);
                 }
             }
