@@ -9,7 +9,7 @@
     </style>
 
     <style name="wrapper_settings_padding" parent="wrapper_settings">
-
+        <item name="android:padding">@dimen/content_gutter</item>
     </style>
 
     <style name="wrapper_settings_no_click" parent="wrapper_settings">
@@ -38,8 +38,7 @@
     <style name="indented_text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">@dimen/content_gutter</item>
-        <item name="android:paddingLeft">40dp</item>
+        <item name="android:layout_marginLeft">40dp</item>
     </style>
 
     <style name="tg_btn" parent="@android:style/Widget.Holo.Light.Button.Borderless.Small">

@@ -434,7 +434,7 @@
                 <!-- Emergency Contact -->
                 <RelativeLayout
                     android:id="@+id/view_emergency_contact"
-                    style="@style/wrapper_settings"
+                    style="@style/wrapper_settings_padding"
                     android:clickable="true">
 
                     <TextView
@@ -446,7 +446,7 @@
                 <!-- SOS History -->
                 <RelativeLayout
                     android:id="@+id/view_sos_history"
-                    style="@style/wrapper_settings"
+                    style="@style/wrapper_settings_padding"
                     android:clickable="true">
 
                     <TextView
