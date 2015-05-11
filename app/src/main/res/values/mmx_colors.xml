@@ -5,5 +5,6 @@
     <color name="primary_dark">#ccc</color>
     <color name="accent">#54b1f7</color>
     <color name="text_color_primary">#54b1f7</color>
+    <color name="material_button_sel_bg">#ccc</color>
 
 </resources>

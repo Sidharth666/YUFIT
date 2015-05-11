@@ -390,7 +390,8 @@
 
                         <TextView
                             android:id="@+id/text_move_alert_duration"
-                            style="@style/app_conf_sub_item_text"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
                             android:layout_marginTop="@dimen/small_padding"
                             tools:text="10:00 AM - 9:00 PM" />
 
@@ -431,7 +432,7 @@
                 <!-- Emergency Contact -->
                 <RelativeLayout
                     android:id="@+id/view_emergency_contact"
-                    style="@style/app_conf_item"
+                    style="@style/wrapper_settings"
                     android:clickable="true">
 
                     <TextView
@@ -443,7 +444,7 @@
                 <!-- SOS History -->
                 <RelativeLayout
                     android:id="@+id/view_sos_history"
-                    style="@style/app_conf_item"
+                    style="@style/wrapper_settings"
                     android:clickable="true">
 
                     <TextView
