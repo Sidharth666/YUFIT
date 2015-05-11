@@ -1,2 +1,2 @@
-include ':weiboSDK', ':daogenerator', ':mgsdk-release-v1.0.0'
+include ':daogenerator', ':mgsdk'
 include ':app'

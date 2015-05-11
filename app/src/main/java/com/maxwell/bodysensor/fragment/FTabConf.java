@@ -1,6 +1,9 @@
 package com.maxwell.bodysensor.fragment;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -45,6 +48,7 @@ import com.maxwell.bodysensor.listener.OnSyncDeviceListener;
 import com.maxwell.bodysensor.ui.WarningUtil;
 import com.maxwell.bodysensor.util.UtilCVT;
 import com.maxwell.bodysensor.util.UtilCalendar;
+import com.maxwell.bodysensor.util.UtilConst;
 import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.util.UtilLocale;
 import com.maxwell.bodysensor.util.UtilLocale.DateFmt;
@@ -225,7 +229,14 @@ public class FTabConf extends Fragment implements
 
         updateView();
 
+        // register mDeviceRemovedtReceiver
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(MXWApp.ACTION_REMOVE_DEVICE);
+        getActivity().registerReceiver(mDeviceRemovedtReceiver, intentFilter);
+
 	    return rootView;
+
+
 	}
 
     @Override
@@ -333,9 +344,9 @@ public class FTabConf extends Fragment implements
 
 
         if(isFromHM){
-            mLlHMRedirect.setVisibility(View.VISIBLE);
-        }else{
             mLlHMRedirect.setVisibility(View.GONE);
+        }else{
+            mLlHMRedirect.setVisibility(View.VISIBLE);
         }
 
         // TODO : check with PM
@@ -378,22 +389,24 @@ public class FTabConf extends Fragment implements
 
             mTextBatteryLevel.setText(strBattery);
 
-            if(mMaxwellBLE.isReady()){
-                mTextConnStatus.setText("Connected");
-                mLlBattery.setVisibility(VISIBLE);
 
-            }else{
-                mTextConnStatus.setText("Disconnected");
-                mLlBattery.setVisibility(View.GONE);
 
-            }
+        }
 
-            if(mPD.getTargetDeviceMac().equals("")){
-                mViewPairADevice.setVisibility(VISIBLE);
-            }else{
-                mViewPairADevice.setVisibility(View.GONE);
-            }
+        if(mMaxwellBLE.isConnected()){
+            mTextConnStatus.setText("Connected");
+            mLlBattery.setVisibility(VISIBLE);
 
+        }else{
+            mTextConnStatus.setText("Disconnected");
+            mLlBattery.setVisibility(View.GONE);
+
+        }
+
+        if(mPD.getTargetDeviceMac().equals("")){
+            mViewPairADevice.setVisibility(VISIBLE);
+        }else{
+            mViewPairADevice.setVisibility(View.GONE);
         }
     }
 
@@ -538,8 +551,13 @@ public class FTabConf extends Fragment implements
 
         if (v==null) {
         }else if(v==mLlHealthifyme){
-            Intent intent = new Intent(MXWApp.HME_ACTION);
-            startActivity(intent);
+            if(UtilConst.isHMPackageInstalled(getActivity())){
+                Intent intent = new Intent(MXWApp.HME_ACTION);
+                startActivity(intent);
+            }else{
+                //playstore
+            }
+
         }else if(v==mBtnSync){
             initDeviceSync();
             if (!mActivity.isSyncing()) {
@@ -828,6 +846,7 @@ public class FTabConf extends Fragment implements
     public void onSyncProgressUpdate(int progress) {
         if (mSyncProgress != null) {
             mSyncProgress.setVisibility(VISIBLE);
+            mSyncProgress.setIndeterminate(false);
             mSyncProgress.setProgress(progress);
         }
     }
@@ -845,4 +864,18 @@ public class FTabConf extends Fragment implements
 
         WarningUtil.showToastLong(getActivity(), R.string.device_connection_failed);
     }
+
+    private BroadcastReceiver mDeviceRemovedtReceiver = new BroadcastReceiver() {
+
+        public static final String ACTION = "com.healthifyme.mmx.ACTION_DEVICE_REMOVED";
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            UtilDBG.e("Ftabconf > onReceive > mDeviceRemovedtReceiver : " + intent.getAction());
+            if (intent.getAction().equals(ACTION)) {
+                updateView();
+            }
+
+        }
+    };
 }

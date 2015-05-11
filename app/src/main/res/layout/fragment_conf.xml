@@ -73,7 +73,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/small_padding"
                 android:background="@drawable/sel_btn_material"
                 android:padding="@dimen/content_gutter"
                 android:src="@drawable/ic_resetdevice"
@@ -112,12 +111,14 @@
             <LinearLayout
                 android:id="@+id/ll_healthifyme"
                 style="@style/wrapper_settings"
-                android:visibility="gone"
+                android:visibility="visible"
                 >
 
                 <ImageView
                     style="@style/settings_icon"
-                    android:src="@drawable/ic_camera" />
+                    android:src="@drawable/hm_icon"
+                    android:layout_width="@dimen/space_30dp"
+                    android:layout_height="@dimen/space_30dp"/>
 
                 <TextView
                     style="@style/settings_main_text"

@@ -150,11 +150,9 @@ public class DBUserProfile {
         cv.put(COLUMN.IS_PRIMARY_PROFILE, mPrimaryProfile.isPrimaryProfile);
         cv.put(COLUMN.DAILY_GOAL, mPrimaryProfile.dailyGoal);
 
-        if (mPrimaryProfile._Id == UtilConst.INVALID_INT) {
-            mPrimaryProfile._Id = mDB.insert(TABLE, null, cv);
-        } else {
-            mDB.update(TABLE, cv, COLUMN._ID + "=" + mPrimaryProfile._Id, null);
-        }
+        long i = mDB.insertWithOnConflict(TABLE,null,cv,SQLiteDatabase.CONFLICT_REPLACE);
+        UtilDBG.i("DBUserProfile, saveuserprofile ::"+ i);
+
     }
 
     public int updateProfileDB(String column, int value) {

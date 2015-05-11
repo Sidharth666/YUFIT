@@ -30,6 +30,8 @@ public class SharedPrefWrapper {
 
     private final String KEY_PROFILE_UNIT = "key_profile_unit";
 
+    private final String SALESTRACK_SENT = "salestrack_sent";
+
     //========================================
     // BLE device advanced feature
     //========================================
@@ -153,6 +155,16 @@ public class SharedPrefWrapper {
     public boolean setProfileUnit(UnitType unit) {
         return applyIt(KEY_PROFILE_UNIT, unit.getValue());
     }
+
+    public boolean getSalesTrackStatus(){
+        boolean value = mPref.getBoolean(SALESTRACK_SENT,false);
+        return value;
+    }
+
+    public boolean setSalesTrackStatus(boolean value){
+        return applyIt(SALESTRACK_SENT,value);
+    }
+
 
     //============================================
     // BLE device

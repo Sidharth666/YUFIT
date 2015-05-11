@@ -31,7 +31,8 @@ public class MXWApp extends Application implements
     public static final String ACTION_SMART_KEY_FIND_PHONE = "com.maxwell.action.SMART_KEY_FIND_PHONE";
     public static final String ACTION_SOS = "com.maxwell.action.SOS";
     public static final String ACTION_HME_SYNCPROGRESS= "com.healthifyme.ACTION_YUFIT_SYNC_UPDATE";
-    public static final String HME_ACTION = "";
+    public static final String HME_ACTION = "com.healthifyme.basic.MAIN_ACTIVITY";
+    public static final String ACTION_REMOVE_DEVICE = "com.healthifyme.mmx.ACTION_DEVICE_REMOVED";
 
     public static final int CAMERA_CAPTURE = 10000;
     public static final int GALLERY_PICK = 10001;

@@ -116,6 +116,12 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".BleStateChangeReceiver">
+            <intent-filter>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+
         <provider
             android:name=".data.DBProvider"
             android:authorities="com.mxx.bodysensor.data.DBProvider"
