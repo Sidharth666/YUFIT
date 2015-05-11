@@ -79,14 +79,16 @@
                 android:src="@drawable/ic_resetdevice"
                 android:visibility="visible"/>
 
-        </RelativeLayout>
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="-8dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:id="@+id/progress_Sync"
+                android:indeterminate="true" />
 
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@android:style/Widget.ProgressBar.Horizontal"
-            android:id="@+id/progress_Sync"
-            android:indeterminate="false" />
+        </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
@@ -390,7 +392,8 @@
 
                         <TextView
                             android:id="@+id/text_move_alert_duration"
-                            style="@style/app_conf_sub_item_text"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
                             android:layout_marginTop="@dimen/small_padding"
                             tools:text="10:00 AM - 9:00 PM" />
 
@@ -431,7 +434,7 @@
                 <!-- Emergency Contact -->
                 <RelativeLayout
                     android:id="@+id/view_emergency_contact"
-                    style="@style/app_conf_item"
+                    style="@style/wrapper_settings_padding"
                     android:clickable="true">
 
                     <TextView
@@ -443,7 +446,7 @@
                 <!-- SOS History -->
                 <RelativeLayout
                     android:id="@+id/view_sos_history"
-                    style="@style/app_conf_item"
+                    style="@style/wrapper_settings_padding"
                     android:clickable="true">
 
                     <TextView
@@ -507,8 +510,6 @@
 
         </LinearLayout>
 
-        <LinearLayout style="@style/app_conf_divider" />
-
         <!-- device general functions -->
         <LinearLayout
             android:id="@+id/view_device_general_functions"
@@ -519,20 +520,18 @@
             <!-- device list -->
             <LinearLayout
                 android:id="@+id/view_device_list"
-                style="@style/app_conf_item"
+                style="@style/wrapper_settings"
                 android:clickable="true">
+
+                <ImageView
+                    style="@style/settings_icon"
+                    android:src="@drawable/ic_tasks" />
 
                 <TextView
                     style="@style/settings_main_text"
                     android:text="@string/fcDeviceList" />
 
-                <ImageView
-                    style="@style/app_conf_item_next_image"
-                    android:contentDescription="@string/acd" />
             </LinearLayout>
-
-            <LinearLayout style="@style/app_conf_divider" />
-
 
         </LinearLayout>
 
