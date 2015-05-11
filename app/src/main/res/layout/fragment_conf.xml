@@ -116,7 +116,9 @@
 
                 <ImageView
                     style="@style/settings_icon"
-                    android:src="@drawable/ic_camera" />
+                    android:src="@drawable/hm_icon"
+                    android:layout_width="@dimen/space_30dp"
+                    android:layout_height="@dimen/space_30dp"/>
 
                 <TextView
                     style="@style/settings_main_text"

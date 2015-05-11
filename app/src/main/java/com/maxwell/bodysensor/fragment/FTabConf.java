@@ -1,6 +1,9 @@
 package com.maxwell.bodysensor.fragment;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -226,7 +229,14 @@ public class FTabConf extends Fragment implements
 
         updateView();
 
+        // register mDeviceRemovedtReceiver
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(MXWApp.ACTION_REMOVE_DEVICE);
+        getActivity().registerReceiver(mDeviceRemovedtReceiver, intentFilter);
+
 	    return rootView;
+
+
 	}
 
     @Override
@@ -379,22 +389,24 @@ public class FTabConf extends Fragment implements
 
             mTextBatteryLevel.setText(strBattery);
 
-            if(mMaxwellBLE.isConnected()){
-                mTextConnStatus.setText("Connected");
-                mLlBattery.setVisibility(VISIBLE);
 
-            }else{
-                mTextConnStatus.setText("Disconnected");
-                mLlBattery.setVisibility(View.GONE);
 
-            }
+        }
 
-            if(mPD.getTargetDeviceMac().equals("")){
-                mViewPairADevice.setVisibility(VISIBLE);
-            }else{
-                mViewPairADevice.setVisibility(View.GONE);
-            }
+        if(mMaxwellBLE.isConnected()){
+            mTextConnStatus.setText("Connected");
+            mLlBattery.setVisibility(VISIBLE);
 
+        }else{
+            mTextConnStatus.setText("Disconnected");
+            mLlBattery.setVisibility(View.GONE);
+
+        }
+
+        if(mPD.getTargetDeviceMac().equals("")){
+            mViewPairADevice.setVisibility(VISIBLE);
+        }else{
+            mViewPairADevice.setVisibility(View.GONE);
         }
     }
 
@@ -852,4 +864,18 @@ public class FTabConf extends Fragment implements
 
         WarningUtil.showToastLong(getActivity(), R.string.device_connection_failed);
     }
+
+    private BroadcastReceiver mDeviceRemovedtReceiver = new BroadcastReceiver() {
+
+        public static final String ACTION = "com.healthifyme.mmx.ACTION_DEVICE_REMOVED";
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            UtilDBG.e("Ftabconf > onReceive > mDeviceRemovedtReceiver : " + intent.getAction());
+            if (intent.getAction().equals(ACTION)) {
+                updateView();
+            }
+
+        }
+    };
 }
