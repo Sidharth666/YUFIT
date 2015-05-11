@@ -221,15 +221,20 @@ public abstract class MXWActivity extends ActionBarActivity implements
 
     @Override
     public void onDeviceConnect(final MGPeripheral sender) {
-        UtilDBG.i("[RYAN] MXWActivity > onDeviceConnect");
+        try{
+//            UtilDBG.i("[RYAN] MXWActivity > onDeviceConnect");
 
-        if (mPairDeviceListener != null) {
-            mPairDeviceListener.onDeviceConnect(sender);
+            if (mPairDeviceListener != null) {
+                mPairDeviceListener.onDeviceConnect(sender);
+            }
+
+            if (mSyncDeviceListener != null) {
+                mSyncDeviceListener.onDeviceConnect(sender);
+            }
+        }catch (Exception e){
+            UtilDBG.e("[] MXWActivity > onDeviceConnect Exception: "+e);
         }
 
-        if (mSyncDeviceListener != null) {
-            mSyncDeviceListener.onDeviceConnect(sender);
-        }
     }
 
     @Override

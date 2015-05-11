@@ -64,7 +64,7 @@ public class DBUserHourlyRecord extends DBHourlyRecord {
             cv.put(COLUMN.APP_ENERGY, cursor.getString(cursor.getColumnIndex(COLUMN.APP_ENERGY)));
             cv.put(COLUMN.CALORIES, cursor.getString(cursor.getColumnIndex(COLUMN.CALORIES)));
             cv.put(COLUMN.DISTANCE, cursor.getString(cursor.getColumnIndex(COLUMN.DISTANCE)));
-            mDB.insert(TABLE, null, cv);
+            mDB.insertWithOnConflict(TABLE, null, cv,SQLiteDatabase.CONFLICT_REPLACE);
         }
     }
 

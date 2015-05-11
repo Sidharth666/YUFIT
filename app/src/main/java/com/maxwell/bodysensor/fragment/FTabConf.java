@@ -357,6 +357,14 @@ public class FTabConf extends Fragment implements
             }
 
             mTextBatteryLevel.setText(strBattery);
+
+            if(mMaxwellBLE.isReady()){
+                mTextConnStatus.setText("Connected");
+                mLlBattery.setVisibility(View.VISIBLE);
+            }else{
+                mTextConnStatus.setText("Disconnected");
+                mLlBattery.setVisibility(View.GONE);
+            }
         }
     }
 
@@ -503,9 +511,14 @@ public class FTabConf extends Fragment implements
         }else if(v==mBtnSync){
             initDeviceSync();
             if (!mActivity.isSyncing()) {
-                if (mDeviceSync != null) {
+                if (mDeviceSync != null && mMaxwellBLE.isConnected()) {
                     mDeviceSync.triggerSync();
                 } else {
+                    // BLE api
+                    mMaxwellBLE.setAutoConnect(true);
+                    // connect
+                    mMaxwellBLE.connect(mPD.getTargetDeviceMac(), 0);
+
                     WarningUtil.showToastLong(mActivity, R.string.profile_device_no_conn);
                 }
             }
@@ -613,11 +626,9 @@ public class FTabConf extends Fragment implements
             mDeviceSync = null;
         }
 
-        if (mMaxwellBLE.getDeviceType(address) == DeviceType.ENERGY_CAPSULE) {
-            mDeviceSync = new EnergyCapsuleSync(mActivity);
-        } else {
-            mDeviceSync = new PowerWatchSync(mActivity);
-        }
+
+        mDeviceSync = new PowerWatchSync(mActivity);
+
 //        mDeviceSync.setOnDeviceSyncListener(this);
     }
 
@@ -757,30 +768,24 @@ public class FTabConf extends Fragment implements
 
     @Override
     public void onDeviceConnect(MGPeripheral sender) {
-        showStatusParams();
-        mTextConnStatus.setText("Connected");
-    }
-
-    private void showStatusParams() {
         mLlBattery.setVisibility(View.VISIBLE);
-        mTextConnStatus.setVisibility(View.VISIBLE);
-        mBtnSync.setVisibility(View.VISIBLE);
+        mTextConnStatus.setText("Connected");
     }
 
     @Override
     public void onDeviceDisconnect(MGPeripheral sender) {
         mLlBattery.setVisibility(View.GONE);
-        mBtnSync.setVisibility(View.GONE);
         mTextConnStatus.setText("Disconnected");
     }
 
     @Override
     public void onConnectTimeOut(MGPeripheral sender) {
-        mTextConnStatus.setText("Connection failed!");
+        mTextConnStatus.setText("Retrying..");
     }
 
     @Override
     public void onDeviceReady(MGPeripheral sender) {
+        mTextConnStatus.setText("Connected");
 
     }
 

@@ -54,7 +54,7 @@ public class DBUserDailyRecord extends DBDailyRecord {
             cv.put(COLUMN.CALORIES, cursor.getString(cursor.getColumnIndex(COLUMN.CALORIES)));
             cv.put(COLUMN.DISTANCE, cursor.getString(cursor.getColumnIndex(COLUMN.DISTANCE)));
             cv.put(COLUMN.GOAL, cursor.getString(cursor.getColumnIndex(COLUMN.GOAL)));
-            mDB.insert(TABLE, null, cv);
+            mDB.insertWithOnConflict(TABLE, null, cv,SQLiteDatabase.CONFLICT_REPLACE);
         }
 
     }

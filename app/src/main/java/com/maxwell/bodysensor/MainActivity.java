@@ -21,6 +21,7 @@ import android.location.LocationManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -151,8 +152,6 @@ public class MainActivity extends MXWActivity implements
     public static final Uri CONTENT_URI_DB_SLEEPLOG = Uri.parse("content://" + AUTHORITY + "/DBSleepLog");
     public static final Uri CONTENT_URI_DB_SLEEPSCORE = Uri.parse("content://" + AUTHORITY + "/DBDailySleepScoreRecord");
 
-    private String address;
-    private DeviceData mDevcieData;
     private PrimaryProfileData mPrimaryProfile;
 
 
@@ -255,52 +254,24 @@ public class MainActivity extends MXWActivity implements
 
         }
 
+        // BLE api
+        initMaxwellBleApi();
+
 
         //check for HM package
         if(UtilConst.isHMPackageInstalled(this) && ENABLE_HM_COPY && mPD.getTargetDeviceMac().equals("")){
             //DB code here
-            String macId = updateUserProfileHM();
-            UtilDBG.i("MainActivity, Fetch data from HM ");
-            Uri[] tables = {CONTENT_URI_DB_15MINREC,CONTENT_URI_DB_DAILYREC,CONTENT_URI_DB_DEVICE,CONTENT_URI_DB_HOURLYREC,
-                    CONTENT_URI_DBPROFILE,CONTENT_URI_DB_SLEEPLOG,CONTENT_URI_DB_SLEEPSCORE};
-            for(Uri item:tables){
-                Cursor cursor = updateDBDataHM(item);
-                if(cursor!=null){
-                    UtilDBG.i("MainActivity, Fetch data from HM ,Cursor: " +cursor);
-                    switch (uriMatcher.match(item)){
-                        case 1:
-                            DBUser15MinutesRecord.getInstance().update15MinRecord(cursor);
-                            break;
-                        case 2:
-                            DBUserDailyRecord.getInstance().updateDailyRecord(cursor);
-                            break;
-                        case 3:
-                            updateUserDeviceData(macId);
-                            break;
-                        case 4:
-                            DBUserHourlyRecord.getInstance().updateHourlyRecord(cursor);
-                            break;
-                        case 5:
-//                        updateUserProfileHM();
-                            break;
-                        case 6:
-                            DBUserSleepLog.getInstance().updateSleepLogRecord(cursor);
-                            break;
-                        case 7:
-                            DBUserSleepScore.getInstance().updateSleepScoreRecord(cursor);
-                            break;
+            CopyDataAsync copyAsync = new CopyDataAsync();
+            copyAsync.execute();
 
-                    }
-                }
+        }else{
+            String address = mPD.getTargetDeviceMac();
+            if (MXWApp.initBleAutoConnection(address)&& !mMaxwellBLE.isReady()) {
+                MXWApp.connectDevice(address);
             }
         }
 
-        // BLE api
-        initMaxwellBleApi();
-        String address = mPD.getTargetDeviceMac();
-        if (MXWApp.initBleAutoConnection(address)) {
-            MXWApp.connectDevice(address);
-        }
+
 
         // calendar, locale
         UtilCalendar calNow = new UtilCalendar(null);
@@ -364,6 +335,43 @@ public class MainActivity extends MXWActivity implements
         checkIntentAction();
     }
 
+    private void copyHMData() {
+        String macId = updateUserProfileHM();
+        UtilDBG.i("MainActivity, Fetch data from HM ");
+        Uri[] tables = {CONTENT_URI_DB_15MINREC,CONTENT_URI_DB_DAILYREC,CONTENT_URI_DB_DEVICE,CONTENT_URI_DB_HOURLYREC,
+                CONTENT_URI_DBPROFILE,CONTENT_URI_DB_SLEEPLOG,CONTENT_URI_DB_SLEEPSCORE};
+        for(Uri item:tables){
+            Cursor cursor = updateDBDataHM(item);
+            if(cursor!=null){
+                UtilDBG.i("MainActivity, Fetch data from HM ,Cursor: " +cursor);
+                switch (uriMatcher.match(item)){
+                    case 1:
+                        DBUser15MinutesRecord.getInstance().update15MinRecord(cursor);
+                        break;
+                    case 2:
+                        DBUserDailyRecord.getInstance().updateDailyRecord(cursor);
+                        break;
+                    case 3:
+                        updateUserDeviceData(macId);
+                        break;
+                    case 4:
+                        DBUserHourlyRecord.getInstance().updateHourlyRecord(cursor);
+                        break;
+                    case 5:
+//                        updateUserProfileHM();
+                        break;
+                    case 6:
+                        DBUserSleepLog.getInstance().updateSleepLogRecord(cursor);
+                        break;
+                    case 7:
+                        DBUserSleepScore.getInstance().updateSleepScoreRecord(cursor);
+                        break;
+
+                }
+            }
+        }
+    }
+
 
     private Cursor updateDBDataHM(Uri uri) {
         Cursor c= getContentResolver().query(uri, null, null,null,null);
@@ -413,7 +421,7 @@ public class MainActivity extends MXWActivity implements
         int iCount = c.getCount();
 
         if (iCount==0) {
-            UtilDBG.i("the address " + c + " is not in the device list");
+            UtilDBG.i("the address " + c + " is not in the device list , macID:: "+macId);
 
         } else {
             if (iCount > 1) {
@@ -762,15 +770,8 @@ public class MainActivity extends MXWActivity implements
     private void initDevicePowerWatch() {
 
         // get phone's default language
-        Locale locale = Locale.getDefault();
-        if (locale.equals(Locale.SIMPLIFIED_CHINESE)) {
-            mSharedPref.setDeviceLanguage(LanguageType.CHINESE_SIMPLE);
-        } else if (locale.equals(Locale.TRADITIONAL_CHINESE)) {
-            mSharedPref.setDeviceLanguage(LanguageType.CHINESE_TRADITIONAL);
-        } else {
-            mSharedPref.setDeviceLanguage(LanguageType.ENGLISH);
-        }
 
+        mSharedPref.setDeviceLanguage(LanguageType.ENGLISH);
         // User setting
         int stride = (int)mPD.getPersonStride();
         int weight = (int)mPD.getPersonWeight();
@@ -919,12 +920,10 @@ public class MainActivity extends MXWActivity implements
     public void onDeviceConnect(final MGPeripheral sender) {
         super.onDeviceConnect(sender);
 
-        String address = sender.getTargetAddress();
-        MXWApp.initBleAutoConnection(address);
 
         //send salestrack
         Intent msgIntent = new Intent(MainActivity.this,SalesTrackService.class);
-        msgIntent.putExtra("MacId", address);
+        msgIntent.putExtra("MacId", sender.getTargetAddress());
         startService(msgIntent);
     }
 
@@ -957,7 +956,7 @@ public class MainActivity extends MXWActivity implements
         // TODO : initial device settings
         if (MXWApp.isPowerWatch(sender.getTargetAddress())) {
             // Power Watch (E2Max)
-            initDevicePowerWatch();
+//            initDevicePowerWatch();
         } else {
             // TODO : Energy Capsule (P07a)
         }
@@ -1127,6 +1126,23 @@ public class MainActivity extends MXWActivity implements
     @Override
     public void onProviderDisabled(String provider) {
 
+    }
+
+    private class CopyDataAsync extends AsyncTask<Void, Void, Void>{
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            copyHMData();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            String address = mPD.getTargetDeviceMac();
+            if (MXWApp.initBleAutoConnection(address)&& !mMaxwellBLE.isReady()) {
+                MXWApp.connectDevice(address);
+            }
+        }
     }
 
     private BroadcastReceiver mDeviceEventReceiver = new BroadcastReceiver() {

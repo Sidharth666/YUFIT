@@ -1,5 +1,6 @@
 package com.maxwell.bodysensor.dialogfragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -192,6 +193,14 @@ public class DFDeviceList extends DFBase implements AdapterView.OnItemClickListe
                                         }
 
                                         mPD.removeUserDevice(mac_deleting);
+
+
+                                        //send Broadcast to HM indicating device deletion
+                                        Intent intent = new Intent();
+                                        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+                                        intent.setAction("com.healthifyme.mmx.ACTION_DEVICE_REMOVED");
+                                        intent.putExtra("MacId", focusMac);
+                                        getActivity().sendBroadcast(intent);
                                         return true;
                                     }
 

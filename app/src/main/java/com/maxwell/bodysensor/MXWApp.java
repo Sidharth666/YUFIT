@@ -373,7 +373,7 @@ public class MXWApp extends Application implements
     public void onSyncProgressUpdate(int progress, int total) {
         Log.e("MXWAPP", "onSyncProgressUpdate");
         Intent intent = new Intent(ACTION_HME_SYNCPROGRESS);
-        intent.putExtra("progress", progress);
+        intent.putExtra("progress", (int)(progress*100.0/total));
         sendBroadcast(intent);
 
     }

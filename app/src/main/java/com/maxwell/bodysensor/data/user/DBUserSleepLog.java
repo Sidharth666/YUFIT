@@ -59,7 +59,7 @@ public class DBUserSleepLog extends DBSleepLog {
             cv.put(COLUMN.DATE, cursor.getString(cursor.getColumnIndex(COLUMN.DATE)));
             cv.put(COLUMN.START_TIME, cursor.getString(cursor.getColumnIndex(COLUMN.START_TIME)));
             cv.put(COLUMN.STOP_TIME, cursor.getString(cursor.getColumnIndex(COLUMN.STOP_TIME)));
-            mDB.insert(TABLE, null,cv);
+            mDB.insertWithOnConflict(TABLE, null, cv,SQLiteDatabase.CONFLICT_REPLACE);
         }
 
     }

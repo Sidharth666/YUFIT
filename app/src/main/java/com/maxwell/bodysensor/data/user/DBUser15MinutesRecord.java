@@ -60,8 +60,9 @@ public class DBUser15MinutesRecord extends DB15MinutesRecord {
             cv.put(COLUMN.DEVICE_MAC, cursor.getString(cursor.getColumnIndex(COLUMN.DEVICE_MAC)));
             cv.put(COLUMN.DATE, cursor.getString(cursor.getColumnIndex(COLUMN.DATE)));
             cv.put(COLUMN.MOVE, cursor.getString(cursor.getColumnIndex(COLUMN.MOVE)));
-            mDB.insert(TABLE, null, cv);
+            mDB.insertWithOnConflict(TABLE, null, cv,SQLiteDatabase.CONFLICT_REPLACE);
         }
+
 
 
     }

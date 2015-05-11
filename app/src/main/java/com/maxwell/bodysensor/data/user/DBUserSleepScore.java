@@ -64,7 +64,7 @@ public class DBUserSleepScore extends DBSleepScore {
             cv.put(COLUMN.DURATION, cursor.getString(cursor.getColumnIndex(COLUMN.DURATION)));
             cv.put(COLUMN.SCORE, cursor.getString(cursor.getColumnIndex(COLUMN.SCORE)));
             cv.put(COLUMN.TIMESWOKE, cursor.getString(cursor.getColumnIndex(COLUMN.TIMESWOKE)));
-            mDB.insert(TABLE, null, cv);
+            mDB.insertWithOnConflict(TABLE, null, cv,SQLiteDatabase.CONFLICT_REPLACE);
         }
     }
 
