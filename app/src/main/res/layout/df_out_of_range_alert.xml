@@ -1,159 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.maxwell.bodysensor.ui.ViewLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:mxw="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/app_outtab_layout_all"
     android:baselineAligned="false" >
 
     <include layout="@layout/mxw_df_title_bar" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/content_gutter">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/notification_header"
+            android:text="@string/df_no_disturbing_between"
+            />
+
+        <ToggleButton
+            android:id="@+id/swtNoDisturbing"
+            style="@style/toggle_button"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/small_padding"
+        android:layout_below="@+id/ll_header"
+        android:background="@drawable/shadow_down"
+        />
+
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/card_padding"
+        android:textSize="@dimen/text_14sp"
+        android:textStyle="bold"
+        android:text="@string/on_mode"
+        />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/content_gutter"
+        android:layout_marginRight="@dimen/content_gutter"
+        android:layout_marginBottom="@dimen/content_gutter"
+        android:layout_marginTop="@dimen/small_padding"
+        android:textSize="@dimen/text_14sp"
+        android:text="@string/df_out_of_range_alarm_mode_far_instruction"
+        />
+
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/card_padding"
+        android:textSize="@dimen/text_14sp"
+        android:textStyle="bold"
+        android:text="@string/off_mode"
+        />
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/content_gutter"
+        android:layout_marginRight="@dimen/content_gutter"
+        android:layout_marginBottom="@dimen/content_gutter"
+        android:layout_marginTop="@dimen/small_padding"
+        android:textSize="@dimen/text_14sp"
+        android:text="@string/df_out_of_range_off_mode_instruction"
+        />
+
     <LinearLayout
-        style="@style/app_outtab_content"
-        android:orientation="horizontal"
-        android:weightSum="12">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_blue_setting_bg"
+        android:orientation="vertical">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/content_gutter"
+            >
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="10"
-            android:orientation="vertical"
-            android:weightSum="10">
+            <TextView
+                style="@style/settings_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start Time:" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="5"
-                android:orientation="vertical"
-                android:weightSum="2">
+            <Button
+                android:id="@+id/btnNoDisturbingTimeStart"
+                style="@style/btn_time_bg_color"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                tools:text="Start Time" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
+        </RelativeLayout>
 
-                    <com.maxwell.bodysensor.ui.ViewTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/text_16sp"
-                        android:textStyle="bold"
-                        android:text="@string/on_mode"
-                         />
-                    <com.maxwell.bodysensor.ui.ViewTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="@dimen/space_6dp"
-                        android:textSize="@dimen/text_14sp"
-                        android:text="@string/df_out_of_range_alarm_mode_far_instruction"
-                         />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/content_gutter">
 
-                </LinearLayout>
+            <TextView
+                style="@style/settings_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="End Time:" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
-
-                    <com.maxwell.bodysensor.ui.ViewTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/text_16sp"
-                        android:textStyle="bold"
-                        android:text="@string/off_mode"
-                         />
-                    <com.maxwell.bodysensor.ui.ViewTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="@dimen/space_6dp"
-                        android:textSize="@dimen/text_14sp"
-                        android:text="@string/df_out_of_range_off_mode_instruction"
-                         />
-                </LinearLayout>
-            </LinearLayout>
-
-            <View style="@style/app_conf_divider" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="5"
-                android:orientation="vertical"
-                android:weightSum="5">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
-
-                    <ToggleButton
-                        android:id="@+id/swtNoDisturbing"
-                        style="@style/toggle_button_right"/>
-                    <com.maxwell.bodysensor.ui.ViewTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="@string/df_no_disturbing_between"
-                         />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="2" >
-
-                    <com.maxwell.bodysensor.ui.ViewTextView
-                        android:id="@+id/txtHyphen"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginRight="@dimen/space_20dp"
-                        android:layout_marginLeft="@dimen/space_20dp"
-                        android:text="-" />
-
-                    <com.maxwell.bodysensor.ui.ViewButton
-                        style="@style/btn_time_bg_color"
-                        android:id="@+id/btnNoDisturbingTimeStart"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@id/txtHyphen"
-                        android:text="Start Time" />
-
-                    <com.maxwell.bodysensor.ui.ViewButton
-                        style="@style/btn_time_bg_color"
-                        android:id="@+id/btnNoDisturbingTimeEnd"
-                        android:layout_centerVertical="true"
-                        android:layout_toRightOf="@id/txtHyphen"
-                        android:text="End Time" />
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="0.5" />
-
-                <com.maxwell.bodysensor.ui.ViewTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/df_no_disturbing_instruction"
-                    android:textSize="@dimen/text_14sp"
-                     />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" />
+            <Button
+                android:id="@+id/btnNoDisturbingTimeEnd"
+                style="@style/btn_time_bg_color"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                tools:text="End Time:" />
+        </RelativeLayout>
 
     </LinearLayout>
+
+
 
 </com.maxwell.bodysensor.ui.ViewLinearLayout>
