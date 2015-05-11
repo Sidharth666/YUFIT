@@ -333,9 +333,9 @@ public class FTabConf extends Fragment implements
 
 
         if(isFromHM){
-            mLlHMRedirect.setVisibility(View.VISIBLE);
-        }else{
             mLlHMRedirect.setVisibility(View.GONE);
+        }else{
+            mLlHMRedirect.setVisibility(View.VISIBLE);
         }
 
         // TODO : check with PM
@@ -378,7 +378,7 @@ public class FTabConf extends Fragment implements
 
             mTextBatteryLevel.setText(strBattery);
 
-            if(mMaxwellBLE.isReady()){
+            if(mMaxwellBLE.isConnected()){
                 mTextConnStatus.setText("Connected");
                 mLlBattery.setVisibility(VISIBLE);
 
@@ -828,6 +828,7 @@ public class FTabConf extends Fragment implements
     public void onSyncProgressUpdate(int progress) {
         if (mSyncProgress != null) {
             mSyncProgress.setVisibility(VISIBLE);
+            mSyncProgress.setIndeterminate(true);
             mSyncProgress.setProgress(progress);
         }
     }

@@ -153,6 +153,9 @@ public class MainActivity extends MXWActivity implements
     public static final Uri CONTENT_URI_DB_SLEEPSCORE = Uri.parse("content://" + AUTHORITY + "/DBDailySleepScoreRecord");
 
     private PrimaryProfileData mPrimaryProfile;
+    private String macId;
+
+    private CopyDataAsync copyAsync;
 
     private boolean isFromHM =false;
     public static final String KEY_FROM_HME_APP = "is_from_hme";
@@ -264,15 +267,16 @@ public class MainActivity extends MXWActivity implements
         //check for HM package
         if(UtilConst.isHMPackageInstalled(this) && ENABLE_HM_COPY && mPD.getTargetDeviceMac().equals("")){
             //DB code here
-            CopyDataAsync copyAsync = new CopyDataAsync();
-            WarningUtil.showToastLong(this, "Please Wait..Fetching Data");
-            copyAsync.execute();
 
-
-
+            copyAsync = new CopyDataAsync();
+            macId = updateUserProfileHM();
+            if(!macId.equals("")){
+                WarningUtil.showToastLong(this, "Please Wait..Fetching Data");
+                copyAsync.execute();
+            }
         }else{
             String address = mPD.getTargetDeviceMac();
-            if (MXWApp.initBleAutoConnection(address)&& !mMaxwellBLE.isReady()) {
+            if (MXWApp.initBleAutoConnection(address)) {
                 MXWApp.connectDevice(address);
             }
         }
@@ -342,7 +346,7 @@ public class MainActivity extends MXWActivity implements
     }
 
     private void copyHMData() {
-        String macId = updateUserProfileHM();
+//        String macId = updateUserProfileHM();
         UtilDBG.i("MainActivity, Fetch data from HM ");
         Uri[] tables = {CONTENT_URI_DB_15MINREC,CONTENT_URI_DB_DAILYREC,CONTENT_URI_DB_DEVICE,CONTENT_URI_DB_HOURLYREC,
                 CONTENT_URI_DBPROFILE,CONTENT_URI_DB_SLEEPLOG,CONTENT_URI_DB_SLEEPSCORE};
@@ -383,6 +387,7 @@ public class MainActivity extends MXWActivity implements
         Cursor c= getContentResolver().query(uri, null, null,null,null);
         return c;
     }
+
 
 
     private String updateUserProfileHM() {
@@ -490,6 +495,9 @@ public class MainActivity extends MXWActivity implements
         UtilDBG.close();
 
         unregisterReceiver(mDeviceEventReceiver);
+        if(copyAsync!=null){
+            copyAsync.cancel(true);
+        }
 
         super.onDestroy();
     }
@@ -1151,7 +1159,7 @@ public class MainActivity extends MXWActivity implements
         @Override
         protected void onPostExecute(Void aVoid) {
             String address = mPD.getTargetDeviceMac();
-            if (MXWApp.initBleAutoConnection(address)&& !mMaxwellBLE.isReady()) {
+            if (MXWApp.initBleAutoConnection(address)&& !mMaxwellBLE.isConnected()) {
                 MXWApp.connectDevice(address);
             }
         }
