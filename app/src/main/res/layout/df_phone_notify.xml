@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.maxwell.bodysensor.ui.ViewLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:mxw="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/app_outtab_layout_all"
+    style="@style/my_outtab_layout_all"
     android:baselineAligned="false"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <include layout="@layout/mxw_df_title_bar" />
+
+    <com.maxwell.bodysensor.ui.ViewTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/content_gutter"
+        android:gravity="center"
+        android:text="@string/df_incoming_call_sms_notification_instruction_on"
+        android:textSize="@dimen/text_14sp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/content_gutter">
 
-
         <TextView
+            style="@style/notification_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/notification_header"
-            android:text="@string/df_no_disturbing_between"
-            />
+            android:text="@string/no_disturbance" />
 
         <ToggleButton
             android:id="@+id/swtNoDisturbing"
@@ -34,46 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/small_padding"
         android:layout_below="@+id/ll_header"
-        android:background="@drawable/shadow_down"
-        />
-
-    <com.maxwell.bodysensor.ui.ViewTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_14sp"
-        android:textStyle="bold"
-        android:layout_margin="@dimen/card_padding"
-        android:text="@string/on_mode"
-        />
-    <com.maxwell.bodysensor.ui.ViewTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/content_gutter"
-        android:layout_marginRight="@dimen/content_gutter"
-        android:layout_marginBottom="@dimen/content_gutter"
-        android:layout_marginTop="@dimen/small_padding"
-        android:textSize="@dimen/text_14sp"
-        android:text="@string/df_incoming_call_sms_notification_instruction_on"
-        />
-
-    <com.maxwell.bodysensor.ui.ViewTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/card_padding"
-        android:textSize="@dimen/text_14sp"
-        android:textStyle="bold"
-        android:text="@string/off_mode"
-        />
-    <com.maxwell.bodysensor.ui.ViewTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/content_gutter"
-        android:layout_marginRight="@dimen/content_gutter"
-        android:layout_marginBottom="@dimen/content_gutter"
-        android:layout_marginTop="@dimen/small_padding"
-        android:textSize="@dimen/text_14sp"
-        android:text="@string/df_incoming_call_sms_notification_instruction_off"
-        />
+        android:background="@drawable/shadow_down" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -84,13 +49,13 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/content_gutter"
-            >
+            android:padding="@dimen/card_padding">
 
             <TextView
                 style="@style/settings_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/card_padding"
                 android:text="Start Time:" />
 
             <Button
@@ -98,6 +63,7 @@
                 style="@style/btn_time_bg_color"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/card_padding"
                 tools:text="Start Time" />
 
         </RelativeLayout>
@@ -105,18 +71,20 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/content_gutter">
+            android:padding="@dimen/card_padding">
 
             <TextView
                 style="@style/settings_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/card_padding"
                 android:text="End Time:" />
 
             <Button
                 android:id="@+id/btnNoDisturbingTimeEnd"
                 style="@style/btn_time_bg_color"
+                android:layout_marginRight="@dimen/card_padding"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 tools:text="End Time:" />

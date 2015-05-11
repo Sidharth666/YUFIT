@@ -5,4 +5,5 @@
     <string name="string_datefmt_a">a</string>
     <string name="string_datefmt_hm">hh:mm</string>
     <string name="notifications">Notifications:</string>
+    <string name="no_disturbance">No Disturbance:</string>
 </resources>

@@ -9,8 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/content_gutter"
-        >
+        android:padding="@dimen/content_gutter">
 
         <TextView
             style="@style/notification_header"
@@ -29,8 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/small_padding"
         android:layout_below="@+id/ll_header"
-        android:background="@drawable/shadow_down"
-         />
+        android:background="@drawable/shadow_down" />
 
 
     <com.maxwell.bodysensor.ui.ViewTextView
@@ -39,8 +37,7 @@
         android:layout_margin="@dimen/content_gutter"
         android:gravity="center"
         android:text="@string/df_move_alert_instruction"
-        android:textSize="@dimen/text_15sp"
-         />
+        android:textSize="@dimen/text_15sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,19 +48,20 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/content_gutter"
-            >
+            android:padding="@dimen/card_padding">
 
             <TextView
                 style="@style/settings_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/card_padding"
                 android:text="Start Time:" />
 
             <Button
                 android:id="@+id/btn_move_alert_time_start"
                 style="@style/btn_time_bg_color"
                 android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/card_padding"
                 android:layout_centerVertical="true"
                 tools:text="Start Time" />
 
@@ -72,18 +70,20 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/content_gutter">
+            android:padding="@dimen/card_padding">
 
             <TextView
                 style="@style/settings_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/card_padding"
                 android:text="End Time:" />
 
             <Button
                 android:id="@+id/btn_move_alert_time_end"
                 style="@style/btn_time_bg_color"
+                android:layout_marginRight="@dimen/card_padding"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 tools:text="End Time:" />
