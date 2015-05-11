@@ -45,6 +45,7 @@ import com.maxwell.bodysensor.listener.OnSyncDeviceListener;
 import com.maxwell.bodysensor.ui.WarningUtil;
 import com.maxwell.bodysensor.util.UtilCVT;
 import com.maxwell.bodysensor.util.UtilCalendar;
+import com.maxwell.bodysensor.util.UtilConst;
 import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.util.UtilLocale;
 import com.maxwell.bodysensor.util.UtilLocale.DateFmt;
@@ -538,8 +539,13 @@ public class FTabConf extends Fragment implements
 
         if (v==null) {
         }else if(v==mLlHealthifyme){
-            Intent intent = new Intent(MXWApp.HME_ACTION);
-            startActivity(intent);
+            if(UtilConst.isHMPackageInstalled(getActivity())){
+                Intent intent = new Intent(MXWApp.HME_ACTION);
+                startActivity(intent);
+            }else{
+                //playstore
+            }
+
         }else if(v==mBtnSync){
             initDeviceSync();
             if (!mActivity.isSyncing()) {
@@ -828,7 +834,7 @@ public class FTabConf extends Fragment implements
     public void onSyncProgressUpdate(int progress) {
         if (mSyncProgress != null) {
             mSyncProgress.setVisibility(VISIBLE);
-            mSyncProgress.setIndeterminate(true);
+            mSyncProgress.setIndeterminate(false);
             mSyncProgress.setProgress(progress);
         }
     }

@@ -10,6 +10,7 @@ import android.telephony.TelephonyManager;
 import android.telephony.gsm.GsmCellLocation;
 import android.util.Log;
 
+import com.maxwell.bodysensor.SharedPrefWrapper;
 import com.maxwell.bodysensor.util.UtilDBG;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -36,6 +37,7 @@ public class SalesTrackService extends IntentService {
     String networkInfo;
     String tabletRegs;
     String macId;
+    protected SharedPrefWrapper mSharedPref;
 
 
     public SalesTrackService() {
@@ -48,6 +50,8 @@ public class SalesTrackService extends IntentService {
         if(intent!=null){
             macId = intent.getExtras().getString("MacId");
         }
+
+        mSharedPref = SharedPrefWrapper.getInstance();
 
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo mobileNwInfo = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
@@ -85,6 +89,7 @@ public class SalesTrackService extends IntentService {
             if (Ack.contains("OK")) {
                 UtilDBG.e("SalesTrackService, Ackowledgement success" + Ack);
                 getSharedPreferences("locValues", 0).edit().putString("Serverloc", "message sent wifi").commit();
+                mSharedPref.setSalesTrackStatus(true);
                 /*Intent i = new Intent("com.package.MY_DIALOG");
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);*/

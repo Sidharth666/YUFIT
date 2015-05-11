@@ -939,12 +939,16 @@ public class MainActivity extends MXWActivity implements
     @Override
     public void onDeviceConnect(final MGPeripheral sender) {
         super.onDeviceConnect(sender);
-
+        UtilDBG.i("MainActivity , onDeviceConnect:: "+sender.getTargetAddress());
 
         //send salestrack
-        Intent msgIntent = new Intent(MainActivity.this,SalesTrackService.class);
-        msgIntent.putExtra("MacId", sender.getTargetAddress());
-        startService(msgIntent);
+        if(!mSharedPref.getSalesTrackStatus()){
+            UtilDBG.i("MainActivity , onDeviceConnect, salestrack:: "+!mSharedPref.getSalesTrackStatus());
+            Intent msgIntent = new Intent(MainActivity.this,SalesTrackService.class);
+            msgIntent.putExtra("MacId", sender.getTargetAddress());
+            startService(msgIntent);
+        }
+
     }
 
     @Override

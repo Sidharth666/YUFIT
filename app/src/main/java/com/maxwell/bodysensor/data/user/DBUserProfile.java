@@ -150,7 +150,8 @@ public class DBUserProfile {
         cv.put(COLUMN.IS_PRIMARY_PROFILE, mPrimaryProfile.isPrimaryProfile);
         cv.put(COLUMN.DAILY_GOAL, mPrimaryProfile.dailyGoal);
 
-        mDB.insertWithOnConflict(TABLE,null,cv,SQLiteDatabase.CONFLICT_REPLACE);
+        long i = mDB.insertWithOnConflict(TABLE,null,cv,SQLiteDatabase.CONFLICT_REPLACE);
+        UtilDBG.i("DBUserProfile, saveuserprofile ::"+ i);
 
     }
 
