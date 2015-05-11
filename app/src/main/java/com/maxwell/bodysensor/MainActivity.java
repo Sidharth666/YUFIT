@@ -186,6 +186,8 @@ public class MainActivity extends MXWActivity implements
         }
     };
 
+    private static final boolean ENABLE_HM_COPY = true;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -255,11 +257,12 @@ public class MainActivity extends MXWActivity implements
 
 
         //check for HM package
-        if(UtilConst.isHMPackageInstalled(this) && false && mPD.getTargetDeviceMac().equals("")){
+        if(UtilConst.isHMPackageInstalled(this) && ENABLE_HM_COPY && mPD.getTargetDeviceMac().equals("")){
             //DB code here
             String macId = updateUserProfileHM();
             UtilDBG.i("MainActivity, Fetch data from HM ");
-            Uri[] tables = {CONTENT_URI_DB_15MINREC,CONTENT_URI_DB_DAILYREC,CONTENT_URI_DB_DEVICE,CONTENT_URI_DB_HOURLYREC,CONTENT_URI_DBPROFILE,CONTENT_URI_DB_SLEEPLOG,CONTENT_URI_DB_SLEEPSCORE};
+            Uri[] tables = {CONTENT_URI_DB_15MINREC,CONTENT_URI_DB_DAILYREC,CONTENT_URI_DB_DEVICE,CONTENT_URI_DB_HOURLYREC,
+                    CONTENT_URI_DBPROFILE,CONTENT_URI_DB_SLEEPLOG,CONTENT_URI_DB_SLEEPSCORE};
             for(Uri item:tables){
                 Cursor cursor = updateDBDataHM(item);
                 if(cursor!=null){

@@ -4,9 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.maxwell.bodysensor.data.DBDailyRecord;
 import com.maxwell.bodysensor.data.DBProgramData;
-import com.maxwell.bodysensor.data.DBSleepLog;
 import com.maxwell.bodysensor.data.DBSleepScore;
 import com.maxwell.bodysensor.data.DSleepData;
 import com.maxwell.bodysensor.data.SleepLogData;
@@ -68,7 +66,6 @@ public class DBUserSleepScore extends DBSleepScore {
             cv.put(COLUMN.TIMESWOKE, cursor.getString(cursor.getColumnIndex(COLUMN.TIMESWOKE)));
             mDB.insert(TABLE, null, cv);
         }
-
     }
 
     public void updateDSleepData(UtilCalendar date, String deviceMac) {

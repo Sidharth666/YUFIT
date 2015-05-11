@@ -43,7 +43,6 @@ import com.maxwell.bodysensor.dialogfragment.dialog.DlgMessageYN.btnHandler;
 import com.maxwell.bodysensor.listener.OnSetupDeviceAlertListener;
 import com.maxwell.bodysensor.listener.OnSetupOutOfRangeListener;
 import com.maxwell.bodysensor.listener.OnSyncDeviceListener;
-import com.maxwell.bodysensor.ui.ViewCircleProgress;
 import com.maxwell.bodysensor.ui.WarningUtil;
 import com.maxwell.bodysensor.util.UtilCVT;
 import com.maxwell.bodysensor.util.UtilCalendar;
@@ -323,12 +322,9 @@ public class FTabConf extends Fragment implements
         mViewGeneal.setVisibility(hasTargetDevice ? View.VISIBLE : View.GONE);
         if (hasTargetDevice) {
 //            DeviceData device = mPD.getDeviceDataByAddress(TargetMac);
-            DeviceType type = mMaxwellBLE.getDeviceType(TargetMac);
-            if (type == DeviceType.ENERGY_CAPSULE) {
-                mViewFocusE2MAX.setVisibility(View.GONE);
-            } else {
-                mViewFocusE2MAX.setVisibility(View.VISIBLE);
-            }
+
+            mViewFocusE2MAX.setVisibility(View.VISIBLE);
+
         } else {
             mViewFocusE2MAX.setVisibility(View.GONE);
         }
