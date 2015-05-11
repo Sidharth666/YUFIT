@@ -262,6 +262,7 @@ public class MainActivity extends MXWActivity implements
         if(UtilConst.isHMPackageInstalled(this) && ENABLE_HM_COPY && mPD.getTargetDeviceMac().equals("")){
             //DB code here
             CopyDataAsync copyAsync = new CopyDataAsync();
+            WarningUtil.showToastLong(this, "Please Wait..Fetching Data");
             copyAsync.execute();
 
         }else{

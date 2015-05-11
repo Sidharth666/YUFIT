@@ -361,10 +361,19 @@ public class FTabConf extends Fragment implements
             if(mMaxwellBLE.isReady()){
                 mTextConnStatus.setText("Connected");
                 mLlBattery.setVisibility(View.VISIBLE);
+
             }else{
                 mTextConnStatus.setText("Disconnected");
                 mLlBattery.setVisibility(View.GONE);
+
             }
+
+            if(mPD.getTargetDeviceMac().equals("")){
+                mViewPairADevice.setVisibility(View.VISIBLE);
+            }else{
+                mViewPairADevice.setVisibility(View.GONE);
+            }
+
         }
     }
 
@@ -771,6 +780,7 @@ public class FTabConf extends Fragment implements
     public void onDeviceConnect(MGPeripheral sender) {
         mLlBattery.setVisibility(View.VISIBLE);
         mTextConnStatus.setText("Connected");
+        updateView();
     }
 
     @Override
