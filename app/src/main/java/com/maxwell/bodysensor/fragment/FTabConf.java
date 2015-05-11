@@ -16,7 +16,6 @@ import android.widget.ToggleButton;
 
 import com.maxwell.bodysensor.CameraActivity;
 import com.maxwell.bodysensor.DeviceSync;
-import com.maxwell.bodysensor.EnergyCapsuleSync;
 import com.maxwell.bodysensor.MXWApp;
 import com.maxwell.bodysensor.MainActivity;
 import com.maxwell.bodysensor.PowerWatchSync;
@@ -51,7 +50,6 @@ import com.maxwell.bodysensor.util.UtilLocale;
 import com.maxwell.bodysensor.util.UtilLocale.DateFmt;
 import com.maxwell.bodysensor.util.UtilTime;
 import com.maxwellguider.bluetooth.MGPeripheral;
-import com.maxwellguider.bluetooth.MGPeripheral.DeviceType;
 import com.maxwellguider.bluetooth.activitytracker.AlertTime;
 import com.maxwellguider.bluetooth.activitytracker.LanguageType;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTracker;
@@ -149,6 +147,7 @@ public class FTabConf extends Fragment implements
 //        mTextBatteryLevel = (TextView) rootView.findViewById(R.id.text_battery_level);
         mViewPairADevice = rootView.findViewById(R.id.add_a_device);
         mViewDeviceList = rootView.findViewById(R.id.view_device_list);
+        mViewTutorial = rootView.findViewById(R.id.view_tutirial);
         mViewTutorial = rootView.findViewById(R.id.view_tutirial);
         mViewAbout = rootView.findViewById(R.id.view_about);
 

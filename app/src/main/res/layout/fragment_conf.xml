@@ -30,8 +30,7 @@
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/ll_status_container"
                 android:gravity="center"
-                android:visibility="gone"
-                >
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/text_battery_level"
@@ -55,8 +54,7 @@
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/ib_sync"
                 android:gravity="right|center_vertical"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tv_conn_status"
@@ -64,8 +62,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="right"
                     android:text=""
-                    android:visibility="visible"
-                    android:textColor="@color/text_color_primary" />
+                    android:textColor="@color/text_color_primary"
+                    android:visibility="visible" />
 
             </LinearLayout>
 
@@ -75,17 +73,19 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/card_padding"
+                android:layout_marginLeft="@dimen/small_padding"
+                android:background="@drawable/sel_btn_material"
+                android:padding="@dimen/content_gutter"
                 android:src="@drawable/ic_resetdevice"
-                android:visibility="visible"/>
+                android:visibility="visible" />
 
             <ProgressBar
+                android:id="@+id/progress_Sync"
+                style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="-8dp"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:id="@+id/progress_Sync"
                 android:indeterminate="true" />
 
         </RelativeLayout>
@@ -94,6 +94,36 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/small_padding"
             android:background="@drawable/shadow_down" />
+
+        <LinearLayout
+            android:id="@+id/view_hme_redirection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/app_conf_item_text"
+                android:duplicateParentState="true"
+                android:padding="@dimen/content_gutter"
+                android:text="HealthifyMe"
+                android:textColor="@color/text_color_primary" />
+
+
+            <LinearLayout
+                style="@style/wrapper_settings">
+
+                <ImageView
+                    style="@style/settings_icon"
+                    android:src="@drawable/ic_camera" />
+
+                <TextView
+                    style="@style/settings_main_text"
+                    android:text="Go to HealthifyMe" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
         <!-- All device functions -->
         <LinearLayout
             android:id="@+id/view_device_advanced_functions"
@@ -102,7 +132,6 @@
             android:orientation="vertical">
 
             <!-- For phone notify -->
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -287,8 +316,8 @@
 
                         <Button
                             android:id="@+id/btn_launch_video"
-                            android:layout_width="wrap_content"
                             style="@style/material_trans_btn"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/content_gutter"
@@ -392,8 +421,8 @@
 
                         <TextView
                             android:id="@+id/text_move_alert_duration"
-                            android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/small_padding"
                             tools:text="10:00 AM - 9:00 PM" />
 

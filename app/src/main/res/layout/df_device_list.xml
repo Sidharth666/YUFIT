@@ -4,7 +4,8 @@
     style="@style/app_outtab_layout_all">
 
     <RelativeLayout
-        style="@style/app_title" >
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize">
         <LinearLayout
             style="@style/app_title_c_layout" >
             <View
@@ -28,6 +29,11 @@
             android:text="@string/edit"
             android:background="@null" />
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/small_padding"
+        android:background="@drawable/shadow_down" />
 
     <LinearLayout
         style="@style/app_outtab_content"
