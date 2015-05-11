@@ -1,10 +1,6 @@
 package com.maxwell.bodysensor.fragment;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,18 +8,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.maxwell.bodysensor.MXWActivity;
-import com.maxwell.bodysensor.dialogfragment.DFAddNewDevice;
-import com.maxwellguider.bluetooth.AdvertisingData;
-import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.R;
+import com.maxwell.bodysensor.dialogfragment.DFAddNewDevice;
 import com.maxwell.bodysensor.dialogfragment.dialog.DlgIProgress;
 import com.maxwell.bodysensor.dialogfragment.dialog.DlgMessageYN;
 import com.maxwell.bodysensor.dialogfragment.dialog.DlgMessageYN.btnHandler;
+import com.maxwell.bodysensor.util.UtilDBG;
+import com.maxwellguider.bluetooth.AdvertisingData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FAddSearch extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
 
@@ -31,7 +30,7 @@ public class FAddSearch extends Fragment implements AdapterView.OnItemClickListe
 
     private DFAddNewDevice mDFAddNew = null;
 
-    private ImageView mImgSearching;
+    private ProgressBar pb;
     private ListView mListView;
     private DeviceAdapter mAdapter;
 
@@ -47,12 +46,6 @@ public class FAddSearch extends Fragment implements AdapterView.OnItemClickListe
         mActivity = (MXWActivity) getActivity();
 
         View view = inflater.inflate(R.layout.add_search, null, false);
-
-        mImgSearching = (ImageView) view.findViewById(R.id.img_searching);
-        AnimationDrawable frameAnimation =    (AnimationDrawable)mImgSearching.getDrawable();
-        frameAnimation.setCallback(mImgSearching);
-        frameAnimation.setVisible(true, true);
-        frameAnimation.start();
 
         mDeviceList = new ArrayList<AdvertisingData>();
         mListView = (ListView) view.findViewById(R.id.list_devices);

@@ -3,13 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:paddingTop="@dimen/space_12dp"
-    android:paddingBottom="@dimen/space_12dp"
-    android:weightSum="10">
+    android:padding="@dimen/content_gutter">
 
-    <com.maxwell.bodysensor.ui.ViewTextView
+    <TextView
         android:id="@+id/text_device_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -17,19 +15,12 @@
         android:textSize="@dimen/space_15dp"
         tools:text="Power Watch"/>
 
-    <com.maxwell.bodysensor.ui.ViewTextView
+    <TextView
         android:id="@+id/text_pair_code"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="5"
         android:textSize="@dimen/space_15dp"
         tools:text="2120"/>
-
-    <ImageView
-        android:id="@+id/img_member_photo"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/space_10dp"
-        android:layout_weight="1"
-        android:src="@drawable/button_orange_next"/>
 
 </LinearLayout>

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/ll_header"
-        android:layout_height="?android:attr/actionBarSize"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize">
 
         <Button
             android:id="@+id/btnCancel"
             style="@style/app_title_left_text"
             android:background="@null"
-            android:text="@string/strCancel" />
+            android:text="@string/strCancel"
+            android:textAllCaps="false" />
 
         <TextView
             android:id="@+id/text_title_bar"
@@ -25,13 +25,14 @@
             android:id="@+id/btnOK"
             style="@style/app_title_right_text"
             android:background="@null"
-            android:text="@string/strDone" />
+            android:text="@string/strDone"
+            android:textAllCaps="false" />
     </LinearLayout>
 
     <View
-        android:layout_below="@+id/ll_header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/small_padding"
+        android:layout_below="@+id/ll_header"
         android:background="@drawable/shadow_down" />
 
 </RelativeLayout>

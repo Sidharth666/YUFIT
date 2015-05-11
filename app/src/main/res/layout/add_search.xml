@@ -1,101 +1,101 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/app_outtab_layout_all"
+    style="@style/my_outtab_layout_all"
     android:baselineAligned="false">
 
-    <RelativeLayout
-        style="@style/app_title" >
+    <RelativeLayout style="@style/my_app_title">
+
         <ImageButton
             android:id="@+id/imgb_cancel"
             style="@style/app_title_left_image"
-            android:src="@drawable/back"
-            android:background="@null"
-            android:contentDescription="@string/acd"/>
-        <com.maxwell.bodysensor.ui.ViewButton
+            android:background="@drawable/sel_btn_material"
+            android:contentDescription="@string/acd"
+            android:src="@drawable/ic_navarrow_blue" />
+
+        <Button
             android:id="@+id/btn_pair_again"
             style="@style/app_title_right_text"
-            android:text="@string/cdPairAgain"
-            android:background="@null" />
+            android:background="@null"
+            android:visibility="gone"
+            android:text="@string/cdPairAgain" />
     </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/small_padding"
+        android:background="@drawable/shadow_down" />
+
     <LinearLayout
-        style="@style/app_outtab_content"
-        android:weightSum="1080"
-        android:orientation="horizontal">
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="70" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/content_gutter">
+
+        <ImageView
+            android:id="@+id/iv_band"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/content_gutter_2x"
+            android:src="@drawable/img_yufit_band" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/content_gutter"
+            android:text="@string/searching_for_devices" />
+
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="940"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
-            <LinearLayout
-                android:id="@+id/add_top_area"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:gravity="center"
-                android:orientation="vertical">
-                <com.maxwell.bodysensor.ui.ViewTextView
-                    style="@style/app_add_title_1_text"
-                    android:text="@string/searching_for_devices"/>
-            </LinearLayout>
-            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:id="@+id/pb"
+                style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_above="@id/add_top_area"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:indeterminate="true"
+                android:indeterminateBehavior="repeat"
+                android:visibility="visible" />
 
-                <ImageView
-                    android:id="@+id/img_searching"
-                    android:layout_width="@dimen/space_50dp"
-                    android:layout_height="@dimen/space_9dp"
-                    android:layout_marginTop="@dimen/space_15dp"
-                    android:layout_marginBottom="@dimen/space_15dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/launch_search_ani"
-                    android:contentDescription="@string/acd" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/content_gutter"
+                android:weightSum="10">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingTop="@dimen/space_8dp"
-                    android:paddingBottom="@dimen/space_8dp"
-                    android:weightSum="10">
+                    android:layout_weight="5"
+                    android:text="@string/deDeviceName"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_sub_head" />
 
-                    <com.maxwell.bodysensor.ui.ViewTextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="@dimen/space_12dp"
-                        android:text="@string/deDeviceName"/>
-                    <com.maxwell.bodysensor.ui.ViewTextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="4"
-                        android:textSize="@dimen/space_12dp"
-                        android:text="@string/pair_code"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:textStyle="bold"
+                    android:text="@string/pair_code"
+                    android:textSize="@dimen/text_sub_head" />
 
-                </LinearLayout>
-                <LinearLayout style="@style/app_conf_divider" />
-
-                <ListView
-                    android:id="@+id/list_devices"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:smoothScrollbar="true"
-                    android:scrollingCache="false"
-                    android:animationCache="false"/>
             </LinearLayout>
+
+            <LinearLayout style="@style/app_conf_divider" />
+
+            <ListView
+                android:id="@+id/list_devices"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animationCache="false"
+                android:scrollingCache="false"
+                android:smoothScrollbar="true" />
         </LinearLayout>
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="70" />
     </LinearLayout>
+
 </LinearLayout>

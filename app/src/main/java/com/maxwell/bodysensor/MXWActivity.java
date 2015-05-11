@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
 import com.maxwell.bodysensor.data.DBProgramData;
-import com.maxwell.bodysensor.dialogfragment.dialog.DlgMessageYN;
 import com.maxwell.bodysensor.listener.OnBackPressedListener;
 import com.maxwell.bodysensor.listener.OnCropImageCallback;
 import com.maxwell.bodysensor.listener.OnPairDeviceListener;
@@ -222,7 +221,7 @@ public abstract class MXWActivity extends ActionBarActivity implements
     @Override
     public void onDeviceConnect(final MGPeripheral sender) {
         try{
-//            UtilDBG.i("[RYAN] MXWActivity > onDeviceConnect");
+            UtilDBG.i("[RYAN] MXWActivity > onDeviceConnect");
 
             if (mPairDeviceListener != null) {
                 mPairDeviceListener.onDeviceConnect(sender);

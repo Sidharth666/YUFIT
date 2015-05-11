@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/app_outtab_layout_all">
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,8 +23,8 @@
         <ImageButton
             android:id="@+id/btnCancelImg"
             style="@style/app_title_left_image"
-            android:src="@drawable/back"
-            android:background="@null"
+            android:src="@drawable/ic_navarrow_blue"
+            android:background="@drawable/sel_btn_material"
             android:contentDescription="@string/acd"/>
         <com.maxwell.bodysensor.ui.ViewButton
             android:id="@+id/btn_edit"

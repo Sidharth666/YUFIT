@@ -50,6 +50,8 @@
     </style>
 
     <style name="material_trans_btn">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="colorButtonNormal">@android:color/white</item>
         <item name="android:textColor">@color/text_color_primary</item>
         <item name="android:background">@drawable/sel_btn_material</item>
@@ -64,6 +66,25 @@
     <style name="settings_content">
         <item name="android:layout_centerVertical">true</item>
         <item name="android:textSize">@dimen/text_settings_content</item>
+    </style>
+
+
+    <style name="my_outtab_layout_all">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/app_white</item>
+    </style>
+
+    <style name="my_outtab_content">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="my_app_title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?android:attr/actionBarSize</item>
+        <item name="android:background">@android:color/white</item>
     </style>
 
 </resources>
