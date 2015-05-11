@@ -110,7 +110,10 @@
 
 
             <LinearLayout
-                style="@style/wrapper_settings">
+                android:id="@+id/ll_healthifyme"
+                style="@style/wrapper_settings"
+                android:visibility="gone"
+                >
 
                 <ImageView
                     style="@style/settings_icon"

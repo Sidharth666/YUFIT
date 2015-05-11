@@ -58,6 +58,8 @@ import com.maxwellguider.bluetooth.activitytracker.UnitType;
 
 import java.util.Date;
 
+import static android.view.View.VISIBLE;
+
 /**
  * The fragment, Conf. (Setting)
  */
@@ -124,6 +126,8 @@ public class FTabConf extends Fragment implements
     private DeviceSync mDeviceSync;
     private ProgressBar mSyncProgress;
     private LinearLayout mLlBattery;
+    private LinearLayout mLlHMRedirect;
+    private LinearLayout mLlHealthifyme;
 
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -191,6 +195,8 @@ public class FTabConf extends Fragment implements
         mSyncProgress = (ProgressBar)rootView.findViewById(R.id.progress_Sync);
 
         mLlBattery = (LinearLayout)rootView.findViewById(R.id.ll_battery);
+        mLlHMRedirect = (LinearLayout)rootView.findViewById(R.id.view_hme_redirection);
+        mLlHealthifyme = (LinearLayout)rootView.findViewById(R.id.ll_healthifyme);
 
         mViewPairADevice.setOnClickListener(this);
         mViewDeviceList.setOnClickListener(this);
@@ -214,6 +220,8 @@ public class FTabConf extends Fragment implements
         mBtnLaunchCamera.setOnClickListener(this);
         mBtnLaunchVideo.setOnClickListener(this);
         mBtnSync.setOnClickListener(this);
+
+        mLlHealthifyme.setOnClickListener(this);
 
         updateView();
 
@@ -313,16 +321,29 @@ public class FTabConf extends Fragment implements
     }
 
     public void updateView() {
+        boolean isFromHM = false;
         String TargetMac = mPD.getTargetDeviceMac();
         boolean hasTargetDevice = (UtilCVT.getMacAddressType(TargetMac) == 2) && (mPD.getUserDeviceByAddress(TargetMac)!=null);
 
+        //check if app opened from HM
+        Bundle bundle = getActivity().getIntent().getExtras();
+        if(bundle!=null){
+            isFromHM = bundle.getBoolean(MainActivity.KEY_FROM_HME_APP);
+        }
+
+
+        if(isFromHM){
+            mLlHMRedirect.setVisibility(View.VISIBLE);
+        }else{
+            mLlHMRedirect.setVisibility(View.GONE);
+        }
 
         // TODO : check with PM
-        mViewGeneal.setVisibility(hasTargetDevice ? View.VISIBLE : View.GONE);
+        mViewGeneal.setVisibility(hasTargetDevice ? VISIBLE : View.GONE);
         if (hasTargetDevice) {
 //            DeviceData device = mPD.getDeviceDataByAddress(TargetMac);
 
-            mViewFocusE2MAX.setVisibility(View.VISIBLE);
+            mViewFocusE2MAX.setVisibility(VISIBLE);
 
         } else {
             mViewFocusE2MAX.setVisibility(View.GONE);
@@ -359,7 +380,7 @@ public class FTabConf extends Fragment implements
 
             if(mMaxwellBLE.isReady()){
                 mTextConnStatus.setText("Connected");
-                mLlBattery.setVisibility(View.VISIBLE);
+                mLlBattery.setVisibility(VISIBLE);
 
             }else{
                 mTextConnStatus.setText("Disconnected");
@@ -368,7 +389,7 @@ public class FTabConf extends Fragment implements
             }
 
             if(mPD.getTargetDeviceMac().equals("")){
-                mViewPairADevice.setVisibility(View.VISIBLE);
+                mViewPairADevice.setVisibility(VISIBLE);
             }else{
                 mViewPairADevice.setVisibility(View.GONE);
             }
@@ -516,6 +537,9 @@ public class FTabConf extends Fragment implements
         String strURL = "";
 
         if (v==null) {
+        }else if(v==mLlHealthifyme){
+            Intent intent = new Intent(MXWApp.HME_ACTION);
+            startActivity(intent);
         }else if(v==mBtnSync){
             initDeviceSync();
             if (!mActivity.isSyncing()) {
@@ -795,6 +819,7 @@ public class FTabConf extends Fragment implements
 
     @Override
     public void onDeviceReady(MGPeripheral sender) {
+        mLlBattery.setVisibility(View.VISIBLE);
         mTextConnStatus.setText("Connected");
 
     }
@@ -802,7 +827,7 @@ public class FTabConf extends Fragment implements
     @Override
     public void onSyncProgressUpdate(int progress) {
         if (mSyncProgress != null) {
-            mSyncProgress.setVisibility(View.VISIBLE);
+            mSyncProgress.setVisibility(VISIBLE);
             mSyncProgress.setProgress(progress);
         }
     }

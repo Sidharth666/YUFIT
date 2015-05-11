@@ -154,6 +154,9 @@ public class MainActivity extends MXWActivity implements
 
     private PrimaryProfileData mPrimaryProfile;
 
+    private boolean isFromHM =false;
+    public static final String KEY_FROM_HME_APP = "is_from_hme";
+
 
     private OnActivityResultCallback mActivityResultCallback;
     public void setOnActivityResultListener(OnActivityResultCallback listener) {
@@ -264,6 +267,8 @@ public class MainActivity extends MXWActivity implements
             CopyDataAsync copyAsync = new CopyDataAsync();
             WarningUtil.showToastLong(this, "Please Wait..Fetching Data");
             copyAsync.execute();
+
+
 
         }else{
             String address = mPD.getTargetDeviceMac();
@@ -460,6 +465,12 @@ public class MainActivity extends MXWActivity implements
                 sendSOSMessage();
             }
         }
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
     }
 
     @Override
