@@ -56,7 +56,6 @@
                 android:layout_toLeftOf="@+id/ib_sync"
                 android:gravity="right|center_vertical"
                 android:orientation="vertical"
-                android:layout_alignParentRight="true"
                 >
 
                 <TextView
@@ -493,22 +492,20 @@
         </LinearLayout>
 
         <!-- add a device -->
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/add_a_device"
             style="@style/wrapper_settings"
             android:clickable="true">
+
+            <ImageView
+                style="@style/settings_icon"
+                android:src="@drawable/ic_add_blue" />
 
             <TextView
                 style="@style/settings_main_text"
                 android:text="@string/profile_add_a_device" />
 
-            <ImageView
-                style="@style/app_conf_item_next_image"
-                android:layout_width="@dimen/space_19dp"
-                android:layout_height="@dimen/space_18dp"
-                android:contentDescription="@string/acd"
-                android:src="@drawable/device_add" />
-        </RelativeLayout>
+        </LinearLayout>
 
         <LinearLayout style="@style/app_conf_divider" />
 
@@ -520,7 +517,7 @@
             android:orientation="vertical">
 
             <!-- device list -->
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/view_device_list"
                 style="@style/app_conf_item"
                 android:clickable="true">
@@ -532,7 +529,7 @@
                 <ImageView
                     style="@style/app_conf_item_next_image"
                     android:contentDescription="@string/acd" />
-            </RelativeLayout>
+            </LinearLayout>
 
             <LinearLayout style="@style/app_conf_divider" />
 
