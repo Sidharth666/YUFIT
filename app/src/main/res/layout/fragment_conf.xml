@@ -107,18 +107,16 @@
                 android:text="Steps and Sleep"
                 android:textColor="@color/text_color_primary" />
 
-
             <LinearLayout
                 android:id="@+id/ll_healthifyme"
                 style="@style/wrapper_settings"
-                android:visibility="visible"
-                >
+                android:visibility="visible">
 
                 <ImageView
                     style="@style/settings_icon"
-                    android:src="@drawable/hm_icon"
                     android:layout_width="@dimen/space_30dp"
-                    android:layout_height="@dimen/space_30dp"/>
+                    android:layout_height="@dimen/space_30dp"
+                    android:src="@drawable/hm_icon" />
 
                 <TextView
                     style="@style/settings_main_text"
@@ -134,6 +132,178 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <!-- smart key -->
+            <LinearLayout
+                android:id="@+id/view_smart_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:duplicateParentState="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_smart_key"
+                    style="@style/app_conf_item_text"
+                    android:duplicateParentState="true"
+                    android:padding="@dimen/content_gutter"
+                    android:text="@string/df_smart_keys_title"
+                    android:textColor="@color/text_color_primary" />
+
+                <LinearLayout
+                    android:id="@+id/view_camera_remote"
+                    style="@style/wrapper_settings">
+
+                    <ImageView
+                        style="@style/settings_icon"
+                        android:src="@drawable/ic_camera" />
+
+                    <TextView
+                        style="@style/settings_main_text"
+                        android:text="@string/df_smart_keys_camera_remote" />
+
+                    <Button
+                        android:id="@+id/btn_launch_camera"
+                        style="@style/material_trans_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/content_gutter"
+                        android:gravity="center"
+                        android:text="@string/fcSmartKeysLaunch" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/view_video_remote"
+                    style="@style/wrapper_settings">
+
+                    <ImageView
+                        style="@style/settings_icon"
+                        android:src="@drawable/ic_video" />
+
+                    <TextView
+                        style="@style/settings_main_text"
+                        android:text="@string/df_smart_keys_video_remote" />
+
+                    <Button
+                        android:id="@+id/btn_launch_video"
+                        style="@style/material_trans_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/content_gutter"
+                        android:gravity="center"
+                        android:text="@string/fcSmartKeysLaunch" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/view_find_phone"
+                    style="@style/wrapper_settings">
+
+                    <ImageView
+                        style="@style/settings_icon"
+                        android:src="@drawable/ic_finddevice" />
+
+                    <TextView
+                        style="@style/settings_main_text"
+                        android:text="@string/df_smart_keys_find_phone" />
+
+                    <ToggleButton
+                        android:id="@+id/toggle_find_phone"
+                        style="@style/toggle_button_right"
+                        android:layout_marginRight="@dimen/content_gutter" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- For device alerm notify -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/app_conf_item_text"
+                    android:duplicateParentState="true"
+                    android:padding="@dimen/content_gutter"
+                    android:text="@string/alarms_alerts"
+                    android:textColor="@color/text_color_primary" />
+
+
+                <!-- weekly alarm -->
+                <LinearLayout
+                    android:id="@+id/view_device_alarm"
+                    style="@style/wrapper_settings"
+                    android:clickable="true">
+
+                    <ImageView
+                        style="@style/settings_icon"
+                        android:src="@drawable/ic_alarms" />
+
+                    <TextView
+                        style="@style/settings_main_text"
+                        android:text="@string/df_alarm_title" />
+
+                    <TextView
+                        android:id="@+id/text_device_alarm_detail"
+                        style="@style/settings_sub_text"
+                        tools:text="10:00 AM" />
+
+                </LinearLayout>
+
+                <!-- task alert -->
+                <LinearLayout
+                    android:id="@+id/view_task_alert"
+                    style="@style/wrapper_settings"
+                    android:clickable="true">
+
+                    <ImageView
+                        style="@style/settings_icon"
+                        android:src="@drawable/ic_tasks" />
+
+                    <TextView
+                        style="@style/settings_main_text"
+                        android:text="@string/df_task_alert_title" />
+
+                </LinearLayout>
+
+                <!-- move alert -->
+                <LinearLayout
+                    android:id="@+id/view_move_alert"
+                    style="@style/wrapper_settings">
+
+                    <ImageView
+                        style="@style/settings_icon"
+                        android:src="@drawable/ic_movealert" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/settings_main_text"
+                            android:text="@string/df_move_alert_title" />
+
+                        <TextView
+                            android:id="@+id/text_move_alert_duration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/small_padding"
+                            tools:text="10:00 AM - 9:00 PM" />
+
+                    </LinearLayout>
+
+                    <ToggleButton
+                        android:id="@+id/toggle_move_alert"
+                        style="@style/toggle_button_right"
+                        android:layout_marginRight="@dimen/content_gutter" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <!-- For phone notify -->
             <LinearLayout
@@ -267,179 +437,9 @@
                         android:text="@string/fcSmartKeysFind" />
                 </LinearLayout>
 
-                <!-- smart key -->
-                <LinearLayout
-                    android:id="@+id/view_smart_key"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:duplicateParentState="true"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/text_smart_key"
-                        style="@style/app_conf_item_text"
-                        android:duplicateParentState="true"
-                        android:padding="@dimen/content_gutter"
-                        android:text="@string/df_smart_keys_title"
-                        android:textColor="@color/text_color_primary" />
-
-                    <LinearLayout
-                        android:id="@+id/view_camera_remote"
-                        style="@style/wrapper_settings">
-
-                        <ImageView
-                            style="@style/settings_icon"
-                            android:src="@drawable/ic_camera" />
-
-                        <TextView
-                            style="@style/settings_main_text"
-                            android:text="@string/df_smart_keys_camera_remote" />
-
-                        <Button
-                            android:id="@+id/btn_launch_camera"
-                            style="@style/material_trans_btn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/content_gutter"
-                            android:gravity="center"
-                            android:text="@string/fcSmartKeysLaunch" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/view_video_remote"
-                        style="@style/wrapper_settings">
-
-                        <ImageView
-                            style="@style/settings_icon"
-                            android:src="@drawable/ic_video" />
-
-                        <TextView
-                            style="@style/settings_main_text"
-                            android:text="@string/df_smart_keys_video_remote" />
-
-                        <Button
-                            android:id="@+id/btn_launch_video"
-                            style="@style/material_trans_btn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="@dimen/content_gutter"
-                            android:gravity="center"
-                            android:text="@string/fcSmartKeysLaunch" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/view_find_phone"
-                        style="@style/wrapper_settings">
-
-                        <ImageView
-                            style="@style/settings_icon"
-                            android:src="@drawable/ic_finddevice" />
-
-                        <TextView
-                            style="@style/settings_main_text"
-                            android:text="@string/df_smart_keys_find_phone" />
-
-                        <ToggleButton
-                            android:id="@+id/toggle_find_phone"
-                            style="@style/toggle_button_right"
-                            android:layout_marginRight="@dimen/content_gutter" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
 
             </LinearLayout>
 
-            <!-- For device alerm notify -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/app_conf_item_text"
-                    android:duplicateParentState="true"
-                    android:padding="@dimen/content_gutter"
-                    android:text="@string/alarms_alerts"
-                    android:textColor="@color/text_color_primary" />
-
-
-                <!-- weekly alarm -->
-                <LinearLayout
-                    android:id="@+id/view_device_alarm"
-                    style="@style/wrapper_settings"
-                    android:clickable="true">
-
-                    <ImageView
-                        style="@style/settings_icon"
-                        android:src="@drawable/ic_alarms" />
-
-                    <TextView
-                        style="@style/settings_main_text"
-                        android:text="@string/df_alarm_title" />
-
-                    <TextView
-                        android:id="@+id/text_device_alarm_detail"
-                        style="@style/settings_sub_text"
-                        tools:text="10:00 AM" />
-
-                </LinearLayout>
-
-                <!-- task alert -->
-                <LinearLayout
-                    android:id="@+id/view_task_alert"
-                    style="@style/wrapper_settings"
-                    android:clickable="true">
-
-                    <ImageView
-                        style="@style/settings_icon"
-                        android:src="@drawable/ic_tasks" />
-
-                    <TextView
-                        style="@style/settings_main_text"
-                        android:text="@string/df_task_alert_title" />
-
-                </LinearLayout>
-
-                <!-- move alert -->
-                <LinearLayout
-                    android:id="@+id/view_move_alert"
-                    style="@style/wrapper_settings">
-
-                    <ImageView
-                        style="@style/settings_icon"
-                        android:src="@drawable/ic_movealert" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            style="@style/settings_main_text"
-                            android:text="@string/df_move_alert_title" />
-
-                        <TextView
-                            android:id="@+id/text_move_alert_duration"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/small_padding"
-                            tools:text="10:00 AM - 9:00 PM" />
-
-                    </LinearLayout>
-
-                    <ToggleButton
-                        android:id="@+id/toggle_move_alert"
-                        style="@style/toggle_button_right"
-                        android:layout_marginRight="@dimen/content_gutter" />
-
-                </LinearLayout>
-
-            </LinearLayout>
 
             <!-- For device SOS -->
             <LinearLayout
