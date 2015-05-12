@@ -343,12 +343,7 @@ public class MainActivity extends MXWActivity implements
             profile.name = "";
             profile.gender = 0;
             profile.birthday = 0;
-            profile.height = 0;
-            profile.weight = 0;
-            profile.stride = 0;
             profile.photo = value;
-            profile.sleepLogBegin = 0;
-            profile.sleepLogEnd = 0;
             mPD.saveUserProfile(profile);
             mSharedPref.setAppFirstStart(false);
             mIsFirstStart = false;
@@ -988,12 +983,7 @@ public class MainActivity extends MXWActivity implements
     @Override
     public void onDeviceReady(MGPeripheral sender) {
         // TODO : initial device settings
-        if (MXWApp.isPowerWatch(sender.getTargetAddress())) {
-            // Power Watch (E2Max)
-            initDevicePowerWatch();
-        } else {
-            // TODO : Energy Capsule (P07a)
-        }
+        initDevicePowerWatch();
 
         if (mPairDeviceListener != null) {
             mPairDeviceListener.onDeviceReady(sender);
