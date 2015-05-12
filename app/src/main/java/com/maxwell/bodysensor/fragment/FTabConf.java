@@ -289,6 +289,7 @@ public class FTabConf extends Fragment implements
         super.onDestroyView();
 
         mDevManager.removeListener(this);
+        getActivity().unregisterReceiver(mDeviceRemovedtReceiver);
     }
 
     private void enablePhoneConnectionUpdated(boolean enable) {
