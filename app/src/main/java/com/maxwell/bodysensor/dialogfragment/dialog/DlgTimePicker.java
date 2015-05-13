@@ -10,10 +10,11 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.maxwell.bodysensor.R;
 import com.maxwell.bodysensor.dialogfragment.DFBase;
 import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.MainActivity;
-import com.maxwell.bodysensor.R;
+
 
 public class DlgTimePicker extends DFBase implements
     View.OnClickListener {

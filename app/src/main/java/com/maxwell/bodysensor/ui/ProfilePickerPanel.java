@@ -12,11 +12,10 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.maxwell.bodysensor.R;
 import com.maxwell.bodysensor.util.UtilCVT;
 import com.maxwell.bodysensor.util.UtilCalendar;
 import com.maxwell.bodysensor.util.UtilDBG;
-import com.maxwell.bodysensor.util.UtilTZ;
-import com.maxwell.bodysensor.R;
 
 public class ProfilePickerPanel implements View.OnClickListener,
 	DatePicker.OnDateChangedListener, NumberPicker.OnValueChangeListener {

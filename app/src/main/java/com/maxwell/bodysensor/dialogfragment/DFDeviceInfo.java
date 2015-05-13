@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.maxwell.bodysensor.GroupActivity;
 import com.maxwell.bodysensor.MXWActivity;
 import com.maxwell.bodysensor.MainActivity;
 import com.maxwell.bodysensor.R;

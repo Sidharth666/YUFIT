@@ -10,11 +10,11 @@ import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.PorterDuff;
 import android.graphics.RectF;
-import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.maxwell.bodysensor.R;
 import com.maxwell.bodysensor.data.SleepMoveData;
 import com.maxwell.bodysensor.data.SleepScore;
 import com.maxwell.bodysensor.data.sleep.SleepLevel;
@@ -22,7 +22,7 @@ import com.maxwell.bodysensor.util.UtilCalendar;
 import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.util.UtilLocale;
 import com.maxwell.bodysensor.util.UtilLocale.DateFmt;
-import com.maxwell.bodysensor.R;
+
 
 public class ViewChart extends ViewBase {
     public static final int AD = 10;   // Activity, Day

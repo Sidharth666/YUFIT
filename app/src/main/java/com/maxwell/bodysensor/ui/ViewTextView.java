@@ -2,7 +2,6 @@ package com.maxwell.bodysensor.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.TextView;
 

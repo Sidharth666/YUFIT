@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 
 import com.maxwell.bodysensor.GroupActivity;
 import com.maxwell.bodysensor.R;
-import com.maxwell.bodysensor.SharedPrefWrapper;
 import com.maxwell.bodysensor.data.DBProgramData;
 import com.maxwell.bodysensor.data.group.GroupData;
 import com.maxwell.bodysensor.data.group.GroupMemberData;

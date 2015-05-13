@@ -42,7 +42,7 @@ public class GroupActivity extends MXWActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(com.maxwell.bodysensor.R.layout.activity_main);
 
         mSharedPref = SharedPrefWrapper.getInstance();
 
@@ -72,7 +72,7 @@ public class GroupActivity extends MXWActivity {
 
         if (mContainerGroup==null) {
             mContainerGroup = new FContainerGroup();
-            ft.add(R.id.container_main, mContainerGroup, CONTAINER_GROUP);
+            ft.add(com.maxwell.bodysensor.R.id.container_main, mContainerGroup, CONTAINER_GROUP);
         }
 
         ft.show(mContainerGroup);
@@ -85,7 +85,7 @@ public class GroupActivity extends MXWActivity {
     public void showSwitchModeDialog() {
         DlgSwitchMode dlg = new DlgSwitchMode();
         dlg.setSwitchModeButton(
-                getString(R.string.switch_user_mode),
+                getString(com.maxwell.bodysensor.R.string.switch_user_mode),
                 new DlgSwitchMode.btnHandler() {
                     @Override
                     public boolean onBtnHandler() {

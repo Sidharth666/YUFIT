@@ -10,7 +10,6 @@ import android.graphics.PorterDuff;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 
-import com.maxwell.bodysensor.ui.ViewBase;
 import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.R;
 

@@ -10,10 +10,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.maxwell.bodysensor.R;
 import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.MXWApp;
-import com.maxwell.bodysensor.MainActivity;
-import com.maxwell.bodysensor.R;
+
 
 public abstract class DFBase extends DialogFragment {
 

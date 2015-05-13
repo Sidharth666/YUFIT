@@ -8,10 +8,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.maxwell.bodysensor.R;
 import com.maxwell.bodysensor.dialogfragment.DFBase;
 import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.MainActivity;
-import com.maxwell.bodysensor.R;
+
 
 public class DlgMessageYN extends DFBase implements
     View.OnClickListener {

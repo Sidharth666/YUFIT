@@ -2,6 +2,7 @@ package com.maxwell.bodysensor.util;
 
 import android.content.res.Resources;
 
+
 import com.maxwell.bodysensor.R;
 
 import java.text.DateFormatSymbols;

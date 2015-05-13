@@ -10,12 +10,12 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
+import com.maxwell.bodysensor.R;
 import com.maxwell.bodysensor.dialogfragment.dialog.DlgTimePicker;
 import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.util.UtilLocale;
 import com.maxwell.bodysensor.util.UtilLocale.DateFmt;
 import com.maxwell.bodysensor.MainActivity;
-import com.maxwell.bodysensor.R;
 import com.maxwell.bodysensor.SharedPrefWrapper;
 import com.maxwell.bodysensor.dialogfragment.dialog.DlgTimePicker.btnHandler;
 import com.maxwell.bodysensor.util.UtilTime;

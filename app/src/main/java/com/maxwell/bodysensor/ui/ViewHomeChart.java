@@ -9,11 +9,9 @@ import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.util.AttributeSet;
 
-import com.maxwell.bodysensor.ui.ViewBase;
 import com.maxwell.bodysensor.R;
 import com.maxwell.bodysensor.data.HourlyRecordData;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 

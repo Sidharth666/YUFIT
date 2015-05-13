@@ -3,6 +3,7 @@
     package="com.maxwell.bodysensor" >
     <!-- android:versionCode must be integer, and be greater than version code of previous version -->
 
+
     <permission
         android:name="mxx.permission.ACCESS_DB_DATA"
         android:protectionLevel="normal" >

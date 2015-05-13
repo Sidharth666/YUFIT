@@ -22,6 +22,7 @@ import com.maxwell.bodysensor.DeviceSync;
 import com.maxwell.bodysensor.MXWApp;
 import com.maxwell.bodysensor.MainActivity;
 import com.maxwell.bodysensor.PowerWatchSync;
+
 import com.maxwell.bodysensor.R;
 import com.maxwell.bodysensor.SharedPrefWrapper;
 import com.maxwell.bodysensor.data.DBDevice;

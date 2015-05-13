@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 
 import com.maxwell.bodysensor.GroupActivity;
-import com.maxwell.bodysensor.MainActivity;
 import com.maxwell.bodysensor.R;
 import com.maxwell.bodysensor.SharedPrefWrapper;
 import com.maxwell.bodysensor.data.DBProgramData;

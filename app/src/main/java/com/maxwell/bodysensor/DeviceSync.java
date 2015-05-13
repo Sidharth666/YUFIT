@@ -66,7 +66,7 @@ public abstract class DeviceSync {
                 mMaxwellBLE.sync();
 
             } else {
-                WarningUtil.showToastLong(mActivity, R.string.dlg_device_disconnectd_content);
+                WarningUtil.showToastLong(mActivity, com.maxwell.bodysensor.R.string.dlg_device_disconnectd_content);
             }
 
         }

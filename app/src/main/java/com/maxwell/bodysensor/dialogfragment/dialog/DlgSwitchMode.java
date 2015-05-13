@@ -19,7 +19,6 @@ import com.maxwell.bodysensor.data.DBProgramData;
 import com.maxwell.bodysensor.data.DeviceData;
 import com.maxwell.bodysensor.dialogfragment.DFBase;
 import com.maxwell.bodysensor.util.UtilDBG;
-import com.maxwellguider.bluetooth.MGPeripheral.DeviceType;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTracker;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTrackerApi;
 
