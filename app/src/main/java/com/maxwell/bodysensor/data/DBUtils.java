@@ -1,5 +1,6 @@
 package com.maxwell.bodysensor.data;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.maxwell.bodysensor.data.group.DBGroup15MinutesRecord;
@@ -61,5 +62,15 @@ public class DBUtils {
         DBGroup15MinutesRecord.createTable(db);
         DBGroupSleepLog.createTable(db);
         DBGroupSleepScore.createTable(db);
+    }
+
+    public static void closeCursor(Cursor c) {
+        if (c != null && !c.isClosed()) {
+            c.close();
+        }
+    }
+
+    public static boolean isCursorUsable(Cursor c) {
+        return (c != null && c.getCount() > 0);
     }
 }

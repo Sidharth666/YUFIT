@@ -38,6 +38,7 @@ import com.maxwell.bodysensor.data.DBDevice;
 import com.maxwell.bodysensor.data.DBProgramData;
 import com.maxwell.bodysensor.data.DBProvider;
 import com.maxwell.bodysensor.data.DBUpgradeWrapper;
+import com.maxwell.bodysensor.data.DBUtils;
 import com.maxwell.bodysensor.data.DeviceData;
 import com.maxwell.bodysensor.data.PrimaryProfileData;
 import com.maxwell.bodysensor.data.UserModeType;
@@ -337,32 +338,36 @@ public class MainActivity extends MXWActivity implements
                 CONTENT_URI_DBPROFILE, CONTENT_URI_DB_SLEEPLOG, CONTENT_URI_DB_SLEEPSCORE};
         for (Uri item : tables) {
             Cursor cursor = updateDBDataHM(item);
-            if (cursor != null) {
-                UtilDBG.i("MainActivity, Fetch data from HM ,Cursor: " + cursor);
-                switch (uriMatcher.match(item)) {
-                    case 1:
-                        DBUser15MinutesRecord.getInstance().update15MinRecord(cursor);
-                        break;
-                    case 2:
-                        DBUserDailyRecord.getInstance().updateDailyRecord(cursor);
-                        break;
-                    case 3:
-                        updateUserDeviceData(macId);
-                        break;
-                    case 4:
-                        DBUserHourlyRecord.getInstance().updateHourlyRecord(cursor);
-                        break;
-                    case 5:
+            try {
+                if (DBUtils.isCursorUsable(cursor)) {
+                    UtilDBG.i("MainActivity, Fetch data from HM ,Cursor: " + cursor);
+                    switch (uriMatcher.match(item)) {
+                        case 1:
+                            DBUser15MinutesRecord.getInstance().update15MinRecord(cursor);
+                            break;
+                        case 2:
+                            DBUserDailyRecord.getInstance().updateDailyRecord(cursor);
+                            break;
+                        case 3:
+                            updateUserDeviceData(macId);
+                            break;
+                        case 4:
+                            DBUserHourlyRecord.getInstance().updateHourlyRecord(cursor);
+                            break;
+                        case 5:
 //                        updateUserProfileHM();
-                        break;
-                    case 6:
-                        DBUserSleepLog.getInstance().updateSleepLogRecord(cursor);
-                        break;
-                    case 7:
-                        DBUserSleepScore.getInstance().updateSleepScoreRecord(cursor);
-                        break;
+                            break;
+                        case 6:
+                            DBUserSleepLog.getInstance().updateSleepLogRecord(cursor);
+                            break;
+                        case 7:
+                            DBUserSleepScore.getInstance().updateSleepScoreRecord(cursor);
+                            break;
 
+                    }
                 }
+            }finally {
+                DBUtils.closeCursor(cursor);
             }
         }
     }
@@ -378,27 +383,31 @@ public class MainActivity extends MXWActivity implements
         String address = "";
         mPrimaryProfile = PrimaryProfileData.getInstace();
         Cursor c1 = getContentResolver().query(CONTENT_URI_DBPROFILE, DBUserProfile.PROJECTION, null, null, null);
-        if (c1 != null && c1.getCount() > 0) {
-            c1.moveToFirst();
-            address = c1.getString(c1.getColumnIndex(DBUserProfile.COLUMN.DEVICE_MAC));
-            mPrimaryProfile._Id = c1.getLong(c1.getColumnIndex(DBUserProfile.COLUMN._ID));
-            mPrimaryProfile.name = c1.getString(c1.getColumnIndex(DBUserProfile.COLUMN.NAME));
-            mPrimaryProfile.gender = c1.getInt(c1.getColumnIndex(DBUserProfile.COLUMN.GENDER));
-            mPrimaryProfile.birthday = c1.getLong(c1.getColumnIndex(DBUserProfile.COLUMN.BIRTHDAY));
-            mPrimaryProfile.height = c1.getDouble(c1.getColumnIndex(DBUserProfile.COLUMN.HEIGHT));
-            mPrimaryProfile.weight = c1.getDouble(c1.getColumnIndex(DBUserProfile.COLUMN.WEIGHT));
-            mPrimaryProfile.stride = c1.getDouble(c1.getColumnIndex(DBUserProfile.COLUMN.STRIDE));
-            mPrimaryProfile.photo = c1.getBlob(c1.getColumnIndex(DBUserProfile.COLUMN.PHOTO));
-            mPrimaryProfile.dailyGoal = c1.getInt(c1.getColumnIndex(DBUserProfile.COLUMN.DAILY_GOAL));
-            mPrimaryProfile.sleepLogBegin = c1.getInt(c1.getColumnIndex(DBUserProfile.COLUMN.SLEEP_LOG_BEGIN));
-            mPrimaryProfile.sleepLogEnd = c1.getInt(c1.getColumnIndex(DBUserProfile.COLUMN.SLEEP_LOG_END));
-            mPrimaryProfile.targetDeviceMac = c1.getString(c1.getColumnIndex(DBUserProfile.COLUMN.DEVICE_MAC));
+        try {
+            if (DBUtils.isCursorUsable(c1)) {
+                c1.moveToFirst();
+                address = c1.getString(c1.getColumnIndex(DBUserProfile.COLUMN.DEVICE_MAC));
+                mPrimaryProfile._Id = c1.getLong(c1.getColumnIndex(DBUserProfile.COLUMN._ID));
+                mPrimaryProfile.name = c1.getString(c1.getColumnIndex(DBUserProfile.COLUMN.NAME));
+                mPrimaryProfile.gender = c1.getInt(c1.getColumnIndex(DBUserProfile.COLUMN.GENDER));
+                mPrimaryProfile.birthday = c1.getLong(c1.getColumnIndex(DBUserProfile.COLUMN.BIRTHDAY));
+                mPrimaryProfile.height = c1.getDouble(c1.getColumnIndex(DBUserProfile.COLUMN.HEIGHT));
+                mPrimaryProfile.weight = c1.getDouble(c1.getColumnIndex(DBUserProfile.COLUMN.WEIGHT));
+                mPrimaryProfile.stride = c1.getDouble(c1.getColumnIndex(DBUserProfile.COLUMN.STRIDE));
+                mPrimaryProfile.photo = c1.getBlob(c1.getColumnIndex(DBUserProfile.COLUMN.PHOTO));
+                mPrimaryProfile.dailyGoal = c1.getInt(c1.getColumnIndex(DBUserProfile.COLUMN.DAILY_GOAL));
+                mPrimaryProfile.sleepLogBegin = c1.getInt(c1.getColumnIndex(DBUserProfile.COLUMN.SLEEP_LOG_BEGIN));
+                mPrimaryProfile.sleepLogEnd = c1.getInt(c1.getColumnIndex(DBUserProfile.COLUMN.SLEEP_LOG_END));
+                mPrimaryProfile.targetDeviceMac = c1.getString(c1.getColumnIndex(DBUserProfile.COLUMN.DEVICE_MAC));
 
-            mPD.saveUserProfile(mPrimaryProfile);
+                mPD.saveUserProfile(mPrimaryProfile);
 
-        } else {
+            } else {
+            }
+            return address;
+        } finally {
+            DBUtils.closeCursor(c1);
         }
-        return address;
     }
 
     private void updateUserDeviceData(String macId) {
@@ -419,21 +428,26 @@ public class MainActivity extends MXWActivity implements
             UtilDBG.i("the address " + c + " is not in the device list , macID:: " + macId);
 
         } else {
-            if (iCount > 1) {
-                UtilDBG.e("!! Assume that there is at most one row !!");
+            try {
+                if (DBUtils.isCursorUsable(c)) {
+                    if (iCount > 1) {
+                        UtilDBG.e("!! Assume that there is at most one row !!");
+                    }
+                    c.moveToNext();
+                    DeviceData device = new DeviceData();
+                    device._Id = c.getLong(c.getColumnIndex(DBDevice.COLUMN._ID));
+                    device.profileId = c.getLong(c.getColumnIndex(DBDevice.COLUMN.PROFILE_ID));
+                    device.displayName = c.getString(c.getColumnIndex(DBDevice.COLUMN.NAME));
+                    device.mac = c.getString(c.getColumnIndex(DBDevice.COLUMN.MAC));
+                    device.lastDailySyncTime = c.getLong(c.getColumnIndex(DBDevice.COLUMN.LAST_DAILY_SYNC));
+                    device.lastHourlySyncTime = c.getLong(c.getColumnIndex(DBDevice.COLUMN.LAST_HOURLY_SYNC));
+                    device.lastTimezoneDiff = c.getInt(c.getColumnIndex(DBDevice.COLUMN.TIMEZONE));
+                    mPD.updateUserDeviceData(device);
+                }
+            }finally {
+                DBUtils.closeCursor(c);
             }
-            c.moveToNext();
-            DeviceData device = new DeviceData();
-            device._Id = c.getLong(c.getColumnIndex(DBDevice.COLUMN._ID));
-            device.profileId = c.getLong(c.getColumnIndex(DBDevice.COLUMN.PROFILE_ID));
-            device.displayName = c.getString(c.getColumnIndex(DBDevice.COLUMN.NAME));
-            device.mac = c.getString(c.getColumnIndex(DBDevice.COLUMN.MAC));
-            device.lastDailySyncTime = c.getLong(c.getColumnIndex(DBDevice.COLUMN.LAST_DAILY_SYNC));
-            device.lastHourlySyncTime = c.getLong(c.getColumnIndex(DBDevice.COLUMN.LAST_HOURLY_SYNC));
-            device.lastTimezoneDiff = c.getInt(c.getColumnIndex(DBDevice.COLUMN.TIMEZONE));
-            mPD.updateUserDeviceData(device);
         }
-
     }
 
     private void checkUserModeType() {
