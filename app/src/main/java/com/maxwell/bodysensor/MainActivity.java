@@ -29,6 +29,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.telephony.SmsManager;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -960,6 +961,8 @@ public class MainActivity extends MXWActivity implements
     @Override
     public void onDeviceReady(MGPeripheral sender) {
         // TODO : initial device settings
+        Log.e("MainActivity", "onDeviceReady");
+
         initDevicePowerWatch();
 
         if (mPairDeviceListener != null) {

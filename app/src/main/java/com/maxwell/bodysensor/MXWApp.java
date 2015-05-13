@@ -377,6 +377,5 @@ public class MXWApp extends Application implements
         Intent intent = new Intent(ACTION_HME_SYNCPROGRESS);
         intent.putExtra("progress", (int)(progress*100.0/total));
         sendBroadcast(intent);
-
     }
 }

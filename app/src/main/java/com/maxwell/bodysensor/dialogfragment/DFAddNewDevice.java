@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +28,6 @@ import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.util.UtilTZ;
 import com.maxwellguider.bluetooth.AdvertisingData;
 import com.maxwellguider.bluetooth.MGPeripheral;
-import com.maxwellguider.bluetooth.MGPeripheral.DeviceType;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTracker;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTrackerApi;
 
@@ -74,13 +72,13 @@ public class DFAddNewDevice extends DFBase implements OnPairDeviceListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-        Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         UtilDBG.logMethod();
 
         mActivity = (MXWActivity) getActivity();
         mMaxwellBLE = MGActivityTracker.getInstance(mActivity);
 
-        View view = inflater.inflate(R.layout.df_add_new_device, (mFragment==null) ? container : null);
+        View view = inflater.inflate(R.layout.df_add_new_device, (mFragment == null) ? container : null);
 
         mFAddSelectType = new FAddSelectType();
         mFAddSearch = new FAddSearch();
@@ -122,7 +120,7 @@ public class DFAddNewDevice extends DFBase implements OnPairDeviceListener {
 
             @Override
             public void onPageSelected(int position) {
-                switch(position) {
+                switch (position) {
                     case INDEX_SELECT_DEVICE:
                         mActivity.stopScanDevice();
                         break;
@@ -153,7 +151,7 @@ public class DFAddNewDevice extends DFBase implements OnPairDeviceListener {
                         break;
                 }
             }
-        } );
+        });
     }
 
     private boolean inUserMode() {
@@ -161,11 +159,11 @@ public class DFAddNewDevice extends DFBase implements OnPairDeviceListener {
     }
 
     public void cancelPairDevice() {
-            dismiss();
+        dismiss();
     }
 
     public void skipPairDevice() {
-         if (mFragment instanceof DFAddNewGroup) {
+        if (mFragment instanceof DFAddNewGroup) {
             ((DFAddNewGroup) mFragment).skipPairDevice();
         } else if (mFragment instanceof DFAddGroupMember) {
             ((DFAddGroupMember) mFragment).skipPairDevice();
@@ -180,10 +178,12 @@ public class DFAddNewDevice extends DFBase implements OnPairDeviceListener {
         mViewPager.setCurrentItem(INDEX_SEARCH);
     }
 
-    public void goToEditDevice() { mViewPager.setCurrentItem(INDEX_EDIT_DEVICE); }
+    public void goToEditDevice() {
+        mViewPager.setCurrentItem(INDEX_EDIT_DEVICE);
+    }
 
     public void finishEditDevice() {
-         if (mFragment instanceof DFAddNewGroup) {
+        if (mFragment instanceof DFAddNewGroup) {
             ((DFAddNewGroup) mFragment).addnewFinish();
         } else if (mFragment instanceof DFAddGroupMember) {
             ((DFAddGroupMember) mFragment).addnewFinish();
@@ -223,21 +223,29 @@ public class DFAddNewDevice extends DFBase implements OnPairDeviceListener {
 
     @Override
     public void onDeviceConnect(MGPeripheral sender) {
+        handleDevicePair(sender);
+    }
+
+    boolean isDevicePairFinished = false;
+
+    private void handleDevicePair(MGPeripheral sender) {
+        if (isDevicePairFinished) {
+            return;
+        }
+        isDevicePairFinished = true;
         mActivity.stopScanDevice();
         mFAddSearch.pairFinished();
-        Log.e("DFAdd", "inside save");
+        String address = sender.getTargetAddress();
         if (inUserMode()) {
-            Log.e("DFAdd", "inside user mode");
             ProfileData profile = new ProfileData();
             profile.name = "Mukund";
 
-            mPD.setTargetDeviceMac(sender.getTargetAddress());
+            mPD.setTargetDeviceMac(address);
             mPD.saveUserProfile(profile);
         } else {
             GroupMemberData member = getGroupMember();
-            mPD.setMemberTargetDeviceMac(member.member_Id, sender.getTargetAddress());
+            mPD.setMemberTargetDeviceMac(member.member_Id, address);
         }
-
         goToEditDevice();
     }
 
@@ -249,10 +257,11 @@ public class DFAddNewDevice extends DFBase implements OnPairDeviceListener {
 
     @Override
     public void onDeviceReady(MGPeripheral sender) {
-        DeviceType deviceType = sender.getDeviceType(sender.getTargetAddress());
-        if (deviceType == DeviceType.ENERGY_CAPSULE) {
-            mMaxwellBLE.disconnect();
-        }
+        // Ideally this should never be called.
+        // But since we have found that the onDeviceConnect callback is not always called,
+        // and this is indeed called all the time, using this function as a fallback to
+        // proceed with pairing
+        handleDevicePair(sender);
     }
 
     class MyPagerAdapter extends FragmentPagerAdapter {
@@ -264,16 +273,16 @@ public class DFAddNewDevice extends DFBase implements OnPairDeviceListener {
         @Override
         public Fragment getItem(int position) {
             switch (position) {
-            case INDEX_SELECT_DEVICE:
-                return mFAddSelectType;
-            case INDEX_SEARCH:
-                return mFAddSearch;
-            case INDEX_TROUBLE:
-                return mFAddTrouble;
-            case INDEX_ADD_60:
-                return mFAdd60;
-            case INDEX_EDIT_DEVICE:
-                return mDFDeviceInfo;
+                case INDEX_SELECT_DEVICE:
+                    return mFAddSelectType;
+                case INDEX_SEARCH:
+                    return mFAddSearch;
+                case INDEX_TROUBLE:
+                    return mFAddTrouble;
+                case INDEX_ADD_60:
+                    return mFAdd60;
+                case INDEX_EDIT_DEVICE:
+                    return mDFDeviceInfo;
             }
 
             UtilDBG.e("DFAddNewDevice, getItem, position" + Integer.toString(position));
