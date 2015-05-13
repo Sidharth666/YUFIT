@@ -186,7 +186,7 @@ public class FAddSearch extends Fragment implements AdapterView.OnItemClickListe
             final AdvertisingData device = mDeviceList.get(position);
 
             viewholder.textDevicName.setText(device.deviceName);
-            viewholder.textPairCode.setText(device.pairCode);
+            viewholder.textPairCode.setText("Pair code: " + device.pairCode);
 
             return rootView;
         }
