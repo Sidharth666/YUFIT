@@ -66,36 +66,45 @@ public class DBProvider extends ContentProvider {
     public String getType(Uri uri) {
         // TODO: Implement this to handle requests for the MIME type of the data
         // at the given URI.
-        throw new UnsupportedOperationException("Not yet implemented");
+        return null;
     }
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
-
+        long id;
+        Uri rowUri = null;
         switch (uriMatcher.match(uri)) {
             case USER_15_MIN_TABLE:
-                mDB.insert(DBUSER15MINTABLE, null, values);
+                id = mDB.insert(DBUSER15MINTABLE, null, values);
+                rowUri = Uri.parse(DBUSER15MINTABLE + "/" + id);
                 break;
             case USER_DAILY_REC_TABLE:
-                mDB.insert(DBUSERDAILYTABLE, null, values);
+                id = mDB.insert(DBUSERDAILYTABLE, null, values);
+                rowUri = Uri.parse(DBUSERDAILYTABLE + "/" + id);
                 break;
             case USER_DEVICE_TABLE:
-                mDB.insert(DBUSERDEVICETABLE, null, values);
+                id = mDB.insert(DBUSERDEVICETABLE, null, values);
+                rowUri = Uri.parse(DBUSERDEVICETABLE + "/" + id);
                 break;
             case USER_HOURLY_TABLE:
-                mDB.insert(DBUSERHOURLYTABLE, null, values);
+                id = mDB.insert(DBUSERHOURLYTABLE, null, values);
+                rowUri = Uri.parse(DBUSERHOURLYTABLE + "/" + id);
                 break;
             case USER_PROFILE_TABLE:
-                mDB.insert(DBUSERPROFILETABLE, null, values);
+                id = mDB.insert(DBUSERPROFILETABLE, null, values);
+                rowUri = Uri.parse(DBUSERPROFILETABLE + "/" + id);
                 break;
             case USER_SLEEP_LOG_TABLE:
-                mDB.insert(DBUSERSLEEPLOGTABLE, null, values);
+                id = mDB.insert(DBUSERSLEEPLOGTABLE, null, values);
+                rowUri = Uri.parse(DBUSERSLEEPLOGTABLE + "/" + id);
                 break;
             case USER_SLEEP_SCORE_TABLE:
-                mDB.insert(DBUSER1SLEEPSCORETABLE, null, values);
+                id = mDB.insert(DBUSER1SLEEPSCORETABLE, null, values);
+                rowUri = Uri.parse(DBUSER1SLEEPSCORETABLE + "/" + id);
                 break;
         }
-        throw new UnsupportedOperationException("Not yet implemented");
+        getContext().getContentResolver().notifyChange(uri, null);
+        return rowUri;
     }
 
     @Override
@@ -145,29 +154,31 @@ public class DBProvider extends ContentProvider {
     @Override
     public int update(Uri uri, ContentValues values, String selection,
                       String[] selectionArgs) {
+        int rowsUpdated = 0;
         switch (uriMatcher.match(uri)) {
             case USER_15_MIN_TABLE:
-                mDB.update(DBUSER15MINTABLE,values,null,null);
+                rowsUpdated = mDB.update(DBUSER15MINTABLE, values, null, null);
                 break;
             case USER_DAILY_REC_TABLE:
-                mDB.update(DBUSERDAILYTABLE,values,null,null);
+                rowsUpdated = mDB.update(DBUSERDAILYTABLE, values, null, null);
                 break;
             case USER_DEVICE_TABLE:
-                mDB.update(DBUSERDEVICETABLE,values,null,null);
+                rowsUpdated = mDB.update(DBUSERDEVICETABLE, values, null, null);
                 break;
             case USER_HOURLY_TABLE:
-                mDB.update(DBUSERHOURLYTABLE,values,null,null);
+                rowsUpdated = mDB.update(DBUSERHOURLYTABLE, values, null, null);
                 break;
             case USER_PROFILE_TABLE:
-                mDB.update(DBUSERPROFILETABLE,values,null,null);
+                rowsUpdated = mDB.update(DBUSERPROFILETABLE, values, null, null);
                 break;
             case USER_SLEEP_LOG_TABLE:
-                mDB.update(DBUSERSLEEPLOGTABLE,values,null,null);
+                rowsUpdated = mDB.update(DBUSERSLEEPLOGTABLE, values, null, null);
                 break;
             case USER_SLEEP_SCORE_TABLE:
-                mDB.update(DBUSER1SLEEPSCORETABLE,values,null,null);
+                rowsUpdated = mDB.update(DBUSER1SLEEPSCORETABLE, values, null, null);
                 break;
         }
-        throw new UnsupportedOperationException("Not yet implemented");
+        getContext().getContentResolver().notifyChange(uri, null);
+        return rowsUpdated;
     }
 }
