@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.maxwell.bodysensor.data.DBDailyRecord;
 import com.maxwell.bodysensor.data.DBHourlyRecord;
 import com.maxwell.bodysensor.data.DBProgramData;
 import com.maxwell.bodysensor.data.HourlyRecordData;
@@ -28,7 +27,8 @@ public class DBUserHourlyRecord extends DBHourlyRecord {
                 COLUMN.STEP + " INTEGER" + "," +
                 COLUMN.APP_ENERGY + " REAL" + "," +
                 COLUMN.CALORIES + " REAL" + "," +
-                COLUMN.DISTANCE + " REAL" +
+                COLUMN.DISTANCE + " REAL" + "," +
+                COLUMN.LOG_TIME + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP " +
                 ");");
     }
 

@@ -27,7 +27,8 @@ public class DBUser15MinutesRecord extends DB15MinutesRecord {
                 COLUMN._ID + " INTEGER PRIMARY KEY" + "," +
                 COLUMN.DEVICE_MAC + " TEXT NOT NULL" + "," +
                 COLUMN.DATE + " INTEGER" + "," +
-                COLUMN.MOVE + " INTEGER" +
+                COLUMN.MOVE + " INTEGER" + "," +
+                COLUMN.LOG_TIME + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP " +
                 ");");
     }
 
@@ -54,7 +55,6 @@ public class DBUser15MinutesRecord extends DB15MinutesRecord {
     }
 
     public void update15MinRecord(Cursor cursor){
-
         while (cursor.moveToNext()){
             ContentValues cv = new ContentValues();
             cv.put(COLUMN.DEVICE_MAC, cursor.getString(cursor.getColumnIndex(COLUMN.DEVICE_MAC)));
@@ -62,9 +62,6 @@ public class DBUser15MinutesRecord extends DB15MinutesRecord {
             cv.put(COLUMN.MOVE, cursor.getString(cursor.getColumnIndex(COLUMN.MOVE)));
             mDB.insertWithOnConflict(TABLE, null, cv,SQLiteDatabase.CONFLICT_REPLACE);
         }
-
-
-
     }
 
 

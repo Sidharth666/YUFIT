@@ -211,7 +211,7 @@ public abstract class MXWActivity extends ActionBarActivity implements
 
     @Override
     public void onDeviceDiscover(MGPeripheral sender, AdvertisingData advertisingData) {
-        UtilDBG.i("[RYAN] MXWActivity > onDeviceDiscover : device address : " + advertisingData.address);
+        UtilDBG.e("[RYAN] MXWActivity > onDeviceDiscover : device address : " + advertisingData.address);
 
         if (mPairDeviceListener != null) {
             mPairDeviceListener.onDeviceDiscover(sender, advertisingData);
@@ -221,7 +221,7 @@ public abstract class MXWActivity extends ActionBarActivity implements
     @Override
     public void onDeviceConnect(final MGPeripheral sender) {
         try{
-            UtilDBG.i("[RYAN] MXWActivity > onDeviceConnect");
+            UtilDBG.e("[RYAN] MXWActivity > onDeviceConnect");
 
             if (mPairDeviceListener != null) {
                 mPairDeviceListener.onDeviceConnect(sender);

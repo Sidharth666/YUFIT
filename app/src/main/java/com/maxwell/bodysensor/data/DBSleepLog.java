@@ -22,6 +22,7 @@ public abstract class DBSleepLog {
         public static final String DATE = "date";        // the data is belonged to which day
         public static final String START_TIME = "startTime";   // the actual start point
         public static final String STOP_TIME = "stopTime";     // the actual stop point
+        public static final String LOG_TIME = "log_time";
     }
 
     protected SQLiteDatabase mDB;

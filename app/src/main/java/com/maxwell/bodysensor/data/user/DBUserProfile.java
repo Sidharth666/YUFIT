@@ -3,9 +3,9 @@ package com.maxwell.bodysensor.data.user;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.maxwell.bodysensor.data.PrimaryProfileData;
-import com.maxwell.bodysensor.util.UtilConst;
 import com.maxwell.bodysensor.util.UtilDBG;
 
 /**
@@ -150,8 +150,24 @@ public class DBUserProfile {
         cv.put(COLUMN.IS_PRIMARY_PROFILE, mPrimaryProfile.isPrimaryProfile);
         cv.put(COLUMN.DAILY_GOAL, mPrimaryProfile.dailyGoal);
 
-        long i = mDB.insertWithOnConflict(TABLE,null,cv,SQLiteDatabase.CONFLICT_REPLACE);
-        UtilDBG.i("DBUserProfile, saveuserprofile ::"+ i);
+        String selection = COLUMN.DEVICE_MAC + "=?";
+        String[] values = new String[] {mPrimaryProfile.targetDeviceMac};
+
+        Cursor c = mDB.query(TABLE, null, selection, values, null, null, null);
+        boolean isUpdated = false;
+        if (c != null) {
+            if (c.getCount() > 0) {
+                // exists. update
+                int resp = mDB.update(TABLE, cv, selection, values);
+                Log.e("DBUP", resp + " :update");
+                isUpdated = true;
+            }
+            c.close();
+        }
+        if (!isUpdated) {
+            long resp = mDB.insert(TABLE, null, cv);
+            Log.e("DBUP", resp + " :insert");
+        }
 
     }
 

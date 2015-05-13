@@ -26,6 +26,7 @@ public abstract class DBHourlyRecord {
         public static final String DISTANCE = "distance"; // kilometers
         public static final String APP_ENERGY = "energy"; // AppEnergy
         public static final String STEP = "step";
+        public static final String LOG_TIME = "log_time";
     }
 
     public static final String[] PROJECTION = {
@@ -36,6 +37,7 @@ public abstract class DBHourlyRecord {
             COLUMN.DISTANCE,
             COLUMN.APP_ENERGY,
             COLUMN.STEP,
+            COLUMN.LOG_TIME
     };
 
     protected SQLiteDatabase mDB;

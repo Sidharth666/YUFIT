@@ -6,30 +6,32 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.maxwell.bodysensor.MXWActivity;
+import com.maxwell.bodysensor.MainActivity;
+import com.maxwell.bodysensor.R;
+import com.maxwell.bodysensor.data.DBProgramData;
+import com.maxwell.bodysensor.data.DeviceData;
+import com.maxwell.bodysensor.data.ProfileData;
 import com.maxwell.bodysensor.data.group.GroupMemberData;
 import com.maxwell.bodysensor.dialogfragment.group.DFAddGroupMember;
 import com.maxwell.bodysensor.dialogfragment.group.DFAddNewGroup;
+import com.maxwell.bodysensor.fragment.FAdd60;
+import com.maxwell.bodysensor.fragment.FAddSearch;
+import com.maxwell.bodysensor.fragment.FAddSelectType;
+import com.maxwell.bodysensor.fragment.FAddTrouble;
 import com.maxwell.bodysensor.listener.OnPairDeviceListener;
+import com.maxwell.bodysensor.util.UtilDBG;
+import com.maxwell.bodysensor.util.UtilTZ;
 import com.maxwellguider.bluetooth.AdvertisingData;
 import com.maxwellguider.bluetooth.MGPeripheral;
 import com.maxwellguider.bluetooth.MGPeripheral.DeviceType;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTracker;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTrackerApi;
-import com.maxwell.bodysensor.data.DeviceData;
-import com.maxwell.bodysensor.util.UtilDBG;
-import com.maxwell.bodysensor.MainActivity;
-import com.maxwell.bodysensor.R;
-import com.maxwell.bodysensor.data.DBProgramData;
-import com.maxwell.bodysensor.fragment.FAdd60;
-import com.maxwell.bodysensor.fragment.FAddSearch;
-import com.maxwell.bodysensor.fragment.FAddSelectType;
-import com.maxwell.bodysensor.fragment.FAddTrouble;
-import com.maxwell.bodysensor.util.UtilTZ;
 
 public class DFAddNewDevice extends DFBase implements OnPairDeviceListener {
 
@@ -211,7 +213,6 @@ public class DFAddNewDevice extends DFBase implements OnPairDeviceListener {
         } else if (mFragment instanceof DFAddGroupMember) {
             member = ((DFAddGroupMember) mFragment).getGroupMemberData();
         }
-
         return member;
     }
 
@@ -224,9 +225,14 @@ public class DFAddNewDevice extends DFBase implements OnPairDeviceListener {
     public void onDeviceConnect(MGPeripheral sender) {
         mActivity.stopScanDevice();
         mFAddSearch.pairFinished();
-
+        Log.e("DFAdd", "inside save");
         if (inUserMode()) {
+            Log.e("DFAdd", "inside user mode");
+            ProfileData profile = new ProfileData();
+            profile.name = "Mukund";
+
             mPD.setTargetDeviceMac(sender.getTargetAddress());
+            mPD.saveUserProfile(profile);
         } else {
             GroupMemberData member = getGroupMember();
             mPD.setMemberTargetDeviceMac(member.member_Id, sender.getTargetAddress());

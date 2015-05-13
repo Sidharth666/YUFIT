@@ -1,12 +1,10 @@
 package com.maxwell.bodysensor.data;
 
-import java.util.Date;
-import java.util.List;
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.maxwell.bodysensor.data.group.DBGroup15MinutesRecord;
 import com.maxwell.bodysensor.data.group.DBGroupDailyRecord;
@@ -28,6 +26,9 @@ import com.maxwell.bodysensor.data.user.DBUserProfile;
 import com.maxwell.bodysensor.data.user.DBUserSleepLog;
 import com.maxwell.bodysensor.data.user.DBUserSleepScore;
 import com.maxwell.bodysensor.util.UtilCalendar;
+
+import java.util.Date;
+import java.util.List;
 
 public class DBProgramData extends SQLiteOpenHelper {
 
@@ -192,7 +193,7 @@ public class DBProgramData extends SQLiteOpenHelper {
     }
 
     public void saveUserProfile(ProfileData profile) {
-
+        Log.e("DBPD", "save up");
     	PrimaryProfileData user = mUserProfile.getPrimaryProfile();
         user.name = profile.name;
         user.gender = profile.gender;

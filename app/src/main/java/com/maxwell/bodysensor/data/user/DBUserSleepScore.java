@@ -29,7 +29,8 @@ public class DBUserSleepScore extends DBSleepScore {
                 COLUMN.DATE + " INTEGER" + "," +
                 COLUMN.DURATION + " INTEGER" + "," +
                 COLUMN.SCORE + " REAL" + "," +
-                COLUMN.TIMESWOKE + " INTEGER" +
+                COLUMN.TIMESWOKE + " INTEGER" + "," +
+                COLUMN.LOG_TIME + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP " +
                 ");");
     }
 

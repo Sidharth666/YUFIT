@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import com.maxwell.bodysensor.MainActivity;
 import com.maxwell.bodysensor.util.UtilCalendar;
 import com.maxwell.bodysensor.util.UtilDBG;
-import com.maxwell.bodysensor.util.UtilTZ;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,6 +26,7 @@ public abstract class DBDailyRecord {
         public static final String APP_ENERGY = "energy"; // AppEnergy
         public static final String STEP = "step";
         public static final String GOAL = "energyGoal";
+        public static final String LOG_TIME = "log_time";
     }
 
     protected SQLiteDatabase mDB;

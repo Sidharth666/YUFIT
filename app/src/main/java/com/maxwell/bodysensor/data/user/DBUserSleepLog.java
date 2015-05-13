@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.maxwell.bodysensor.data.DBDailyRecord;
 import com.maxwell.bodysensor.data.DBProgramData;
 import com.maxwell.bodysensor.data.DBSleepLog;
 import com.maxwell.bodysensor.data.SleepLogData;
@@ -25,7 +24,8 @@ public class DBUserSleepLog extends DBSleepLog {
                 COLUMN.DEVICE_MAC + " TEXT NOT NULL" + "," +
                 COLUMN.DATE + " INTEGER" + "," +
                 COLUMN.START_TIME + " INTEGER" + "," +
-                COLUMN.STOP_TIME + " INTEGER" +
+                COLUMN.STOP_TIME + " INTEGER" + "," +
+                COLUMN.LOG_TIME + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP " +
                 ");");
     }
 

@@ -9,7 +9,6 @@ import com.maxwell.bodysensor.data.sleep.State;
 import com.maxwell.bodysensor.data.sleep.StateStart;
 import com.maxwell.bodysensor.util.UtilCalendar;
 import com.maxwell.bodysensor.util.UtilDBG;
-import com.maxwell.bodysensor.util.UtilTZ;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +28,7 @@ public abstract class DBSleepScore {
         public static final String SCORE = "sleepScore";
         public static final String DURATION = "duration";
         public static final String TIMESWOKE = "timesWoke";
+        public static final String LOG_TIME = "log_time";
     }
 
 

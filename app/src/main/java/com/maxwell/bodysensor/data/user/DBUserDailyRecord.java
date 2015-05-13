@@ -31,7 +31,8 @@ public class DBUserDailyRecord extends DBDailyRecord {
                 COLUMN.APP_ENERGY + " REAL" + "," +
                 COLUMN.CALORIES + " REAL" + "," +
                 COLUMN.DISTANCE + " REAL" + "," +
-                COLUMN.GOAL + " INTEGER" +
+                COLUMN.GOAL + " INTEGER" + "," +
+                COLUMN.LOG_TIME + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP " +
                 ");");
     }
 

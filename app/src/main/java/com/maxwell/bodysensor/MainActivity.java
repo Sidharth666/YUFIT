@@ -40,7 +40,6 @@ import com.maxwell.bodysensor.data.DBProvider;
 import com.maxwell.bodysensor.data.DBUpgradeWrapper;
 import com.maxwell.bodysensor.data.DeviceData;
 import com.maxwell.bodysensor.data.PrimaryProfileData;
-import com.maxwell.bodysensor.data.ProfileData;
 import com.maxwell.bodysensor.data.UserModeType;
 import com.maxwell.bodysensor.data.sos.SOSRecord;
 import com.maxwell.bodysensor.data.user.DBUser15MinutesRecord;
@@ -144,7 +143,7 @@ public class MainActivity extends MXWActivity implements
 
     private boolean mIsOnResumed = false;
 
-    private static final String AUTHORITY = UtilConst.HME_PACKAGE_NAME+".providers.authority.MXX_PROVIDER";
+    private static final String AUTHORITY = UtilConst.HME_PACKAGE_NAME + ".providers.authority.MXX_PROVIDER";
     public static final Uri CONTENT_URI_DBPROFILE = Uri.parse("content://" + AUTHORITY + "/DBProfile");
     public static final Uri CONTENT_URI_DB_DEVICE = Uri.parse("content://" + AUTHORITY + "/DBDevice");
 
@@ -159,21 +158,24 @@ public class MainActivity extends MXWActivity implements
 
     private CopyDataAsync copyAsync;
 
-    private boolean isFromHM =false;
+    private boolean isFromHM = false;
     public static final String KEY_FROM_HME_APP = "is_from_hme";
 
 
     private OnActivityResultCallback mActivityResultCallback;
+
     public void setOnActivityResultListener(OnActivityResultCallback listener) {
         mActivityResultCallback = listener;
     }
 
     private OnFitnessUpdateListener mFitnessUpdateListener;
+
     public void setOnFitnessMoveListener(OnFitnessUpdateListener listener) {
         mFitnessUpdateListener = listener;
     }
 
     private static final UriMatcher uriMatcher;
+
     static {
         uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         uriMatcher.addURI(AUTHORITY, DBProvider.DBUSER15MINTABLE, 1);
@@ -206,7 +208,7 @@ public class MainActivity extends MXWActivity implements
         } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
-        UtilExceptionHandler eh = new UtilExceptionHandler(pInfo!=null ? pInfo.versionName : "version name unknown");
+        UtilExceptionHandler eh = new UtilExceptionHandler(pInfo != null ? pInfo.versionName : "version name unknown");
 
         if (UtilDBG.isDebuggable()) {
             // Save to local DB
@@ -218,21 +220,21 @@ public class MainActivity extends MXWActivity implements
 
         // build time
         String strBuildTime = "";
-        try{
+        try {
             ApplicationInfo ai = getPackageManager().getApplicationInfo(getPackageName(), 0);
             ZipFile zf = new ZipFile(ai.sourceDir);
             ZipEntry ze = zf.getEntry("classes.dex");
             long time = ze.getTime();
             zf.close();
-            UtilCalendar cal = new UtilCalendar(time/1000, UtilTZ.getDefaultTZ());
+            UtilCalendar cal = new UtilCalendar(time / 1000, UtilTZ.getDefaultTZ());
             strBuildTime = UtilLocale.calToString(cal, DateFmt.YMDHMa);
-        }catch(Exception e){
+        } catch (Exception e) {
         }
 
         // apk install time
         String strInstallTime = "";
         if (pInfo != null) {
-            UtilCalendar cal = new UtilCalendar(pInfo.lastUpdateTime/1000, UtilTZ.getDefaultTZ());
+            UtilCalendar cal = new UtilCalendar(pInfo.lastUpdateTime / 1000, UtilTZ.getDefaultTZ());
             strInstallTime = UtilLocale.calToString(cal, DateFmt.YMDHMa);
         }
 
@@ -248,28 +250,23 @@ public class MainActivity extends MXWActivity implements
 
 
         //check for HM package
-        if(UtilConst.isHMPackageInstalled(this) && ENABLE_HM_COPY && mPD.getTargetDeviceMac().equals("")){
+        if (UtilConst.isHMPackageInstalled(this) && ENABLE_HM_COPY && mPD.getTargetDeviceMac().equals("")) {
             //DB code here
 
             copyAsync = new CopyDataAsync();
             macId = updateUserProfileHM();
-            if(!macId.equals("")){
+            if (!macId.equals("")) {
                 WarningUtil.showToastLong(this, "Please Wait..Fetching Data");
                 copyAsync.execute();
             }
-        }else{
+        } else {
             String address = mPD.getTargetDeviceMac();
-            if(StringUtils.isNotEmpty(address)){
+            if (StringUtils.isNotEmpty(address)) {
                 if (MXWApp.initBleAutoConnection(address)) {
                     MXWApp.connectDevice(address);
                 }
-            }else{
-                createDummyProfile();
             }
-
         }
-
-
 
         // calendar, locale
         UtilCalendar calNow = new UtilCalendar(null);
@@ -321,7 +318,7 @@ public class MainActivity extends MXWActivity implements
 
         // Set up ringtone of finding phone.
         mRingtoneFindPhone = RingtoneManager.getRingtone(MainActivity.this,
-        		RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM));
+                RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM));
 
         // register SmartKeyReceiver
         IntentFilter intentFilter = new IntentFilter();
@@ -333,34 +330,16 @@ public class MainActivity extends MXWActivity implements
         checkIntentAction();
     }
 
-    private void createDummyProfile() {
-        mIsFirstStart = mSharedPref.isAppFirstStart();
-        //create dummy profile
-        if(mIsFirstStart){
-            byte[] value = new byte[1];
-            value[0] = (byte) 1;
-            ProfileData profile = new ProfileData();
-            profile.name = "";
-            profile.gender = 0;
-            profile.birthday = 0;
-            profile.photo = value;
-            mPD.saveUserProfile(profile);
-            mSharedPref.setAppFirstStart(false);
-            mIsFirstStart = false;
-
-        }
-    }
-
     private void copyHMData() {
 //        String macId = updateUserProfileHM();
         UtilDBG.i("MainActivity, Fetch data from HM ");
-        Uri[] tables = {CONTENT_URI_DB_15MINREC,CONTENT_URI_DB_DAILYREC,CONTENT_URI_DB_DEVICE,CONTENT_URI_DB_HOURLYREC,
-                CONTENT_URI_DBPROFILE,CONTENT_URI_DB_SLEEPLOG,CONTENT_URI_DB_SLEEPSCORE};
-        for(Uri item:tables){
+        Uri[] tables = {CONTENT_URI_DB_15MINREC, CONTENT_URI_DB_DAILYREC, CONTENT_URI_DB_DEVICE, CONTENT_URI_DB_HOURLYREC,
+                CONTENT_URI_DBPROFILE, CONTENT_URI_DB_SLEEPLOG, CONTENT_URI_DB_SLEEPSCORE};
+        for (Uri item : tables) {
             Cursor cursor = updateDBDataHM(item);
-            if(cursor!=null){
-                UtilDBG.i("MainActivity, Fetch data from HM ,Cursor: " +cursor);
-                switch (uriMatcher.match(item)){
+            if (cursor != null) {
+                UtilDBG.i("MainActivity, Fetch data from HM ,Cursor: " + cursor);
+                switch (uriMatcher.match(item)) {
                     case 1:
                         DBUser15MinutesRecord.getInstance().update15MinRecord(cursor);
                         break;
@@ -390,17 +369,16 @@ public class MainActivity extends MXWActivity implements
 
 
     private Cursor updateDBDataHM(Uri uri) {
-        Cursor c= getContentResolver().query(uri, null, null,null,null);
+        Cursor c = getContentResolver().query(uri, null, null, null, null);
         return c;
     }
-
 
 
     private String updateUserProfileHM() {
         String address = "";
         mPrimaryProfile = PrimaryProfileData.getInstace();
-        Cursor c1= getContentResolver().query(CONTENT_URI_DBPROFILE, DBUserProfile.PROJECTION, null,null,null);
-        if (c1!=null && c1.getCount()>0){
+        Cursor c1 = getContentResolver().query(CONTENT_URI_DBPROFILE, DBUserProfile.PROJECTION, null, null, null);
+        if (c1 != null && c1.getCount() > 0) {
             c1.moveToFirst();
             address = c1.getString(c1.getColumnIndex(DBUserProfile.COLUMN.DEVICE_MAC));
             mPrimaryProfile._Id = c1.getLong(c1.getColumnIndex(DBUserProfile.COLUMN._ID));
@@ -418,27 +396,27 @@ public class MainActivity extends MXWActivity implements
 
             mPD.saveUserProfile(mPrimaryProfile);
 
-        }else{
+        } else {
         }
         return address;
     }
 
     private void updateUserDeviceData(String macId) {
 
-            Cursor c= getContentResolver().query(CONTENT_URI_DB_DEVICE,  new String[]{
-                            DBDevice.COLUMN._ID,DBDevice.COLUMN.PROFILE_ID, DBDevice.COLUMN.LAST_DAILY_SYNC,
-                            DBDevice.COLUMN.LAST_HOURLY_SYNC,
-                            DBDevice.COLUMN.TIMEZONE,
-                            DBDevice.COLUMN.NAME,
-                            DBDevice.COLUMN.MAC,
+        Cursor c = getContentResolver().query(CONTENT_URI_DB_DEVICE, new String[]{
+                        DBDevice.COLUMN._ID, DBDevice.COLUMN.PROFILE_ID, DBDevice.COLUMN.LAST_DAILY_SYNC,
+                        DBDevice.COLUMN.LAST_HOURLY_SYNC,
+                        DBDevice.COLUMN.TIMEZONE,
+                        DBDevice.COLUMN.NAME,
+                        DBDevice.COLUMN.MAC,
 
-                    },
-                    DBDevice.COLUMN.MAC+"=\""+macId+"\"",null,null);
+                },
+                DBDevice.COLUMN.MAC + "=\"" + macId + "\"", null, null);
 
         int iCount = c.getCount();
 
-        if (iCount==0) {
-            UtilDBG.i("the address " + c + " is not in the device list , macID:: "+macId);
+        if (iCount == 0) {
+            UtilDBG.i("the address " + c + " is not in the device list , macID:: " + macId);
 
         } else {
             if (iCount > 1) {
@@ -501,7 +479,7 @@ public class MainActivity extends MXWActivity implements
         UtilDBG.close();
 
         unregisterReceiver(mDeviceEventReceiver);
-        if(copyAsync!=null){
+        if (copyAsync != null) {
             copyAsync.cancel(true);
         }
 
@@ -538,7 +516,7 @@ public class MainActivity extends MXWActivity implements
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-    	if (mActivityResultCallback != null)
+        if (mActivityResultCallback != null)
             mActivityResultCallback.onResult(requestCode, resultCode, data);
     }
 
@@ -556,12 +534,12 @@ public class MainActivity extends MXWActivity implements
     private void showSettingsContainer() {
         {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            if (ft==null) {
+            if (ft == null) {
                 UtilDBG.e("showContainerMain, can not get FragmentTransaction");
                 return;
             }
 
-            if (mContainerSettings==null) {
+            if (mContainerSettings == null) {
                 mContainerSettings = new FTabConf();
                 ft.add(R.id.container_main, mContainerSettings, CONTAINER_SETTINGS);
             }
@@ -576,18 +554,18 @@ public class MainActivity extends MXWActivity implements
 
 
     void restoreFragments() {
-        if (getSupportFragmentManager()==null) {
-            return ;
+        if (getSupportFragmentManager() == null) {
+            return;
         }
 
         List<Fragment> listf = getSupportFragmentManager().getFragments();
-        if (listf!=null) {
+        if (listf != null) {
             for (Fragment f : listf) {
-                if (f==null) {
+                if (f == null) {
                     continue;
                 }
 
-                 if(f.getTag().compareToIgnoreCase(CONTAINER_SETTINGS)==0){
+                if (f.getTag().compareToIgnoreCase(CONTAINER_SETTINGS) == 0) {
                     {
                         if (f instanceof FTabConf) {
                             UtilDBG.i("[[[ mContainerMain restore ]]]");
@@ -605,7 +583,7 @@ public class MainActivity extends MXWActivity implements
         List<Fragment> fList = new ArrayList<Fragment>();
         if (getSupportFragmentManager() != null) {
             for (Fragment f : getSupportFragmentManager().getFragments()) {
-                if (f==null) {
+                if (f == null) {
                     continue;
                 }
 
@@ -630,7 +608,7 @@ public class MainActivity extends MXWActivity implements
             }
         }
 
-        if (bAtMostOne && fList.size()>1) {
+        if (bAtMostOne && fList.size() > 1) {
             UtilDBG.e("unexpected MainActivity.getFragmentList bAtMostOne=true, actual:" + fList.size());
         }
 
@@ -638,9 +616,9 @@ public class MainActivity extends MXWActivity implements
     }
 
     private void stopRingtoneFindPhone() {
-    	if (mRingtoneFindPhone.isPlaying()) {
-			mRingtoneFindPhone.stop();
-		}
+        if (mRingtoneFindPhone.isPlaying()) {
+            mRingtoneFindPhone.stop();
+        }
     }
 
     private void showNotification(String text) {
@@ -694,10 +672,10 @@ public class MainActivity extends MXWActivity implements
     }
 
     private void showOutOfRangeAlert(boolean disconnected) {
-    	final int titleTextId = R.string.dlg_bt_device_out_of_range_alert_title;
-    	final int desTextId = (disconnected
-    			? R.string.dlg_bt_device_out_of_range_alert_description_far
-    			: R.string.dlg_bt_device_out_of_range_alert_description_near);
+        final int titleTextId = R.string.dlg_bt_device_out_of_range_alert_title;
+        final int desTextId = (disconnected
+                ? R.string.dlg_bt_device_out_of_range_alert_description_far
+                : R.string.dlg_bt_device_out_of_range_alert_description_near);
 
         showDlgAlert(titleTextId, desTextId);
     }
@@ -742,24 +720,23 @@ public class MainActivity extends MXWActivity implements
     }
 
     private void doStopDlgAlert() {
-    	if (mDlgAlert != null) {
+        if (mDlgAlert != null) {
             mHandler.removeCallbacks(mRunnableStopAlert);
-    		stopRingtoneFindPhone();
+            stopRingtoneFindPhone();
 
-			mDlgAlert.dismiss();
-			mDlgAlert = null;
-    	}
+            mDlgAlert.dismiss();
+            mDlgAlert = null;
+        }
     }
 
     private void stopDlgAlertDelay(int ms) {
-    	mHandler.postDelayed(mRunnableStopAlert, ms);
+        mHandler.postDelayed(mRunnableStopAlert, ms);
     }
 
     private void outOfRangeAlert() {
         runOnUiThread(new Runnable() {
             @Override
-            public void run()
-            {
+            public void run() {
                 if (mDlgAlert == null) {
                     mRingtoneFindPhone.play();
                     showOutOfRangeAlert(true);
@@ -799,8 +776,8 @@ public class MainActivity extends MXWActivity implements
 
         mSharedPref.setDeviceLanguage(LanguageType.ENGLISH);
         // User setting
-        int stride = (int)mPD.getPersonStride();
-        int weight = (int)mPD.getPersonWeight();
+        int stride = (int) mPD.getPersonStride();
+        int weight = (int) mPD.getPersonWeight();
         mMaxwellBLE.configUserSetting(stride, weight);
 
         // Device system setting
@@ -845,7 +822,7 @@ public class MainActivity extends MXWActivity implements
             return null;
         }
 
-        Location location =  mLocationMgr.getLastKnownLocation(provider);
+        Location location = mLocationMgr.getLastKnownLocation(provider);
         if (location == null) {
             UtilDBG.e("cannot not get last location");
             return null;
@@ -869,10 +846,10 @@ public class MainActivity extends MXWActivity implements
 
             String link = Html.fromHtml(
                     String.format(getString(R.string.sos_sms_link),
-                    location.getLatitude(),
-                    location.getLongitude(),
-                    location.getLatitude(),
-                    location.getLongitude())).toString();
+                            location.getLatitude(),
+                            location.getLongitude(),
+                            location.getLatitude(),
+                            location.getLongitude())).toString();
 
             String myName = mPD.getPersonName();
             String message = String.format(
@@ -945,11 +922,11 @@ public class MainActivity extends MXWActivity implements
     @Override
     public void onDeviceConnect(final MGPeripheral sender) {
         super.onDeviceConnect(sender);
-        UtilDBG.i("MainActivity , onDeviceConnect:: "+sender.getTargetAddress());
-        UtilDBG.i("MainActivity , onDeviceConnect, salestrack:: "+!mSharedPref.getSalesTrackStatus());
+        UtilDBG.e("MainActivity , onDeviceConnect:: " + sender.getTargetAddress());
+        UtilDBG.e("MainActivity , onDeviceConnect, salestrack:: " + !mSharedPref.getSalesTrackStatus());
         //send salestrack
-        if(!mSharedPref.getSalesTrackStatus()){
-            Intent msgIntent = new Intent(MainActivity.this,SalesTrackService.class);
+        if (!mSharedPref.getSalesTrackStatus()) {
+            Intent msgIntent = new Intent(MainActivity.this, SalesTrackService.class);
             msgIntent.putExtra("MacId", sender.getTargetAddress());
             startService(msgIntent);
         }
@@ -1060,7 +1037,7 @@ public class MainActivity extends MXWActivity implements
             int iLastTimezoneDiff = device.lastTimezoneDiff;
             TimeZone tzLastTime = UtilTZ.getTZWithOffset(iLastTimezoneDiff);
 
-            mPD.saveHourlyRecord(date, energy, step, deviceAddress, tzLastTime.getRawOffset()/1000/60);
+            mPD.saveHourlyRecord(date, energy, step, deviceAddress, tzLastTime.getRawOffset() / 1000 / 60);
         }
     }
 
@@ -1073,7 +1050,7 @@ public class MainActivity extends MXWActivity implements
             int iLastTimezoneDiff = device.lastTimezoneDiff;
             TimeZone tzLastTime = UtilTZ.getTZWithOffset(iLastTimezoneDiff);
 
-            mPD.save15MinBasedSleepMove(date, move, deviceAddress, tzLastTime.getRawOffset()/1000/60);
+            mPD.save15MinBasedSleepMove(date, move, deviceAddress, tzLastTime.getRawOffset() / 1000 / 60);
         }
     }
 
@@ -1090,7 +1067,7 @@ public class MainActivity extends MXWActivity implements
     @Override
     public void onAttributeRead(AttributeType attributeType, AttributeValue attributeValue) {
         UtilDBG.i("[RYAN] onAttributeRead > " + attributeType + " | " + attributeValue);
-        switch(attributeType) {
+        switch (attributeType) {
             case CURRENT_HOUR_MOVE:
                 if (mFitnessUpdateListener != null) {
                     mFitnessUpdateListener.onMoveUpdate(attributeValue.toInt());
@@ -1117,16 +1094,16 @@ public class MainActivity extends MXWActivity implements
 
                 break;
             case FW_REVISION:
-                ((MXWApp)getApplication()).setDevFWRevision(attributeValue.toString());
+                ((MXWApp) getApplication()).setDevFWRevision(attributeValue.toString());
                 break;
             case HW_REVISION:
-                ((MXWApp)getApplication()).setDevHWRevision(attributeValue.toString());
+                ((MXWApp) getApplication()).setDevHWRevision(attributeValue.toString());
                 break;
             case SW_REVISION:
-                ((MXWApp)getApplication()).setDevSWRevision(attributeValue.toString());
+                ((MXWApp) getApplication()).setDevSWRevision(attributeValue.toString());
                 break;
             case SERIAL_NUMBER:
-                ((MXWApp)getApplication()).setDevSerialNumber(attributeValue.toString());
+                ((MXWApp) getApplication()).setDevSerialNumber(attributeValue.toString());
                 break;
         }
 
@@ -1152,7 +1129,7 @@ public class MainActivity extends MXWActivity implements
 
     }
 
-    private class CopyDataAsync extends AsyncTask<Void, Void, Void>{
+    private class CopyDataAsync extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... params) {
@@ -1163,7 +1140,7 @@ public class MainActivity extends MXWActivity implements
         @Override
         protected void onPostExecute(Void aVoid) {
             String address = mPD.getTargetDeviceMac();
-            if (MXWApp.initBleAutoConnection(address)&& !mMaxwellBLE.isConnected()) {
+            if (MXWApp.initBleAutoConnection(address) && !mMaxwellBLE.isConnected()) {
                 MXWApp.connectDevice(address);
             }
         }
@@ -1176,8 +1153,7 @@ public class MainActivity extends MXWActivity implements
             UtilDBG.e("[RYAN] mSmartKeyReceiver > onReceive > action : " + intent.getAction());
             if (intent.getAction().equals(MXWApp.ACTION_SMART_KEY_FIND_PHONE)) {
                 findPhoneNotification();
-            }
-            else if (intent.getAction().equals(MXWApp.ACTION_SOS)) {
+            } else if (intent.getAction().equals(MXWApp.ACTION_SOS)) {
                 sendSOSMessage();
             }
         }

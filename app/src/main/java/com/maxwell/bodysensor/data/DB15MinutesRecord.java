@@ -23,6 +23,7 @@ public class DB15MinutesRecord {
         public static final String DEVICE_MAC = "deviceMac";
         public static final String DATE = "date";
         public static final String MOVE = "moveCount";
+        public static final String LOG_TIME = "log_time";
     }
 
     protected SQLiteDatabase mDB;
