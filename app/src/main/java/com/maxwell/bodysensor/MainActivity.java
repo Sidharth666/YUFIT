@@ -973,7 +973,7 @@ public class MainActivity extends MXWActivity implements
 
     @Override
     public void onDeviceReady(MGPeripheral sender) {
-        // TODO : initial device settings
+        // TODO this should happen only once during pairing.
         initDevicePowerWatch();
 
         if (mPairDeviceListener != null) {
