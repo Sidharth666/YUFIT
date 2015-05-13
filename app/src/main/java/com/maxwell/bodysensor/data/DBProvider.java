@@ -32,28 +32,29 @@ public class DBProvider extends ContentProvider {
     public static final String DBUSERSLEEPLOGTABLE = DBUserSleepLog.TABLE;
     public static final String DBUSER1SLEEPSCORETABLE = DBUserSleepScore.TABLE;
 
-//    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + TABLE_NAME);
-
-
+    private static final int USER_15_MIN_TABLE = 1;
+    private static final int USER_DAILY_REC_TABLE = 2;
+    private static final int USER_DEVICE_TABLE = 3;
+    private static final int USER_HOURLY_TABLE = 4;
+    private static final int USER_PROFILE_TABLE = 5;
+    private static final int USER_SLEEP_LOG_TABLE = 6;
+    private static final int USER_SLEEP_SCORE_TABLE = 7;
 
     public DBProvider() {
-
     }
 
     private static final UriMatcher uriMatcher;
+
     static {
         uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-        uriMatcher.addURI(AUTHORITY, DBUSER15MINTABLE, 1);
-        uriMatcher.addURI(AUTHORITY, DBUSERDAILYTABLE, 2);
-        uriMatcher.addURI(AUTHORITY, DBUSERDEVICETABLE, 3);
-        uriMatcher.addURI(AUTHORITY, DBUSERHOURLYTABLE, 4);
-        uriMatcher.addURI(AUTHORITY, DBUSERPROFILETABLE, 5);
-        uriMatcher.addURI(AUTHORITY, DBUSERSLEEPLOGTABLE, 6);
-        uriMatcher.addURI(AUTHORITY, DBUSER1SLEEPSCORETABLE, 7);
-
+        uriMatcher.addURI(AUTHORITY, DBUSER15MINTABLE, USER_15_MIN_TABLE);
+        uriMatcher.addURI(AUTHORITY, DBUSERDAILYTABLE, USER_DAILY_REC_TABLE);
+        uriMatcher.addURI(AUTHORITY, DBUSERDEVICETABLE, USER_DEVICE_TABLE);
+        uriMatcher.addURI(AUTHORITY, DBUSERHOURLYTABLE, USER_HOURLY_TABLE);
+        uriMatcher.addURI(AUTHORITY, DBUSERPROFILETABLE, USER_PROFILE_TABLE);
+        uriMatcher.addURI(AUTHORITY, DBUSERSLEEPLOGTABLE, USER_SLEEP_LOG_TABLE);
+        uriMatcher.addURI(AUTHORITY, DBUSER1SLEEPSCORETABLE, USER_SLEEP_SCORE_TABLE);
     }
-
-
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
@@ -71,26 +72,26 @@ public class DBProvider extends ContentProvider {
     @Override
     public Uri insert(Uri uri, ContentValues values) {
 
-        switch (uriMatcher.match(uri)){
-            case 1:
+        switch (uriMatcher.match(uri)) {
+            case USER_15_MIN_TABLE:
                 mDB.insert(DBUSER15MINTABLE, null, values);
                 break;
-            case 2:
+            case USER_DAILY_REC_TABLE:
                 mDB.insert(DBUSERDAILYTABLE, null, values);
                 break;
-            case 3:
+            case USER_DEVICE_TABLE:
                 mDB.insert(DBUSERDEVICETABLE, null, values);
                 break;
-            case 4:
+            case USER_HOURLY_TABLE:
                 mDB.insert(DBUSERHOURLYTABLE, null, values);
                 break;
-            case 5:
+            case USER_PROFILE_TABLE:
                 mDB.insert(DBUSERPROFILETABLE, null, values);
                 break;
-            case 6:
+            case USER_SLEEP_LOG_TABLE:
                 mDB.insert(DBUSERSLEEPLOGTABLE, null, values);
                 break;
-            case 7:
+            case USER_SLEEP_SCORE_TABLE:
                 mDB.insert(DBUSER1SLEEPSCORETABLE, null, values);
                 break;
         }
@@ -110,26 +111,26 @@ public class DBProvider extends ContentProvider {
                         String[] selectionArgs, String sortOrder) {
 
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
-        switch (uriMatcher.match(uri)){
-            case 1:
+        switch (uriMatcher.match(uri)) {
+            case USER_15_MIN_TABLE:
                 queryBuilder.setTables(DBUSER15MINTABLE);
                 break;
-            case 2:
+            case USER_DAILY_REC_TABLE:
                 queryBuilder.setTables(DBUSERDAILYTABLE);
                 break;
-            case 3:
+            case USER_DEVICE_TABLE:
                 queryBuilder.setTables(DBUSERDEVICETABLE);
                 break;
-            case 4:
+            case USER_HOURLY_TABLE:
                 queryBuilder.setTables(DBUSERHOURLYTABLE);
                 break;
-            case 5:
+            case USER_PROFILE_TABLE:
                 queryBuilder.setTables(DBUSERPROFILETABLE);
                 break;
-            case 6:
+            case USER_SLEEP_LOG_TABLE:
                 queryBuilder.setTables(DBUSERSLEEPLOGTABLE);
                 break;
-            case 7:
+            case USER_SLEEP_SCORE_TABLE:
                 queryBuilder.setTables(DBUSER1SLEEPSCORETABLE);
                 break;
         }
@@ -139,7 +140,6 @@ public class DBProvider extends ContentProvider {
         cursor.setNotificationUri(getContext().getContentResolver(), uri);
 
         return cursor;
-
     }
 
     @Override
