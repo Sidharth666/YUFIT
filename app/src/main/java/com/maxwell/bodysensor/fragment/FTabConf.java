@@ -120,6 +120,7 @@ public class FTabConf extends Fragment implements
 	private ToggleButton mToggleMoveAlert;
     private ToggleButton mToggleSOS;
 	private ToggleButton mToggleVibration;
+    private ToggleButton mToggleAlarm;
 
     private TextView mTextNoDisturbingTime;
     private TextView mTextOutOfRnageNoDisturbingTime;
@@ -188,6 +189,7 @@ public class FTabConf extends Fragment implements
     	mToggleOutOfRange = (ToggleButton) rootView.findViewById(R.id.toggle_out_of_range);
     	mToggleMoveAlert = (ToggleButton) rootView.findViewById(R.id.toggle_move_alert);
         mToggleSOS = (ToggleButton) rootView.findViewById(R.id.toggle_sos);
+        mToggleAlarm = (ToggleButton) rootView.findViewById(R.id.toggle_alarm);
 
         mTextNoDisturbingTime = (TextView) rootView.findViewById(R.id.text_no_disturbing_time);
         mTextOutOfRnageNoDisturbingTime = (TextView) rootView.findViewById(R.id.text_out_of_range_no_disturbing_time);
@@ -269,6 +271,9 @@ public class FTabConf extends Fragment implements
         mToggleFindPhone.setChecked(mSharedPref.isFindPhoneEnable());
         mToggleFindPhone.setOnCheckedChangeListener(mFindPhoneSwitchListener);
 
+        mToggleAlarm.setChecked(mSharedPref.isAlarmEnable());
+        mToggleAlarm.setOnCheckedChangeListener(mAlarmSwitchListener);
+
         boolean enablePhoneConnection = mSharedPref.isPhoneConnectionEnable();
         enablePhoneConnectionUpdated(enablePhoneConnection);
     }
@@ -283,6 +288,7 @@ public class FTabConf extends Fragment implements
         mToggleSOS.setOnCheckedChangeListener(null);
         mToggleVibration.setOnCheckedChangeListener(null);
         mToggleFindPhone.setOnCheckedChangeListener(null);
+        mToggleAlarm.setOnCheckedChangeListener(null);
     }
 
     @Override
@@ -303,6 +309,7 @@ public class FTabConf extends Fragment implements
         mToggleOutOfRange.setClickable(enable);
         mToggleFindPhone.setClickable(enable);
         mViewFineDevice.setClickable(enable);
+
 
         if (enable) {
             mTogglePhoneNotify.setChecked(mSharedPref.isDeviceIncomingCallEnable());
@@ -511,8 +518,10 @@ public class FTabConf extends Fragment implements
             UtilCalendar cal;
 
             // Weekly Alarm
-            int weeklyAlarmMask = mSharedPref.getDeviceWeeklyAlarmMask();
+            boolean enableAlarm = mSharedPref.isAlarmEnable();
+            int weeklyAlarmMask = enableAlarm ? mSharedPref.getDeviceWeeklyAlarmMask():0;
             AlertTime weeklyAlarmTime = getAlertTime(mSharedPref.getDeviceWeeklyAlarmTime());
+
 
             // Task Alert
             cal = new UtilCalendar(mSharedPref.getDeviceTaskAlertUnixTime(0), null);
@@ -727,6 +736,19 @@ public class FTabConf extends Fragment implements
 
         configAlertSetting();
     }
+
+
+    private CompoundButton.OnCheckedChangeListener mAlarmSwitchListener =
+            new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView,
+                                             boolean isChecked) {
+
+                    mSharedPref.enableAlarm(isChecked);
+                    //if alarm disabled.. update
+                    configAlertSetting();
+                }
+            };
 
 
     private CompoundButton.OnCheckedChangeListener mFindPhoneSwitchListener =

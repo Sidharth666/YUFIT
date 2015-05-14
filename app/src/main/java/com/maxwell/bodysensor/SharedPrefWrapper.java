@@ -15,6 +15,7 @@ import com.maxwell.bodysensor.util.UtilDBG;
 // [1] to make sure the defValue is the same.
 
 public class SharedPrefWrapper {
+
     private static SharedPrefWrapper mInstance = null;
     private static SharedPreferences mPref = null;
     private static SharedPreferences.Editor mEditor = null;
@@ -58,6 +59,7 @@ public class SharedPrefWrapper {
     private final String KEY_OUT_OF_RANGE_NO_DISTURBING_END = "key_out_of_range_no_disturbing_end";
 
     // BLE device weekly alarm
+    private static final String KEY_DEVICE_ALARM_ENABLE = "device_weekly_alarm_enable" ;
     private final String DEVICE_WEEKLY_ALARM = "device_weekly_alarm";
     private final String DEVICE_WEEKLY_ALARM_TIME = "device_weekly_alarm_time";
 
@@ -354,6 +356,15 @@ public class SharedPrefWrapper {
     public boolean enableFindPhone(boolean enable) {
         return applyIt(KEY_FIND_PHONE_ENABLE, enable);
     }
+
+    public boolean isAlarmEnable(){
+        return mPref.getBoolean(KEY_DEVICE_ALARM_ENABLE,false);
+    }
+
+    public boolean enableAlarm(boolean enable) {
+        return applyIt(KEY_DEVICE_ALARM_ENABLE, enable);
+    }
+
 
     public boolean enableDeviceSOS(boolean enable) {
         return applyIt(KEY_SOS_ENABLE, enable);

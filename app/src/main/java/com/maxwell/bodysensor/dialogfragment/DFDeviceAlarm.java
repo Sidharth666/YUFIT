@@ -14,10 +14,12 @@ import com.maxwell.bodysensor.SharedPrefWrapper;
 import com.maxwell.bodysensor.dialogfragment.dialog.DlgTimePicker;
 import com.maxwell.bodysensor.dialogfragment.dialog.DlgTimePicker.btnHandler;
 import com.maxwell.bodysensor.listener.OnSetupDeviceAlertListener;
+import com.maxwell.bodysensor.ui.WarningUtil;
 import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.util.UtilLocale;
 import com.maxwell.bodysensor.util.UtilLocale.DateFmt;
 import com.maxwell.bodysensor.util.UtilTime;
+import com.maxwellguider.bluetooth.util.Util;
 
 import java.util.Date;
 
@@ -71,11 +73,15 @@ public class DFDeviceAlarm extends DFBase implements View.OnClickListener {
 
     @Override
     public void saveData() {
+
+        boolean enableAlarm = mSharedPref.isAlarmEnable();
         mSharedPref.setDeviceWeeklyAlarmTime(mAlarmTime);
         mSharedPref.setDeviceWeeklyAlarmMask(getWeeklyAlermMask());
 
-        if (mListener != null) {
+        if (mListener != null&& enableAlarm) {
             mListener.onDeviceAlertUpdated();
+        }else{
+            WarningUtil.showToastLong(mActivity, "Alarm Disabled");
         }
     }
 

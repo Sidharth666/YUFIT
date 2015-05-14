@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
+import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -239,6 +240,8 @@ public class MainActivity extends MXWActivity implements
             strInstallTime = UtilLocale.calToString(cal, DateFmt.YMDHMa);
         }
 
+        enableBluetooth();
+
         // Shared Preference
         mSharedPref = SharedPrefWrapper.getInstance();
 
@@ -329,6 +332,13 @@ public class MainActivity extends MXWActivity implements
 
         // check intent action to do something
         checkIntentAction();
+    }
+
+    private void enableBluetooth() {
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (!mBluetoothAdapter.isEnabled()) {
+            mBluetoothAdapter.enable();
+        }
     }
 
     private void copyHMData() {

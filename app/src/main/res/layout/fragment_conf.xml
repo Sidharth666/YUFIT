@@ -232,6 +232,7 @@
 
 
                 <!-- weekly alarm -->
+                
                 <LinearLayout
                     android:id="@+id/view_device_alarm"
                     style="@style/wrapper_settings"
@@ -241,14 +242,29 @@
                         style="@style/settings_icon"
                         android:src="@drawable/ic_alarms" />
 
-                    <TextView
-                        style="@style/settings_main_text"
-                        android:text="@string/df_alarm_title" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/text_device_alarm_detail"
-                        style="@style/settings_sub_text"
-                        tools:text="10:00 AM" />
+                        <TextView
+                            style="@style/settings_main_text"
+                            android:text="@string/df_alarm_title" />
+
+                        <TextView
+                            android:id="@+id/text_device_alarm_detail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/small_padding"
+                            tools:text="10:00 AM - 9:00 PM" />
+
+                    </LinearLayout>
+
+                    <ToggleButton
+                        android:id="@+id/toggle_alarm"
+                        style="@style/toggle_button_right"
+                        android:layout_marginRight="@dimen/content_gutter" />
 
                 </LinearLayout>
 

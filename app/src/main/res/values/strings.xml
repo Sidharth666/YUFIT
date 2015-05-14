@@ -12,7 +12,7 @@
 
     <string name="strNo">No</string>
     <string name="strYes">Yes</string>
-    <string name="strCancel">Cancel</string>
+    <string name="strCancel">Back</string>
     <string name="strDelete">Delete</string>
     <string name="strOK">OK</string>
     <string name="strDone">Done</string>

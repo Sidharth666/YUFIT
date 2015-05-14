@@ -22,6 +22,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.AudioManager;
 import android.media.CamcorderProfile;
 import android.media.ExifInterface;
 import android.media.MediaPlayer;
@@ -490,8 +491,11 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
                     }
                 }
 
-                MediaPlayer mp = MediaPlayer.create(mContext, R.raw.sound_camera_shutter);
-                mp.start();
+                AudioManager mgr = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
+                mgr.playSoundEffect(AudioManager.FLAG_PLAY_SOUND);
+
+                /*MediaPlayer mp = MediaPlayer.create(mContext, R.raw.sound_camera_shutter);
+                mp.start();*/
             } catch (Exception e) {
                 Toast.makeText(mContext, "Error in ShutterCallback.onShutter()", Toast.LENGTH_LONG)
                         .show();

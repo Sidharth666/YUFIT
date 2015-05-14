@@ -73,7 +73,8 @@
 					android:id="@+id/tb_sun"
 					style="@style/tg_btn"
 					android:textOff="S"
-					android:textOn="S" />
+					android:textOn="S"
+                    android:checked="false" />
 
 				<View
 					android:layout_width="0dp"
