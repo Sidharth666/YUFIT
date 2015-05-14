@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.maxwell.bodysensor" >
+    package="com.maxwell.bodysensor">
     <!-- android:versionCode must be integer, and be greater than version code of previous version -->
 
 
     <permission
         android:name="mxx.permission.ACCESS_DB_DATA"
-        android:protectionLevel="normal" >
-    </permission>
+        android:protectionLevel="normal"></permission>
+    <permission
+        android:name="hme.permission.ACCESS_MXX_DATA"
+        android:protectionLevel="normal" />
 
     <uses-permission android:name="hme.permission.ACCESS_MXX_DATA" />
     <!--SalesTracking-->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- BLE -->
@@ -19,40 +21,64 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <!-- Export database : for Google Map, and debug -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <!-- phone/sms notification -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" android:required="false" />
-    <uses-permission android:name="android.permission.READ_CALL_LOG" android:required="false" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" android:required="false" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" android:required="false" />
-    <uses-permission android:name="android.permission.READ_SMS" android:required="false" />
-    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-permission
+        android:name="android.permission.READ_PHONE_STATE"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.READ_CALL_LOG"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.READ_CONTACTS"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.RECEIVE_SMS"
+        android:required="false" />
+    <uses-permission
+        android:name="android.permission.READ_SMS"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
 
     <!-- phone call -->
     <!-- uses-permission android:name="android.permission.CALL_PHONE" /-->
 
     <!-- send SMS -->
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <!-- For usage of camera -->
-    <uses-permission android:name="android.permission.CAMERA" android:required="false" />
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
-    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
 
     <!-- For recording video -->
-    <uses-permission android:name="android.permission.RECORD_AUDIO" android:required="false" />
+    <uses-permission
+        android:name="android.permission.RECORD_AUDIO"
+        android:required="false" />
 
-    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
 
     <application
         android:name=".MXWApp"
         android:allowBackup="true"
-        android:logo="@drawable/yufit_logo_titlebar"
         android:icon="@drawable/ic_launcher_yu"
         android:label="@string/app_name"
+        android:logo="@drawable/yufit_logo_titlebar"
         android:theme="@style/MMX.AppTheme">
 
         <!--
@@ -65,14 +91,14 @@
         -->
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"
             android:label="@string/app_name"
+            android:launchMode="singleTask"
             android:logo="@drawable/yufit_logo_titlebar"
+            android:screenOrientation="portrait"
             android:theme="@style/MMX.AppTheme"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            android:launchMode="singleTask">
+            android:windowSoftInputMode="adjustPan|adjustResize">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
@@ -84,42 +110,42 @@
 
         <activity
             android:name=".GroupActivity"
-            android:screenOrientation="portrait"
             android:label="@string/groups"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
 
         <activity
             android:name=".CameraActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/df_camera_title">
+            android:label="@string/df_camera_title"
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="com.maxwell.camera.action.TAKE_PICTURE"/>
-                <action android:name="com.maxwell.camera.action.VIDEO_RECORDER"/>
+                <action android:name="com.maxwell.camera.action.TAKE_PICTURE" />
+                <action android:name="com.maxwell.camera.action.VIDEO_RECORDER" />
             </intent-filter>
         </activity>
 
         <receiver android:name=".sim.PhNSmsReceiver">
             <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
 
         <receiver android:name=".SyncStartReceiver">
             <intent-filter>
-                <action android:name="com.mmx.yufit.action_start_sync"/>
+                <action android:name="com.mmx.yufit.action_start_sync" />
             </intent-filter>
         </receiver>
 
         <receiver android:name=".BootCompletedReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
         <receiver android:name=".BleStateChangeReceiver">
             <intent-filter>
-                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
             </intent-filter>
         </receiver>
 
@@ -128,20 +154,25 @@
             android:authorities="com.mxx.bodysensor.data.DBProvider"
             android:enabled="true"
             android:exported="true"
-            android:readPermission="mxx.permission.ACCESS_DB_DATA" >
-        </provider>
+            android:multiprocess="true"
+            android:grantUriPermissions="true"
+            android:permission="mxx.permission.ACCESS_DB_DATA"></provider>
 
         <service
             android:name="com.mmx.YuFit.SalesTrackService"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.mxx.bodysensor.SalesTrackService" />
             </intent-filter>
         </service>
 
         <!-- facebook app_id -->
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_facebook_id"/>
-        <meta-data android:name="com.crashlytics.ApiKey" android:value="d1f57425299b9ee855ff6f55a9393e6ac001e955"/>
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_facebook_id" />
+        <meta-data
+            android:name="com.crashlytics.ApiKey"
+            android:value="d1f57425299b9ee855ff6f55a9393e6ac001e955" />
 
     </application>
 

@@ -147,7 +147,6 @@ public class DBProvider extends ContentProvider {
         Cursor cursor = queryBuilder.query(mPD.getReadableDatabase(),
                 projection, selection, selectionArgs, null, null, sortOrder);
         cursor.setNotificationUri(getContext().getContentResolver(), uri);
-
         return cursor;
     }
 
