@@ -87,4 +87,8 @@
         <item name="android:background">@android:color/white</item>
     </style>
 
+    <style name="noAnimTheme" parent="android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
 </resources>

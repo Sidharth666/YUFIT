@@ -115,6 +115,7 @@
         <activity
             android:name=".CameraActivity"
             android:label="@string/df_camera_title"
+            android:theme="@style/noAnimTheme"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.maxwell.camera.action.TAKE_PICTURE" />
