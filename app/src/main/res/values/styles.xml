@@ -1254,4 +1254,5 @@
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">@dimen/text_16sp</item>
     </style>
+
 </resources>
