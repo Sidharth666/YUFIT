@@ -6,4 +6,6 @@
     <string name="string_datefmt_hm">hh:mm</string>
     <string name="notifications">Notifications:</string>
     <string name="no_disturbance">No Disturbance:</string>
+    <string name="image_save_success">Image Saved in gallery</string>
+    <string name="video_save_success">Video successfully saved</string>
 </resources>

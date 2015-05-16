@@ -1,13 +1,5 @@
 package com.maxwell.bodysensor.fragment;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.TimeZone;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -25,7 +17,6 @@ import android.hardware.SensorManager;
 import android.media.AudioManager;
 import android.media.CamcorderProfile;
 import android.media.ExifInterface;
-import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Bundle;
@@ -54,7 +45,18 @@ import com.maxwell.bodysensor.ui.WarningUtil;
 import com.maxwell.bodysensor.util.UtilCalendar;
 import com.maxwell.bodysensor.util.UtilDBG;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.TimeZone;
+
 public class FCamera extends Fragment implements SurfaceHolder.Callback {
+
+    private static final int FILE_TYPE_IMAGE = 0;
+    private static final int FILE_TYPE_VIDEO = 1;
 
     // The rotation degrees are suitable for landscape phone orientation only.
     private static final int ROTATION_DEGREE_BACK_CAMERA_LANDSCAPE = 0,
@@ -584,12 +586,22 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
                 R.string.dlg_error_camera_description);
     }
 
-    private void addPictureToGallery(File file) {
+    private void addPictureToGallery(File file, int fileType) {
         Intent it = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         File f = new File(file.getPath());
         Uri contentUri = Uri.fromFile(f);
         it.setData(contentUri);
         mContext.sendBroadcast(it);
+        int toastStringId = R.string.image_save_success;
+        switch (fileType) {
+            case FILE_TYPE_IMAGE:
+                toastStringId = R.string.image_save_success;
+                break;
+            case FILE_TYPE_VIDEO:
+                toastStringId = R.string.video_save_success;
+                break;
+        }
+        Toast.makeText(mContext, toastStringId, Toast.LENGTH_LONG).show();
     }
 
     private View.OnClickListener imgBtnSwitchBackFrontCameraOnClick = new View.OnClickListener() {
@@ -844,7 +856,7 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
             showDlgErrorCamera();
         }
 
-        addPictureToGallery(mFileRecordedVideo);
+        addPictureToGallery(mFileRecordedVideo, FILE_TYPE_VIDEO);
 
         mCamera.startPreview();
 
@@ -933,7 +945,7 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
 
         exif.saveAttributes();
 
-        addPictureToGallery(pictureFile);
+        addPictureToGallery(pictureFile, FILE_TYPE_IMAGE);
     }
 
     private void setFocusMode() {
