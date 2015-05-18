@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
@@ -495,6 +496,9 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
 
                 AudioManager mgr = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
                 mgr.playSoundEffect(AudioManager.FLAG_PLAY_SOUND);
+
+                Vibrator vibrator = (Vibrator)getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                vibrator.vibrate(500);
 
                 /*MediaPlayer mp = MediaPlayer.create(mContext, R.raw.sound_camera_shutter);
                 mp.start();*/
