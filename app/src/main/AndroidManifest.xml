@@ -6,7 +6,8 @@
 
     <permission
         android:name="mxx.permission.ACCESS_DB_DATA"
-        android:protectionLevel="normal"></permission>
+
+        android:protectionLevel="signatureOrSystem"></permission>
 
 
     <uses-permission android:name="hme.permission.ACCESS_MXX_DATA" />
@@ -116,6 +117,7 @@
         <activity
             android:name=".CameraActivity"
             android:label="@string/df_camera_title"
+            android:theme="@style/AppTheme.NoActionBar.Translucent"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.maxwell.camera.action.TAKE_PICTURE" />

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.NoActionBar.Translucent" parent="android:Theme.Material.NoActionBar.Fullscreen">
+    </style>
+
+</resources>
