@@ -8,6 +8,30 @@
     android:baselineAligned="false">
 
     <include layout="@layout/mxw_df_title_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/content_gutter">
+
+        <TextView
+            style="@style/notification_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enable Alarm" />
+
+        <ToggleButton
+            android:id="@+id/toggle_alarm_enable"
+            style="@style/toggle_button"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/small_padding"
+        android:layout_below="@+id/ll_header"
+        android:background="@drawable/shadow_down" />
     
     <LinearLayout
         style="@style/app_outtab_content"

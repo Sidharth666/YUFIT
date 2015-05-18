@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -444,6 +445,7 @@ public class FTabConf extends Fragment implements
     }
 
     private void updateWeeklyAlarmView() {
+        mToggleAlarm.setChecked(mSharedPref.isAlarmEnable());
         int weeklyAlarmMask = mSharedPref.getDeviceWeeklyAlarmMask();
         int time = mSharedPref.getDeviceWeeklyAlarmTime();
 
@@ -566,7 +568,13 @@ public class FTabConf extends Fragment implements
                 Intent intent = new Intent(MXWApp.HME_ACTION);
                 startActivity(intent);
             }else{
-                //playstore
+
+
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(UtilConst.MARKET_PKG_NAME_PREFIX + UtilConst.HME_PACKAGE_NAME)));
+                } catch (android.content.ActivityNotFoundException anfe) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(UtilConst.PLAYSTORE_PKG_NAME_PREFIX + UtilConst.HME_PACKAGE_NAME)));
+                } //playstore
             }
 
         }else if(v==mBtnSync){
@@ -730,11 +738,12 @@ public class FTabConf extends Fragment implements
     }
 
     @Override
-    public void onDeviceAlertUpdated() {
-        updateWeeklyAlarmView();
-        updateMoveAlertView();
+    public void onDeviceAlertUpdated(){
 
-        configAlertSetting();
+      updateWeeklyAlarmView();
+      updateMoveAlertView();
+
+      configAlertSetting();
     }
 
 
@@ -872,6 +881,7 @@ public class FTabConf extends Fragment implements
             mSyncProgress.setVisibility(VISIBLE);
             mSyncProgress.setIndeterminate(false);
             mSyncProgress.setProgress(progress);
+            mTextConnStatus.setText("Syncing");
         }
     }
 

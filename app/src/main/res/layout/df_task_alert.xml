@@ -62,9 +62,15 @@
                     style="@style/edit_task_alert_task_datetime"
 	                android:id="@+id/txtTask1DateAndTime" />
 	
-				<com.maxwell.bodysensor.ui.ViewButton
-                    style="@style/btn_task_alert_set"
-		            android:id="@+id/btnSetTask1DateAndTime" />
+
+                <Button
+                    android:id="@+id/btnSetTask1DateAndTime"
+                    style="@style/material_trans_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/card_padding"
+                    android:gravity="center"
+                    android:text="Set" />
 	
 	        </LinearLayout>
 	        
@@ -113,9 +119,15 @@
                     style="@style/edit_task_alert_task_datetime"
 	                android:id="@+id/txtTask2DateAndTime" />
 	
-				<com.maxwell.bodysensor.ui.ViewButton
-                    style="@style/btn_task_alert_set"
-		            android:id="@+id/btnSetTask2DateAndTime" />
+
+                <Button
+                    android:id="@+id/btnSetTask2DateAndTime"
+                    style="@style/material_trans_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/card_padding"
+                    android:gravity="center"
+                    android:text="Set" />
 	
 	        </LinearLayout>
 	
@@ -163,10 +175,18 @@
 	            <com.maxwell.bodysensor.ui.ViewTextView
                     style="@style/edit_task_alert_task_datetime"
 	                android:id="@+id/txtTask3DateAndTime" />
-	
-				<com.maxwell.bodysensor.ui.ViewButton
-                    style="@style/btn_task_alert_set"
-		            android:id="@+id/btnSetTask3DateAndTime" />
+
+
+                <Button
+                    android:id="@+id/btnSetTask3DateAndTime"
+                    style="@style/material_trans_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/card_padding"
+                    android:gravity="center"
+                    android:text="Set" />
+
+
 	
 	        </LinearLayout>
 	

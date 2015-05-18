@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -39,6 +40,8 @@ public class DFDeviceAlarm extends DFBase implements View.OnClickListener {
             mChkBoxEverySaturday;
 
     private int mAlarmTime;
+    private ToggleButton mToggleEnable;
+    private boolean mEnable;
 
     private OnSetupDeviceAlertListener mListener;
 
@@ -74,15 +77,15 @@ public class DFDeviceAlarm extends DFBase implements View.OnClickListener {
     @Override
     public void saveData() {
 
-        boolean enableAlarm = mSharedPref.isAlarmEnable();
+
+        mSharedPref.enableAlarm(mEnable);
         mSharedPref.setDeviceWeeklyAlarmTime(mAlarmTime);
         mSharedPref.setDeviceWeeklyAlarmMask(getWeeklyAlermMask());
 
-        if (mListener != null&& enableAlarm) {
+        if (mListener != null) {
             mListener.onDeviceAlertUpdated();
-        }else{
-            WarningUtil.showToastLong(mActivity, "Alarm Disabled");
         }
+        
     }
 
     @Override
@@ -98,6 +101,12 @@ public class DFDeviceAlarm extends DFBase implements View.OnClickListener {
         ibEditAlarm.setOnClickListener(this);
         tvTime = (TextView) view.findViewById(R.id.tv_time);
         tvTimeType = (TextView) view.findViewById(R.id.tv_time_type);
+        // Set up the move alert switch based on app's database.
+        mToggleEnable = (ToggleButton) view.findViewById(R.id.toggle_alarm_enable);
+        mEnable = mSharedPref.isAlarmEnable();
+        mToggleEnable.setChecked(mEnable);
+        mToggleEnable.setOnCheckedChangeListener(OnAlarmCheckedChange);
+
 
         // Get the alarm time.
         mAlarmTime = mSharedPref.getDeviceWeeklyAlarmTime();
@@ -127,6 +136,16 @@ public class DFDeviceAlarm extends DFBase implements View.OnClickListener {
         tvTime.setText(UtilLocale.dateToString(date, DateFmt.HM));
         tvTimeType.setText(UtilLocale.dateToString(date, DateFmt.a));
     }
+
+    private CompoundButton.OnCheckedChangeListener OnAlarmCheckedChange =
+            new CompoundButton.OnCheckedChangeListener() {
+
+                @Override
+                public void onCheckedChanged(CompoundButton button, boolean isChecked) {
+                    mEnable = isChecked;
+//                    mSharedPref.enableAlarm(mEnable);
+                }
+            };
 
     private void initWeeklyAlemMask() {
         int weeklyAlarmMask = mSharedPref.getDeviceWeeklyAlarmMask();
