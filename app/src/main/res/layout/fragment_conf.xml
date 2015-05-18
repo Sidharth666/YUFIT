@@ -36,6 +36,7 @@
                     android:id="@+id/text_battery_level"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/content_gutter"
                     android:text="60%"
                     android:textColor="@color/text_color_primary" />
 
@@ -232,7 +233,7 @@
 
 
                 <!-- weekly alarm -->
-                
+
                 <LinearLayout
                     android:id="@+id/view_device_alarm"
                     style="@style/wrapper_settings"

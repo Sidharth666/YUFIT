@@ -7,9 +7,7 @@
     <permission
         android:name="mxx.permission.ACCESS_DB_DATA"
         android:protectionLevel="normal"></permission>
-    <permission
-        android:name="hme.permission.ACCESS_MXX_DATA"
-        android:protectionLevel="normal" />
+
 
     <uses-permission android:name="hme.permission.ACCESS_MXX_DATA" />
     <!--SalesTracking-->
