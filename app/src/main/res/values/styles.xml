@@ -994,6 +994,20 @@
         <item name="android:textSize">@dimen/text_16sp</item>
     </style>
 
+    <style name="basic_edittext_task" parent="@style/app_edittext">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.7</item>
+        <item name="android:paddingTop">@dimen/space_8dp</item>
+        <item name="android:paddingBottom">@dimen/space_8dp</item>
+        <item name="android:paddingLeft">@dimen/space_10dp</item>
+        <item name="android:paddingRight">@dimen/space_10dp</item>
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:hint">@string/df_task_title_edit_text_hint</item>
+        <item name="android:background">@drawable/first_edittext_bg</item>
+        <item name="android:textSize">@dimen/text_16sp</item>
+    </style>
+
     <style name="first_edittext_password" parent="@style/basic_edittext">
         <item name="android:inputType">textPassword</item>
     </style>
@@ -1149,8 +1163,9 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
-        <item name="android:padding">@dimen/space_10dp</item>
-        <item name="android:background">@color/app_blue_setting_bg</item>
+        <item name="android:paddingBottom">@dimen/space_10dp</item>
+        <item name="android:paddingTop">@dimen/space_20dp</item>
+        <item name="android:background">@color/app_white</item>
     </style>
 
     <style name="edit_task_alert_task_title">
@@ -1166,8 +1181,13 @@
 
     <style name="edit_task_alert_task_datetime">
         <item name="android:layout_width">0dp</item>
+        <item name="android:textColor">@color/app_grey80</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">0.7</item>
+        <item name="android:layout_weight">0.8</item>
+        <item name="android:paddingTop">@dimen/space_8dp</item>
+        <item name="android:paddingBottom">@dimen/space_8dp</item>
+        <item name="android:paddingLeft">@dimen/space_10dp</item>
+        <item name="android:paddingRight">@dimen/space_10dp</item>
         <item name="android:textSize">@dimen/text_15sp</item>
         <item name="android:text">@string/df_task_date_time_hint</item>
     </style>
@@ -1178,6 +1198,7 @@
         <item name="android:layout_weight">0.1</item>
         <item name="android:background">@null</item>
         <item name="android:src">@drawable/ic_delete</item>
+        <item name="android:layout_marginLeft">@dimen/space_5dp</item>
         <item name="android:padding">@dimen/space_10dp</item>
     </style>
 

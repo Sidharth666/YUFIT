@@ -16,7 +16,8 @@
 	        android:layout_height="wrap_content"
 	        android:text="@string/df_task_alert_instruction"
 	        android:minLines="4"
-	        android:textSize="@dimen/text_17sp"
+	        android:textSize="@dimen/space_17dp"
+            android:textColor="@color/app_theme"
 	        android:gravity="center"
             />
         
@@ -36,7 +37,7 @@
 	                android:layout_weight="0.05" />
 	
 			    <com.maxwell.bodysensor.ui.ViewEditText
-                    style="@style/edit_task_alert_task_title"
+                    style="@style/basic_edittext_task"
 					android:id="@+id/edtTask1Title" />
 	            
 	            <ImageButton
@@ -93,7 +94,7 @@
                     android:layout_weight="0.05" />
 	
 			    <com.maxwell.bodysensor.ui.ViewEditText
-                    style="@style/edit_task_alert_task_title"
+                    style="@style/basic_edittext_task"
 					android:id="@+id/edtTask2Title" />
 	
 	            <ImageButton
@@ -150,7 +151,7 @@
                     android:layout_weight="0.05" />
 	
 			    <com.maxwell.bodysensor.ui.ViewEditText
-                    style="@style/edit_task_alert_task_title"
+                    style="@style/basic_edittext_task"
 					android:id="@+id/edtTask3Title" />
 	
 	            <ImageButton

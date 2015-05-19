@@ -366,6 +366,8 @@ public class SharedPrefWrapper {
     }
 
 
+
+
     public boolean enableDeviceSOS(boolean enable) {
         return applyIt(KEY_SOS_ENABLE, enable);
     }

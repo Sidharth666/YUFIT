@@ -483,8 +483,8 @@
     <string name="df_smart_keys_find_device">Find Device</string>
     <string name="df_smart_keys_none">None</string>
     <string name="df_smart_keys_instruction_none">Disable function of smart keys.</string>
-    <string name="df_smart_keys_instruction_remote_camera">To use your band to control the Camera application, please see the paper user manual.</string>
-    <string name="df_smart_keys_instruction_remote_video">To use your band to control the Video application, please see the paper user manual.</string>
+    <string name="df_smart_keys_instruction_remote_camera">Press the launch button and long press the pair button on the YUFIT band.</string>
+    <string name="df_smart_keys_instruction_remote_video">Press the launch button and long press the pair button on the YUFIT band.</string>
     <string name="df_smart_keys_instruction_find_phone">Find Phone helps you find your phone/tablet by activating the ringtone.\n\nTo use your band to control Find Phone application, please see the paper user manual.</string>
 
     <!-- Strings for df_task_alert -->
@@ -613,5 +613,9 @@
     <string name="dlg_delete_member_title">Delete member</string>
     <string name="dlg_delete_member_des">Do you want to delete this member?</string>
     <string name="alarms_alerts"><![CDATA[Alarms & Alerts]]></string>
+
+    <!--- about -->
+    <string name="yu_play_god">www.yuplaygod.com</string>
+    <string name="rights_reserved">All Rights Reserved 2015</string>
 
 </resources>

@@ -4,6 +4,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +60,9 @@ public class DFAbout extends DFBase implements View.OnClickListener {
 
         view.findViewById(R.id.img_logo).setOnClickListener(this);
 
-        TextView textVerion = (TextView) view.findViewById(R.id.text_version);
+        TextView link = (TextView) view.findViewById(R.id.yu_play_god);
+
+        link.setMovementMethod(LinkMovementMethod.getInstance());
 
         // get app version name
         PackageInfo pInfo = null;
@@ -69,7 +72,7 @@ public class DFAbout extends DFBase implements View.OnClickListener {
             e.printStackTrace();
         }
         if (pInfo!=null) {
-            textVerion.setText(pInfo.versionName);
+//            textVerion.setText(pInfo.versionName);
         } else  {
             UtilDBG.e("try get PackageInfo, but fail");
         }

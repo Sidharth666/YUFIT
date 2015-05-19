@@ -74,7 +74,7 @@
 					android:layout_alignParentRight="true"
 					android:layout_centerVertical="true"
 					android:padding="@dimen/card_padding"
-					android:src="@drawable/ic_devicename" />
+					android:src="@drawable/icon_alarm" />
 			</RelativeLayout>
 
 			<TextView
