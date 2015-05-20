@@ -6,5 +6,6 @@
     <color name="accent">#54b1f7</color>
     <color name="text_color_primary">#54b1f7</color>
     <color name="material_button_sel_bg">#eee</color>
+    <color name="almost_white">#efefef</color>
 
 </resources>

@@ -15,6 +15,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -23,7 +24,6 @@ import com.maxwell.bodysensor.DeviceSync;
 import com.maxwell.bodysensor.MXWApp;
 import com.maxwell.bodysensor.MainActivity;
 import com.maxwell.bodysensor.PowerWatchSync;
-
 import com.maxwell.bodysensor.R;
 import com.maxwell.bodysensor.SharedPrefWrapper;
 import com.maxwell.bodysensor.data.DBDevice;
@@ -114,6 +114,7 @@ public class FTabConf extends Fragment implements
     private Button mBtnFindDevice;
     private Button mBtnLaunchCamera;
     private Button mBtnLaunchVideo;
+    private Button mBtnOpenHMe;
 
 	private ToggleButton mTogglePhoneNotify;
 	private ToggleButton mToggleOutOfRange;
@@ -129,12 +130,13 @@ public class FTabConf extends Fragment implements
     private TextView mTextMoveAlertDuration;
     private TextView mTextConnStatus;
 
-    private ImageButton mBtnSync;
+    private ImageButton mBtnSync, mIbCloseBanner;
     private DeviceSync mDeviceSync;
     private ProgressBar mSyncProgress;
     private LinearLayout mLlBattery;
+    private RelativeLayout mRlBanner;
     private LinearLayout mLlHMRedirect;
-    private LinearLayout mLlHealthifyme;
+    private LinearLayout mLlHMeActivity,mLlHMeSleep, mLlHMeNutrition;
 
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -204,7 +206,16 @@ public class FTabConf extends Fragment implements
 
         mLlBattery = (LinearLayout)rootView.findViewById(R.id.ll_battery);
         mLlHMRedirect = (LinearLayout)rootView.findViewById(R.id.view_hme_redirection);
-        mLlHealthifyme = (LinearLayout)rootView.findViewById(R.id.ll_healthifyme);
+        mLlHMeActivity = (LinearLayout)rootView.findViewById(R.id.ll_healthifyme_activity);
+        mRlBanner = (RelativeLayout) rootView.findViewById(R.id.rl_hme_banner);
+        mLlHMeSleep= (LinearLayout)rootView.findViewById(R.id.ll_healthifyme_sleep);
+        mLlHMeNutrition = (LinearLayout)rootView.findViewById(R.id.ll_healthifyme_nutrition);
+
+        mBtnOpenHMe = (Button) rootView.findViewById(R.id.btn_go_to_hme);
+        mBtnOpenHMe.setOnClickListener(this);
+
+        mIbCloseBanner = (ImageButton) rootView.findViewById(R.id.ib_close_banner);
+        mIbCloseBanner.setOnClickListener(this);
 
         mViewPairADevice.setOnClickListener(this);
         mViewDeviceList.setOnClickListener(this);
@@ -229,7 +240,9 @@ public class FTabConf extends Fragment implements
         mBtnLaunchVideo.setOnClickListener(this);
         mBtnSync.setOnClickListener(this);
 
-        mLlHealthifyme.setOnClickListener(this);
+        mLlHMeActivity.setOnClickListener(this);
+        mLlHMeSleep.setOnClickListener(this);
+        mLlHMeNutrition.setOnClickListener(this);
 
         updateView();
 
@@ -566,19 +579,16 @@ public class FTabConf extends Fragment implements
         String strURL = "";
 
         if (v==null) {
-        }else if(v==mLlHealthifyme){
-            if(UtilConst.isHMPackageInstalled(getActivity())){
-                Intent intent = new Intent(MXWApp.HME_ACTION);
-                startActivity(intent);
-            }else{
-
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(UtilConst.MARKET_PKG_NAME_PREFIX + UtilConst.HME_PACKAGE_NAME)));
-                } catch (android.content.ActivityNotFoundException anfe) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(UtilConst.PLAYSTORE_PKG_NAME_PREFIX + UtilConst.HME_PACKAGE_NAME)));
-                } //playstore
-            }
-
+        }else if(v== mBtnOpenHMe){
+            openHealthifyMe();
+        }else if(v== mIbCloseBanner){
+            mRlBanner.setVisibility(View.GONE);
+        }else if(v== mLlHMeSleep){
+            openHealthifyMe();
+        }else if(v== mLlHMeNutrition){
+            openHealthifyMe();
+        }else if(v== mLlHMeActivity) {
+            openHealthifyMe();
         }else if(v==mBtnSync){
             initDeviceSync();
             if (!mActivity.isSyncing()) {
@@ -645,13 +655,13 @@ public class FTabConf extends Fragment implements
         		        .setDes(getString(R.string.ynResetDeviceDes))
                         .setPositiveButton(null, new btnHandler() {
 
-        			@Override
-        			public boolean onBtnHandler() {
-                        mMaxwellBLE.resetDevice();
-        				return true;
-        			}
+                            @Override
+                            public boolean onBtnHandler() {
+                                mMaxwellBLE.resetDevice();
+                                return true;
+                            }
 
-            	});
+                        });
             } else {
             	showDlgDeviceNotConnected();
             	return;
@@ -689,6 +699,20 @@ public class FTabConf extends Fragment implements
         }
 
         UtilDBG.e("FConf, onclick, unexpected, no action");
+    }
+
+    private void openHealthifyMe() {
+        if(UtilConst.isHMPackageInstalled(getActivity())){
+            Intent intent = new Intent(MXWApp.HME_ACTION);
+            startActivity(intent);
+        }else{
+
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(UtilConst.MARKET_PKG_NAME_PREFIX + UtilConst.HME_PACKAGE_NAME)));
+            } catch (android.content.ActivityNotFoundException anfe) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(UtilConst.PLAYSTORE_PKG_NAME_PREFIX + UtilConst.HME_PACKAGE_NAME)));
+            } //playstore
+        }
     }
 
     private void initDeviceSync() {
