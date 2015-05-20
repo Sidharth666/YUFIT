@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingTranslation">
+
     <string name="device_settings">Device Settings</string>
     <string name="yufit">YUFIT</string>
     <string name="string_datefmt_a" translatable="false">a</string>
@@ -9,4 +10,9 @@
     <string name="no_disturbance" translatable="false">No Disturbance:</string>
     <string name="image_save_success" translatable="false">Image Saved in gallery</string>
     <string name="video_save_success" translatable="false">Video successfully saved</string>
+
+    <!--- about -->
+    <string name="yu_play_god">www.yuplaygod.com</string>
+    <string name="rights_reserved">All Rights Reserved 2015</string>
+
 </resources>

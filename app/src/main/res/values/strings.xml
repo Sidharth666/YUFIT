@@ -620,8 +620,4 @@
         Also, Smart Keys function is enabled.</string>
     <string name="phone_connection_off_des">Your band doesn\'t get Incoming call/SMS notification, Out of Range alert, and Smart Keys function is disabled.</string>
 
-    <!--- about -->
-    <string name="yu_play_god">www.yuplaygod.com</string>
-    <string name="rights_reserved">All Rights Reserved 2015</string>
-
 </resources>
