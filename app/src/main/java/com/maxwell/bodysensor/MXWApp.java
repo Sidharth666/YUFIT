@@ -58,6 +58,7 @@ public class MXWApp extends Application implements
 
     private static boolean sIsMainActivityActived = false;
     private static boolean sIsCameraVisible = false;
+    public static boolean isDeviceInitiated = false;
 
     @Override
     public void onCreate() {

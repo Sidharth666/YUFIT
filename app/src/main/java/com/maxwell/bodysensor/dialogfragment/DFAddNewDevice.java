@@ -238,7 +238,7 @@ public class DFAddNewDevice extends DFBase implements OnPairDeviceListener {
         String address = sender.getTargetAddress();
         if (inUserMode()) {
             ProfileData profile = new ProfileData();
-            profile.name = "Mukund";
+            profile.name = "User";
 
             mPD.setTargetDeviceMac(address);
             mPD.saveUserProfile(profile);

@@ -1,9 +1,11 @@
 package com.maxwell.bodysensor.dialogfragment;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.maxwell.bodysensor.MainActivity;
@@ -17,9 +19,11 @@ import com.maxwell.bodysensor.util.UtilDBG;
 public class DFInfo extends DFBase {
 
     private TextView mTextInfo;
+    private ImageView mImageDesc;
 
     private String mStrInfo;
     private int mTitleResId = UtilConst.INVALID_INT;
+    private int mDescImage;
 
     @Override
     public String getDialogTag() {
@@ -43,11 +47,16 @@ public class DFInfo extends DFBase {
         View view = inflater.inflate(R.layout.df_info, null);
 
         mTextInfo = (TextView) view.findViewById(R.id.text_info);
+        mImageDesc = (ImageView) view.findViewById(R.id.desc_icon);
+
         if (mStrInfo != null) {
             mTextInfo.setText(mStrInfo);
         }
         if (mTitleResId != UtilConst.INVALID_INT) {
             setupTitleText(view, mTitleResId);
+        }
+        if(mImageDesc != null){
+            mImageDesc.setBackgroundResource(mDescImage);
         }
 
         setupButtons(view);
@@ -61,5 +70,9 @@ public class DFInfo extends DFBase {
 
     public void setInfo(String info) {
         mStrInfo = info;
+    }
+
+    public void setImg(int resId){
+        mDescImage = resId;
     }
 }

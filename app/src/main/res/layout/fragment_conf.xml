@@ -17,6 +17,7 @@
             android:layout_height="?android:attr/actionBarSize">
 
             <ImageView
+                android:id="@+id/yufit_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -28,7 +29,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/ll_status_container"
+                android:layout_marginStart="@dimen/content_gutter_2x"
+                android:layout_toRightOf="@id/yufit_icon"
                 android:gravity="center"
                 android:visibility="gone">
 
@@ -36,7 +38,6 @@
                     android:id="@+id/text_battery_level"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/content_gutter"
                     android:text="60%"
                     android:textColor="@color/text_color_primary" />
 
@@ -50,8 +51,9 @@
 
             <LinearLayout
                 android:id="@+id/ll_status_container"
-                android:layout_width="130dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/ib_sync"
                 android:gravity="right|center_vertical"
@@ -164,9 +166,7 @@
 
                     <Button
                         android:id="@+id/btn_launch_camera"
-                        style="@style/material_trans_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/material_trans_btn_inverse"
                         android:layout_marginRight="@dimen/content_gutter"
                         android:gravity="center"
                         android:text="@string/fcSmartKeysLaunch" />
@@ -187,9 +187,7 @@
 
                     <Button
                         android:id="@+id/btn_launch_video"
-                        style="@style/material_trans_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/material_trans_btn_inverse"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="@dimen/content_gutter"
                         android:gravity="center"
@@ -447,9 +445,7 @@
 
                     <Button
                         android:id="@+id/btn_find_device"
-                        style="@style/material_trans_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/material_trans_btn_inverse"
                         android:layout_marginRight="@dimen/content_gutter"
                         android:text="@string/fcSmartKeysFind" />
                 </LinearLayout>

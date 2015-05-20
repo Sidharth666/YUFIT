@@ -18,41 +18,17 @@
 
             <com.maxwell.bodysensor.ui.ViewTextView
                 style="@style/view_tutorial_title_text"
-                android:text="@string/title_syncing"/>
+                android:text="Device List"/>
 
             <LinearLayout
                 style="@style/view_tutorial_step_item">
 
                 <ImageView
                     style="@style/view_tutorial_step_img"
-                    android:src="@drawable/launch_orange_1"/>
+                    android:src="@drawable/bullet_1"/>
                 <com.maxwell.bodysensor.ui.ViewTextView
                     style="@style/view_tutorial_step_text"
-                    android:text="@string/tutorial2_step_1"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/view_tutorial_step_item">
-
-                <ImageView
-                    style="@style/view_tutorial_step_img"
-                    android:src="@drawable/launch_orange_2"/>
-                <com.maxwell.bodysensor.ui.ViewTextView
-                    style="@style/view_tutorial_step_text"
-                    android:text="@string/tutorial2_step_2"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/view_tutorial_step_item">
-
-                <ImageView
-                    style="@style/view_tutorial_step_img"
-                    android:src="@drawable/launch_orange_3"/>
-                <com.maxwell.bodysensor.ui.ViewTextView
-                    style="@style/view_tutorial_step_text"
-                    android:text="@string/tutorial2_step_3"/>
+                    android:text="Tap Device List under Device settings for editing and removing paired device."/>
 
             </LinearLayout>
 
@@ -60,8 +36,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_17dp"
+                android:paddingLeft="@dimen/space_50dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/tutorial_02"/>
+                android:src="@drawable/img_tut_devicelist_a"/>
+
+
+            <LinearLayout
+                style="@style/view_tutorial_step_item">
+
+                <ImageView
+                    style="@style/view_tutorial_step_img"
+                    android:src="@drawable/bullet_2"/>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/view_tutorial_step_text"
+                    android:text="Select device and find more details"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_17dp"
+                android:paddingLeft="@dimen/space_50dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/img_tut_devicelist_b"/>
 
         </LinearLayout>
 

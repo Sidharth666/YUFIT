@@ -9,30 +9,68 @@
     <include layout="@layout/mxw_df_title_bar" />
 
     <LinearLayout
-        style="@style/app_outtab_content"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:weightSum="10">
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="0dp"
-            android:layout_weight="2" />
-
         <ImageView
             android:id="@+id/img_logo"
+            android:layout_width="@dimen/space_78dp"
+            android:layout_height="@dimen/space_78dp"
+            android:scaleType="centerInside"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/text_12sp"
+            android:src="@drawable/logo_yuplaygod"/>
+
+        <ImageView
+            android:layout_width="@dimen/space_226dp"
+            android:layout_height="@dimen/space_226dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/img_band"/>
+
+        <ImageView
             android:layout_width="@dimen/space_100dp"
             android:layout_height="@dimen/space_100dp"
             android:scaleType="centerInside"
-            android:src="@drawable/big_app_icon"/>
-        <com.maxwell.bodysensor.ui.ViewTextView
-            android:id="@+id/text_version"
+            android:src="@drawable/logo_yufit_about_n_buy"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_15sp"
+            android:text="YU Televentures Pvt. Ltd."
+            />
+        <TextView
+            android:id="@+id/yu_play_god"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/space_15dp"
-            android:textSize="@dimen/text_20sp"
-            tools:text="1.0.0"
+            android:textSize="@dimen/text_15sp"
+            android:text="@string/yu_play_god"
+            android:autoLink="web"
+            android:linksClickable="true"
             />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:background="@color/app_blue_setting_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/space_15dp"
+                android:textSize="@dimen/text_12sp"
+                android:text="@string/rights_reserved"
+                android:autoLink="web"
+                android:linksClickable="true"
+                />
+
+
+        </LinearLayout>
+
 
 
     </LinearLayout>

@@ -16,7 +16,8 @@
 	        android:layout_height="wrap_content"
 	        android:text="@string/df_task_alert_instruction"
 	        android:minLines="4"
-	        android:textSize="@dimen/text_17sp"
+	        android:textSize="@dimen/space_17dp"
+            android:textColor="@color/app_theme"
 	        android:gravity="center"
             />
         
@@ -36,7 +37,7 @@
 	                android:layout_weight="0.05" />
 	
 			    <com.maxwell.bodysensor.ui.ViewEditText
-                    style="@style/edit_task_alert_task_title"
+                    style="@style/basic_edittext_task"
 					android:id="@+id/edtTask1Title" />
 	            
 	            <ImageButton
@@ -65,9 +66,7 @@
 
                 <Button
                     android:id="@+id/btnSetTask1DateAndTime"
-                    style="@style/material_trans_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/material_trans_btn_inverse"
                     android:layout_marginRight="@dimen/card_padding"
                     android:gravity="center"
                     android:text="Set" />
@@ -93,7 +92,7 @@
                     android:layout_weight="0.05" />
 	
 			    <com.maxwell.bodysensor.ui.ViewEditText
-                    style="@style/edit_task_alert_task_title"
+                    style="@style/basic_edittext_task"
 					android:id="@+id/edtTask2Title" />
 	
 	            <ImageButton
@@ -122,9 +121,7 @@
 
                 <Button
                     android:id="@+id/btnSetTask2DateAndTime"
-                    style="@style/material_trans_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/material_trans_btn_inverse"
                     android:layout_marginRight="@dimen/card_padding"
                     android:gravity="center"
                     android:text="Set" />
@@ -150,7 +147,7 @@
                     android:layout_weight="0.05" />
 	
 			    <com.maxwell.bodysensor.ui.ViewEditText
-                    style="@style/edit_task_alert_task_title"
+                    style="@style/basic_edittext_task"
 					android:id="@+id/edtTask3Title" />
 	
 	            <ImageButton
@@ -179,9 +176,7 @@
 
                 <Button
                     android:id="@+id/btnSetTask3DateAndTime"
-                    style="@style/material_trans_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/material_trans_btn_inverse"
                     android:layout_marginRight="@dimen/card_padding"
                     android:gravity="center"
                     android:text="Set" />

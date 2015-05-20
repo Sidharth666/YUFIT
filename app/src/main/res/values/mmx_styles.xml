@@ -57,6 +57,15 @@
         <item name="android:background">@drawable/sel_btn_material</item>
     </style>
 
+    <style name="material_trans_btn_inverse">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/space_30dp</item>
+        <item name="android:textSize">@dimen/text_13sp</item>
+        <item name="colorButtonNormal">@android:color/white</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="android:background">@color/material_button_sel_bg</item>
+    </style>
+
     <style name="notification_header">
         <item name="android:layout_centerVertical">true</item>
         <item name="android:textSize">@dimen/text_notif_header</item>

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.maxwell.bodysensor.data.UserModeType;
+import com.maxwell.bodysensor.dialogfragment.DFDeviceAlarm;
 import com.maxwell.bodysensor.util.UtilConst;
 import com.maxwellguider.bluetooth.MGPeripheral.DeviceType;
 import com.maxwellguider.bluetooth.activitytracker.GoalType;
@@ -24,6 +25,7 @@ public class SharedPrefWrapper {
     private static final int DEF_DEVICE_NO_DISTURBING_END = 420; // default : 420 => 7:00
 
     private static final int DEF_DEVICE_ALARM_TIME = 480; // default : 480 => 8:00
+    private static final int DEF_DEVICE_ALARM_MASK = DFDeviceAlarm.WEEKLY_ALARM.MONDAY.getValue(); // default : Monday
     private static final int DEF_DEVICE_MOVE_ALERT_START = 540; // default : 540 => 9:00
     private static final int DEF_DEVICE_MOVE_ALERT_END = 1080; // default : 1080 => 18:00
 
@@ -251,7 +253,7 @@ public class SharedPrefWrapper {
 
     //++ BLE device weekly alarm
     public int getDeviceWeeklyAlarmMask() {
-        return mPref.getInt(DEVICE_WEEKLY_ALARM, 0);
+        return mPref.getInt(DEVICE_WEEKLY_ALARM, DEF_DEVICE_ALARM_MASK);
     }
     public boolean setDeviceWeeklyAlarmMask(int weeklyAlarmMask) {
         return applyIt(DEVICE_WEEKLY_ALARM, weeklyAlarmMask);
@@ -364,6 +366,8 @@ public class SharedPrefWrapper {
     public boolean enableAlarm(boolean enable) {
         return applyIt(KEY_DEVICE_ALARM_ENABLE, enable);
     }
+
+
 
 
     public boolean enableDeviceSOS(boolean enable) {

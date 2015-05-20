@@ -25,62 +25,77 @@
 
                 <ImageView
                     style="@style/view_tutorial_step_img"
-                    android:src="@drawable/launch_orange_1"/>
+                    android:src="@drawable/bullet_1"/>
                 <com.maxwell.bodysensor.ui.ViewTextView
                     style="@style/view_tutorial_step_text"
                     android:text="@string/tutorial1_step_1"/>
 
             </LinearLayout>
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_17dp"
+                android:paddingLeft="@dimen/space_50dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/img_tut_add_a_device_a"/>
+
+
             <LinearLayout
                 style="@style/view_tutorial_step_item">
 
                 <ImageView
                     style="@style/view_tutorial_step_img"
-                    android:src="@drawable/launch_orange_2"/>
+                    android:src="@drawable/bullet_2"/>
                 <com.maxwell.bodysensor.ui.ViewTextView
                     style="@style/view_tutorial_step_text"
                     android:text="@string/tutorial1_step_2"/>
 
             </LinearLayout>
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_17dp"
+                android:paddingLeft="@dimen/space_50dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/img_tut_pair_a"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_17dp"
+                android:paddingLeft="@dimen/space_50dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/img_tut_pair_b"/>
+
             <LinearLayout
                 style="@style/view_tutorial_step_item">
 
                 <ImageView
                     style="@style/view_tutorial_step_img"
-                    android:src="@drawable/launch_orange_3"/>
+                    android:src="@drawable/bullet_3"/>
                 <com.maxwell.bodysensor.ui.ViewTextView
                     style="@style/view_tutorial_step_text"
                     android:text="@string/tutorial1_step_3"/>
 
             </LinearLayout>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingLeft="@dimen/space_50dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/tutorial_01_a"/>
 
             <LinearLayout
                 style="@style/view_tutorial_step_item">
 
                 <ImageView
                     style="@style/view_tutorial_step_img"
-                    android:src="@drawable/launch_orange_4"/>
+                    android:src="@drawable/bullet_4"/>
                 <com.maxwell.bodysensor.ui.ViewTextView
                     style="@style/view_tutorial_step_text"
                     android:text="@string/tutorial1_step_4"/>
 
             </LinearLayout>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingLeft="@dimen/space_50dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/tutorial_01_b"/>
+
 
         </LinearLayout>
 

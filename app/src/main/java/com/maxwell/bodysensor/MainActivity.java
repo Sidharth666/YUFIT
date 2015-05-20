@@ -108,23 +108,11 @@ public class MainActivity extends MXWActivity implements
     public static final double CALORIES_PER_KM_PER_KG = 0.75;
 
     public static final String FB_NAME_SPACE = "bodysensor";
-    public static final String FB_AVATAR_FILE_NAME = "facebook_avatar.png";
-
-    // containers
-    public static final String CONTAINER_FIRST = "ContainerFirst";
-    public static final String CONTAINER_MAIN = "ContainerMain";
     public static final String CONTAINER_SETTINGS = "ContainerSettings";
 
     // tabs
-    public static final String TAB_SPEC_HOME = "HOME";
     public static final String TAB_SPEC_TREND = "TREND";
-    public static final String TAB_SPEC_PLAYGROUND = "PLAYGROUND";
     public static final String TAB_SPEC_SETTING = "SETTING";
-
-    // tab, trends
-    public static final String TAG_TREND_A = "trend_a";
-    public static final String TAG_TREND_SD = "trend_s_d";
-    public static final String TAG_TREND_SNOND = "trend_s_non_d";
 
 
     //settings
@@ -165,6 +153,7 @@ public class MainActivity extends MXWActivity implements
 
 
     private OnActivityResultCallback mActivityResultCallback;
+
 
     public void setOnActivityResultListener(OnActivityResultCallback listener) {
         mActivityResultCallback = listener;
@@ -836,6 +825,7 @@ public class MainActivity extends MXWActivity implements
 
         // TODO : (TEST) read fitness filter
         mMaxwellBLE.readFitnessFilter();
+        MXWApp.isDeviceInitiated = true;
     }
 
     private String sendMyLocationSMS() {
@@ -984,7 +974,9 @@ public class MainActivity extends MXWActivity implements
     @Override
     public void onDeviceReady(MGPeripheral sender) {
         // TODO this should happen only once during pairing.
-        initDevicePowerWatch();
+        if(!MXWApp.isDeviceInitiated){
+            initDevicePowerWatch();
+        }
 
         if (mPairDeviceListener != null) {
             mPairDeviceListener.onDeviceReady(sender);
