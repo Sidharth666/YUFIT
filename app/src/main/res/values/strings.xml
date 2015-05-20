@@ -355,7 +355,7 @@
     <string name="tutorial2_step_1">Hold your device close to your phone when syncing.</string>
     <string name="tutorial2_step_2">Activate device\'s syncing mode.\nCheck your paper user manual for syncing details.</string>
     <string name="tutorial2_step_3">Go to home. Tap the sync button in the top-right corner, or pull down the ring, to sync your device data.</string>
-    <string name="tutorial3_instruction_1"><b>Camera Remote</b>: Use YUFIT band to remotely take photos from your smart phone</string>
+    <string name="tutorial3_instruction_1"><b>Camera Remote</b>: Use YUFIT band <img src="../drawable-hdpi/icon_pwr_yufit.png"/> to remotely take photos from your smart phone</string>
     <string name="tutorial3_instruction_2"><b>Video Remote</b>: Use YUFIT band to remotely shoot videos from your smart phone</string>
     <string name="tutorial4_instruction"><b>Find Phone</b>: Search for your phone or raise an alarm if too far away from th phone</string>
     <string name="tutorial5_step_1">Make sure you are connected to your social accounts in the settings.</string>

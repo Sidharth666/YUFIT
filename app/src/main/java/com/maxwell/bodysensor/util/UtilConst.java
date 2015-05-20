@@ -19,7 +19,7 @@ public class UtilConst {
     public static final int FALSE_INT = 0;
     public static final String HME_DEBUG_PACKAGE_NAME = "com.healthifyme.basic.debug";
     public static final String HME_MAIN_PACKAGE_NAME = "com.healthifyme.basic";
-    public static final String HME_PACKAGE_NAME = HME_DEBUG_PACKAGE_NAME;
+    public static final String HME_PACKAGE_NAME = HME_MAIN_PACKAGE_NAME;
     public static final String PLAYSTORE_PKG_NAME_PREFIX = "https://play.google.com/store/apps/details?id=";
     public static final String MARKET_PKG_NAME_PREFIX = "market://details?id=";
 

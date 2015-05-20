@@ -39,7 +39,7 @@
                 android:layout_marginTop="@dimen/space_30dp"
                 android:paddingLeft="@dimen/space_50dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/img_tut_devicelist_a"/>
+                android:src="@drawable/img_tut_sync"/>
 
         </LinearLayout>
 
