@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
     <string name="device_settings">Device Settings</string>
     <string name="yufit">YUFIT</string>
-    <string name="string_datefmt_a">a</string>
-    <string name="string_datefmt_hm">hh:mm</string>
-    <string name="notifications">Notifications:</string>
-    <string name="no_disturbance">No Disturbance:</string>
-    <string name="image_save_success">Image Saved in gallery</string>
-    <string name="video_save_success">Video successfully saved</string>
+    <string name="string_datefmt_a" translatable="false">a</string>
+    <string name="string_datefmt_hm" translatable="false">hh:mm</string>
+    <string name="notifications" translatable="false">Notifications:</string>
+    <string name="no_disturbance" translatable="false">No Disturbance:</string>
+    <string name="image_save_success" translatable="false">Image Saved in gallery</string>
+    <string name="video_save_success" translatable="false">Video successfully saved</string>
 </resources>

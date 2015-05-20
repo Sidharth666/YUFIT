@@ -29,7 +29,7 @@
                 android:layout_alignRight="@+id/iv_band"
                 android:layout_marginTop="44dp"
                 android:layout_marginLeft="19dp"
-                android:src="@drawable/img_hand" />
+                android:src="@drawable/ic_hand_blue" />
         </RelativeLayout>
 
         <LinearLayout
