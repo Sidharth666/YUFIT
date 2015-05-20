@@ -6,7 +6,6 @@
 
     <permission
         android:name="mxx.permission.ACCESS_DB_DATA"
-
         android:protectionLevel="signatureOrSystem"></permission>
 
 
