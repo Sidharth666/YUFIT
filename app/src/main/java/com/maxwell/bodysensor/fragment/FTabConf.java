@@ -403,14 +403,17 @@ public class FTabConf extends Fragment implements
 
         }
 
-        if(mMaxwellBLE.isConnected()){
+        if(mMaxwellBLE.isConnected() && !mActivity.isSyncing()){
             mTextConnStatus.setText("Connected");
             mLlBattery.setVisibility(VISIBLE);
 
-        }else{
+        }else if(mActivity.isSyncing()){
+            mTextConnStatus.setText("Syncing");
+            mLlBattery.setVisibility(VISIBLE);
+
+        }else if(!mMaxwellBLE.isConnected()){
             mTextConnStatus.setText("Disconnected");
             mLlBattery.setVisibility(View.GONE);
-
         }
 
         if(mPD.getTargetDeviceMac().equals("")){
@@ -568,7 +571,6 @@ public class FTabConf extends Fragment implements
                 Intent intent = new Intent(MXWApp.HME_ACTION);
                 startActivity(intent);
             }else{
-
 
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(UtilConst.MARKET_PKG_NAME_PREFIX + UtilConst.HME_PACKAGE_NAME)));
@@ -857,7 +859,7 @@ public class FTabConf extends Fragment implements
     @Override
     public void onDeviceConnect(MGPeripheral sender) {
         mLlBattery.setVisibility(View.VISIBLE);
-        mTextConnStatus.setText("Connected");
+//        mTextConnStatus.setText("Connected");
         updateView();
     }
 
@@ -875,8 +877,8 @@ public class FTabConf extends Fragment implements
     @Override
     public void onDeviceReady(MGPeripheral sender) {
         mLlBattery.setVisibility(View.VISIBLE);
-        mTextConnStatus.setText("Connected");
-
+//        mTextConnStatus.setText("Connected");
+        updateView();
     }
 
     @Override
@@ -892,7 +894,7 @@ public class FTabConf extends Fragment implements
     @Override
     public void onSyncFinish() {
         mSyncProgress.setVisibility(View.INVISIBLE);
-
+        mTextConnStatus.setText("Sync Failed");
         updateView();
     }
 
