@@ -340,7 +340,7 @@
     <string name="warning_no_facebook_photo">No facebook profile photo</string>
 
     <!-- Tutorial -->
-    <string name="title_pairing_new_device">Pairing New Device</string>
+    <string name="title_pairing_new_device">Pairing YUFIT Device</string>
     <string name="title_syncing">Syncing</string>
     <string name="title_setting_your_goal">Setting Your Goal</string>
     <string name="title_switching_device">Switching Device</string>
@@ -348,16 +348,16 @@
     <string name="title_monitoring_sleep">Monitoring Sleep</string>
     <string name="title_setting_up_the_alarm">Setting up the Alarm</string>
     <string name="title_deleting_sleep_entries">Deleting Sleep Entries</string>
-    <string name="tutorial1_step_1">Enable Bluetooth in the phone setting.</string>
-    <string name="tutorial1_step_2">Activate device\'s pairing mode.\nCheck your paper user manual for pairing details.</string>
-    <string name="tutorial1_step_3">Tap Pair a Device in the settings.</string>
-    <string name="tutorial1_step_4">Select the device to pair.</string>
+    <string name="tutorial1_step_2">Tap and hold the pair button for 5 seconds to enable pairing mode on your YUFIT band</string>
+    <string name="tutorial1_step_3">Tap search for devices and select your device to pair.</string>
+    <string name="tutorial1_step_4">Edit device name and press Done to continue.</string>
+    <string name="tutorial1_step_1">Tap Add a device to connect to a YUFIT band</string>
     <string name="tutorial2_step_1">Hold your device close to your phone when syncing.</string>
     <string name="tutorial2_step_2">Activate device\'s syncing mode.\nCheck your paper user manual for syncing details.</string>
     <string name="tutorial2_step_3">Go to home. Tap the sync button in the top-right corner, or pull down the ring, to sync your device data.</string>
-    <string name="tutorial3_instruction_1">As you near your daily goal, the ring will slowly complete.</string>
-    <string name="tutorial3_instruction_2">Change your daily goal in the settings via Goal Setting.</string>
-    <string name="tutorial4_instruction">To view the workout data stored in another device, go to the device list in the sttings and choose the device.</string>
+    <string name="tutorial3_instruction_1"><b>Camera Remote</b>: Use YUFIT band to remotely take photos from your smart phone</string>
+    <string name="tutorial3_instruction_2"><b>Video Remote</b>: Use YUFIT band to remotely shoot videos from your smart phone</string>
+    <string name="tutorial4_instruction"><b>Find Phone</b>: Search for your phone or raise an alarm if too far away from th phone</string>
     <string name="tutorial5_step_1">Make sure you are connected to your social accounts in the settings.</string>
     <string name="tutorial5_step_2">In the activity page, swipe up to share your workout.</string>
     <string name="tutorial6_instruction_1">Log your sleep session here.</string>
@@ -483,9 +483,9 @@
     <string name="df_smart_keys_find_device">Find Device</string>
     <string name="df_smart_keys_none">None</string>
     <string name="df_smart_keys_instruction_none">Disable function of smart keys.</string>
-    <string name="df_smart_keys_instruction_remote_camera">Press the launch button and long press the pair button on the YUFIT band.</string>
-    <string name="df_smart_keys_instruction_remote_video">Press the launch button and long press the pair button on the YUFIT band.</string>
-    <string name="df_smart_keys_instruction_find_phone">Find Phone helps you find your phone/tablet by activating the ringtone.\n\nTo use your band to control Find Phone application, please see the paper user manual.</string>
+    <string name="df_smart_keys_instruction_remote_camera">Press the pair button on YUFIT band for approx. 3-5 seconds to remotely take photos from your smartphone.</string>
+    <string name="df_smart_keys_instruction_remote_video">Press the pair button on YUFIT band for approx. 3-5 seconds to remotely shoot videos from your smartphone.</string>
+    <string name="df_smart_keys_instruction_find_phone">Search for your phone or activate the ringtone/vibration if too far away from the smartphone.</string>
 
     <!-- Strings for df_task_alert -->
     <string name="df_task_alert_title">Task Alert</string>

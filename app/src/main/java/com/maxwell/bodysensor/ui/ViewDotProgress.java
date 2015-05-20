@@ -17,7 +17,7 @@ public class ViewDotProgress extends View{
     Paint mPaintFill = new Paint();
     Paint mPaintProgress = new Paint();
     Paint mPaintNonProgress = new Paint();
-    int mSize = 7;
+    int mSize = 4;
     int mProgress = 1;
     int mViewW = -1;
     int mViewH = -1;
@@ -70,8 +70,8 @@ public class ViewDotProgress extends View{
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int w = resolveSize(120, widthMeasureSpec);
-        int h = resolveSize(120, heightMeasureSpec);
+        int w = resolveSize(80, widthMeasureSpec);
+        int h = resolveSize(80, heightMeasureSpec);
         setMeasuredDimension(w, h);
     }
 

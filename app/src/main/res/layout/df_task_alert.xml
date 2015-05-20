@@ -66,9 +66,7 @@
 
                 <Button
                     android:id="@+id/btnSetTask1DateAndTime"
-                    style="@style/material_trans_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/material_trans_btn_inverse"
                     android:layout_marginRight="@dimen/card_padding"
                     android:gravity="center"
                     android:text="Set" />
@@ -123,9 +121,7 @@
 
                 <Button
                     android:id="@+id/btnSetTask2DateAndTime"
-                    style="@style/material_trans_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/material_trans_btn_inverse"
                     android:layout_marginRight="@dimen/card_padding"
                     android:gravity="center"
                     android:text="Set" />
@@ -180,9 +176,7 @@
 
                 <Button
                     android:id="@+id/btnSetTask3DateAndTime"
-                    style="@style/material_trans_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/material_trans_btn_inverse"
                     android:layout_marginRight="@dimen/card_padding"
                     android:gravity="center"
                     android:text="Set" />

@@ -127,7 +127,7 @@
 
     <style name="app_title_rl_text" parent="@style/app_title_rl">
         <item name="android:lines">1</item>
-        <item name="android:textSize">@dimen/text_16sp</item>
+        <item name="android:textSize">@dimen/text_15sp</item>
         <item name="android:textColor">@color/text_color_primary</item>
     </style>
 

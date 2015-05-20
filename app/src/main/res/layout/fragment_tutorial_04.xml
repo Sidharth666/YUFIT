@@ -18,20 +18,28 @@
 
             <com.maxwell.bodysensor.ui.ViewTextView
                 style="@style/view_tutorial_title_text"
-                android:text="@string/title_switching_device"/>
+                android:text="Syncing"/>
 
-            <com.maxwell.bodysensor.ui.ViewTextView
-                style="@style/view_tutorial_instruction_text"
-                android:text="@string/tutorial4_instruction"/>
+            <LinearLayout
+                style="@style/view_tutorial_step_item">
+
+                <ImageView
+                    style="@style/view_tutorial_step_img"
+                    android:src="@drawable/bullet_1"/>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/view_tutorial_step_text"
+                    android:text="Tap the sync button when connected to the YUFIT band to sync recent data."/>
+
+            </LinearLayout>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:paddingLeft="@dimen/space_30dp"
-                android:paddingRight="@dimen/space_30dp"
+                android:layout_marginTop="@dimen/space_30dp"
+                android:paddingLeft="@dimen/space_50dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/tutorial_04"/>
+                android:src="@drawable/img_tut_devicelist_a"/>
 
         </LinearLayout>
 

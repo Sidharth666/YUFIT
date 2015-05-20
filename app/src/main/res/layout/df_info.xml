@@ -23,6 +23,7 @@
             android:layout_height="match_parent"
             android:layout_weight="10"
             android:orientation="vertical"
+            android:gravity="center_horizontal"
             android:weightSum="10">
 
             <View
@@ -30,8 +31,16 @@
                 android:layout_height="0dp"
                 android:layout_weight="1" />
 
+            <ImageView
+                android:id="@+id/desc_icon"
+                android:layout_height="@dimen/space_78dp"
+                android:layout_width="@dimen/space_78dp"
+                android:scaleType="center"
+                />
+
             <com.maxwell.bodysensor.ui.ViewTextView
                 android:id="@+id/text_info"
+                android:layout_marginTop="@dimen/space_28dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                  />
