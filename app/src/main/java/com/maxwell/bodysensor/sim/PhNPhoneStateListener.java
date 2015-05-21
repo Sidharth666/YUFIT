@@ -14,6 +14,8 @@ import com.maxwellguider.bluetooth.activitytracker.MGActivityTracker;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTrackerApi;
 import com.maxwell.bodysensor.util.UtilDBG;
 
+import java.util.Calendar;
+
 // Ref. http://stackoverflow.com/questions/1853220/retrieve-incoming-calls-phone-number-in-android
 
 public class PhNPhoneStateListener extends PhoneStateListener {
@@ -48,7 +50,23 @@ public class PhNPhoneStateListener extends PhoneStateListener {
 
             if (mSharedPref.isDeviceIncomingCallEnable()) {
                 if (mMaxwellBLE.isReady()) {
-                    mMaxwellBLE.phoneNotification();
+                    boolean mEnableNoDisturbing = mSharedPref.isInComingCallNoDisturbingEnable();
+                    int start = mSharedPref.getInComingCallNoDisturbingStart();
+                    int end = mSharedPref.getInComingCallNoDisturbingEnd();
+
+                    Calendar c = Calendar.getInstance();
+                    int nowHour = c.getTime().getHours();
+                    int nowMinute = c.getTime().getMinutes();
+                    int nowTime =  nowHour * 60 + nowMinute;
+                    //check if time b/w no dist time
+                    if(mEnableNoDisturbing){
+                        if(start < nowTime && nowTime<end){
+                            return;
+                        }else
+                            mMaxwellBLE.phoneNotification();
+                    }else{
+                        mMaxwellBLE.phoneNotification();
+                    }
                 }
             }
 

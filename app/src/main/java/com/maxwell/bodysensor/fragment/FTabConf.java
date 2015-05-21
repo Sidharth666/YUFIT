@@ -62,6 +62,7 @@ import com.maxwellguider.bluetooth.activitytracker.MGActivityTracker;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTrackerApi;
 import com.maxwellguider.bluetooth.activitytracker.UnitType;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import static android.view.View.VISIBLE;
@@ -552,9 +553,28 @@ public class FTabConf extends Fragment implements
 
     private void setLinkLossIndicator(boolean enable) {
         if (mMaxwellBLE.isReady()) {
-            mMaxwellBLE.setLinkLossIndicator(enable);
+
+            boolean enableNoDist = mSharedPref.isOutOfRangeNoDisturbingEnable();
+            int start = mSharedPref.getOutOfRangeNoDisturbingStart();
+            int end = mSharedPref.getOutOfRangeNoDisturbingEnd();
+
+            Calendar c = Calendar.getInstance();
+            int nowHour = c.getTime().getHours();
+            int nowMinute = c.getTime().getMinutes();
+            int nowTime =  nowHour * 60 + nowMinute;
+            //check if time b/w no dist time
+            if(enableNoDist){
+                if(start < nowTime && nowTime<end){
+                    return;
+                }else
+                    mMaxwellBLE.setLinkLossIndicator(enable);
+            }else{
+                mMaxwellBLE.setLinkLossIndicator(enable);
+            }
+            }
+
         }
-    }
+
 
     @Override
     public void onClick(View v) {
