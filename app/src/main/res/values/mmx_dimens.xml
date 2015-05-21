@@ -15,4 +15,7 @@
     <dimen name="text_sub_head_2">16sp</dimen>
     <dimen name="text_head">22sp</dimen>
 
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="ib_padding">11dp</dimen>
+
 </resources>

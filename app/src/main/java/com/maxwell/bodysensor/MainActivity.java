@@ -133,7 +133,7 @@ public class MainActivity extends MXWActivity implements
 
     private boolean mIsOnResumed = false;
 
-    private static final String AUTHORITY = UtilConst.HME_PACKAGE_NAME + ".providers.authority.MXX_PROVIDER";
+    private static final String AUTHORITY = "com.healthifyme.basic.providers.authority.MXX_PROVIDER";
     public static final Uri CONTENT_URI_DBPROFILE = Uri.parse("content://" + AUTHORITY + "/DBProfile");
     public static final Uri CONTENT_URI_DB_DEVICE = Uri.parse("content://" + AUTHORITY + "/DBDevice");
 
