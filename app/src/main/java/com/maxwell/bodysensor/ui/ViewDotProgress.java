@@ -17,7 +17,7 @@ public class ViewDotProgress extends View{
     Paint mPaintFill = new Paint();
     Paint mPaintProgress = new Paint();
     Paint mPaintNonProgress = new Paint();
-    int mSize = 4;
+    int mSize = 5;
     int mProgress = 1;
     int mViewW = -1;
     int mViewH = -1;

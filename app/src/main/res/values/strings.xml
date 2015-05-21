@@ -348,16 +348,30 @@
     <string name="title_monitoring_sleep">Monitoring Sleep</string>
     <string name="title_setting_up_the_alarm">Setting up the Alarm</string>
     <string name="title_deleting_sleep_entries">Deleting Sleep Entries</string>
-    <string name="tutorial1_step_2">Tap and hold the pair button for 5 seconds to enable pairing mode on your YUFIT band</string>
-    <string name="tutorial1_step_3">Tap search for devices and select your device to pair.</string>
+
+    <string name="tutorial1_step_1">Tap <b>Add a device</b> on your smartphone as shown below.</string>
+    <string name="tutorial1_step_2">Tap and hold the pair button for 5 seconds on your YUFIT band to enable pairing mode. </string>
+    <string name="tutorial1_step_3">It will vibrate and a pairing code will be displayed.</string>
     <string name="tutorial1_step_4">Edit device name and press Done to continue.</string>
-    <string name="tutorial1_step_1">Tap Add a device to connect to a YUFIT band</string>
+
+    <string name="tutorial2_new_step_1">Tap <b>Search for Devices</b> and select your device to pair.</string>
+    <string name="tutorial2_new_step_2"><b>Note:</b> Place YUFIT band close to your smartphone.</string>
+    <string name="tutorial2_new_step_3">Tap <b>Yes</b> if the 4-digit number in app\'s pop-up matches the number showing on the device.Give device name if required..</string>
+
+    <string name="tutorial3_new_step_1">To find more Devices, tap <b>Device List</b> under <b>Device Settings</b> option.</string>
+    <string name="tutorial3_new_step_3">Selected and paired Device will show its details.</string>
+
+    <string name="tutorial_sync__step_2">Just download the HealthifyMe app from Google Playstore to start viewing your YUFIT readings. <b>Note</b>: You need to sync to get the latest readings.</string>
+
+
     <string name="tutorial2_step_1">Hold your device close to your phone when syncing.</string>
     <string name="tutorial2_step_2">Activate device\'s syncing mode.\nCheck your paper user manual for syncing details.</string>
     <string name="tutorial2_step_3">Go to home. Tap the sync button in the top-right corner, or pull down the ring, to sync your device data.</string>
-    <string name="tutorial3_instruction_1"><b>Camera Remote</b>: Use YUFIT band <img src="../drawable-hdpi/icon_pwr_yufit.png"/> to remotely take photos from your smart phone</string>
-    <string name="tutorial3_instruction_2"><b>Video Remote</b>: Use YUFIT band to remotely shoot videos from your smart phone</string>
-    <string name="tutorial4_instruction"><b>Find Phone</b>: Search for your phone or raise an alarm if too far away from th phone</string>
+
+    <string name="tutorial3_instruction_1"><b>Camera Remote</b>: Tap <b>Launch</b> on your smartphone and double tap or long press pair button on the YUFIT band to remotely take photos from your smartphone.</string>
+    <string name="tutorial3_instruction_2"><b>Video Remote</b>: Tap <b>Launch</b> on your smartphone and double tap or long press pair button on the YUFIT band to remotely shoot videos from your smartphone</string>
+    <string name="tutorial4_instruction"><b>Find Phone</b>: Enable <b>Find Phone</b> and double tap or long press pair button on the YUFIT band to locate your phone through ringtone/vibration.</string>
+
     <string name="tutorial5_step_1">Make sure you are connected to your social accounts in the settings.</string>
     <string name="tutorial5_step_2">In the activity page, swipe up to share your workout.</string>
     <string name="tutorial6_instruction_1">Log your sleep session here.</string>

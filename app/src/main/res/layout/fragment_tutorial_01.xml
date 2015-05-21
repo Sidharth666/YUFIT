@@ -61,17 +61,9 @@
                 android:layout_marginTop="@dimen/space_17dp"
                 android:paddingLeft="@dimen/space_50dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/img_tut_pair_a"/>
+                android:src="@drawable/img_tut_pair_bands"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/space_17dp"
-                android:paddingLeft="@dimen/space_50dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/img_tut_pair_b"/>
-
+            
             <LinearLayout
                 style="@style/view_tutorial_step_item">
 
@@ -83,19 +75,6 @@
                     android:text="@string/tutorial1_step_3"/>
 
             </LinearLayout>
-
-            <LinearLayout
-                style="@style/view_tutorial_step_item">
-
-                <ImageView
-                    style="@style/view_tutorial_step_img"
-                    android:src="@drawable/bullet_4"/>
-                <com.maxwell.bodysensor.ui.ViewTextView
-                    style="@style/view_tutorial_step_text"
-                    android:text="@string/tutorial1_step_4"/>
-
-            </LinearLayout>
-
 
         </LinearLayout>
 

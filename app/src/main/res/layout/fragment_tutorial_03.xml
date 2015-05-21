@@ -28,7 +28,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/space_17dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/img_tut_smart"/>
+                android:src="@drawable/img_tut_smartkeys"/>
 
             <LinearLayout
                 style="@style/view_tutorial_step_item">
