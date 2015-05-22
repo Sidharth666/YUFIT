@@ -5,7 +5,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:background">@drawable/sel_white_material</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
     </style>
 
     <style name="wrapper_settings_padding" parent="wrapper_settings">
@@ -54,7 +54,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="colorButtonNormal">@android:color/white</item>
         <item name="android:textColor">@color/text_color_primary</item>
-        <item name="android:background">@drawable/sel_btn_material</item>
+        <item name="android:background">@drawable/sel_btn</item>
     </style>
 
     <style name="material_trans_btn_inverse">
@@ -63,7 +63,7 @@
         <item name="android:textSize">@dimen/text_13sp</item>
         <item name="colorButtonNormal">@android:color/white</item>
         <item name="android:textColor">@color/text_color_primary</item>
-        <item name="android:background">@drawable/sel_btn_material</item>
+        <item name="android:background">@drawable/sel_btn</item>
     </style>
 
     <style name="notification_header">

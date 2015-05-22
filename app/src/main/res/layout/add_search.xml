@@ -7,7 +7,7 @@
         <ImageButton
             android:id="@+id/imgb_cancel"
             style="@style/app_title_left_image"
-            android:background="@drawable/sel_btn_material"
+            android:background="@drawable/sel_btn"
             android:contentDescription="@string/acd"
             android:src="@drawable/ic_navarrow_blue" />
 

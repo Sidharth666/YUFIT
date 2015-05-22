@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@android:color/white"
     android:layout_height="wrap_content">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -92,12 +94,11 @@
                         android:id="@+id/btn_go_to_hme"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/sel_white_material"
+                        android:background="@drawable/sel_btn_white"
                         android:text="Go to HealthifyMe now"
                         android:textColor="@color/text_color_primary" />
 
                 </LinearLayout>
-
 
             </RelativeLayout>
 

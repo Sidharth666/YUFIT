@@ -24,7 +24,7 @@
             android:id="@+id/btnCancelImg"
             style="@style/app_title_left_image"
             android:src="@drawable/ic_navarrow_blue"
-            android:background="@drawable/sel_btn_material"
+            android:background="@drawable/sel_btn"
             android:contentDescription="@string/acd"/>
         <com.maxwell.bodysensor.ui.ViewButton
             android:id="@+id/btn_edit"
