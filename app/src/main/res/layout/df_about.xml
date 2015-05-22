@@ -32,7 +32,7 @@
 
         <ImageView
             android:layout_width="@dimen/space_100dp"
-            android:layout_height="@dimen/space_100dp"
+            android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:src="@drawable/logo_yufit_about_n_buy"/>
 
@@ -56,15 +56,16 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_15dp"
             android:background="@color/app_blue_setting_bg">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/space_15dp"
                 android:textSize="@dimen/text_12sp"
                 android:text="@string/rights_reserved"
                 android:autoLink="web"
+                android:padding="@dimen/space_5dp"
                 android:linksClickable="true"
                 />
 

@@ -643,17 +643,17 @@ public class FTabConf extends Fragment implements
         } else if (v==mViewCameraRemote) {
             dlg = new DFInfo();
             ((DFInfo) dlg).setTitleResId(R.string.df_smart_keys_camera_remote);
-            ((DFInfo) dlg).setInfo(getString(R.string.df_smart_keys_instruction_remote_camera));
+            ((DFInfo) dlg).setInfo(getString(R.string.tutorial3_instruction_1));
             ((DFInfo) dlg).setImg(R.drawable.ic_camera);
         } else if (v==mViewVideoRemote) {
             dlg = new DFInfo();
             ((DFInfo) dlg).setTitleResId(R.string.df_smart_keys_video_remote);
-            ((DFInfo) dlg).setInfo(getString(R.string.df_smart_keys_instruction_remote_video));
+            ((DFInfo) dlg).setInfo(getString(R.string.tutorial3_instruction_2));
             ((DFInfo) dlg).setImg(R.drawable.ic_video);
         } else if (v==mViewFindPhone) {
             dlg = new DFInfo();
             ((DFInfo) dlg).setTitleResId(R.string.df_smart_keys_find_phone);
-            ((DFInfo) dlg).setInfo(getString(R.string.df_smart_keys_instruction_find_phone));
+            ((DFInfo) dlg).setInfo(getString(R.string.tutorial4_instruction));
             ((DFInfo) dlg).setImg(R.drawable.ic_finddevice);
         } else if (v==mViewDeviceAlarm) {
         	dlg = new DFDeviceAlarm();

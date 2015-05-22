@@ -18,6 +18,7 @@
 
             <com.maxwell.bodysensor.ui.ViewTextView
                 style="@style/view_tutorial_title_text"
+                android:textStyle="bold"
                 android:text="Sync YUFIT"/>
 
             <LinearLayout
@@ -37,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/space_30dp"
-                android:paddingLeft="@dimen/space_50dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/img_tut_sync"/>
 
@@ -50,6 +50,7 @@
                 <com.maxwell.bodysensor.ui.ViewTextView
                     style="@style/view_tutorial_step_text"
                     android:text="@string/tutorial_sync__step_2"/>
+
 
             </LinearLayout>
 
