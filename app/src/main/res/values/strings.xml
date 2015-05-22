@@ -354,16 +354,6 @@
     <string name="tutorial1_step_3">It will vibrate and a pairing code will be displayed.</string>
     <string name="tutorial1_step_4">Edit device name and press Done to continue.</string>
 
-    <string name="tutorial2_new_step_1">Tap <b>Search for Devices</b> and select your device to pair.</string>
-    <string name="tutorial2_new_step_2"><b>Note:</b> Place YUFIT band close to your smartphone.</string>
-    <string name="tutorial2_new_step_3">Tap <b>Yes</b> if the 4-digit number in app\'s pop-up matches the number showing on the device.Give device name if required..</string>
-
-    <string name="tutorial3_new_step_1">To find more Devices, tap <b>Device List</b> under <b>Device Settings</b> option.</string>
-    <string name="tutorial3_new_step_3">Selected and paired Device will show its details.</string>
-
-    <string name="tutorial_sync__step_2">Just download the HealthifyMe app from Google Playstore to start viewing your YUFIT readings. <b>Note</b>: You need to sync to get the latest readings.</string>
-
-
     <string name="tutorial2_step_1">Hold your device close to your phone when syncing.</string>
     <string name="tutorial2_step_2">Activate device\'s syncing mode.\nCheck your paper user manual for syncing details.</string>
     <string name="tutorial2_step_3">Go to home. Tap the sync button in the top-right corner, or pull down the ring, to sync your device data.</string>
