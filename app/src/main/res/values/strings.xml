@@ -356,7 +356,7 @@
 
     <string name="tutorial2_new_step_1">Tap <b>Search for Devices</b> on your smartphone.</string>
     <string name="tutorial2_new_step_2"><b>Note:</b> Place YUFIT band close to your smartphone.</string>
-    <string name="tutorial2_new_step_3">Tap <b>Yes</b> if the 4-digit number in app\'s pop-up matches the number showing on the device.Give device name if required.</string>
+    <string name="tutorial2_new_step_3">Tap <b>Yes</b> if the 4-digit number in app\'s pop-up matches the number showing on the YUFIT band.Give device name if required.</string>
 
     <string name="tutorial3_new_step_1">To add more Devices, tap <b>Device List</b> under <b>Device Settings</b> option.</string>
     <string name="tutorial3_new_step_3">Selected and paired Device will show its details.</string>
