@@ -20,17 +20,18 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.maxwell.bodysensor"
+        applicationId "com.mmx.YUFIT"
         minSdkVersion 18
         targetSdkVersion 21
-        versionCode 2020001
-        versionName "2.0.20001"
+        versionCode 1
+        versionName "1.0"
     }
 
     buildTypes {
 
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

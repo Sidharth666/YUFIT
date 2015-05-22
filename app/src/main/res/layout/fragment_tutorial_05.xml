@@ -18,6 +18,7 @@
 
             <com.maxwell.bodysensor.ui.ViewTextView
                 style="@style/view_tutorial_title_text"
+                android:textStyle="bold"
                 android:text="@string/title_pairing_new_device"/>
 
             <LinearLayout
@@ -37,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/space_17dp"
-                android:paddingLeft="@dimen/space_50dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/img_tut_pair_search"/>
 
@@ -50,7 +50,7 @@
                     android:src="@null"/>
                 <com.maxwell.bodysensor.ui.ViewTextView
                     style="@style/view_tutorial_step_text"
-                    android:text="@string/tutorial1_step_2"/>
+                    android:text="@string/tutorial2_new_step_2"/>
 
             </LinearLayout>
 
@@ -59,7 +59,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/space_17dp"
-                android:paddingLeft="@dimen/space_50dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/img_tut_pair_code"/>
 
@@ -72,7 +71,7 @@
                     android:src="@drawable/bullet_5"/>
                 <com.maxwell.bodysensor.ui.ViewTextView
                     style="@style/view_tutorial_step_text"
-                    android:text="@string/tutorial1_step_3"/>
+                    android:text="@string/tutorial2_new_step_3"/>
 
             </LinearLayout>
 

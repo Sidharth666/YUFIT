@@ -1183,10 +1183,10 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:textColor">@color/app_grey80</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">0.8</item>
+        <item name="android:layout_weight">0.7</item>
         <item name="android:paddingTop">@dimen/space_8dp</item>
         <item name="android:paddingBottom">@dimen/space_8dp</item>
-        <item name="android:paddingLeft">@dimen/space_10dp</item>
+        <item name="android:paddingLeft">@dimen/space_1dp</item>
         <item name="android:paddingRight">@dimen/space_10dp</item>
         <item name="android:textSize">@dimen/text_15sp</item>
         <item name="android:text">@string/df_task_date_time_hint</item>
@@ -1259,7 +1259,7 @@
     <style name="view_tutorial_step_text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/text_16sp</item>
+        <item name="android:textSize">@dimen/text_15sp</item>
     </style>
 
     <style name="view_tutorial_step_img">

@@ -18,6 +18,7 @@
 
             <com.maxwell.bodysensor.ui.ViewTextView
                 style="@style/view_tutorial_title_text"
+                android:textStyle="bold"
                 android:text="Device List"/>
 
             <LinearLayout
@@ -37,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/space_17dp"
-                android:paddingLeft="@dimen/space_50dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/img_tut_devicelist_a"/>
 
@@ -50,7 +50,7 @@
                     android:src="@drawable/bullet_2"/>
                 <com.maxwell.bodysensor.ui.ViewTextView
                     style="@style/view_tutorial_step_text"
-                    android:text="Select device and find more details."/>
+                    android:text="Select your YUFIT band."/>
 
             </LinearLayout>
 
@@ -59,7 +59,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/space_17dp"
-                android:paddingLeft="@dimen/space_50dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/img_tut_devicelist_b"/>
 
@@ -81,7 +80,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/space_17dp"
-                android:paddingLeft="@dimen/space_50dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/img_tut_devicelist_edit"/>
 

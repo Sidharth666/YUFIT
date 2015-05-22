@@ -16,13 +16,13 @@
     <string name="rights_reserved">All Rights Reserved 2015</string>
 
     <!-- tutorial -->
-    <string name="tutorial2_new_step_1">Tap <b>Search for Devices</b> and select your device to pair.</string>
+    <string name="tutorial2_new_step_1">Tap <b>Search for Devices</b> on your smartphone.</string>
     <string name="tutorial2_new_step_2"><b>Note:</b> Place YUFIT band close to your smartphone.</string>
-    <string name="tutorial2_new_step_3">Tap <b>Yes</b> if the 4-digit number in app\'s pop-up matches the number showing on the device.Give device name if required..</string>
+    <string name="tutorial2_new_step_3">Tap <b>Yes</b> if the 4-digit number in app\'s pop-up matches the number showing on the YUFIT band.Give device name if required.</string>
 
-    <string name="tutorial3_new_step_1">To find more Devices, tap <b>Device List</b> under <b>Device Settings</b> option.</string>
+    <string name="tutorial3_new_step_1">To add more Devices, tap <b>Device List</b> under <b>Device Settings</b> option.</string>
     <string name="tutorial3_new_step_3">Selected and paired Device will show its details.</string>
 
-    <string name="tutorial_sync__step_2">Just download the HealthifyMe app from Google Playstore to start viewing your YUFIT readings. <b>Note</b>: You need to sync to get the latest readings.</string>
+    <string name="tutorial_sync__step_2">Just download the HealthifyMe app from Google Playstore to start viewing your YUFIT readings.\n\n<b>Note</b>: You need to sync YUFIT with your smartphone to get the latest readings.</string>
 
 </resources>
