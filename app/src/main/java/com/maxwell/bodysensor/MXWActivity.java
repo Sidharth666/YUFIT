@@ -237,15 +237,6 @@ public abstract class MXWActivity extends ActionBarActivity implements
     }
 
     @Override
-    public void onDeviceDisconnect(MGPeripheral sender) {
-        UtilDBG.i("[RYAN] MXWActivity > onDeviceDisconnect !!!!!!!!");
-
-        if (mSyncDeviceListener != null) {
-            mSyncDeviceListener.onDeviceDisconnect(sender);
-        }
-    }
-
-    @Override
     public void onConnectTimeOut(MGPeripheral sender) {
         UtilDBG.i("[RYAN] MXWActivity > onConnectTimeOut !!!!!!!!");
 
@@ -293,4 +284,12 @@ public abstract class MXWActivity extends ActionBarActivity implements
         }
     }
 
+    @Override
+    public void onDeviceDisconnect(MGPeripheral sender, String s, int i) {
+        UtilDBG.i("[RYAN] MXWActivity > onDeviceDisconnect !!!!!!!!");
+
+        if (mSyncDeviceListener != null) {
+            mSyncDeviceListener.onDeviceDisconnect(sender);
+        }
+    }
 }

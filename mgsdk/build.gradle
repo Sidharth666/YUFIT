@@ -1,2 +1,2 @@
 configurations.create("default")
-artifacts.add("default", file('mgsdk-release-v1.0.3.aar'))
+artifacts.add("default", file('mgsdk-release-v1.0.6.aar'))

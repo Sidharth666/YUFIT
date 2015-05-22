@@ -948,8 +948,8 @@ public class MainActivity extends MXWActivity implements
     }
 
     @Override
-    public void onDeviceDisconnect(MGPeripheral sender) {
-        super.onDeviceDisconnect(sender);
+    public void onDeviceDisconnect(MGPeripheral sender, String s, int i) {
+        super.onDeviceDisconnect(sender, s, i);
 
         if (mSharedPref.isDeviceOutOfRangeEnable()) {
             outOfRangeAlert();

@@ -127,8 +127,8 @@ public class GroupActivity extends MXWActivity {
     }
 
     @Override
-    public void onDeviceDisconnect(MGPeripheral sender) {
-        super.onDeviceDisconnect(sender);
+    public void onDeviceDisconnect(MGPeripheral sender, String s, int i) {
+        super.onDeviceDisconnect(sender, s, i);
     }
 
     @Override
