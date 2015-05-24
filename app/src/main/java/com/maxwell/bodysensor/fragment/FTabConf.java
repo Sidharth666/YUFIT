@@ -137,7 +137,8 @@ public class FTabConf extends Fragment implements
     private LinearLayout mLlBattery;
     private RelativeLayout mRlBanner;
     private LinearLayout mLlHMRedirect;
-    private LinearLayout mLlHMeActivity,mLlHMeSleep, mLlHMeNutrition;
+    private View btnSleep, btnActivity, btnNutrition;
+    private View llHmeOptionsWrapper;
 
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -207,10 +208,12 @@ public class FTabConf extends Fragment implements
 
         mLlBattery = (LinearLayout)rootView.findViewById(R.id.ll_battery);
         mLlHMRedirect = (LinearLayout)rootView.findViewById(R.id.view_hme_redirection);
-        mLlHMeActivity = (LinearLayout)rootView.findViewById(R.id.ll_healthifyme_activity);
+        btnActivity = rootView.findViewById(R.id.btn_healthifyme_activity);
+        btnSleep = rootView.findViewById(R.id.btn_healthifyme_sleep);
+        btnNutrition = rootView.findViewById(R.id.btn_healthifyme_nutrition);
+
         mRlBanner = (RelativeLayout) rootView.findViewById(R.id.rl_hme_banner);
-        mLlHMeSleep= (LinearLayout)rootView.findViewById(R.id.ll_healthifyme_sleep);
-        mLlHMeNutrition = (LinearLayout)rootView.findViewById(R.id.ll_healthifyme_nutrition);
+        llHmeOptionsWrapper = rootView.findViewById(R.id.ll_hme_options_wrapper);
 
         mBtnOpenHMe = (Button) rootView.findViewById(R.id.btn_go_to_hme);
         mBtnOpenHMe.setOnClickListener(this);
@@ -241,9 +244,9 @@ public class FTabConf extends Fragment implements
         mBtnLaunchVideo.setOnClickListener(this);
         mBtnSync.setOnClickListener(this);
 
-        mLlHMeActivity.setOnClickListener(this);
-        mLlHMeSleep.setOnClickListener(this);
-        mLlHMeNutrition.setOnClickListener(this);
+        btnActivity.setOnClickListener(this);
+        btnSleep.setOnClickListener(this);
+        btnNutrition.setOnClickListener(this);
 
         updateView();
 
@@ -603,11 +606,12 @@ public class FTabConf extends Fragment implements
             openHealthifyMe();
         }else if(v== mIbCloseBanner){
             mRlBanner.setVisibility(View.GONE);
-        }else if(v== mLlHMeSleep){
+            llHmeOptionsWrapper.setVisibility(View.VISIBLE);
+        }else if(v == btnSleep){
             openHealthifyMe();
-        }else if(v== mLlHMeNutrition){
+        }else if(v == btnNutrition){
             openHealthifyMe();
-        }else if(v== mLlHMeActivity) {
+        }else if(v == btnActivity) {
             openHealthifyMe();
         }else if(v==mBtnSync){
             initDeviceSync();
