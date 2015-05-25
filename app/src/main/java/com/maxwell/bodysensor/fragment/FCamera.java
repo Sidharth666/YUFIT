@@ -261,6 +261,7 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
                 mImgBtnOpenGallery.setImageResource(R.drawable.df_camera_open_gallery_for_video);
                 break;
             default:
+                mImgViewRecordingVideo.setVisibility(View.INVISIBLE);
                 mImgBtnOpenGallery.setImageResource(R.drawable.df_camera_open_gallery_for_photo);
         }
 
