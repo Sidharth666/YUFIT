@@ -419,8 +419,7 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
                 else
                     mCamera.takePicture(camShutterCallback, camPictureCallbackRawData, null);
             } catch (Exception e) {
-                Toast.makeText(mContext, "Error in AutoFocusCallback.onAutoFocus()", Toast.LENGTH_LONG)
-                        .show();
+//                Toast.makeText(mContext, "Error in AutoFocusCallback.onAutoFocus()", Toast.LENGTH_LONG).show();
             }
         }
     };
@@ -503,8 +502,7 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
                 /*MediaPlayer mp = MediaPlayer.create(mContext, R.raw.sound_camera_shutter);
                 mp.start();*/
             } catch (Exception e) {
-                Toast.makeText(mContext, "Error in ShutterCallback.onShutter()", Toast.LENGTH_LONG)
-                        .show();
+//                Toast.makeText(mContext, "Error in ShutterCallback.onShutter()", Toast.LENGTH_LONG).show();
             }
         }
     };

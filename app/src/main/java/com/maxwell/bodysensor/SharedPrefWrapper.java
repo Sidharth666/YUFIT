@@ -34,6 +34,7 @@ public class SharedPrefWrapper {
     private final String KEY_PROFILE_UNIT = "key_profile_unit";
 
     private final String SALESTRACK_SENT = "salestrack_sent";
+    private final String SYNCED = "synced";
 
     //========================================
     // BLE device advanced feature
@@ -158,6 +159,15 @@ public class SharedPrefWrapper {
     }
     public boolean setProfileUnit(UnitType unit) {
         return applyIt(KEY_PROFILE_UNIT, unit.getValue());
+    }
+
+    public boolean setSyncStatus(boolean value){
+        return applyIt(SYNCED,value);
+    }
+
+    public boolean hasSynced(){
+        boolean value = mPref.getBoolean(SYNCED,false);
+        return value;
     }
 
     public boolean getSalesTrackStatus(){
