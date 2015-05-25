@@ -422,7 +422,9 @@ public class FTabConf extends Fragment implements
 
         if(mMaxwellBLE.isConnected() && !mActivity.isSyncing()){
             mTextConnStatus.setText("Connected");
-            mLlBattery.setVisibility(VISIBLE);
+            if(mSharedPref.hasSynced()){
+                mLlBattery.setVisibility(VISIBLE);
+            }
 
         }else if(mActivity.isSyncing()){
             mTextConnStatus.setText("Syncing");
@@ -698,13 +700,23 @@ public class FTabConf extends Fragment implements
             }
             return;
         } else if (v==mBtnLaunchCamera) {
-            Intent intent = new Intent(mActivity, CameraActivity.class);
-            intent.setAction(CameraActivity.ACTION_TAKE_PICTURE);
-            startActivity(intent);
+            if (mMaxwellBLE.isReady()) {
+                Intent intent = new Intent(mActivity, CameraActivity.class);
+                intent.setAction(CameraActivity.ACTION_TAKE_PICTURE);
+                startActivity(intent);
+            }else {
+                showDlgDeviceNotConnected();
+                return;
+            }
         } else if (v==mBtnLaunchVideo) {
-            Intent intent = new Intent(mActivity, CameraActivity.class);
-            intent.setAction(CameraActivity.ACTION_VIDEO_RECORDER);
-            startActivity(intent);
+            if (mMaxwellBLE.isReady()) {
+                Intent intent = new Intent(mActivity, CameraActivity.class);
+                intent.setAction(CameraActivity.ACTION_VIDEO_RECORDER);
+                startActivity(intent);
+            }else {
+                showDlgDeviceNotConnected();
+                return;
+            }
         } else if (v==mViewTutorial) {
             dlg = new DFTutorial();
         } else if (v==mViewAbout) {
@@ -788,7 +800,9 @@ public class FTabConf extends Fragment implements
             int end = mSharedPref.getOutOfRangeNoDisturbingEnd();
 
             updateTextTimeDuration(mTextOutOfRnageNoDisturbingTime, start, end);
+
         }
+        setLinkLossIndicator(mSharedPref.isDeviceOutOfRangeEnable());
     }
 
     @Override
@@ -906,7 +920,9 @@ public class FTabConf extends Fragment implements
 
     @Override
     public void onDeviceConnect(MGPeripheral sender) {
-        mLlBattery.setVisibility(View.VISIBLE);
+        if(mSharedPref.hasSynced()){
+            mLlBattery.setVisibility(View.VISIBLE);
+        }
 //        mTextConnStatus.setText("Connected");
         updateView();
     }
@@ -924,7 +940,9 @@ public class FTabConf extends Fragment implements
 
     @Override
     public void onDeviceReady(MGPeripheral sender) {
-        mLlBattery.setVisibility(View.VISIBLE);
+        if(mSharedPref.hasSynced()){
+            mLlBattery.setVisibility(View.VISIBLE);
+        }
 //        mTextConnStatus.setText("Connected");
         updateView();
     }
@@ -942,14 +960,14 @@ public class FTabConf extends Fragment implements
     @Override
     public void onSyncFinish() {
         mSyncProgress.setVisibility(View.INVISIBLE);
-        mTextConnStatus.setText("Sync Failed");
+        mSharedPref.setSyncStatus(true);
         updateView();
     }
 
     @Override
     public void onSyncFail() {
         mSyncProgress.setVisibility(View.INVISIBLE);
-
+        mTextConnStatus.setText("Sync Failed");
         WarningUtil.showToastLong(getActivity(), R.string.device_connection_failed);
     }
 

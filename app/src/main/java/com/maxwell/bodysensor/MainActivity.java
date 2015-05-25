@@ -75,6 +75,7 @@ import com.mmx.YuFit.SalesTrackService;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -948,11 +949,29 @@ public class MainActivity extends MXWActivity implements
     }
 
     @Override
-    public void onDeviceDisconnect(MGPeripheral sender, String s, int i) {
-        super.onDeviceDisconnect(sender, s, i);
+    public void onDeviceDisconnect(MGPeripheral sender, String address, int oldState) {
+        super.onDeviceDisconnect(sender, address, oldState);
+
+
+        boolean enableNoDist = mSharedPref.isOutOfRangeNoDisturbingEnable();
+        int start = mSharedPref.getOutOfRangeNoDisturbingStart();
+        int end = mSharedPref.getOutOfRangeNoDisturbingEnd();
+
+        Calendar c = Calendar.getInstance();
+        int nowHour = c.getTime().getHours();
+        int nowMinute = c.getTime().getMinutes();
+        int nowTime =  nowHour * 60 + nowMinute;
+        //check if time b/w no dist time
 
         if (mSharedPref.isDeviceOutOfRangeEnable()) {
-            outOfRangeAlert();
+            if(enableNoDist){
+                if(start < nowTime && nowTime<end){
+                    return;
+                }else
+                    outOfRangeAlert();
+            }else{
+                outOfRangeAlert();
+            }
         }
     }
 

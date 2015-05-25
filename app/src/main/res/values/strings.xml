@@ -358,9 +358,9 @@
     <string name="tutorial2_step_2">Activate device\'s syncing mode.\nCheck your paper user manual for syncing details.</string>
     <string name="tutorial2_step_3">Go to home. Tap the sync button in the top-right corner, or pull down the ring, to sync your device data.</string>
 
-    <string name="tutorial3_instruction_1"><b>Camera Remote</b>: Tap <b>Launch</b> on your smartphone and double tap or long press pair button on the YUFIT band to remotely take photos from your smartphone.</string>
-    <string name="tutorial3_instruction_2"><b>Video Remote</b>: Tap <b>Launch</b> on your smartphone and double tap or long press pair button on the YUFIT band to remotely shoot videos from your smartphone</string>
-    <string name="tutorial4_instruction"><b>Find Phone</b>: Enable <b>Find Phone</b> and double tap or long press pair button on the YUFIT band to locate your phone through ringtone/vibration.</string>
+    <string name="tutorial3_instruction_1"><b>Camera Remote</b>: Tap <b>Launch</b> on your smartphone and double tap pair button on the YUFIT band to remotely take photos from your smartphone.</string>
+    <string name="tutorial3_instruction_2"><b>Video Remote</b>: Tap <b>Launch</b> on your smartphone and double tap pair button on the YUFIT band to remotely shoot videos from your smartphone</string>
+    <string name="tutorial4_instruction"><b>Find Phone</b>: Enable <b>Find Phone</b> and double tap pair button on the YUFIT band to locate your phone through ringtone/vibration.</string>
 
     <string name="tutorial5_step_1">Make sure you are connected to your social accounts in the settings.</string>
     <string name="tutorial5_step_2">In the activity page, swipe up to share your workout.</string>
