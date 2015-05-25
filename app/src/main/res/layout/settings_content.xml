@@ -359,7 +359,7 @@
 
                         <ImageView
                             style="@style/settings_icon"
-                            android:src="@drawable/ic_camera" />
+                            android:src="@drawable/icon_phone_incoming" />
 
                         <TextView
                             style="@style/settings_main_text"
