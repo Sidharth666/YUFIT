@@ -57,6 +57,8 @@ public class DBUser15MinutesRecord extends DB15MinutesRecord {
     public void update15MinRecord(Cursor cursor){
         while (cursor.moveToNext()){
             ContentValues cv = new ContentValues();
+            String rowId = cursor.getString(cursor.getColumnIndex(COLUMN._ID));
+            cv.put(COLUMN._ID, rowId);
             cv.put(COLUMN.DEVICE_MAC, cursor.getString(cursor.getColumnIndex(COLUMN.DEVICE_MAC)));
             cv.put(COLUMN.DATE, cursor.getString(cursor.getColumnIndex(COLUMN.DATE)));
             cv.put(COLUMN.MOVE, cursor.getString(cursor.getColumnIndex(COLUMN.MOVE)));
