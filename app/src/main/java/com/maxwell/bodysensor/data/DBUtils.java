@@ -20,6 +20,10 @@ import com.maxwell.bodysensor.data.user.DBUserProfile;
 import com.maxwell.bodysensor.data.user.DBUserSleepLog;
 import com.maxwell.bodysensor.data.user.DBUserSleepScore;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 public class DBUtils {
 
     public static final int VERSION = 4;
@@ -68,6 +72,16 @@ public class DBUtils {
         if (c != null && !c.isClosed()) {
             c.close();
         }
+    }
+
+    public static String getCurrentTimeAsDateStringInGMT() {
+        return getDateStringInGMT(System.currentTimeMillis());
+    }
+
+    public static String getDateStringInGMT(long millis) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+        return sdf.format(new Date(millis));
     }
 
     public static boolean isCursorUsable(Cursor c) {

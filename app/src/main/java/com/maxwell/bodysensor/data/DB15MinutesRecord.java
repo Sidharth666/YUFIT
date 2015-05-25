@@ -62,6 +62,9 @@ public class DB15MinutesRecord {
             if (iCount>1) {
                 UtilDBG.e("!! Assume that there is at most one row !!");
             }
+            // Log time has to be updated on update
+            String dateString = DBUtils.getCurrentTimeAsDateStringInGMT();
+            cv.put(COLUMN.LOG_TIME, dateString);
             mDB.update(table, cv, strSelection, null);
         }
 

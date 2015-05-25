@@ -28,7 +28,7 @@ public class DBUserHourlyRecord extends DBHourlyRecord {
                 COLUMN.APP_ENERGY + " REAL" + "," +
                 COLUMN.CALORIES + " REAL" + "," +
                 COLUMN.DISTANCE + " REAL" + "," +
-                COLUMN.LOG_TIME + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP " +
+                COLUMN.LOG_TIME + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP " + // GMT
                 ");");
     }
 

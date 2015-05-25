@@ -64,7 +64,7 @@ public abstract class DBHourlyRecord {
                 COLUMN.DATE+"=\""+Long.toString(cal.getUnixTime())+"\"";
 
         Cursor c = mDB.query(true, table,
-                new String[]{COLUMN.DEVICE_MAC},
+                new String[]{COLUMN.LOG_TIME},
                 strSelection, null, null, null, null, null);
         int iCount = c.getCount();
         c.close();
@@ -79,9 +79,11 @@ public abstract class DBHourlyRecord {
             if (iCount>1) {
                 UtilDBG.e("!! Assume that there is at most one row !!");
             }
+            // Log time has to be updated on update
+            String dateString = DBUtils.getCurrentTimeAsDateStringInGMT();
+            cv.put(COLUMN.LOG_TIME, dateString);
             mDB.update(table, cv, strSelection, null);
         }
-
     }
 
     protected ArrayList<HourlyRecordData> queryHourlyRecord(String table,
