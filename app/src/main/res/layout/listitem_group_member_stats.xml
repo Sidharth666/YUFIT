@@ -15,7 +15,7 @@
         android:layout_height="@dimen/space_20dp"
         android:layout_weight="1"
         android:layout_gravity="center"
-        android:src="@drawable/status_na"/>
+        />
 
     <View
         android:layout_width="0dp"

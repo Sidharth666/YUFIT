@@ -75,7 +75,7 @@
 
                         <ImageView
                             style="@style/image_workout_type"
-                            android:src="@drawable/playground_jumprope"/>
+                            />
                         <com.maxwell.bodysensor.ui.ViewTextView
                             style="@style/text_workout_type"
                             android:text="@string/jumping_rope"/>
@@ -87,7 +87,7 @@
 
                         <ImageView
                             style="@style/image_workout_type"
-                            android:src="@drawable/playground_jumpjack"/>
+                            />
                         <com.maxwell.bodysensor.ui.ViewTextView
                             style="@style/text_workout_type"
                             android:text="@string/jumping_jack"/>
@@ -109,7 +109,7 @@
 
                         <ImageView
                             style="@style/image_workout_type"
-                            android:src="@drawable/playground_situp"/>
+                            />
                         <com.maxwell.bodysensor.ui.ViewTextView
                             style="@style/text_workout_type"
                             android:text="@string/sit_up"/>
@@ -121,7 +121,7 @@
 
                         <ImageView
                             style="@style/image_workout_type"
-                            android:src="@drawable/playground_treadmill"/>
+                            />
                         <com.maxwell.bodysensor.ui.ViewTextView
                             style="@style/text_workout_type"
                             android:text="@string/treadmill"/>

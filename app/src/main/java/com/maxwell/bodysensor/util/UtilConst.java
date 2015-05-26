@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
+import com.maxwell.bodysensor.SharedPrefWrapper;
+
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -21,6 +24,8 @@ public class UtilConst {
     public static final String HME_PACKAGE_NAME = HME_MAIN_PACKAGE_NAME;
     public static final String PLAYSTORE_PKG_NAME_PREFIX = "https://play.google.com/store/apps/details?id=";
     public static final String MARKET_PKG_NAME_PREFIX = "market://details?id=";
+    private static SharedPrefWrapper mSharedPref;
+
 
     public static boolean isHMPackageInstalled(Context context) {
         // check for HM package
@@ -43,5 +48,57 @@ public class UtilConst {
         }
         return false;
     }
+
+    public static boolean isOutOfRangeNoDisturbing() {
+        mSharedPref = SharedPrefWrapper.getInstance();
+        if (!mSharedPref.isOutOfRangeNoDisturbingEnable()) {
+            return false;
+        }
+
+        int startTime = mSharedPref.getOutOfRangeNoDisturbingStart();
+        int endTime = mSharedPref.getOutOfRangeNoDisturbingEnd();
+
+        return isNoDisturbingTime(startTime, endTime);
+    }
+
+    public static boolean isInComingCallNoDisturbing() {
+        mSharedPref = SharedPrefWrapper.getInstance();
+        if (!mSharedPref.isInComingCallNoDisturbingEnable()) {
+            return false;
+        }
+
+        int startTime = mSharedPref.getInComingCallNoDisturbingStart();
+        int endTime = mSharedPref.getInComingCallNoDisturbingEnd();
+
+        return isNoDisturbingTime(startTime, endTime);
+    }
+
+
+    private static boolean isNoDisturbingTime(int startTime, int endTime) {
+        mSharedPref = SharedPrefWrapper.getInstance();
+        if (!mSharedPref.isOutOfRangeNoDisturbingEnable()) {
+            return false;
+        }
+
+        boolean isYesterday = (startTime > endTime);
+
+        Calendar calNow = Calendar.getInstance();
+        int h = calNow.get(Calendar.HOUR_OF_DAY);
+        int m = calNow.get(Calendar.MINUTE);
+        int currentTime = h * 60 + m;
+
+        if (isYesterday) {
+            if (currentTime > startTime || currentTime < endTime) {
+                return true;
+            }
+        } else {
+            if (currentTime > startTime && currentTime < endTime) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 
 }

@@ -87,7 +87,8 @@
         layout="@layout/settings_content"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/rl_my_action_bar" />
+        android:layout_below="@+id/rl_my_action_bar"
+         />
 
     <View
         android:layout_width="match_parent"

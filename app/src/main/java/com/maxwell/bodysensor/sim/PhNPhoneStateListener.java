@@ -10,6 +10,7 @@ import android.telephony.TelephonyManager;
 
 //import com.mxw.ble.BleWrapper;
 import com.maxwell.bodysensor.SharedPrefWrapper;
+import com.maxwell.bodysensor.util.UtilConst;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTracker;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTrackerApi;
 import com.maxwell.bodysensor.util.UtilDBG;
@@ -50,21 +51,7 @@ public class PhNPhoneStateListener extends PhoneStateListener {
 
             if (mSharedPref.isDeviceIncomingCallEnable()) {
                 if (mMaxwellBLE.isReady()) {
-                    boolean mEnableNoDisturbing = mSharedPref.isInComingCallNoDisturbingEnable();
-                    int start = mSharedPref.getInComingCallNoDisturbingStart();
-                    int end = mSharedPref.getInComingCallNoDisturbingEnd();
-
-                    Calendar c = Calendar.getInstance();
-                    int nowHour = c.getTime().getHours();
-                    int nowMinute = c.getTime().getMinutes();
-                    int nowTime =  nowHour * 60 + nowMinute;
-                    //check if time b/w no dist time
-                    if(mEnableNoDisturbing){
-                        if(start < nowTime && nowTime<end){
-                            return;
-                        }else
-                            mMaxwellBLE.phoneNotification();
-                    }else{
+                    if (!UtilConst.isInComingCallNoDisturbing()) {
                         mMaxwellBLE.phoneNotification();
                     }
                 }

@@ -621,9 +621,7 @@ public class FTabGroupStats extends Fragment implements View.OnClickListener,
             if (!member.targetDeviceMac.equals("")) {
                 hasDevice = true;
                 if (member.isSynced) {
-                    viewholder.imgSync.setImageResource(R.drawable.status_current);
                 } else {
-                    viewholder.imgSync.setImageResource(R.drawable.status_pending);
                 }
             }
 
@@ -653,7 +651,6 @@ public class FTabGroupStats extends Fragment implements View.OnClickListener,
             }
 
             if (isDailyGoalAchieved(member.targetDeviceMac)) {
-                viewholder.imgGoal.setImageResource(R.drawable.goal_achieve);
             } else {
                 viewholder.imgGoal.setImageResource(R.drawable.goal_not_achieve);
             }

@@ -109,7 +109,6 @@
                     android:layout_above="@id/fhTextUserEnergy"
                     android:layout_centerHorizontal="true"
                     android:scaleType="centerInside"
-                    android:src="@drawable/home_energy"
                     android:contentDescription="@string/acd" />
 
             </RelativeLayout>

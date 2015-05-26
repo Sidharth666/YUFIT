@@ -21,7 +21,6 @@
            <ImageView
                style="@style/app_conf_item_title_image"
                android:id="@+id/facebook"
-               android:src="@drawable/profile_social_facebook"
                android:contentDescription="@string/acd"/>
            <com.maxwell.bodysensor.ui.ViewTextView
                style="@style/app_conf_item_text"
@@ -41,7 +40,6 @@
             <ImageView
                style="@style/app_conf_item_title_image"
                android:id="@+id/weibo"
-               android:src="@drawable/profile_social_weibo"
                android:contentDescription="@string/acd"/>
             <com.maxwell.bodysensor.ui.ViewTextView
                 style="@style/app_conf_item_text"

@@ -29,7 +29,7 @@
             <ImageView
                 android:layout_width="@dimen/space_24dp"
                 android:layout_height="@dimen/space_24dp"
-                android:src="@drawable/switch_icon"/>
+                />
             <com.maxwell.bodysensor.ui.ViewButton
                 android:id="@+id/btn_switch_mode"
                 android:text="@string/switch_group_mode"

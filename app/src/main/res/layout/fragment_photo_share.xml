@@ -16,14 +16,14 @@
             android:layout_width="@dimen/space_30dp"
             android:layout_height="@dimen/space_30dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/photo_sharing_cancel"/>
+            />
         <ImageView
             android:id="@+id/view_switch_camera"
             android:layout_width="@dimen/space_30dp"
             android:layout_height="@dimen/space_30dp"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:src="@drawable/photo_sharing_front_camera"/>
+            />
 
     </RelativeLayout>
 
@@ -67,14 +67,14 @@
             android:layout_width="@dimen/space_30dp"
             android:layout_height="@dimen/space_30dp"
             android:layout_alignParentBottom="true"
-            android:src="@drawable/photo_sharing_gallery"/>
+            />
         <ImageView
             android:id="@+id/view_flash"
             android:layout_width="@dimen/space_30dp"
             android:layout_height="@dimen/space_30dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:src="@drawable/photo_sharing_non_flash"/>
+            />
 
     </RelativeLayout>
 

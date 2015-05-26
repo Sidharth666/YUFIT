@@ -952,28 +952,20 @@ public class MainActivity extends MXWActivity implements
     public void onDeviceDisconnect(MGPeripheral sender, String address, int oldState) {
         super.onDeviceDisconnect(sender, address, oldState);
 
-
-        boolean enableNoDist = mSharedPref.isOutOfRangeNoDisturbingEnable();
-        int start = mSharedPref.getOutOfRangeNoDisturbingStart();
-        int end = mSharedPref.getOutOfRangeNoDisturbingEnd();
-
-        Calendar c = Calendar.getInstance();
-        int nowHour = c.getTime().getHours();
-        int nowMinute = c.getTime().getMinutes();
-        int nowTime =  nowHour * 60 + nowMinute;
-        //check if time b/w no dist time
-
-        if (mSharedPref.isDeviceOutOfRangeEnable()) {
-            if(enableNoDist){
-                if(start < nowTime && nowTime<end){
-                    return;
-                }else
+        if (oldState == 8) {
+            // if user target device is disconnected unexceptly,
+            // show out-of-range alert
+            String targetMac = mPD.getTargetDeviceMac();
+            if (targetMac.equals(address) && mSharedPref.isDeviceOutOfRangeEnable()) {
+                if (!UtilConst.isOutOfRangeNoDisturbing()) {
                     outOfRangeAlert();
-            }else{
-                outOfRangeAlert();
+                }
             }
         }
+
+
     }
+
 
     @Override
     public void onConnectTimeOut(MGPeripheral sender) {

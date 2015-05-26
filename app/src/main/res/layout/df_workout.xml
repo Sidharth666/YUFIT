@@ -105,7 +105,6 @@
         android:layout_weight="0.1"
         android:background="@null"
         android:scaleType="fitCenter"
-        android:src="@drawable/fp_img_btn_start_selector"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp" />
 

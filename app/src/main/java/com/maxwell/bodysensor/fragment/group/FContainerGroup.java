@@ -31,10 +31,7 @@ public class FContainerGroup extends Fragment {
         mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.realtabcontent);
         mTabHost.getTabWidget().setDividerDrawable(null);
         // tabs
-        addTabHelper(FTabGroupStats.class, GroupActivity.TAB_SPEC_GROUP_STATS, getString(R.string.stats), R.drawable.tab_stats);
-        addTabHelper(FTabGroups.class, GroupActivity.TAB_SPEC_GROUPS, getString(R.string.groups), R.drawable.tab_group);
 
-        mTabHost.getTabWidget().getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
         return view;
     }
 

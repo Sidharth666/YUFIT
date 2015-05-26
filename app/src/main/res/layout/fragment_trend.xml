@@ -112,7 +112,6 @@
                     android:gravity="left|center_vertical" >
                     <ImageView
                         style="@style/app_trend_arrow_image"
-                        android:src="@drawable/trend_previous"
                         android:contentDescription="@string/acd" />
                 </LinearLayout>
                 <com.maxwell.bodysensor.ui.ViewTextView
@@ -132,7 +131,6 @@
                     android:gravity="right|center_vertical" >
                     <ImageView
                         style="@style/app_trend_arrow_image"
-                        android:src="@drawable/trend_next"
                         android:contentDescription="@string/acd" />
                 </LinearLayout>
            </LinearLayout>

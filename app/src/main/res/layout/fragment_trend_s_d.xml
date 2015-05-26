@@ -31,7 +31,6 @@
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:scaleType="centerInside"
-            android:src="@drawable/sleep_day_delete"
             android:background="@null"
             android:contentDescription="@string/acd" />
     </RelativeLayout>
@@ -76,7 +75,6 @@
             android:gravity="center" >
             <ImageView
                 style="@style/app_trend_s_image_chart_hint"
-                android:src="@drawable/sleep_color_deepsleep"
                 android:contentDescription="@string/acd" />
             <com.maxwell.bodysensor.ui.ViewTextView
                 android:text="@string/space"
@@ -98,7 +96,6 @@
             android:gravity="center" >
             <ImageView
                 style="@style/app_trend_s_image_chart_hint"
-                android:src="@drawable/sleep_color_awake"
                 android:contentDescription="@string/acd" />
             <com.maxwell.bodysensor.ui.ViewTextView
                 android:text="@string/space"
@@ -120,7 +117,6 @@
             android:gravity="center">
             <ImageView
                 style="@style/app_trend_s_image_chart_hint"
-                android:src="@drawable/sleep_color_lightsleep"
                 android:contentDescription="@string/acd" />
             <com.maxwell.bodysensor.ui.ViewTextView
                 android:text="@string/space"

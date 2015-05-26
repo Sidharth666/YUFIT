@@ -65,15 +65,12 @@ public class DFWorkout extends DFBase implements OnFitnessUpdateListener {
             switch (msg.what) {
                 case MSG_BT_DEVICE_START_FITNESS:
                     if (startFitnessPlay()) {
-                        mImgBtnStartStop.setImageResource(R.drawable.fp_img_btn_stop_selector);
                     } else {
                         stopFitnessPlay();
-                        mImgBtnStartStop.setImageResource(R.drawable.fp_img_btn_start_selector);
                     }
                     break;
                 case MSG_BT_DEVICE_STOP_FITNESS:
                     stopFitnessPlay();
-                    mImgBtnStartStop.setImageResource(R.drawable.fp_img_btn_start_selector);
                     break;
                 default:
                     super.handleMessage(msg);
@@ -139,7 +136,6 @@ public class DFWorkout extends DFBase implements OnFitnessUpdateListener {
                     mImgFitnessType.setImageResource(R.drawable.situp);
                     break;
                 case TREADMILL:
-                    mImgFitnessType.setImageResource(R.drawable.treadmill);
                     break;
             }
         }

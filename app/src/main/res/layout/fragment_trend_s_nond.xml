@@ -75,7 +75,6 @@
             android:gravity="center" >
             <ImageView
                 style="@style/app_trend_s_image_chart_hint"
-                android:src="@drawable/sleep_week_verygood"
                 android:contentDescription="@string/acd" />
             <com.maxwell.bodysensor.ui.ViewTextView
                 android:text="@string/space"
@@ -97,7 +96,6 @@
             android:gravity="center" >
             <ImageView
                 style="@style/app_trend_s_image_chart_hint"
-                android:src="@drawable/sleep_week_poor"
                 android:contentDescription="@string/acd" />
             <com.maxwell.bodysensor.ui.ViewTextView
                 android:text="@string/space"
@@ -119,7 +117,6 @@
             android:gravity="center">
             <ImageView
                 style="@style/app_trend_s_image_chart_hint"
-                android:src="@drawable/sleep_week_good"
                 android:contentDescription="@string/acd" />
             <com.maxwell.bodysensor.ui.ViewTextView
                 android:text="@string/space"
