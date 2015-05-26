@@ -22,9 +22,10 @@
 
                 <ImageView
                     android:id="@+id/iv_banner"
-                    android:layout_width="wrap_content"
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/img_banner" />
+                    android:src="@drawable/img_yufit_banner" />
 
                 <ImageButton
                     android:id="@+id/ib_close_banner"
