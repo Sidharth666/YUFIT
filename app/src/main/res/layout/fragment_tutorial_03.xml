@@ -20,6 +20,7 @@
 
             <com.maxwell.bodysensor.ui.ViewTextView
                 style="@style/view_tutorial_title_text"
+                android:textStyle="bold"
                 android:text="Smart Keys"/>
 
             <ImageView

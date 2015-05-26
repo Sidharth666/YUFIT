@@ -473,6 +473,12 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
             // Set picture rotation degree according to phone's orientation
             // and the current camera.
             try {
+                AudioManager mgr = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
+                mgr.playSoundEffect(AudioManager.FLAG_PLAY_SOUND);
+
+                Vibrator vibrator = (Vibrator)getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                vibrator.vibrate(500);
+
                 if (mbUsingBackCamera) {
                     switch (mPhoneOrientation) {
                         case PORTRAIT:
@@ -493,11 +499,6 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
                     }
                 }
 
-                AudioManager mgr = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
-                mgr.playSoundEffect(AudioManager.FLAG_PLAY_SOUND);
-
-                Vibrator vibrator = (Vibrator)getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                vibrator.vibrate(500);
 
                 /*MediaPlayer mp = MediaPlayer.create(mContext, R.raw.sound_camera_shutter);
                 mp.start();*/
@@ -810,14 +811,18 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
         if (!mbUsingBackCamera && mPhoneOrientation == PHONE_ORIENTATION.PORTRAIT)
             mMediaRecorder.setOrientationHint(miCameraRotationDegree + 180);
         else {
-            switch (mPhoneOrientation) {
-                case PORTRAIT:
-                    mMediaRecorder.setOrientationHint(miCameraRotationDegree);
-                    break;
-                case LANDSCAPE:
-                    mMediaRecorder.setOrientationHint(miCameraRotationDegree - 90);
-                    break;
-            }
+            if(mPhoneOrientation!=null){
+                switch (mPhoneOrientation) {
+                    case PORTRAIT:
+                        mMediaRecorder.setOrientationHint(miCameraRotationDegree);
+                        break;
+                    case LANDSCAPE:
+                        mMediaRecorder.setOrientationHint(miCameraRotationDegree - 90);
+                        break;
+                }
+            }else
+                //in case of no magnetic sensore, treat as potrait
+                mPhoneOrientation = PHONE_ORIENTATION.PORTRAIT;
         }
 
         try {
