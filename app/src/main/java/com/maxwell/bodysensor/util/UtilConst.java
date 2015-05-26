@@ -75,10 +75,6 @@ public class UtilConst {
 
 
     private static boolean isNoDisturbingTime(int startTime, int endTime) {
-        mSharedPref = SharedPrefWrapper.getInstance();
-        if (!mSharedPref.isOutOfRangeNoDisturbingEnable()) {
-            return false;
-        }
 
         boolean isYesterday = (startTime > endTime);
 

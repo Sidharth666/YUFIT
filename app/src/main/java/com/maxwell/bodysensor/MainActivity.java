@@ -200,6 +200,7 @@ public class MainActivity extends MXWActivity implements
         } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
+
         UtilExceptionHandler eh = new UtilExceptionHandler(pInfo != null ? pInfo.versionName : "version name unknown");
 
         if (UtilDBG.isDebuggable()) {
