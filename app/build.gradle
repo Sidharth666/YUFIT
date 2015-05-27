@@ -20,7 +20,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.mmx.YUFIT"
+        applicationId "com.yuplaygod.YUFIT"
         minSdkVersion 18
         targetSdkVersion 21
         versionCode 1
@@ -44,7 +44,7 @@ android {
     productFlavors {
 
         maxwell {
-            applicationId "com.maxwell.bodysensor"
+            applicationId "com.yuplaygod.YUFIT"
         }
 
         micromax {
