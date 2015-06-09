@@ -70,6 +70,7 @@ import com.maxwellguider.bluetooth.activitytracker.LanguageType;
 import com.maxwellguider.bluetooth.activitytracker.UnitType;
 import com.maxwellguider.bluetooth.command.AttributeValue;
 import com.maxwellguider.bluetooth.command.feature.AttributeType;
+import com.mmx.YuFit.BTForegroundService;
 import com.mmx.YuFit.SalesTrackService;
 
 import org.apache.commons.lang.StringUtils;
@@ -255,6 +256,12 @@ public class MainActivity extends MXWActivity implements
                 copyAsync.execute();
             }
         } else {
+
+            /*if(!MXWApp.IS_STARTED){
+                Intent foregroundIntent = new Intent(this, BTForegroundService.class);
+                startService(foregroundIntent);
+            }*/
+
             String address = mPD.getTargetDeviceMac();
             if (StringUtils.isNotEmpty(address)) {
                 if (MXWApp.initBleAutoConnection(address)) {
@@ -486,8 +493,7 @@ public class MainActivity extends MXWActivity implements
         releaseMaxwellBleApi();
 
         // cancel notification
-        NotificationManager notiMgr =
-                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        NotificationManager notiMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notiMgr.cancel(NOTIFICATION_FIND_PHONE);
 
 //        mPD.closeAll();
@@ -1167,6 +1173,11 @@ public class MainActivity extends MXWActivity implements
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            /*if(!MXWApp.IS_STARTED){
+                Intent foregroundIntent = new Intent(MainActivity.this, BTForegroundService.class);
+                startService(foregroundIntent);
+            }*/
+
             String address = mPD.getTargetDeviceMac();
             if (MXWApp.initBleAutoConnection(address) && !mMaxwellBLE.isConnected()) {
                 MXWApp.connectDevice(address);

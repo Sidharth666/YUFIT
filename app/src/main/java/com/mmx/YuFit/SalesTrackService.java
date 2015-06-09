@@ -48,7 +48,7 @@ public class SalesTrackService extends IntentService {
     protected void onHandleIntent(Intent intent) {
 
         if(intent!=null){
-            macId = intent.getExtras().getString("MacId");
+            macId = intent.getExtras().getString("MacId").replace(":","");
         }
 
         mSharedPref = SharedPrefWrapper.getInstance();
@@ -144,10 +144,10 @@ public class SalesTrackService extends IntentService {
          * @author :
          *
          */
-        String regMessage = "REG:01:01" + netArray[0] + ":02" + netArray[1]+ ":03" + netArray[2] + ":04" + macId + ":05"+ serial_no + ":06" + "V1.0" + ":07" + softwareVersion + ":";
+        String regMessage = "REG:01:01" + netArray[0] + ":02" + netArray[1]+ ":03" + netArray[2] + ":04" + macId + ":05"+ macId + ":06" + "V1.0" + ":07" + softwareVersion + ":";
 
         String checkSum = checkSumGenerator(regMessage);
-        regMessageChecksum = "REG:01:01" + netArray[0] + ":02" + netArray[1]+ ":03" + netArray[2] + ":04" + macId + ":05"+ serial_no + ":06" + "V1.0" + ":07" + softwareVersion + ":"+ checkSum + ":";
+        regMessageChecksum = "REG:01:01" + netArray[0] + ":02" + netArray[1]+ ":03" + netArray[2] + ":04" + macId + ":05"+ macId + ":06" + "V1.0" + ":07" + softwareVersion + ":"+ checkSum + ":";
 
         return regMessageChecksum;
 

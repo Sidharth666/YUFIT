@@ -95,9 +95,14 @@ public class DFAddNewDevice extends DFBase implements OnPairDeviceListener {
 
         mPD = DBProgramData.getInstance();
 
-        setCancelable(true);
-
         initViewPager(view);
+
+        int current = mViewPager.getCurrentItem();
+        if (current == INDEX_SELECT_DEVICE) {
+            setCancelable(true);
+        }else{
+            setCancelable(false);
+        }
 
         return view;
     }
