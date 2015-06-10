@@ -97,7 +97,8 @@ public class MXWApp extends Application implements
 
         String address = mPD.getTargetDeviceMac();
         if (MXWApp.initBleAutoConnection(address)) {
-            MXWApp.connectDevice(address);
+//            MXWApp.connectDevice(address);
+            sMaxwellBLE.connect(address, 0);
         }
 
         /*
