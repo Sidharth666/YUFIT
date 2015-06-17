@@ -59,11 +59,11 @@ public class SalesTrackService extends IntentService {
         if ((wifiNwInfo.isAvailable() || mobileNwInfo.isAvailable())&& (mobileNwInfo.isConnected() || wifiNwInfo.isConnected())) {
 
             //get current time
-             currentTime = getCurrentTime();
+            currentTime = getCurrentTime();
             //get device imei
-             deviceIdImei = getImei();
+            deviceIdImei = getImei();
             //get network info
-             networkInfo = getSignalInfo();
+            networkInfo = getSignalInfo();
 
             if(networkInfo.equals("Network not found")){
                 networkInfo = "000000:0000:0000";
@@ -131,7 +131,7 @@ public class SalesTrackService extends IntentService {
 
             if (!Build.DISPLAY.equals(null)) {
                 softwareVersion = Build.DISPLAY;
-            } 
+            }
         } catch (Exception e) {
             // TODO: handle BuildNumber Exception
             UtilDBG.e("SalesTrackService, Exception" + e);
@@ -144,10 +144,11 @@ public class SalesTrackService extends IntentService {
          * @author :
          *
          */
-        String regMessage = "REG:01:01" + netArray[0] + ":02" + netArray[1]+ ":03" + netArray[2] + ":04" + macId + ":05"+ macId + ":06" + "V1.0" + ":07" + softwareVersion + ":";
+        //Replace IMEI with macID
+        String regMessage = "REG:01:01" + netArray[0] + ":02" + netArray[1]+ ":03" + netArray[2] + ":04" + "OTHACCY010" + ":05"+ macId + ":06" + "V1.0" + ":07" + softwareVersion + ":";
 
         String checkSum = checkSumGenerator(regMessage);
-        regMessageChecksum = "REG:01:01" + netArray[0] + ":02" + netArray[1]+ ":03" + netArray[2] + ":04" + macId + ":05"+ macId + ":06" + "V1.0" + ":07" + softwareVersion + ":"+ checkSum + ":";
+        regMessageChecksum = "REG:01:01" + netArray[0] + ":02" + netArray[1]+ ":03" + netArray[2] + ":04" + "OTHACCY010" + ":05"+ macId + ":06" + "V1.0" + ":07" + softwareVersion + ":"+ checkSum + ":";
 
         return regMessageChecksum;
 
@@ -210,22 +211,22 @@ public class SalesTrackService extends IntentService {
 
 
 
-            GsmCellLocation loc = (GsmCellLocation) telephonyManager.getCellLocation();
-            if (loc != null) {
-                cid = loc.getCid();
-                lac = loc.getLac();
+        GsmCellLocation loc = (GsmCellLocation) telephonyManager.getCellLocation();
+        if (loc != null) {
+            cid = loc.getCid();
+            lac = loc.getLac();
 
-                lacId_hex = getPaddedHex(lac, 4);
-                cellId_hex = getPaddedHex(cid, cellPadding);
-            } else {
+            lacId_hex = getPaddedHex(lac, 4);
+            cellId_hex = getPaddedHex(cid, cellPadding);
+        } else {
 
-                cid = 0;
-                lac = 0;
+            cid = 0;
+            lac = 0;
 
-                lacId_hex = getPaddedHex(lac, 4);
-                cellId_hex = getPaddedHex(cid, cellPadding);
+            lacId_hex = getPaddedHex(lac, 4);
+            cellId_hex = getPaddedHex(cid, cellPadding);
 
-            }
+        }
 
 
         if (mcc != 0 && mnc != 0 && cid != 0 & lac != 0)
