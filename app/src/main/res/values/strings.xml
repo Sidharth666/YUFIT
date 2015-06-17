@@ -2,11 +2,11 @@
 <resources>
 
     <!--
-    http://developer.android.com/guide/topics/resources/string-resource.html#FormattingAndStyling 
+    http://developer.android.com/guide/topics/resources/string-resource.html#FormattingAndStyling
     [Escaping apostrophes and quotes]
-        If you have an apostrophe or a quote in your string, 
+        If you have an apostrophe or a quote in your string,
         you must either escape it or enclose the whole string in the other type of enclosing quotes.
-    [Formatting]    
+    [Formatting]
         Ex. Hello, %1$s! You have %2$d new messages.
     -->
 
@@ -27,7 +27,7 @@
     <string name="str_switch_on">ON</string>
     <string name="str_switch_off">OFF</string>
     <string name="str_exit_app_sure">Are you sure to exit?</string>
- 
+
     <string name="strShortMonday">MON</string>
     <string name="strShortTuesday">TUE</string>
     <string name="strShortWednesday">WED</string>
@@ -178,8 +178,10 @@
     <string name="fcTaskAlert">Task Alert</string>
     <string name="fcMoveAlert">Move Alert</string>
     <string name="fcSectionDevice">Device</string>
+    <string name="fcSectionRename">Rename Device</string>
     <string name="fcPairADevice">Pair a Device</string>
     <string name="fcDeviceList">Device List</string>
+    <string name="fcDeviceSettings">Device Settings</string>
     <string name="fcLanguage">Language</string>
     <string name="fcBuzzVibrater">Buzz/Vibration</string>
     <string name="fcAutoSync">Auto Sync</string>
@@ -190,7 +192,9 @@
     <string name="fcTroubleshooting">Troubleshooting</string>
     <string name="fcAbout">About</string>
     <string name="share_hint">What\'s on your mind?</string>
-    
+    <string name="remove_device">Remove</string>
+    <string name="rename_device">Rename</string>
+
     <string name="cpUsername">Username*</string>
     <string name="cpName">Name</string>
     <string name="cpInputName">Please input your name</string>
@@ -225,8 +229,8 @@
     <string name="addnew_device_trouble3">Make sure Device still has power.</string>
     <string name="addnew_device_trouble4">Make sure the device you are pairing is Device.</string>
     <string name="device_info_name_edit_hint">Type the device name here...</string>
-    <string name="device_delete_title">Delete device</string>
-    <string name="device_delete_description">Do you really want to delete this deivce?</string>
+    <string name="device_delete_title">Remove device</string>
+    <string name="device_delete_description">Do you really want to delete this device?</string>
     <string name="switch_devices_title">Switch Devices</string>
 
     <!-- David Sun. -->
@@ -309,12 +313,12 @@
     <string name="smWakeAt">Awake at</string>
     <string name="smLastNight">last night</string>
     <string name="smToday">today</string>
-    
+
     <!-- User login/register -->
     <string name="welcome_to">Welcome to</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
-    
+
     <!-- Setup Profile -->
     <string name="setup_profile">Setup Profile</string>
     <string name="edit">Edit</string>
@@ -395,7 +399,7 @@
     <!-- New feature on Tab Conf -->
     <string name="dlg_device_disconnectd_content">Your device is disconnected</string>
     <string name="phone_notify">Phone notify</string>
- 
+
     <!-- Strings for BodySensor2 -->
     <string name="body_sensor_two_lines">BODY\nSENSOR</string>
     <string name="edt_email_hint">Email</string>

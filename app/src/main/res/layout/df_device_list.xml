@@ -6,41 +6,12 @@
     android:background="@android:color/white"
     android:layout_height="match_parent">
 
+    <include layout="@layout/mxw_df_title_bar" />
+
     <RelativeLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize">
-        <LinearLayout
-            style="@style/app_title_c_layout" >
-            <View
-                style="@style/app_title_c_rl" />
-            <com.maxwell.bodysensor.ui.ViewTextView
-                style="@style/app_title_c_center_text"
-                android:id="@+id/text_title_bar"
-                tools:text="This is Title"/>
-            <View
-                style="@style/app_title_c_rl" />
-        </LinearLayout>
-        <ImageButton
-            android:id="@+id/btnCancelImg"
-            style="@style/app_title_left_image"
-            android:src="@drawable/ic_navarrow_blue"
-            android:background="@drawable/sel_btn"
-            android:contentDescription="@string/acd"/>
-        <com.maxwell.bodysensor.ui.ViewButton
-            android:id="@+id/btn_edit"
-            style="@style/app_title_right_text"
-            android:text="@string/edit"
-            android:background="@null" />
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/small_padding"
-        android:background="@drawable/shadow_down" />
-
-    <LinearLayout
-        style="@style/app_outtab_content"
-        android:orientation="vertical" >
+        android:layout_height="match_parent">
 
         <ListView
             android:id="@+id/list_device"
@@ -50,7 +21,34 @@
             android:scrollingCache="false"
             android:animationCache="false"/>
 
-    </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            style="@style/app_outtab_content"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="131dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
 
+            <Button
+                android:id="@+id/remove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginRight="80dp"
+                style="@style/material_trans_btn_inverse"
+                android:text="@string/remove_device" />
+
+            <Button
+                android:id="@+id/rename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/remove"
+                style="@style/material_trans_btn_inverse"
+                android:gravity="center"
+                android:text="@string/rename_device" />
+        </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>

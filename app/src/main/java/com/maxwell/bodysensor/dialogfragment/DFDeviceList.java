@@ -23,6 +23,7 @@ import com.maxwellguider.bluetooth.activitytracker.MGActivityTrackerApi;
 import com.maxwell.bodysensor.data.DeviceData;
 import com.maxwell.bodysensor.util.UtilDBG;
 
+
 import java.util.List;
 
 /**
@@ -38,12 +39,15 @@ public class DFDeviceList extends DFBase implements AdapterView.OnItemClickListe
 
     private ListView mLvDevice;
 
-    private Button mBtnEdit;
+    //private Button mBtnEdit;
+    private Button mBtnRemove;
+    private Button mBtnRename;
+
 
     private List<DeviceData> mDeviceList;
     private DeviceListAdapter mAdapter;
 
-    private boolean mEnableDelete = false;
+    //private boolean mEnableDelete = false;
 
     @Override
     public String getDialogTag() {
@@ -75,28 +79,66 @@ public class DFDeviceList extends DFBase implements AdapterView.OnItemClickListe
 
         // get all device list
         mDeviceList = mPD.getDeviceList();
+
+        //Replace listview with textview
+      /* mDeviceName=(TextView)view.findViewById(R.id.text_device_name);
+       mDeviceName.setText(mDeviceList.get(0).displayName);
+       mDeviceMacId=(TextView)view.findViewById(R.id.text_device_mac);
+       mDeviceMacId.setText(mDeviceList.get(0).mac);*/
         mAdapter = new DeviceListAdapter();
         mLvDevice = (ListView) view.findViewById(R.id.list_device);
         mLvDevice.setAdapter(mAdapter);
         mLvDevice.setOnItemClickListener(this);
-
-        mBtnEdit = (Button) view.findViewById(R.id.btn_edit);
-        mBtnEdit.setOnClickListener(new View.OnClickListener() {
+        //Remove Click
+        mBtnRemove = (Button)view.findViewById(R.id.remove);
+        mBtnRemove.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if (mEnableDelete) {
-                    mBtnEdit.setText(R.string.edit);
-                } else {
-                    mBtnEdit.setText(R.string.strDone);
-                }
+                DlgMessageYN dlg = new DlgMessageYN();
+                dlg.setTitle(getString(R.string.device_delete_title))
+                        .setDes(getString(R.string.device_delete_description))
+                        .setPositiveButton(null, new DlgMessageYN.btnHandler() {
 
-                mEnableDelete = !mEnableDelete;
+                            @Override
+                            public boolean onBtnHandler() {
+                                final String mac_deleting = mDeviceList.get(0).mac;
+
+                                // If the device you want to delete is focus device now, disconnect it!!
+                                String focusMac = mPD.getTargetDeviceMac();
+                                if (focusMac.equalsIgnoreCase(mac_deleting)) {
+                                    mMaxwellBLE.disconnect();
+                                }
+
+                                mPD.removeUserDevice(mac_deleting);
+                                mBtnRemove.setVisibility(View.GONE);
+                                mBtnRename.setVisibility(View.GONE);
+                                //send Broadcast to HM indicating device deletion
+                                Intent intent = new Intent();
+                                intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+                                intent.setAction("com.healthifyme.mmx.ACTION_DEVICE_REMOVED");
+                                intent.putExtra("MacId", focusMac);
+                                getActivity().sendBroadcast(intent);
+                                getDialog().dismiss();
+                                return true;
+                            }
+
+                        });
+                dlg.showHelper(mActivity);
                 mAdapter.notifyDataSetChanged();
             }
         });
-
-        setupTitleText(view, R.string.fcDeviceList);
+        //Rename Click
+        mBtnRename = (Button)view.findViewById(R.id.rename);
+        mBtnRename.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DFDeviceInfo dlg = new DFDeviceInfo();
+                dlg.setDeviceData(mDeviceList.get(0));
+                dlg.showHelper(mActivity);
+            }
+        });
+        setupTitleText(view, R.string.fcDeviceSettings);
         setupButtons(view);
 
         return view;
@@ -111,9 +153,9 @@ public class DFDeviceList extends DFBase implements AdapterView.OnItemClickListe
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        DFDeviceInfo dlg = new DFDeviceInfo();
+        /*DFDeviceInfo dlg = new DFDeviceInfo();
         dlg.setDeviceData(mDeviceList.get(position));
-        dlg.showHelper(mActivity);
+        dlg.showHelper(mActivity);*/
     }
 
     @Override
@@ -127,7 +169,6 @@ public class DFDeviceList extends DFBase implements AdapterView.OnItemClickListe
             }
         });
     }
-
     public class DeviceListAdapter extends BaseAdapter {
 
         private LayoutInflater mLayoutInflater;
@@ -165,50 +206,8 @@ public class DFDeviceList extends DFBase implements AdapterView.OnItemClickListe
             }
 
             DeviceData device = mDeviceList.get(position);
-
             viewholder.textDevicName.setText(device.displayName);
             viewholder.textDevicMac.setText(device.mac);
-
-            if (!mEnableDelete) {
-                viewholder.btnDelete.setVisibility(View.GONE);
-            } else {
-                viewholder.btnDelete.setVisibility(View.VISIBLE);
-                viewholder.btnDelete.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        DlgMessageYN dlg = new DlgMessageYN();
-                        dlg.setTitle(getString(R.string.device_delete_title))
-                                .setDes(getString(R.string.device_delete_description))
-                                .setPositiveButton(null, new DlgMessageYN.btnHandler() {
-
-                                    @Override
-                                    public boolean onBtnHandler() {
-                                        final String mac_deleting = mDeviceList.get(position).mac;
-
-                                        // If the device you want to delete is focus device now, disconnect it!!
-                                        String focusMac = mPD.getTargetDeviceMac();
-                                        if (focusMac.equalsIgnoreCase(mac_deleting)) {
-                                            mMaxwellBLE.disconnect();
-                                        }
-
-                                        mPD.removeUserDevice(mac_deleting);
-
-
-                                        //send Broadcast to HM indicating device deletion
-                                        Intent intent = new Intent();
-                                        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-                                        intent.setAction("com.healthifyme.mmx.ACTION_DEVICE_REMOVED");
-                                        intent.putExtra("MacId", focusMac);
-                                        getActivity().sendBroadcast(intent);
-                                        return true;
-                                    }
-
-                                });
-                        dlg.showHelper(mActivity);
-                    }
-                });
-            }
 
             return rootView;
         }

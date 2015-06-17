@@ -43,8 +43,8 @@
 
     </LinearLayout>
 
-    <ImageView
-        style="@style/app_conf_item_next_image"
-        android:contentDescription="@string/acd" />
+    <!--    <ImageView
+            style="@style/app_conf_item_next_image"
+            android:contentDescription="@string/acd" />-->
 
 </LinearLayout>

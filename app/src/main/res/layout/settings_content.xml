@@ -595,7 +595,7 @@
 
                 <TextView
                     style="@style/settings_main_text"
-                    android:text="@string/fcDeviceList" />
+                    android:text="@string/fcDeviceSettings" />
 
             </LinearLayout>
 

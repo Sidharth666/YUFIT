@@ -74,7 +74,7 @@ public class DFDeviceInfo extends DFBase {
 
         updateView();
 
-        setupTitleText(view, R.string.fcSectionDevice);
+        setupTitleText(view, R.string.fcSectionRename);
         setupButtons(view);
 
         mDismissAfterOKCancel = (mDFAddNew==null);

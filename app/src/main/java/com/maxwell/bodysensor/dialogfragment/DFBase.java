@@ -68,16 +68,16 @@ public abstract class DFBase extends DialogFragment {
     protected void setupButtons(View view) {
         mBtnCancel = (Button) view.findViewById(R.id.btnCancel);
         mBtnOK = (Button) view.findViewById(R.id.btnOK);
-        mBtnCancelImg = (ImageButton) view.findViewById(R.id.btnCancelImg);
+        //mBtnCancelImg = (ImageButton) view.findViewById(R.id.btnCancelImg);
         if (mBtnCancel != null) {
             mBtnCancel.setOnClickListener(mCancelClickListener);
         }
         if (mBtnOK != null) {
             mBtnOK.setOnClickListener(mOKClickListener);
         }
-        if (mBtnCancelImg != null) {
+        /*if (mBtnCancelImg != null) {
             mBtnCancelImg.setOnClickListener(mCancelClickListener);
-        }
+        }*/
     }
 
     protected void hideButtonOK() {
@@ -121,9 +121,9 @@ public abstract class DFBase extends DialogFragment {
             }
 
             if (mDismissAfterOKCancel) {
-            	if (getDialog() != null) {
-            		getDialog().dismiss();
-            	}
+                if (getDialog() != null) {
+                    getDialog().dismiss();
+                }
             }
         }
     };
