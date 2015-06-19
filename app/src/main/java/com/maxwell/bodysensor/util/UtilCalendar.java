@@ -123,6 +123,15 @@ public class UtilCalendar extends GregorianCalendar {
         setTime(new Date());
     }
 
+    /*public UtilCalendar(Date date) {
+        setTimeZone(TimeZone.getDefault());
+        if (date == null) {
+            date = new Date();
+        }
+        setTime(date);
+        set(Calendar.MILLISECOND, 0);
+    }*/
+
     // the value is NOT shifting to UTC timezone
     public byte [] getBSTime(int iSize) {
         if (iSize!=2 && iSize!=3 && iSize!=4 && iSize!=5)

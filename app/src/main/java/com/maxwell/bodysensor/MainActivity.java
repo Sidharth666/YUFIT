@@ -25,6 +25,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -132,6 +133,8 @@ public class MainActivity extends MXWActivity implements
     private ProgressDialog mDlgProgress;
 
     private LocationManager mLocationMgr;
+    private Location location;
+    private String message;
 
     private boolean mIsOnResumed = false;
 
@@ -654,7 +657,7 @@ public class MainActivity extends MXWActivity implements
                 NOTIFICATION_FIND_PHONE, it, PendingIntent.FLAG_CANCEL_CURRENT);
 
         Notification noti = new Notification.Builder(this)
-                .setSmallIcon(R.drawable.ic_launcher)
+                .setSmallIcon(R.drawable.ic_launcher_yu)
                 .setTicker(text)
                 .setContentTitle(getString(R.string.app_name))
                 .setContentText(text)
@@ -785,12 +788,35 @@ public class MainActivity extends MXWActivity implements
             return;
         }
 
-        String message = sendMyLocationSMS();
+        location = getMyLocation();
+        if (location != null) {
+            UtilDBG.e("MainActivity > getMyLocation > sendMyLocationSMS ");
+            message = sendMyLocationSMS();
+        }
         if (message != null) {
             showSOSAlert(message);
         }
     }
+    private Location getMyLocation() {
+        mLocationMgr = (LocationManager) getSystemService(LOCATION_SERVICE);
+        String provider = LocationManager.NETWORK_PROVIDER; //mLocationMgr.getBestProvider(new Criteria(), true);
+        if (provider == null) {
+            UtilDBG.e("MainActivity > getMyLocation > no location provider");
+            return null;
+        }
 
+        location =  mLocationMgr.getLastKnownLocation(provider);
+        if (location == null) {
+            UtilDBG.e("MainActivity > getMyLocation > cannot get last location by NETWORK_PROVIDER");
+            location = mLocationMgr.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            if (location == null) {
+                UtilDBG.e("MainActivity > getMyLocation > cannot get last location by GPS_PROVIDER");
+                return null;
+            }
+        }
+
+        return location;
+    }
     private void initDevicePowerWatch() {
 
         // get phone's default language
@@ -837,20 +863,8 @@ public class MainActivity extends MXWActivity implements
     }
 
     private String sendMyLocationSMS() {
-        mLocationMgr = (LocationManager) getSystemService(LOCATION_SERVICE);
-        String provider = mLocationMgr.getBestProvider(new Criteria(), true);
-        if (provider == null) {
-            UtilDBG.e("no location provider");
-            return null;
-        }
 
-        Location location = mLocationMgr.getLastKnownLocation(provider);
-        if (location == null) {
-            UtilDBG.e("cannot not get last location");
-            return null;
-        }
-
-        UtilDBG.i("[RYAN] onSOSTrigger > Location : " + location.getLatitude() + " | " + location.getLongitude());
+        UtilDBG.i("[RYAN] onSOSTrigger > Location : " );
 
         String phoneNumber = mSharedPref.getEmergencyContactPhone(); // "0978995204"
         String contactName = mSharedPref.getEmergencyContactName();
@@ -1145,7 +1159,17 @@ public class MainActivity extends MXWActivity implements
 
     @Override
     public void onLocationChanged(Location location) {
-        UtilDBG.i("[RYAN] onLocationChanged > Location : " + location.getLatitude() + " | " + location.getLongitude());
+        UtilDBG.i("[RYAN] onLocationChanged > Location : " );
+        if(location!=null){
+            UtilDBG.e("MainActivity > onLocationChanged > sendMyLocationSMS ");
+            message = sendMyLocationSMS();
+            if (message != null) {
+                showSOSAlert(message);
+                mLocationMgr.removeUpdates(this);
+
+            }
+        }
+
     }
 
     @Override

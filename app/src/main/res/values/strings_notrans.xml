@@ -41,4 +41,8 @@
             https://www.google.com/maps/place/%1$s+%2$s/@%3$s,%4$s,16z
         ]]>
     </string>
+    <string name="fcSectionRename" translatable="false">Rename Device</string>
+    <string name="fcDeviceSettings" translatable="false">Device Settings</string>
+    <string name="remove_device" translatable="false">Remove</string>
+    <string name="rename_device" translatable="false">Rename</string>
 </resources>

@@ -14,7 +14,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.maxwell.bodysensor.data.DBProgramData;
+import com.maxwell.bodysensor.data.HourlyRecordData;
 import com.maxwell.bodysensor.sim.PhNWrapper;
+import com.maxwell.bodysensor.util.UtilCVT;
+import com.maxwell.bodysensor.util.UtilCalendar;
 import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.util.UtilLocale;
 import com.maxwell.bodysensor.util.UtilTimeElapse;
@@ -22,6 +25,9 @@ import com.maxwellguider.bluetooth.MGPeripheral;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTracker;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTrackerApi;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTrackerListener;
+
+import java.util.Date;
+import java.util.List;
 
 public class MXWApp extends Application implements
         Application.ActivityLifecycleCallbacks,
@@ -369,6 +375,19 @@ public class MXWApp extends Application implements
         Intent intent = new Intent(ACTION_HME_SYNCPROGRESS);
         intent.putExtra("onSyncFinish", "onSyncFinish");
         sendBroadcast(intent);
+
+        //check step count
+        UtilCalendar now = new UtilCalendar(null);
+        String strAddress = mPD.getTargetDeviceMac();
+        List<HourlyRecordData> HourlyData = mPD.queryHourlyData(now.getFirstSecondBDay(), now.getLastSecondBDay(), strAddress);
+
+        int step = 0;
+        double dEnergy = 0f;
+        for (HourlyRecordData data: HourlyData) {
+            step += data.mStep;
+            dEnergy += data.mAppEnergy;
+        }
+        Toast.makeText(this,""+step,Toast.LENGTH_LONG).show();
     }
 
     @Override

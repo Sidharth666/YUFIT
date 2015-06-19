@@ -178,10 +178,8 @@
     <string name="fcTaskAlert">Task Alert</string>
     <string name="fcMoveAlert">Move Alert</string>
     <string name="fcSectionDevice">Device</string>
-    <string name="fcSectionRename">Rename Device</string>
     <string name="fcPairADevice">Pair a Device</string>
     <string name="fcDeviceList">Device List</string>
-    <string name="fcDeviceSettings">Device Settings</string>
     <string name="fcLanguage">Language</string>
     <string name="fcBuzzVibrater">Buzz/Vibration</string>
     <string name="fcAutoSync">Auto Sync</string>
@@ -192,8 +190,6 @@
     <string name="fcTroubleshooting">Troubleshooting</string>
     <string name="fcAbout">About</string>
     <string name="share_hint">What\'s on your mind?</string>
-    <string name="remove_device">Remove</string>
-    <string name="rename_device">Rename</string>
 
     <string name="cpUsername">Username*</string>
     <string name="cpName">Name</string>
