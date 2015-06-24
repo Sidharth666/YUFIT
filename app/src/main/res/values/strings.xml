@@ -579,7 +579,11 @@
         %3$s\n\n
         Sent by %4$s app.
     </string>
-
+ <string name="sos_sms_detail_without_loc">
+        %1$s is in a distress situation.\n
+        %2$s\n\n
+        Sent by %3$s app.
+    </string>
     <string name="photo_share">Photo Share</string>
     <string name="share_trend_by">Share your Trend by</string>
 

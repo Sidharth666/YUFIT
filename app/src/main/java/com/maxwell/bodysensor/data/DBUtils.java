@@ -78,8 +78,10 @@ public class DBUtils {
         return getDateStringInGMT(System.currentTimeMillis());
     }
 
+    private static final String DB_TIMESTAMP_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
     public static String getDateStringInGMT(long millis) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat(DB_TIMESTAMP_DATE_FORMAT);
         sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
         return sdf.format(new Date(millis));
     }

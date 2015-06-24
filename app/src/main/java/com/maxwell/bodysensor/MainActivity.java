@@ -793,6 +793,9 @@ public class MainActivity extends MXWActivity implements
             UtilDBG.e("MainActivity > getMyLocation > sendMyLocationSMS ");
             message = sendMyLocationSMS();
         }
+        else{
+            message = sendSMSWithoutMyLocation();
+        }
         if (message != null) {
             showSOSAlert(message);
         }
@@ -811,6 +814,7 @@ public class MainActivity extends MXWActivity implements
             location = mLocationMgr.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             if (location == null) {
                 UtilDBG.e("MainActivity > getMyLocation > cannot get last location by GPS_PROVIDER");
+                mLocationMgr.requestLocationUpdates(mLocationMgr.NETWORK_PROVIDER, 5000, 10, this);
                 return null;
             }
         }
@@ -906,6 +910,52 @@ public class MainActivity extends MXWActivity implements
                     UtilTime.getUnixTime(new Date().getTime()),
                     contactName,
                     location.getLatitude(), location.getLongitude()
+            );
+            mPD.saveSOSRecord(sos);
+
+            return message;
+        }
+
+        return null;
+    }
+
+    private String sendSMSWithoutMyLocation() {
+
+        UtilDBG.i("[RYAN] onSOSTrigger > Location : " );
+
+        String phoneNumber = mSharedPref.getEmergencyContactPhone(); // "0978995204"
+        String contactName = mSharedPref.getEmergencyContactName();
+        if (!phoneNumber.equals("")) {
+
+            String SENT = "SMS_SENT";
+            String DELIVERED = "SMS_DELIVERED";
+
+            // Send SMS message
+            PendingIntent sentPI = PendingIntent.getBroadcast(this, 0,
+                    new Intent(SENT), 0);
+
+            PendingIntent deliveredPI = PendingIntent.getBroadcast(this, 0,
+                    new Intent(DELIVERED), 0);
+
+
+            String myName = mPD.getPersonName();
+            String message = String.format(
+                    getString(R.string.sos_sms_detail_without_loc),
+                    myName,
+                    myName,
+                    getString(R.string.app_name));
+
+            UtilDBG.i("[RYAN] onSOSTrigger > send SMS to : " + phoneNumber + " | " + myName);
+            UtilDBG.i("[RYAN] onSOSTrigger > message : " + message);
+
+            SmsManager sms = SmsManager.getDefault();
+            sms.sendTextMessage(phoneNumber, null, message, sentPI, deliveredPI);
+
+
+            SOSRecord sos = new SOSRecord(
+                    UtilTime.getUnixTime(new Date().getTime()),
+                    contactName,
+                    0,0
             );
             mPD.saveSOSRecord(sos);
 
@@ -1128,6 +1178,7 @@ public class MainActivity extends MXWActivity implements
                 break;
             case BATTERY_LEVEL:
                 int level = attributeValue.toInt();
+              //  mSharedPref.setSyncStatus(true);
                 mSharedPref.setTargetDeviceBattery(level);
                 if (level < 20) {
                     if (mDlgAlert == null) {

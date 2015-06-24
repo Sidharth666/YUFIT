@@ -199,6 +199,10 @@ public class MXWApp extends Application implements
         return mDevHWRevision;
     }
 
+    public MXWApp() {
+        super();
+    }
+
     public void setDevSWRevision(String revision) {
         mDevSWRevision = revision;
     }
@@ -375,19 +379,6 @@ public class MXWApp extends Application implements
         Intent intent = new Intent(ACTION_HME_SYNCPROGRESS);
         intent.putExtra("onSyncFinish", "onSyncFinish");
         sendBroadcast(intent);
-
-        //check step count
-        UtilCalendar now = new UtilCalendar(null);
-        String strAddress = mPD.getTargetDeviceMac();
-        List<HourlyRecordData> HourlyData = mPD.queryHourlyData(now.getFirstSecondBDay(), now.getLastSecondBDay(), strAddress);
-
-        int step = 0;
-        double dEnergy = 0f;
-        for (HourlyRecordData data: HourlyData) {
-            step += data.mStep;
-            dEnergy += data.mAppEnergy;
-        }
-        Toast.makeText(this,""+step,Toast.LENGTH_LONG).show();
     }
 
     @Override
