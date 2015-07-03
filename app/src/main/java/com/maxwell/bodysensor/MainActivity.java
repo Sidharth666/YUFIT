@@ -25,7 +25,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -99,7 +98,8 @@ import java.util.zip.ZipFile;
 
 public class MainActivity extends MXWActivity implements
         DBUpgradeWrapper.DBUpgradeListener,
-        LocationListener {
+        LocationListener
+        {
 
     public static final String SOS_HISTORY_LOCATION_LINK = "<a href=\"https://www.google.com/maps/place/%1$s+%2$s/@%3$s,%4$s,15z\">My location on Google Map</a>";
 
@@ -196,7 +196,6 @@ public class MainActivity extends MXWActivity implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // Uncaught Exception
         PackageInfo pInfo = null;
         try {
@@ -801,7 +800,7 @@ public class MainActivity extends MXWActivity implements
         }
     }
     private Location getMyLocation() {
-        mLocationMgr = (LocationManager) getSystemService(LOCATION_SERVICE);
+       mLocationMgr = (LocationManager) getSystemService(LOCATION_SERVICE);
         String provider = LocationManager.NETWORK_PROVIDER; //mLocationMgr.getBestProvider(new Criteria(), true);
         if (provider == null) {
             UtilDBG.e("MainActivity > getMyLocation > no location provider");
@@ -1071,15 +1070,14 @@ public class MainActivity extends MXWActivity implements
 
     @Override
     public Date getLastDailySyncDate(String deviceAddress) {
-        DeviceData device = mPD.getUserDeviceByAddress(deviceAddress);
+       DeviceData device = mPD.getUserDeviceByAddress(deviceAddress);
         if (device != null) {
-            long unixTime = device.lastDailySyncTime;
+           long unixTime = device.lastDailySyncTime;
             if (unixTime != 0) {
-                Date date = new Date(UtilTime.getMillisecond(unixTime));
+             Date date = new Date(UtilTime.getMillisecond(unixTime));
                 return date;
             }
         }
-
         return null;
     }
 
@@ -1211,32 +1209,29 @@ public class MainActivity extends MXWActivity implements
     @Override
     public void onLocationChanged(Location location) {
         UtilDBG.i("[RYAN] onLocationChanged > Location : " );
-        if(location!=null){
+      /*  if(location!=null){
             UtilDBG.e("MainActivity > onLocationChanged > sendMyLocationSMS ");
             message = sendMyLocationSMS();
             if (message != null) {
                 showSOSAlert(message);
-                mLocationMgr.removeUpdates(this);
+                mLocationMgr.removeUpdates(this);*/
 
             }
-        }
 
-    }
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
 
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
+            }
 
-    }
+            @Override
+            public void onProviderEnabled(String provider) {
 
-    @Override
-    public void onProviderEnabled(String provider) {
+            }
 
-    }
+            @Override
+            public void onProviderDisabled(String provider) {
 
-    @Override
-    public void onProviderDisabled(String provider) {
-
-    }
+            }
 
     private class CopyDataAsync extends AsyncTask<Void, Void, Void> {
 

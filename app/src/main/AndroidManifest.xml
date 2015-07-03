@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.maxwell.bodysensor" >
+    package="com.maxwell.bodysensor"
+    android:versionCode="1"
+    android:versionName="1.1">
 
     <!-- android:versionCode must be integer, and be greater than version code of previous version -->
 
@@ -23,6 +25,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
     <!-- phone/sms notification -->
     <uses-permission

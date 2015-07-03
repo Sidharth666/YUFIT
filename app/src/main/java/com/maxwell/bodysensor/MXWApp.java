@@ -14,24 +14,29 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.maxwell.bodysensor.data.DBProgramData;
+import com.maxwell.bodysensor.data.DeviceData;
 import com.maxwell.bodysensor.data.HourlyRecordData;
 import com.maxwell.bodysensor.sim.PhNWrapper;
 import com.maxwell.bodysensor.util.UtilCVT;
 import com.maxwell.bodysensor.util.UtilCalendar;
 import com.maxwell.bodysensor.util.UtilDBG;
 import com.maxwell.bodysensor.util.UtilLocale;
+import com.maxwell.bodysensor.util.UtilTZ;
+import com.maxwell.bodysensor.util.UtilTime;
 import com.maxwell.bodysensor.util.UtilTimeElapse;
 import com.maxwellguider.bluetooth.MGPeripheral;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTracker;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTrackerApi;
+import com.maxwellguider.bluetooth.activitytracker.MGActivityTrackerDBDelegate;
 import com.maxwellguider.bluetooth.activitytracker.MGActivityTrackerListener;
 
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class MXWApp extends Application implements
         Application.ActivityLifecycleCallbacks,
-        MGActivityTrackerListener {
+        MGActivityTrackerListener,MGActivityTrackerDBDelegate {
 
     public static final String ACTION_SMART_KEY_CAMERA = "com.maxwell.action.SMART_KEY_CAMER";
     public static final String ACTION_SMART_KEY_FIND_PHONE = "com.maxwell.action.SMART_KEY_FIND_PHONE";
@@ -227,6 +232,7 @@ public class MXWApp extends Application implements
 
     private void initMaxwellBleApi() {
         sMaxwellBLE = MGActivityTracker.getInstance(this);
+        sMaxwellBLE.setDBDelegate(this);
         sMaxwellBLE.registerActivityTrackerListener(this);
     }
 
@@ -396,4 +402,87 @@ public class MXWApp extends Application implements
         intent.putExtra("progress", (int)(progress*100.0/total));
         sendBroadcast(intent);
     }
+
+    @Override
+    public Date getLastDailySyncDate(String deviceAddress) {
+        DeviceData device = mPD.getUserDeviceByAddress(deviceAddress);
+        if (device != null) {
+            long unixTime = device.lastDailySyncTime;
+            if (unixTime != 0) {
+                Date date = new Date(UtilTime.getMillisecond(unixTime));
+                return date;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Date getLastHourlySyncDate(String deviceAddress) {
+        DeviceData device = mPD.getUserDeviceByAddress(deviceAddress);
+        if (device != null) {
+            long unixTime = device.lastHourlySyncTime;
+            if (unixTime != 0) {
+                Date date = new Date(UtilTime.getMillisecond(unixTime));
+                return date;
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public void updateLastDailySyncDate(String deviceAddress, Date date) {
+        UtilDBG.d("[RYAN] MainActivity > updateLastDailySyncDate : " + date);
+
+        DeviceData device = mPD.getUserDeviceByAddress(deviceAddress);
+        if (device != null) {
+            device.lastDailySyncTime = UtilTime.getUnixTime(date.getTime());
+            mPD.updateUserDeviceData(device);
+        }
+    }
+
+    @Override
+    public void updateLastHourlySyncDate(String deviceAddress, Date date) {
+//        UtilDBG.d("[RYAN] MainActivity > updateLastHourlySyncDate : " + date);
+
+        DeviceData device = mPD.getUserDeviceByAddress(deviceAddress);
+        if (device != null) {
+            device.lastHourlySyncTime = UtilTime.getUnixTime(date.getTime());
+            mPD.updateUserDeviceData(device);
+        }
+    }
+
+    @Override
+    public void updateDailyEnergyRecord(String deviceAddress, Date date, int energy, int step) {
+//        UtilDBG.d("[RYAN] MainActivity > updateDailyEnergyRecord : " + date + " | " + energy + " | " + step);
+
+        mPD.saveDailyRecord(date, energy, step, deviceAddress);
+    }
+
+    @Override
+    public void updateHourlyEnergyRecord(String deviceAddress, Date date, int energy, int step) {
+//        UtilDBG.d("[RYAN] MainActivity > updateHourlyEnergyRecord : " + date + " | " + energy + " | " + step);
+
+        DeviceData device = mPD.getUserDeviceByAddress(deviceAddress);
+        if (device != null) {
+            int iLastTimezoneDiff = device.lastTimezoneDiff;
+            TimeZone tzLastTime = UtilTZ.getTZWithOffset(iLastTimezoneDiff);
+
+            mPD.saveHourlyRecord(date, energy, step, deviceAddress, tzLastTime.getRawOffset() / 1000 / 60);
+        }
+    }
+
+    @Override
+    public void update15MinutesBasedMoveRecord(String deviceAddress, Date date, int move) {
+//        UtilDBG.d("[RYAN] MainActivity > updateHourlyMoveRecord : " + date + " | " + move);
+
+        DeviceData device = mPD.getUserDeviceByAddress(deviceAddress);
+        if (device != null) {
+            int iLastTimezoneDiff = device.lastTimezoneDiff;
+            TimeZone tzLastTime = UtilTZ.getTZWithOffset(iLastTimezoneDiff);
+
+            mPD.save15MinBasedSleepMove(date, move, deviceAddress, tzLastTime.getRawOffset() / 1000 / 60);
+        }
+    }
 }
+

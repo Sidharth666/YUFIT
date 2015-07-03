@@ -1,54 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
+    android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:layout_height="match_parent">
+    android:orientation="vertical">
 
     <include layout="@layout/mxw_df_title_bar" />
 
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ListView
-            android:id="@+id/list_device"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:smoothScrollbar="true"
-            android:scrollingCache="false"
-            android:animationCache="false"/>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            style="@style/app_outtab_content"
-            android:layout_height="80dp"
-            android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="131dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true">
-
-            <Button
-                android:id="@+id/remove"
-                android:layout_width="wrap_content"
+            <ListView
+                android:id="@+id/list_device"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:smoothScrollbar="true"
+                android:scrollingCache="false"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginRight="80dp"
-                style="@style/material_trans_btn_inverse"
-                android:text="@string/remove_device" />
-
-            <Button
-                android:id="@+id/rename"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/remove"
-                style="@style/material_trans_btn_inverse"
-                android:gravity="center"
-                android:text="@string/rename_device" />
-        </LinearLayout>
-    </RelativeLayout>
+                style="@style/wrapper_settings"
+                android:layout_marginTop="80dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                >
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1.2" >
+                </Space>
+                <Button
+                    android:id="@+id/remove"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/material_trans_btn_inverse"
+                    android:layout_marginRight="@dimen/content_gutter"
+                    android:gravity="center"
+                    android:text="@string/remove_device"
+                    android:layout_weight="0.50" />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="0.5" >
+                </Space>
+                <Button
+                    android:id="@+id/rename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/material_trans_btn_inverse"
+                    android:layout_marginRight="@dimen/content_gutter"
+                    android:gravity="center"
+                    android:text="@string/rename_device"
+                    android:layout_weight="0.50" />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" >
+                </Space>
+                </LinearLayout>
 </LinearLayout>

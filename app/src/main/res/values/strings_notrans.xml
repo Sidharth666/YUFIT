@@ -43,6 +43,11 @@
     </string>
     <string name="fcSectionRename" translatable="false">Rename Device</string>
     <string name="fcDeviceSettings" translatable="false">Device Settings</string>
-    <string name="remove_device" translatable="false">Remove</string>
-    <string name="rename_device" translatable="false">Rename</string>
+    <string name="remove_device" translatable="false">REMOVE</string>
+    <string name="rename_device" translatable="false">RENAME</string>
+    <string name="sos_sms_detail_without_loc" translatable="false">
+        %1$s is in a distress situation.\n
+        %2$s\n\n
+        Sent by %3$s app.
+    </string>
 </resources>
