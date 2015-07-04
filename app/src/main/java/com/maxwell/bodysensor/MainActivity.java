@@ -97,9 +97,7 @@ import java.util.zip.ZipFile;
  * */
 
 public class MainActivity extends MXWActivity implements
-        DBUpgradeWrapper.DBUpgradeListener,
-        LocationListener
-        {
+        DBUpgradeWrapper.DBUpgradeListener, LocationListener {
 
     public static final String SOS_HISTORY_LOCATION_LINK = "<a href=\"https://www.google.com/maps/place/%1$s+%2$s/@%3$s,%4$s,15z\">My location on Google Map</a>";
 
