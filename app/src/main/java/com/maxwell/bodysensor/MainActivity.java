@@ -156,7 +156,6 @@ public class MainActivity extends MXWActivity implements
     private boolean isFromHM = false;
     public static final String KEY_FROM_HME_APP = "is_from_hme";
 
-
     private OnActivityResultCallback mActivityResultCallback;
 
 
@@ -1208,7 +1207,7 @@ public class MainActivity extends MXWActivity implements
 
     @Override
     public void onLocationChanged(Location location) {
-        UtilDBG.i("[RYAN] onLocationChanged > Location : " );
+        UtilDBG.i("[RYAN] onLocationChanged > Location : " + location.getLatitude() + " | " + location.getLongitude());
       /*  if(location!=null){
             UtilDBG.e("MainActivity > onLocationChanged > sendMyLocationSMS ");
             message = sendMyLocationSMS();
