@@ -51,7 +51,7 @@ android {
         micromax {
             applicationId "com.mxx.bodysensor"
             versionCode 1
-            versionName "1.0"
+            versionName "1.1"
         }
     }
 }
