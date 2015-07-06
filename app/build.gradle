@@ -52,6 +52,9 @@ android {
         productFlavors {
             maxwell {
                 applicationId "com.yuplaygod.YUFIT"
+                versionCode 2
+                versionName "1.1"
+
             }
             micromax {
                 applicationId "com.mxx.bodysensor"
