@@ -102,22 +102,22 @@ public class DFDeviceList extends DFBase implements AdapterView.OnItemClickListe
 
                             @Override
                             public boolean onBtnHandler() {
-                                final String mac_deleting = mDeviceList.get(0).mac;
+                              /*  final String mac_deleting = mDeviceList.get(0).mac;
 
                                 // If the device you want to delete is focus device now, disconnect it!!
                                 String focusMac = mPD.getTargetDeviceMac();
                                 if (focusMac.equalsIgnoreCase(mac_deleting)) {
                                     mMaxwellBLE.disconnect();
-                                }
-
-                                mPD.removeUserDevice(mac_deleting);
+                                }*/
+                                removeDevice(mDeviceList.get(0).mac);
+                                //mPD.removeUserDevice(mac_deleting);
                                 mBtnRemove.setVisibility(View.GONE);
                                 mBtnRename.setVisibility(View.GONE);
                                 //send Broadcast to HM indicating device deletion
                                 Intent intent = new Intent();
                                 intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
                                 intent.setAction("com.healthifyme.mmx.ACTION_DEVICE_REMOVED");
-                                intent.putExtra("MacId", focusMac);
+                                intent.putExtra("MacId", mPD.getTargetDeviceMac());
                                 getActivity().sendBroadcast(intent);
                                 getDialog().dismiss();
                                 return true;
@@ -142,6 +142,15 @@ public class DFDeviceList extends DFBase implements AdapterView.OnItemClickListe
         setupButtons(view);
 
         return view;
+    }
+    private void removeDevice(String address) {
+        // If the device you want to delete is focus device now, disconnect it!!
+        String currentMac = mPD.getTargetDeviceMac();
+        if (currentMac.equalsIgnoreCase(address)) {
+            mMaxwellBLE.disconnect();
+        }
+        mPD.removeUserDevice(address);
+        mPD.removeUserProfile(address);
     }
 
     @Override

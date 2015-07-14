@@ -1208,7 +1208,7 @@ public class MainActivity extends MXWActivity implements
 
     @Override
     public void onLocationChanged(Location location) {
-        UtilDBG.i("[RYAN] onLocationChanged > Location : " );
+        UtilDBG.i("[RYAN] onLocationChanged > Location : " + location.getLatitude() + " | " + location.getLongitude());
       /*  if(location!=null){
             UtilDBG.e("MainActivity > onLocationChanged > sendMyLocationSMS ");
             message = sendMyLocationSMS();
