@@ -5,13 +5,19 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.maxwell.bodysensor.data.DBDevice;
+import com.maxwell.bodysensor.data.DBProgramData;
+import com.maxwell.bodysensor.data.DeviceData;
 import com.maxwell.bodysensor.data.PrimaryProfileData;
 import com.maxwell.bodysensor.util.UtilDBG;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ryanhsueh on 15/5/6.
  */
-public class DBUserProfile {
+public class DBUserProfile  extends DBDevice{
 
     public static final String TABLE = "DBProfile";
 
@@ -72,8 +78,9 @@ public class DBUserProfile {
     private SQLiteDatabase mDB;
     private PrimaryProfileData mPrimaryProfile;
 
-    private DBUserProfile(SQLiteDatabase db) {
+    private DBUserProfile(SQLiteDatabase db,DBProgramData pData) {
         mDB = db;
+        mPD = pData;
         mPrimaryProfile = PrimaryProfileData.getInstace();
     }
 
@@ -82,9 +89,9 @@ public class DBUserProfile {
         return sManager;
     }
 
-    public static void init(SQLiteDatabase db) {
+    public static void init(SQLiteDatabase db,DBProgramData pData) {
         if (sManager == null) {
-            sManager = new DBUserProfile(db);
+            sManager = new DBUserProfile(db,pData);
         }
     }
 
@@ -247,4 +254,93 @@ public class DBUserProfile {
         return mPrimaryProfile.sleepLogEnd;
     }
 
+    public List<DeviceData> getDeviceList() {
+        ArrayList<DeviceData> list = new ArrayList<DeviceData>();
+
+        Cursor c = mDB.query(true, TABLE,
+                new String[]{
+                        COLUMN.GENDER,
+                        COLUMN.BIRTHDAY,
+                        COLUMN.HEIGHT,
+                        COLUMN.STRIDE,
+                        COLUMN.NAME,
+                        COLUMN.PHOTO,
+                        COLUMN.DAILY_GOAL,
+                        COLUMN.SLEEP_LOG_BEGIN,
+                        COLUMN.SLEEP_LOG_END,
+                        COLUMN.DEVICE_MAC,
+                        COLUMN.IS_PRIMARY_PROFILE
+                },
+                null, null, null, null, null, null);
+        while (c.moveToNext()) {
+            DeviceData device = new DeviceData();
+            device.gender = c.getInt(c.getColumnIndex(COLUMN.GENDER));
+            device.birthday = c.getInt(c.getColumnIndex(COLUMN.BIRTHDAY));
+            device.height = c.getInt(c.getColumnIndex(COLUMN.HEIGHT));
+            device.stride = c.getInt(c.getColumnIndex(COLUMN.STRIDE));
+            device.name = c.getString(c.getColumnIndex(COLUMN.NAME));
+            device.deviceMac = c.getString(c.getColumnIndex(COLUMN.DEVICE_MAC));
+            device.photo = c.getBlob(c.getColumnIndex(COLUMN.PHOTO));
+            device.dailygoal = c.getInt(c.getColumnIndex(COLUMN.DAILY_GOAL));
+            device.sleeplLogBegin = c.getInt(c.getColumnIndex(COLUMN.SLEEP_LOG_BEGIN));
+            device.sleepLogEnd = c.getInt(c.getColumnIndex(COLUMN.SLEEP_LOG_END));
+            device.deviceMac = c.getString(c.getColumnIndex(COLUMN.DEVICE_MAC));
+            device.isPrimaryProfile = c.getInt(c.getColumnIndex(COLUMN.IS_PRIMARY_PROFILE));
+            list.add(device);
+
+        }
+        c.close();
+
+        return list;
+    }
+
+
+    public void removeDevice(String strAddress) {
+        Cursor c = mDB.query(true, TABLE,
+                new String[]{
+                        DBUserProfile.COLUMN.DEVICE_MAC,
+                },
+                DBUserProfile.COLUMN.DEVICE_MAC+"=\""+strAddress+"\"", null, null, null, null, null);
+        int iCount = c.getCount();
+
+        if (iCount!=0) {
+            if (iCount>1) {
+                UtilDBG.e("!! Assume that there is at most one row !!");
+            } else {
+                c.moveToFirst();
+            }
+        }
+
+        c.close();
+
+        int iNumDevice = mDB.delete(TABLE, DBUserProfile.COLUMN.DEVICE_MAC+"=\""+strAddress+"\"", null);
+        //int iNumDevice = mDB.delete(TABLE,null,null);
+        UtilDBG.i("remove device from deviceList, address = " + strAddress
+                + " result= " + Integer.toString(iNumDevice));
+        if (iNumDevice!=1) {
+            UtilDBG.e("removeDevice == unexpected == ");
+        } else {
+            // TODO : update focus device if need
+            List<DeviceData> deviceList = getDeviceList();
+            if (deviceList.size()==0) {
+                mPD.setTargetDeviceMac("");
+            } else {
+                int iLatestIdx = 0;
+                long latest = deviceList.get(0).lastHourlySyncTime;
+                for (int i=1; i<deviceList.size(); ++i) {
+                    long compare = deviceList.get(i).lastHourlySyncTime;
+                    if (latest < compare) {
+                        latest = compare;
+                        iLatestIdx = i;
+                    }
+                }
+
+                mPD.setTargetDeviceMac(deviceList.get(iLatestIdx).mac);
+            }
+
+            notifyUpdated();
+        }
+    }
 }
+
+

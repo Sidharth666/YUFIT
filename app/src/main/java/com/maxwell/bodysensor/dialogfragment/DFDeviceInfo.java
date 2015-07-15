@@ -100,4 +100,9 @@ public class DFDeviceInfo extends DFBase {
         }
     }
 
+    public void onDestroyView()
+    {
+        super.onDestroyView();
+        mPD.updateUserDeviceData(mDevcieData);
+    }
 }

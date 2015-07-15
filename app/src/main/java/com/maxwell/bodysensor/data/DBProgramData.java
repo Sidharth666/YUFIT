@@ -108,7 +108,7 @@ public class DBProgramData extends SQLiteOpenHelper {
         mDB = getWritableDatabase();
 
         // Initial DBProfileManager
-        DBUserProfile.init(mDB);
+        DBUserProfile.init(mDB,this);
         mUserProfile = DBUserProfile.getInstance();
 
 
@@ -290,6 +290,11 @@ public class DBProgramData extends SQLiteOpenHelper {
 
     public void removeUserDevice(String strAddress) {
         mUserDevice.removeDevice(strAddress);
+    }
+
+    public void removeUserProfile(String strAddress)
+    {
+        mUserProfile.removeDevice(strAddress);
     }
 // Device --------------------------------------------
 
