@@ -4,7 +4,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -97,18 +101,19 @@ public class FTabConf extends Fragment implements
     private View mViewTutorial;
     private View mViewAbout;
 
-	// Advanced device feature
-	private View mViewPhoneNotify;
-	private View mViewOutOfRange;
+    // Advanced device feature
+    private View mViewPhoneNotify;
+    private View mViewOutOfRange;
     private View mViewFineDevice;
-	private View mViewSmartKey;
+    private View mViewSmartKey;
     private View mViewCameraRemote;
     private View mViewVideoRemote;
     private View mViewFindPhone;
-	private View mViewDeviceAlarm;
-	private View mViewTaskAlert;
-	private View mViewMoveAlert;
-	private View mViewResetDevice;
+    private View mViewDeviceAlarm;
+    private View mViewTaskAlert;
+    private View mViewMoveAlert;
+    private View mViewVibration;
+    private View mViewResetDevice;
     private View mViewEmergencyContact;
     private View mViewSOSHistory;
 
@@ -117,12 +122,12 @@ public class FTabConf extends Fragment implements
     private Button mBtnLaunchVideo;
     private Button mBtnOpenHMe;
 
-	private ToggleButton mTogglePhoneNotify;
-	private ToggleButton mToggleOutOfRange;
+    private ToggleButton mTogglePhoneNotify;
+    private ToggleButton mToggleOutOfRange;
     private ToggleButton mToggleFindPhone;
-	private ToggleButton mToggleMoveAlert;
+    private ToggleButton mToggleMoveAlert;
     private ToggleButton mToggleSOS;
-	private ToggleButton mToggleVibration;
+    private ToggleButton mToggleVibration;
     private ToggleButton mToggleAlarm;
 
     private TextView mTextNoDisturbingTime;
@@ -139,15 +144,16 @@ public class FTabConf extends Fragment implements
     private LinearLayout mLlHMRedirect;
     private View btnSleep, btnActivity, btnNutrition;
     private View llHmeOptionsWrapper;
+    private ImageView mIcbattery;
 
     @Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         UtilDBG.logMethod();
 
-		View rootView = inflater.inflate(R.layout.fragment_conf, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_conf, container, false);
 
-		mActivity = (MainActivity) getActivity();
+        mActivity = (MainActivity) getActivity();
         mPD = DBProgramData.getInstance();
         mSharedPref = SharedPrefWrapper.getInstance();
         mMaxwellBLE = MGActivityTracker.getInstance(mActivity);
@@ -177,6 +183,7 @@ public class FTabConf extends Fragment implements
         mViewDeviceAlarm = rootView.findViewById(R.id.view_device_alarm);
         mViewTaskAlert = rootView.findViewById(R.id.view_task_alert);
         mViewMoveAlert = rootView.findViewById(R.id.view_move_alert);
+        mViewVibration = rootView.findViewById(R.id.enable_vibration);
         mViewResetDevice = rootView.findViewById(R.id.view_reset_device);
         mViewEmergencyContact = rootView.findViewById(R.id.view_emergency_contact);
         mViewSOSHistory = rootView.findViewById(R.id.view_sos_history);
@@ -188,11 +195,11 @@ public class FTabConf extends Fragment implements
 
 //    	mRGUnit = (RadioGroup) rootView.findViewById(R.id.radio_unit);
 
-    	mToggleVibration = (ToggleButton) rootView.findViewById(R.id.toggle_vibration);
-    	mTogglePhoneNotify = (ToggleButton) rootView.findViewById(R.id.toggle_phone_notify);
+        mToggleVibration = (ToggleButton) rootView.findViewById(R.id.toggle_vibration);
+        mTogglePhoneNotify = (ToggleButton) rootView.findViewById(R.id.toggle_phone_notify);
         mToggleFindPhone = (ToggleButton) rootView.findViewById(R.id.toggle_find_phone);
-    	mToggleOutOfRange = (ToggleButton) rootView.findViewById(R.id.toggle_out_of_range);
-    	mToggleMoveAlert = (ToggleButton) rootView.findViewById(R.id.toggle_move_alert);
+        mToggleOutOfRange = (ToggleButton) rootView.findViewById(R.id.toggle_out_of_range);
+        mToggleMoveAlert = (ToggleButton) rootView.findViewById(R.id.toggle_move_alert);
         mToggleSOS = (ToggleButton) rootView.findViewById(R.id.toggle_sos);
         mToggleAlarm = (ToggleButton) rootView.findViewById(R.id.toggle_alarm);
 
@@ -207,6 +214,7 @@ public class FTabConf extends Fragment implements
         mSyncProgress = (ProgressBar)rootView.findViewById(R.id.progress_Sync);
 
         mLlBattery = (LinearLayout)rootView.findViewById(R.id.ll_battery);
+        mIcbattery = (ImageView)rootView.findViewById(R.id.ic_battery);
         mLlHMRedirect = (LinearLayout)rootView.findViewById(R.id.view_hme_redirection);
         btnActivity = rootView.findViewById(R.id.btn_healthifyme_activity);
         btnSleep = rootView.findViewById(R.id.btn_healthifyme_sleep);
@@ -255,10 +263,10 @@ public class FTabConf extends Fragment implements
         intentFilter.addAction(MXWApp.ACTION_REMOVE_DEVICE);
         getActivity().registerReceiver(mDeviceRemovedtReceiver, intentFilter);
 
-	    return rootView;
+        return rootView;
 
 
-	}
+    }
 
     @Override
     public void onResume() {
@@ -274,11 +282,11 @@ public class FTabConf extends Fragment implements
         mTogglePhoneNotify.setChecked(mSharedPref.isDeviceIncomingCallEnable());
         mTogglePhoneNotify.setOnCheckedChangeListener(mPNSwitchListener);
 
-    	mToggleOutOfRange.setChecked(mSharedPref.isDeviceOutOfRangeEnable());
-    	mToggleOutOfRange.setOnCheckedChangeListener(mOutOfRangeSwitchListener);
+        mToggleOutOfRange.setChecked(mSharedPref.isDeviceOutOfRangeEnable());
+        mToggleOutOfRange.setOnCheckedChangeListener(mOutOfRangeSwitchListener);
 
-    	mToggleMoveAlert.setChecked(mSharedPref.isDeviceMoveAlertEnable());
-    	mToggleMoveAlert.setOnCheckedChangeListener(mMoveAlertSwitchListener);
+        mToggleMoveAlert.setChecked(mSharedPref.isDeviceMoveAlertEnable());
+        mToggleMoveAlert.setOnCheckedChangeListener(mMoveAlertSwitchListener);
 
         mToggleSOS.setChecked(mSharedPref.isDeviceSOSEnable());
         mToggleSOS.setOnCheckedChangeListener(mSOSSwitchListener);
@@ -301,7 +309,7 @@ public class FTabConf extends Fragment implements
         super.onPause();
 
         mTogglePhoneNotify.setOnCheckedChangeListener(null);
-    	mToggleOutOfRange.setOnCheckedChangeListener(null);
+        mToggleOutOfRange.setOnCheckedChangeListener(null);
         mToggleMoveAlert.setOnCheckedChangeListener(null);
         mToggleSOS.setOnCheckedChangeListener(null);
         mToggleVibration.setOnCheckedChangeListener(null);
@@ -369,7 +377,6 @@ public class FTabConf extends Fragment implements
             isFromHM = bundle.getBoolean(MainActivity.KEY_FROM_HME_APP);
         }
 
-
         if(isFromHM){
             mLlHMRedirect.setVisibility(View.GONE);
         }else{
@@ -382,9 +389,15 @@ public class FTabConf extends Fragment implements
 //            DeviceData device = mPD.getDeviceDataByAddress(TargetMac);
 
             mViewFocusE2MAX.setVisibility(VISIBLE);
+            mViewResetDevice.setVisibility(View.VISIBLE);
+            mViewVibration.setVisibility(View.VISIBLE);
+
 
         } else {
             mViewFocusE2MAX.setVisibility(View.GONE);
+            mViewResetDevice.setVisibility(View.GONE);
+            mViewVibration.setVisibility(View.GONE);
+
         }
 
         if (mActivity.getSyncProgress()>=100 && mSyncProgress!=null) {
@@ -401,8 +414,12 @@ public class FTabConf extends Fragment implements
                 strBattery = getString(R.string.bt_device_battery_charging);
             } else if (battery == BATTERY_FULL) {
                 strBattery = getString(R.string.bt_device_battery_fully_charged);
-            } else {
+            }
+            else {
                 int iShow = (battery/10) * 10;
+                if(iShow == 100){
+                    mIcbattery.setImageResource(R.drawable.ic_battery_bluefull);
+                }
                 // TODO : Why?
 //            int iShow = (int)((dOriginal-45.0)/(100.0-45.0)*10.0+0.5) * 10;
 //            if (iShow < 0) {
@@ -443,8 +460,8 @@ public class FTabConf extends Fragment implements
     }
 
     private void showDlgDeviceNotConnected() {
-		WarningUtil.showDFMessageOK(getActivity(), 0, R.string.dlg_device_disconnectd_content);
-	}
+        WarningUtil.showDFMessageOK(getActivity(), 0, R.string.dlg_device_disconnectd_content);
+    }
 
     private void updateTextTimeDuration(TextView tv, int start, int end) {
         long msStart = UtilTime.getMillisForIntTime(start);
@@ -589,9 +606,9 @@ public class FTabConf extends Fragment implements
             }else{
                 mMaxwellBLE.setLinkLossIndicator(enable);
             }
-            }
-
         }
+
+    }
 
 
     @Override
@@ -627,7 +644,7 @@ public class FTabConf extends Fragment implements
                     if(!mPD.getTargetDeviceMac().equals("")){
                         mMaxwellBLE.connect(mPD.getTargetDeviceMac(), 0);
                     }else
-                    WarningUtil.showToastLong(mActivity, R.string.profile_device_no_conn);
+                        WarningUtil.showToastLong(mActivity, R.string.profile_device_no_conn);
                 }
             }
         }
@@ -636,7 +653,7 @@ public class FTabConf extends Fragment implements
         } else if (v==mViewDeviceList) {
             dlg = new DFDeviceList();
         }  else if (v==mViewPhoneNotify) {
-        	dlg = new DFPhoneNotify();
+            dlg = new DFPhoneNotify();
             ((DFPhoneNotify) dlg).setOnPhoneNotifyChangedLitener(this);
         } else if (v==mViewOutOfRange) {
             dlg = new DFOutOfRangeAlert();
@@ -662,8 +679,8 @@ public class FTabConf extends Fragment implements
             ((DFInfo) dlg).setInfo(getString(R.string.tutorial4_instruction));
             ((DFInfo) dlg).setImg(R.drawable.ic_finddevice);
         } else if (v==mViewDeviceAlarm) {
-        	dlg = new DFDeviceAlarm();
-        	((DFDeviceAlarm) dlg).setDeviceAlertListener(this);
+            dlg = new DFDeviceAlarm();
+            ((DFDeviceAlarm) dlg).setDeviceAlertListener(this);
         } else if (v==mViewTaskAlert) {
             dlg = new DFTaskAlert();
             ((DFTaskAlert) dlg).setDeviceAlertListener(this);
@@ -675,10 +692,10 @@ public class FTabConf extends Fragment implements
         } else if (v==mViewSOSHistory) {
             dlg = new DFSOSHistory();
         } else if (v==mViewResetDevice) {
-        	if (mMaxwellBLE.isReady()) {
-        		dlg = new DlgMessageYN();
+            if (mMaxwellBLE.isReady()) {
+                dlg = new DlgMessageYN();
                 ((DlgMessageYN)dlg).setTitle(getString(R.string.fcResetDevice))
-        		        .setDes(getString(R.string.ynResetDeviceDes))
+                        .setDes(getString(R.string.ynResetDeviceDes))
                         .setPositiveButton(null, new btnHandler() {
 
                             @Override
@@ -689,8 +706,8 @@ public class FTabConf extends Fragment implements
 
                         });
             } else {
-            	showDlgDeviceNotConnected();
-            	return;
+                showDlgDeviceNotConnected();
+                return;
             }
         } else if (v==mBtnFindDevice) {
             if (mMaxwellBLE.isReady()) {
@@ -808,10 +825,10 @@ public class FTabConf extends Fragment implements
     @Override
     public void onDeviceAlertUpdated(){
 
-      updateWeeklyAlarmView();
-      updateMoveAlertView();
+        updateWeeklyAlarmView();
+        updateMoveAlertView();
 
-      configAlertSetting();
+        configAlertSetting();
     }
 
 
@@ -915,8 +932,8 @@ public class FTabConf extends Fragment implements
                                              boolean isChecked) {
                     mSharedPref.enableDeviceVibration(isChecked);
                     configSystemSetting();
-                    }
-                };
+                }
+            };
 
     @Override
     public void onDeviceConnect(MGPeripheral sender) {

@@ -1,11 +1,16 @@
 package com.maxwell.bodysensor.fragment;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
+import android.graphics.Matrix;
 import android.hardware.Camera;
 import android.hardware.Camera.PictureCallback;
 import android.hardware.Camera.ShutterCallback;
@@ -19,18 +24,23 @@ import android.media.CamcorderProfile;
 import android.media.ExifInterface;
 import android.media.MediaRecorder;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
@@ -46,9 +56,13 @@ import com.maxwell.bodysensor.ui.WarningUtil;
 import com.maxwell.bodysensor.util.UtilCalendar;
 import com.maxwell.bodysensor.util.UtilDBG;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -103,7 +117,8 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
     private SensorManager mSensorMgr;
     private Sensor mAcceleSensor, mMagSensor;
     private float[] mfArrAccSensorValues, mfArrMagSensorValues;
-
+    String manufacturer;
+    String model;
     private enum PHONE_ORIENTATION {
         PORTRAIT, LANDSCAPE
     }
@@ -159,7 +174,6 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Bundle b = getArguments();
         if (b.getBoolean(CameraActivity.KEY_IS_VIDEO_RECORDER)) {
             mCameraType = MEDIA_FILE_TYPE.VIDEO;
@@ -169,6 +183,25 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
 
     }
 
+    public String getDeviceName() {
+        manufacturer = Build.MANUFACTURER;
+        if (model.startsWith(manufacturer)) {
+            return capitalize(model);
+        } else {
+            return capitalize(manufacturer) + " " + model;
+        }
+    }
+    private String capitalize(String s) {
+        if (s == null || s.length() == 0) {
+            return "";
+        }
+        char first = s.charAt(0);
+        if (Character.isUpperCase(first)) {
+            return s;
+        } else {
+            return Character.toUpperCase(first) + s.substring(1);
+        }
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mContext = getActivity();
@@ -202,10 +235,38 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
                 // Do nothing if we are recording video.
                 if (mbIsRecordingVideo)
                     return;
+                //show images and videos captured remotely
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(
+                        "content://media/internal/images/media"));
+                startActivity(intent);
+                /*Intent it = new Intent(Intent.ACTION_VIEW);
+                it.setType("image*//*");
+                startActivity(it);*/
+                //Intent intent = new Intent();
+// Show only images, no videos or anything else
+                //intent.setType("image/*");
+                //intent.setAction(Intent.ACTION_VIEW);
+// Always show the chooser (if there are multiple options available)
+                //startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
 
+
+               /* Intent intent = new Intent(Intent.ACTION_VIEW, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                intent.setType(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString());
+                startActivity(intent);*/
+                /*String folderPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString()+ "";
+                int folderBucketId = folderPath.toLowerCase().hashCode();
+                Uri targetUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.buildUpon().appendQueryParameter("bucketId", String.valueOf(folderBucketId)).build();
+
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(targetUri, "/image*//*");
+                startActivity(intent);*/
+
+               /* Uri selectedUri = Uri.parse(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath()+ "/myFolder/");
                 Intent it = new Intent(Intent.ACTION_VIEW);
-                it.setType("image/*");
-                startActivity(it);
+                it.setType("image*//**//*");
+                it.setDataAndType(selectedUri,"");
+                startActivity(Intent.createChooser(it, "Open folder"));
+                startActivity(it);*/
             }
         });
 
@@ -291,7 +352,6 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
 
             Camera.CameraInfo camInfo = new Camera.CameraInfo();
             Camera.getCameraInfo(0, camInfo);
-
             int rotation = ((Activity)mContext).getWindowManager().getDefaultDisplay().getRotation();
             int degrees = 0;
             switch (rotation) {
@@ -304,8 +364,11 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
                 case Surface.ROTATION_270:
                     degrees = 270; break;
             }
-
+//Todo: check camera rotation degree
             miCameraRotationDegree = (camInfo.orientation - degrees + 360) % 360;
+           /* if(Build.MODEL.equalsIgnoreCase("AO5510")&&camInfo.orientation==90){
+                miCameraRotationDegree=0;
+            }*/
             mCamera.setDisplayOrientation(miCameraRotationDegree);
 
             setFocusMode();
@@ -368,6 +431,89 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
         if (!setupCamera(miSurfaceWidth, miSurfaceHeight)) {
             UtilDBG.e("Exception : setupCamera error!!");
         }
+
+       /* if (Integer.parseInt(Build.VERSION.SDK) >= 8){
+            setDisplayOrientation(mCamera, 90);
+        Camera.Parameters p = mCamera.getParameters();
+        p.set("orientation", "portrait");
+        p.setRotation(90);
+        mCamera.setParameters(p);
+    }
+        else {
+            setDisplayOrientation(mCamera, 90);
+        }
+*/
+
+
+    }
+    public int getRotationAngle(int cameraId) {
+        android.hardware.Camera.CameraInfo info = new android.hardware.Camera.CameraInfo();
+        android.hardware.Camera.getCameraInfo(cameraId, info);
+        int rotation = getActivity().getWindowManager().getDefaultDisplay().getRotation();
+        int degrees = 0;
+        switch (rotation) {
+            case Surface.ROTATION_0:
+                degrees = 0;
+                break;
+            case Surface.ROTATION_90:
+                degrees = 90;
+                break;
+            case Surface.ROTATION_180:
+                degrees = 180;
+                break;
+            case Surface.ROTATION_270:
+                degrees = 270;
+                break;
+        }
+        int result;
+        if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+            result = (info.orientation + degrees) % 360;
+            result = (360 - result) % 360; // compensate the mirror
+        } else { // back-facing
+            result = (info.orientation - degrees + 360) % 360;
+        }
+        return result;
+    }
+    protected void setDisplayOrientation(Camera camera, int angle){
+        Method downPolymorphic;
+        try
+        {
+            downPolymorphic = camera.getClass().getMethod("setDisplayOrientation", new Class[] { int.class });
+            if (downPolymorphic != null)
+                downPolymorphic.invoke(camera, new Object[] { angle });
+        }
+        catch (Exception e1)
+        {
+        }
+    }
+    public static void setCameraDisplayOrientation(Activity activity, int cameraId, android.hardware.Camera camera) {
+        android.hardware.Camera.CameraInfo info = new android.hardware.Camera.CameraInfo();
+        android.hardware.Camera.getCameraInfo(cameraId, info);
+        int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
+        int degrees = 0;
+        switch (rotation) {
+            case Surface.ROTATION_0:
+                degrees = 0;
+                break;
+            case Surface.ROTATION_90:
+                degrees = 90;
+                break;
+            case Surface.ROTATION_180:
+                degrees = 180;
+                break;
+            case Surface.ROTATION_270:
+                degrees = 270;
+                break;
+        }
+
+        int result;
+        if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+            result = (info.orientation + degrees) % 360;
+            result = (360 - result) % 360; // compensate the mirror
+        } else { // back-facing
+            result = (info.orientation - degrees + 360) % 360;
+        }
+        camera.setDisplayOrientation(result);
     }
 
     @Override
@@ -376,16 +522,16 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
         // onResume() is called before surfaceCreated().
 
         // Enable camera according to mbUsingBackCamera.
-        if (mbUsingBackCamera)
+        int currentSDKVersion = android.os.Build.VERSION.SDK_INT;
+        if (mbUsingBackCamera) {
             mCamera = Camera.open();
-        else
+        } else
             mCamera = Camera.open(1);
 
         mMediaRecorder = new MediaRecorder();
-
         mSurfViewCamera.setCamera(mCamera);
-    }
 
+    }
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
         if (mbIsRecordingVideo)
@@ -488,8 +634,17 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
                         case LANDSCAPE:
                             miPictureRotationDegree = ROTATION_DEGREE_BACK_CAMERA_LANDSCAPE;
                             break;
+
+
                     }
-                } else {
+                }
+                /*selse if(mPhoneOrientation==null){
+                    Camera.Parameters params = mCamera.getParameters();
+                    params.set("orientation", "portrait");
+                    params.setRotation(90);
+                    mCamera.setParameters(params);
+                }*/
+                else {
                     switch (mPhoneOrientation) {
                         case PORTRAIT:
                             miPictureRotationDegree = ROTATION_DEGREE_FRONT_CAMERA_PORTRAIT;
@@ -506,6 +661,7 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
             } catch (Exception e) {
 //                Toast.makeText(mContext, "Error in ShutterCallback.onShutter()", Toast.LENGTH_LONG).show();
             }
+
         }
     };
 
@@ -540,7 +696,15 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
             }
         }
     };
+    public static Bitmap rotate(Bitmap bitmap, int degree) {
+        int w = bitmap.getWidth();
+        int h = bitmap.getHeight();
 
+        Matrix mtx = new Matrix();
+        mtx.postRotate(degree);
+
+        return Bitmap.createBitmap(bitmap, 0, 0, w, h, mtx, true);
+    }
     private File getOutputFile(MEDIA_FILE_TYPE fileType) {
         File fileStoragePath, file;
         String timeStamp;
@@ -590,7 +754,23 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
                 R.string.dlg_error_camera_description);
     }
 
-    private void addPictureToGallery(File file, int fileType) {
+    private void addPictureToGallery(File file, int fileType){
+      /*  Camera.CameraInfo info = new Camera.CameraInfo();
+        Camera.getCameraInfo(Camera.CameraInfo.CAMERA_FACING_BACK, info);
+        int rotation = getActivity().getWindowManager().getDefaultDisplay().getRotation();
+        int degrees = 0;
+        switch (rotation) {
+            case Surface.ROTATION_0: degrees = 0; break; //Natural orientation
+            case Surface.ROTATION_90: degrees = 90; break; //Landscape left
+            case Surface.ROTATION_180: degrees = 180; break;//Upside down
+            case Surface.ROTATION_270: degrees = 270; break;//Landscape right
+        }
+        int rotate = (info.orientation - degrees + 360) % 360;
+
+//STEP #2: Set the 'rotation' parameter
+        Camera.Parameters params = mCamera.getParameters();
+        params.setRotation(rotate);
+        mCamera.setParameters(params);*/
         Intent it = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         File f = new File(file.getPath());
         Uri contentUri = Uri.fromFile(f);
@@ -606,6 +786,44 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
                 break;
         }
         Toast.makeText(mContext, toastStringId, Toast.LENGTH_LONG).show();
+    }
+    private static Bitmap rotateImageIfRequired(Context context,Bitmap img, Uri selectedImage) {
+
+        // Detect rotation
+        int rotation=getRotation(context, selectedImage);
+        if(rotation!=0){
+            Matrix matrix = new Matrix();
+            matrix.postRotate(rotation);
+            Bitmap rotatedImg = Bitmap.createBitmap(img, 0, 0, img.getWidth(), img.getHeight(), matrix, true);
+            img.recycle();
+            return rotatedImg;
+        }else{
+            return img;
+        }
+    }
+
+    /**
+     * Get the rotation of the last image added.
+     * @param context
+     * @param selectedImage
+     * @return
+     */
+    private static int getRotation(Context context,Uri selectedImage) {
+        int rotation =0;
+        ContentResolver content = context.getContentResolver();
+
+
+        Cursor mediaCursor = content.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                new String[] { "orientation", "date_added" },null, null,"date_added desc");
+
+        if (mediaCursor != null && mediaCursor.getCount() !=0 ) {
+            while(mediaCursor.moveToNext()){
+                rotation = mediaCursor.getInt(0);
+                break;
+            }
+        }
+        mediaCursor.close();
+        return rotation;
     }
 
     private View.OnClickListener imgBtnSwitchBackFrontCameraOnClick = new View.OnClickListener() {
@@ -768,7 +986,7 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
                         AnimationUtils.loadAnimation(mContext,
                                 R.anim.tween_anim_rotate_90_clockwise));
                 mImgBtnOpenGallery.startAnimation(mAnimRotate90Clockwise);
-		}
+        }
     }
 
     private void startRecordingVideo() {
@@ -820,10 +1038,15 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
                     case LANDSCAPE:
                         mMediaRecorder.setOrientationHint(miCameraRotationDegree - 90);
                         break;
+
                 }
-            }else
-                //in case of no magnetic sensore, treat as potrait
-                mPhoneOrientation = PHONE_ORIENTATION.PORTRAIT;
+            }else if(mPhoneOrientation == null)  // case to check if mPhoneOrientation is null a.karmakar
+            {
+
+                mMediaRecorder.setOrientationHint(miCameraRotationDegree);
+            }
+            //in case of no magnetic sensore, treat as potrait
+            mPhoneOrientation = PHONE_ORIENTATION.PORTRAIT;
         }
 
         try {
@@ -925,15 +1148,18 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
         return sizeBest;
     }
 
+
+
     private void rotatePictureAndSave(byte[] pictureData, boolean bIsJpegFormat) throws Exception {
         // Save bitmap directly without rotation.
+        Bitmap bitmap = null;
         File pictureFile = getOutputFile(MEDIA_FILE_TYPE.PICTURE);
         FileOutputStream fileOutStream = new FileOutputStream(pictureFile);
 
         if (bIsJpegFormat)  // Write pictureData directly.
             fileOutStream.write(pictureData);
         else {  // Compress pictureData into JPEG format.
-            Bitmap bitmap = BitmapFactory.decodeByteArray(pictureData, 0, pictureData.length);
+            bitmap = BitmapFactory.decodeByteArray(pictureData, 0, pictureData.length);
             bitmap.compress(Bitmap.CompressFormat.JPEG, 90, fileOutStream);
         }
 
@@ -941,11 +1167,16 @@ public class FCamera extends Fragment implements SurfaceHolder.Callback {
 
         // Modify orientation in Exif tags.
         ExifInterface exif=new ExifInterface(pictureFile.getPath());
-
-        if (miPictureRotationDegree == ROTATION_DEGREE_BACK_CAMERA_PORTRAIT)
+        if (miPictureRotationDegree == ROTATION_DEGREE_BACK_CAMERA_PORTRAIT) {
             exif.setAttribute(ExifInterface.TAG_ORIENTATION, String.valueOf(ExifInterface.ORIENTATION_ROTATE_90));
-        else if (miPictureRotationDegree == ROTATION_DEGREE_BACK_CAMERA_LANDSCAPE)
+        }
+        else if (miPictureRotationDegree == ROTATION_DEGREE_BACK_CAMERA_LANDSCAPE) {
             exif.setAttribute(ExifInterface.TAG_ORIENTATION, String.valueOf(ExifInterface.ORIENTATION_NORMAL));
+           /* Camera.Parameters parameters = mCamera.getParameters();
+                parameters.set("orientation", "portrait");
+                parameters.setRotation(90);
+                mCamera.setParameters(parameters)*/
+        }
         else if (miPictureRotationDegree == ROTATION_DEGREE_FRONT_CAMERA_PORTRAIT)
             exif.setAttribute(ExifInterface.TAG_ORIENTATION, String.valueOf(ExifInterface.ORIENTATION_ROTATE_270));
         else if (miPictureRotationDegree == ROTATION_DEGREE_FRONT_CAMERA_LANDSCAPE)

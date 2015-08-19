@@ -36,10 +36,11 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/space_17dp"
+                android:layout_marginTop="@dimen/space_10dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/img_tut_devicelist_a"/>
+                android:paddingStart="@dimen/text_35sp"
+                android:paddingRight="@dimen/text_20sp"
+                android:src="@drawable/img_tut_devicelist_1"/>
 
 
             <LinearLayout
@@ -58,9 +59,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/space_17dp"
+                android:layout_marginTop="@dimen/space_10dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/img_tut_devicelist_b"/>
+                android:paddingStart="@dimen/text_35sp"
+                android:paddingRight="@dimen/text_20sp"
+                android:src="@drawable/img_tut_devicelist_2"/>
 
 
             <LinearLayout
@@ -79,9 +82,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/space_17dp"
+                android:layout_marginTop="@dimen/space_10dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/img_tut_devicelist_edit"/>
+                android:paddingStart="@dimen/text_35sp"
+                android:paddingRight="@dimen/text_20sp"
+                android:src="@drawable/img_tut_devicelist_edit1"/>
 
 
         </LinearLayout>

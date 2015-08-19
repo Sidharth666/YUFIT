@@ -4,9 +4,15 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.hardware.Camera;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Display;
+import android.view.WindowManager;
 
 import com.maxwell.bodysensor.fragment.FCamera;
 import com.maxwell.bodysensor.util.UtilDBG;
@@ -20,38 +26,61 @@ public class CameraActivity extends FragmentActivity {
     public static final String ACTION_VIDEO_RECORDER = "com.maxwell.camera.action.VIDEO_RECORDER";
 
     public static final String KEY_IS_VIDEO_RECORDER = "key_is_video_recorder";
-
     private FCamera mFCamera;
+    int orientation;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Display display = ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay();
+        //final int orientation = display.getOrientation();
+      /*  orientation = Configuration.ORIENTATION_UNDEFINED;
+        getScreenOrientation();
+        if(orientation==1){
 
+        }*/
         setContentView(R.layout.activity_camera);
 
+        /*if (Build.MODEL.equalsIgnoreCase("AO5510")){
+            if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            } else setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
+        else{
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+        }*/
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         if (ft==null) {
             UtilDBG.e("showContainerFirst, can not get FragmentTransaction");
             return;
         }
-
-
         Intent intent = getIntent();
         if (intent.getAction().equals(ACTION_VIDEO_RECORDER)) {
             intent.putExtra(KEY_IS_VIDEO_RECORDER, true);
         } else {
             intent.putExtra(KEY_IS_VIDEO_RECORDER, false);
         }
-
         mFCamera = new FCamera();
         mFCamera.setArguments(intent.getExtras());
         ft.add(R.id.container_camera, mFCamera, "ContainerCamera");
         ft.show(mFCamera);
         ft.commitAllowingStateLoss();
-
         getSupportFragmentManager().executePendingTransactions();
     }
-
+    public int getScreenOrientation()
+    {
+        Display getOrient = getWindowManager().getDefaultDisplay();
+        if(getOrient.getWidth()==getOrient.getHeight()){
+            orientation = Configuration.ORIENTATION_SQUARE;
+        } else{
+            if(getOrient.getWidth() < getOrient.getHeight()){
+                orientation = Configuration.ORIENTATION_PORTRAIT;
+            }else {
+                orientation = Configuration.ORIENTATION_LANDSCAPE;
+            }
+        }
+        return orientation;
+    }
     @Override
     public void onResume() {
         super.onResume();

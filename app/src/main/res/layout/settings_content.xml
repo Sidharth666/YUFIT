@@ -229,6 +229,15 @@
 
             </LinearLayout>
 
+            <View
+                android:background="#808080"
+                android:layout_marginRight="@dimen/content_gutter"
+                android:layout_marginLeft="@dimen/content_gutter"
+                android:layout_width = "fill_parent"
+                android:layout_height="1dip"
+                android:layout_centerVertical ="true"
+                />
+
             <!-- For device alerm notify -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -332,6 +341,15 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+            <View
+                android:background="#808080"
+                android:layout_marginRight="@dimen/content_gutter"
+                android:layout_marginLeft="@dimen/content_gutter"
+                android:layout_width = "fill_parent"
+                android:layout_height="1dip"
+                android:layout_centerVertical ="true"
+                />
 
             <!-- For phone notify -->
             <LinearLayout
@@ -463,63 +481,92 @@
                         android:text="@string/fcSmartKeysFind" />
                 </LinearLayout>
 
-
             </LinearLayout>
 
+            <View
+                android:background="#808080"
+                android:layout_marginRight="@dimen/content_gutter"
+                android:layout_marginLeft="@dimen/content_gutter"
+                android:layout_width = "fill_parent"
+                android:layout_height="1dip"
+                android:layout_centerVertical ="true"
+                />
+            <!-- SOS -->
+            <RelativeLayout
+                android:id="@+id/enable_sos"
+                style="@style/wrapper_settings"
+                android:clickable="true">
 
-            <!-- For device SOS -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
 
-                <LinearLayout style="@style/wrapper_settings">
+                <TextView
+                    style="@style/app_conf_item_text"
+                    android:duplicateParentState="true"
+                    android:padding="@dimen/content_gutter"
+                    android:text="@string/profile_sos"
+                    android:textColor="@color/text_color_primary" />
 
+                <ToggleButton
+                    android:id="@+id/toggle_sos"
+                    style="@style/toggle_button_right"
+                    android:layout_marginRight="@dimen/content_gutter" />
+
+            </RelativeLayout>
+
+                <!-- Emergency Contact -->
+                <LinearLayout
+                    android:id="@+id/view_emergency_contact"
+                    style="@style/wrapper_settings"
+                   >
                     <ImageView
                         style="@style/settings_icon"
-                        android:src="@drawable/ic_sos_blue" />
-
+                        android:id="@+id/img_sos_emergency"
+                        android:src="@drawable/ic_sos_blue"/>
                     <TextView
                         style="@style/settings_main_text"
-                        android:text="@string/profile_sos" />
-
-                    <ToggleButton
-                        android:id="@+id/toggle_sos"
-                        style="@style/toggle_button_right"
-                        android:layout_marginRight="@dimen/content_gutter" />
+                        android:text="@string/profile_sos_contact"
+                        />
 
                 </LinearLayout>
 
-                <!-- Emergency Contact -->
-                <RelativeLayout
-                    android:id="@+id/view_emergency_contact"
-                    style="@style/wrapper_settings_padding"
-                    android:clickable="true">
-
-                    <TextView
-                        style="@style/indented_text"
-                        android:text="@string/profile_sos_contact" />
-
-                </RelativeLayout>
-
                 <!-- SOS History -->
-                <RelativeLayout
-                    android:id="@+id/view_sos_history"
-                    style="@style/wrapper_settings_padding"
-                    android:clickable="true">
-
-                    <TextView
-                        style="@style/indented_text"
-                        android:text="@string/profile_sos_history" />
-
-                </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/view_sos_history"
+                style="@style/wrapper_settings"
+                >
+                <ImageView
+                    style="@style/settings_icon"
+                    android:id="@+id/img_sos_history"
+                    android:src="@drawable/icon_sos_his"/>
+                <TextView
+                    style="@style/settings_main_text"
+                    android:text="@string/profile_sos_history"
+                    />
 
             </LinearLayout>
 
+            </LinearLayout>
+
+        <View
+            android:background="#808080"
+            android:layout_marginRight="@dimen/content_gutter"
+            android:layout_marginLeft="@dimen/content_gutter"
+            android:layout_width = "fill_parent"
+            android:layout_height="1dip"
+            android:layout_centerVertical ="true"
+            />
+
+        <TextView
+            style="@style/app_conf_item_text"
+            android:duplicateParentState="true"
+            android:padding="@dimen/content_gutter"
+            android:text="@string/yufit"
+            android:textColor="@color/text_color_primary" />
             <!-- setting vibration -->
             <LinearLayout
                 android:id="@+id/enable_vibration"
-                style="@style/wrapper_settings">
+                style="@style/wrapper_settings"
+                android:clickable="true"
+                >
 
                 <ImageView
                     style="@style/settings_icon"
@@ -534,31 +581,6 @@
                     style="@style/toggle_button_right"
                     android:layout_marginRight="@dimen/content_gutter" />
             </LinearLayout>
-
-            <!-- device reset -->
-            <LinearLayout
-                android:id="@+id/view_reset_device"
-                style="@style/wrapper_settings"
-                android:clickable="true">
-
-                <ImageView
-                    style="@style/settings_icon"
-                    android:src="@drawable/ic_resetdevice" />
-
-                <TextView
-                    style="@style/settings_main_text"
-                    android:text="@string/fcResetDevice" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <TextView
-            style="@style/app_conf_item_text"
-            android:duplicateParentState="true"
-            android:padding="@dimen/content_gutter"
-            android:text="@string/yufit"
-            android:textColor="@color/text_color_primary" />
 
 
         <!-- add a device -->
@@ -601,6 +623,22 @@
 
         </LinearLayout>
 
+        <!-- device reset -->
+        <LinearLayout
+            android:id="@+id/view_reset_device"
+            style="@style/wrapper_settings"
+            android:clickable="true">
+
+            <ImageView
+                style="@style/settings_icon"
+                android:src="@drawable/ic_resetdevice" />
+
+            <TextView
+                style="@style/settings_main_text"
+                android:text="@string/fcResetDevice" />
+
+        </LinearLayout>
+
         <!-- tutorial -->
         <LinearLayout
             android:id="@+id/view_tutirial"
@@ -632,6 +670,5 @@
                 android:text="@string/fcAbout" />
 
         </LinearLayout>
-
-    </LinearLayout>
+</LinearLayout>
 </ScrollView>

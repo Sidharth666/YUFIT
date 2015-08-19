@@ -40,6 +40,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_15sp"
+            android:paddingTop="@dimen/space_15dp"
+            android:text="VERSION"
+            android:id="@+id/app_version"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_15sp"
+            android:paddingTop="@dimen/space_15dp"
             android:text="YU Televentures Pvt. Ltd."
             />
         <TextView
@@ -69,10 +79,7 @@
                 android:linksClickable="true"
                 />
 
-
         </LinearLayout>
-
-
 
     </LinearLayout>
 

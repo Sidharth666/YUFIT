@@ -39,6 +39,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/space_17dp"
                 android:scaleType="centerInside"
+                android:paddingStart="@dimen/text_35sp"
+                android:paddingRight="@dimen/text_20sp"
                 android:src="@drawable/img_tut_add_a_device_a"/>
 
 
@@ -60,6 +62,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/space_17dp"
                 android:scaleType="centerInside"
+                android:paddingStart="@dimen/text_35sp"
+                android:paddingRight="@dimen/text_20sp"
                 android:src="@drawable/img_tut_pair_bands"/>
 
             

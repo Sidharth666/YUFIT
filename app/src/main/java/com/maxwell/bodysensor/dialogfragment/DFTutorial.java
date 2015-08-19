@@ -20,7 +20,7 @@ import com.maxwell.bodysensor.util.UtilDBG;
  */
 public class DFTutorial extends DFBase {
 
-    private final int SIZE_TUTORIAL = 5;
+    private final int SIZE_TUTORIAL = 6;
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
@@ -107,6 +107,9 @@ public class DFTutorial extends DFBase {
                     break;
                 case 4:
                     fragment = FTutorialPage.newInstance(R.layout.fragment_tutorial_04);
+                    break;
+                case 5:
+                    fragment = FTutorialPage.newInstance(R.layout.fragment_tutorial_08);
                     break;
                 /*case 5:
                     fragment = FTutorialPage.newInstance(R.layout.fragment_tutorial_06);

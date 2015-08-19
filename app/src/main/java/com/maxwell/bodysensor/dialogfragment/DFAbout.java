@@ -60,18 +60,21 @@ public class DFAbout extends DFBase implements View.OnClickListener {
 
         view.findViewById(R.id.img_logo).setOnClickListener(this);
 
+        TextView app_version = (TextView)view.findViewById(R.id.app_version);
+
         TextView link = (TextView) view.findViewById(R.id.yu_play_god);
 
         link.setMovementMethod(LinkMovementMethod.getInstance());
 
         // get app version name
-        PackageInfo pInfo = null;
+        String pInfo = null;
         try {
-            pInfo = getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(), 0);
+            pInfo = getActivity().getPackageManager().getPackageInfo(getActivity().getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
         if (pInfo!=null) {
+            app_version.append(" " + pInfo);
 //            textVerion.setText(pInfo.versionName);
         } else  {
             UtilDBG.e("try get PackageInfo, but fail");

@@ -24,5 +24,6 @@
     <string name="tutorial3_new_step_3">Selected and paired Device will show its details.</string>
 
     <string name="tutorial_sync__step_2">Just download the HealthifyMe app from Google Playstore to start viewing your YUFIT readings.\n\n<b>Note</b>: You need to sync YUFIT with your smartphone to get the latest readings.</string>
-
+    <string name="tutorial8_new_step1">Just enable SOS and assign emergency recipient details</string>
+    <string name="tutorial8_new_step2">Long press sensor icon on your YUFIT band till SOS? appears. Tap sensor icon once to send emergency GPS location SMS in case of distress.</string>
 </resources>

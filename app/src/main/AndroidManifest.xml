@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.maxwell.bodysensor"
-    android:versionCode="3"
-    android:versionName="1.11">
+    android:versionCode="4"
+    android:versionName="2.0">
 
     <!-- android:versionCode must be integer, and be greater than version code of previous version -->
 
@@ -123,6 +123,7 @@
             android:name=".CameraActivity"
             android:label="@string/df_camera_title"
             android:screenOrientation="portrait"
+            android:configChanges="orientation"
             android:theme="@style/AppTheme.NoActionBar.Translucent" >
             <intent-filter>
                 <action android:name="com.maxwell.camera.action.TAKE_PICTURE" />

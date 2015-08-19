@@ -176,9 +176,9 @@ public class DFWorkout extends DFBase implements OnFitnessUpdateListener {
         if (mMaxwellBLE.isReady()) {
             mbStarted = true;
             if (mFitnessType == FitnessType.TREADMILL) {
-                mMaxwellBLE.readCurrentHourStep();
+                mMaxwellBLE.readCurrentHourlyActivityData();
             } else {
-                mMaxwellBLE.readCurrentHourMove();
+                mMaxwellBLE.readCurrentHourlyActivityData();
             }
         } else {
             showDlgDeviceNotConnected();

@@ -22,16 +22,20 @@
             android:padding="@dimen/content_gutter"
             android:layout_gravity="center"
             android:textColor="@color/app_white"
-            android:layout_alignParentTop="true"/>
+            android:layout_alignParentTop="true"
+            android:id="@+id/textView"
+            android:layout_alignEnd="@+id/img_recording_video"
+            android:layout_alignParentStart="true" />
 
         <ImageView
             android:id="@+id/img_recording_video"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/df_camera_recording_blink_grey"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_margin="@dimen/space_8dp" />
+            android:layout_marginLeft="@dimen/space_8dp"
+            android:layout_marginRight="@dimen/space_8dp"
+            android:layout_alignEnd="@+id/imgb_switch_camera"
+            android:layout_alignBottom="@+id/txt_recording_duration" />
 
         <ImageButton
             android:id="@+id/imgb_switch_camera"
@@ -57,22 +61,22 @@
             android:id="@+id/txt_recording_duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/img_recording_video"
-            android:layout_marginTop="@dimen/space_8dp"
             android:textSize="@dimen/space_20dp"
             android:textColor="#ffff0000"
-            tools:text="1:2:30" />
+            tools:text="1:2:30"
+            android:layout_below="@+id/textView"
+            android:layout_toStartOf="@+id/img_recording_video" />
 
         <com.maxwell.bodysensor.ui.VerticalTextView
             android:id="@+id/txt_recording_duration_90"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@id/txt_recording_duration"
-            android:layout_alignRight="@id/txt_recording_duration"
             android:textSize="@dimen/space_20dp"
             android:textColor="#ffff0000"
             android:gravity="left"
-            tools:text="1:2:30" />
+            tools:text="1:2:30"
+            android:layout_below="@+id/textView"
+            android:layout_alignEnd="@+id/txt_recording_duration" />
 
     </RelativeLayout>
 

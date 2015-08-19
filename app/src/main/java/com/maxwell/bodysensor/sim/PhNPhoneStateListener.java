@@ -52,7 +52,7 @@ public class PhNPhoneStateListener extends PhoneStateListener {
             if (mSharedPref.isDeviceIncomingCallEnable()) {
                 if (mMaxwellBLE.isReady()) {
                     if (!UtilConst.isInComingCallNoDisturbing()) {
-                        mMaxwellBLE.phoneNotification();
+                        mMaxwellBLE.phoneNotification(incomingNumber);
                     }
                 }
             }

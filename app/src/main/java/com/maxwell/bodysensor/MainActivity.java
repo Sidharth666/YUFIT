@@ -1164,11 +1164,11 @@ public class MainActivity extends MXWActivity implements
     public void onAttributeRead(AttributeType attributeType, AttributeValue attributeValue) {
         UtilDBG.i("[RYAN] onAttributeRead > " + attributeType + " | " + attributeValue);
         switch (attributeType) {
-            case CURRENT_HOUR_MOVE:
+            /*case CURRENT_HOUR_MOVE:
                 if (mFitnessUpdateListener != null) {
                     mFitnessUpdateListener.onMoveUpdate(attributeValue.toInt());
                 }
-                break;
+                break;*/
             case CURRENT_HOUR_STEP:
                 if (mFitnessUpdateListener != null) {
                     mFitnessUpdateListener.onStepUpdate(attributeValue.toInt());
