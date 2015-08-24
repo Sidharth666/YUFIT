@@ -32,23 +32,9 @@ public class CameraActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Display display = ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay();
-        //final int orientation = display.getOrientation();
-      /*  orientation = Configuration.ORIENTATION_UNDEFINED;
-        getScreenOrientation();
-        if(orientation==1){
 
-        }*/
         setContentView(R.layout.activity_camera);
 
-        /*if (Build.MODEL.equalsIgnoreCase("AO5510")){
-            if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-            } else setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        }
-        else{
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-        }*/
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         if (ft==null) {
             UtilDBG.e("showContainerFirst, can not get FragmentTransaction");

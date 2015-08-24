@@ -67,6 +67,7 @@ import com.maxwellguider.bluetooth.AdvertisingData;
 import com.maxwellguider.bluetooth.MGPeripheral;
 import com.maxwellguider.bluetooth.activitytracker.FitnessType;
 import com.maxwellguider.bluetooth.activitytracker.LanguageType;
+import com.maxwellguider.bluetooth.activitytracker.TimeFormatType;
 import com.maxwellguider.bluetooth.activitytracker.UnitType;
 import com.maxwellguider.bluetooth.command.AttributeValue;
 import com.maxwellguider.bluetooth.command.feature.AttributeType;
@@ -852,7 +853,7 @@ public class MainActivity extends MXWActivity implements
 
 
         // TODO : (TEST) setup time format
-//        mMaxwellBLE.configTimeFormat(TimeFormatType.FORMAT_24H);
+        mMaxwellBLE.configTimeFormat(TimeFormatType.FORMAT_12H);
 
         // TODO : (TEST) read device information
         mMaxwellBLE.readFWRevision();
