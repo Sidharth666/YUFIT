@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            style="@style/view_tutorial_step_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/space_20dp">
+
+            <com.maxwell.bodysensor.ui.ViewTextView
+                style="@style/view_tutorial_title_text"
+                android:textStyle="bold"
+                android:text="SOS Alert to Friends and Family"/>
+
+            <LinearLayout
+                style="@style/view_tutorial_step_item">
+
+                <ImageView
+                    style="@style/view_tutorial_step_img"
+                    android:src="@drawable/bullet_1"/>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/view_tutorial_step_text"
+                    android:text="@string/tutorial8_new_step1"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_10dp"
+                android:scaleType="centerInside"
+                android:paddingStart="@dimen/text_35sp"
+                android:paddingRight="@dimen/text_20sp"
+                android:src="@drawable/img_tut_devicelist_sos_1"/>
+
+
+            <LinearLayout
+                style="@style/view_tutorial_step_item">
+
+                <ImageView
+                    style="@style/view_tutorial_step_img"
+                    android:src="@drawable/bullet_2"/>
+                <com.maxwell.bodysensor.ui.ViewTextView
+                    style="@style/view_tutorial_step_text"
+                    android:text="@string/tutorial8_new_step2"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_10dp"
+                android:scaleType="centerInside"
+                android:paddingStart="@dimen/text_35sp"
+                android:paddingRight="@dimen/text_20sp"
+                android:src="@drawable/img_tut_sos"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
